@@ -3,7 +3,7 @@
   <nav class="navbar">
     <div class="nav-container">
       <router-link to="/" class="nav-logo">
-        <img src="../assets/logo.svg" alt="Amwaj Tech Logo" class="nav-logo-img">
+        <img src="../assets/logo.png" alt="Amwaj Tech Logo" class="nav-logo-img">
         <span class="logo-text">{{ t('nav.companyName') }}</span>
       </router-link>
 

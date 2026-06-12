@@ -5,7 +5,7 @@
         <!-- Col 1: Corporate Profile -->
         <div class="footer-col brand-col">
           <div class="footer-logo">
-            <img src="../assets/logo.svg" alt="Amwaj Tech Logo" class="footer-logo-img">
+            <img src="../assets/logo.png" alt="Amwaj Tech Logo" class="footer-logo-img">
             <span class="logo-text">{{ t('nav.companyName') }}</span>
           </div>
           <p class="footer-description">

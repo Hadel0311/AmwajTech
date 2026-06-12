@@ -1,0 +1,22 @@
+export const partnersList = [
+  { id: 'sophos', key: 'sophos', name: 'Sophos', website: 'https://www.sophos.com/', logo: 'Sophos.png', services: ['network-security', 'technical-support'] },
+  { id: 'veeam', key: 'veeam', name: 'Veeam', website: 'https://www.veeam.com/', logo: 'Veeam.webp', services: ['data-center', 'cloud-services'] },
+  { id: 'ruijie', key: 'ruijie', name: 'Ruijie', website: 'https://www.ruijienetworks.com/', logo: 'Ruijie.png', services: ['network-infrastructure', 'technical-support'] },
+  { id: 'lenovo', key: 'lenovo', name: 'Lenovo', website: 'https://www.lenovo.com/', logo: 'Lenovo.avif', services: ['data-center', 'technical-support'] },
+  { id: 'ruckus', key: 'ruckus', name: 'Ruckus', website: 'https://www.ruckusnetworks.com/', logo: 'Ruckus.png', services: ['network-infrastructure'] },
+  { id: 'hp', key: 'hp', name: 'HP', website: 'https://www.hp.com/', logo: 'HP.png', services: ['data-center', 'technical-support'] },
+  { id: 'synology', key: 'synology', name: 'Synology', website: 'https://www.synology.com/', logo: 'Synology.png', services: ['data-center', 'technical-support'] },
+  { id: 'commscope', key: 'commscope', name: 'Commscope', website: 'https://www.commscope.com/', logo: 'Commscope.png', services: ['network-infrastructure'] },
+  { id: 'adobe', key: 'adobe', name: 'Adobe', website: 'https://www.adobe.com/', logo: 'Adobe.png', services: ['software-solutions'] },
+  { id: 'dahua', key: 'dahua', name: 'Dahua', website: 'https://www.dahuasecurity.com/', logo: 'Dahua.png', services: ['network-security', 'technical-support'] },
+  { id: 'apc', key: 'apc', name: 'APC', website: 'https://www.apc.com/', logo: 'APC.png', services: ['data-center', 'technical-support'] },
+  { id: 'heimdal', key: 'heimdal', name: 'Heimdal', website: 'https://heimdalsecurity.com/', logo: 'Heimdal.png', services: ['network-security'] },
+  { id: 'searchinform', key: 'searchinform', name: 'SearchInform', website: 'https://searchinform.com/', logo: 'SearchInform.png', services: ['network-security'] },
+  { id: 'hikvision', key: 'hikvision', name: 'Hikvision', website: 'https://www.hikvision.com/', logo: 'hikvision.png', services: ['network-security', 'technical-support'] },
+  { id: 'aec', key: 'aec', name: 'AEC', website: 'https://ups.aecups.com/', logo: 'AEC.png', services: ['data-center', 'technical-support'] },
+  { id: 'grandstream', key: 'grandstream', name: 'Grandstream', website: 'https://www.grandstream.com/', logo: 'grandstream.webp', services: ['software-solutions', 'technical-support'] },
+  { id: 'dell-technologies', key: 'dell', name: 'Dell Technologies', website: 'https://www.dell.com/', logo: 'dell technologies.png', services: ['data-center', 'cloud-services'] },
+  { id: 'hillstone-networks', key: 'hillstone', name: 'Hillstone Networks', website: 'https://www.hillstonenet.com/', logo: 'hillstone networks.png', services: ['network-security'] },
+  { id: 'eiboard', key: 'eiboard', name: 'Eiboard', website: 'https://www.ei-whiteboard.com/', logo: 'eiboard.webp', services: ['software-solutions'] },
+  { id: 'microsoft', key: 'microsoft', name: 'Microsoft', website: 'https://www.microsoft.com/en-jo/', logo: 'microsoft.png', services: ['cloud-services', 'software-solutions'] }
+]

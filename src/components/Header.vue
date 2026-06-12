@@ -67,6 +67,8 @@
           </div>
         </div>
 
+        <router-link to="/partners" class="nav-link-item">{{ t('nav.partners') }}</router-link>
+        <router-link to="/clients" class="nav-link-item">{{ t('nav.clients') }}</router-link>
         <router-link to="/projects" class="nav-link-item">{{ t('nav.projects') }}</router-link>
         <router-link to="/contact" class="nav-link-item">{{ t('nav.contact') }}</router-link>
       </div>

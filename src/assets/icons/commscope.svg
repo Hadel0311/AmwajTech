@@ -1,0 +1,8 @@
+<svg width="140" height="48" viewBox="0 0 140 48" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(10, 12) scale(0.7)">
+      <!-- CommScope overlapping rings -->
+      <path d="M4 14 C4 4, 20 4, 20 14" stroke="#00509D" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      <path d="M12 20 C12 10, 28 10, 28 20" stroke="#00A4EF" stroke-width="4.5" fill="none" stroke-linecap="round" />
+    </g>
+    <text x="38" y="28" fill="#00509D" font-family="Montserrat, sans-serif" font-weight="900" font-size="12" letter-spacing="0.5">COMMSCOPE</text>
+  </svg>

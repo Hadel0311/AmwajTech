@@ -1,0 +1,10 @@
+<svg width="140" height="48" viewBox="0 0 140 48" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(10, 12)">
+      <!-- Veeam official green shapes -->
+      <rect x="0" y="0" width="10" height="24" fill="#00B336" />
+      <rect x="14" y="0" width="10" height="10" fill="#00B336" />
+      <rect x="14" y="14" width="10" height="10" fill="#00B336" />
+      <rect x="28" y="0" width="10" height="24" fill="#00B336" />
+    </g>
+    <text x="56" y="29" fill="#00B336" font-family="Montserrat, sans-serif" font-weight="900" font-size="16" letter-spacing="0.5">veeam</text>
+  </svg>

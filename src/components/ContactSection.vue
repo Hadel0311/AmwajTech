@@ -124,10 +124,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
+const route = useRoute()
 
 const form = ref({
   name: '',
@@ -135,6 +137,15 @@ const form = ref({
   org: '',
   service: '',
   message: ''
+})
+
+onMounted(() => {
+  if (route.query.service) {
+    form.value.service = route.query.service
+  }
+  if (route.query.message) {
+    form.value.message = route.query.message
+  }
 })
 
 const handleSubmit = () => {

@@ -1,0 +1,8 @@
+<svg width="140" height="48" viewBox="0 0 140 48" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(10, 12)">
+      <!-- Heimdal Nordic symbol -->
+      <path d="M2,2 C10,2 18,10 18,18 C18,10 10,6 2,6 Z" fill="#0F172A" />
+      <circle cx="10" cy="10" r="3" fill="#0D9488" />
+    </g>
+    <text x="38" y="29" fill="#0F172A" font-family="Montserrat, sans-serif" font-weight="900" font-size="14" letter-spacing="0.5">HEIMDAL</text>
+  </svg>

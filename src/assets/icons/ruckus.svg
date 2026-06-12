@@ -1,0 +1,8 @@
+<svg width="140" height="48" viewBox="0 0 140 48" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(10, 12)">
+      <!-- Ruckus geometric angles -->
+      <polygon points="0,4 14,4 7,20" fill="#D97706" />
+      <polygon points="8,4 22,4 15,20" fill="#1E293B" />
+    </g>
+    <text x="40" y="28" fill="#1E293B" font-family="Montserrat, sans-serif" font-weight="900" font-size="15" letter-spacing="-0.5">RUCKUS</text>
+  </svg>

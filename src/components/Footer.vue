@@ -22,14 +22,15 @@
           </div>
         </div>
 
-        <!-- Col 2: Services Links -->
+        <!-- Col 2: Quick Links -->
         <div class="footer-col links-col">
-          <h3 class="col-title">{{ t('nav.services') }}</h3>
+          <h3 class="col-title">{{ t('nav.companyName') }}</h3>
           <ul class="col-links">
-            <li><a href="#services" @click="scrollToSection('services')">{{ t('services.items.network_security.title') }}</a></li>
-            <li><a href="#services" @click="scrollToSection('services')">{{ t('services.items.network_infrastructure.title') }}</a></li>
-            <li><a href="#services" @click="scrollToSection('services')">{{ t('services.items.data_center.title') }}</a></li>
-            <li><a href="#services" @click="scrollToSection('services')">{{ t('services.items.cloud_services.title') }}</a></li>
+            <li><router-link to="/services">{{ t('nav.services') }}</router-link></li>
+            <li><router-link to="/partners">{{ t('nav.partners') }}</router-link></li>
+            <li><router-link to="/clients">{{ t('nav.clients') }}</router-link></li>
+            <li><router-link to="/projects">{{ t('nav.projects') }}</router-link></li>
+            <li><router-link to="/contact">{{ t('nav.contact') }}</router-link></li>
           </ul>
         </div>
 

@@ -6,6 +6,8 @@
     "industries": "Industries",
     "projects": "Case Studies",
     "contact": "Contact",
+    "partners": "Partners",
+    "clients": "Clients",
     "companyName": "Amwaj Tech",
     "tagline": "Enterprise Infrastructure & Security"
   },
@@ -91,7 +93,12 @@
           "Optical Fiber Ring Layouts and Splicing",
           "High-Density Wireless AP Configurations"
         ],
-        "technologies": ["Cisco Catalyst", "Dell PowerConnect", "Optical Fiber", "SD-WAN Engines"],
+        "technologies": [
+          "Cisco Catalyst",
+          "Dell PowerConnect",
+          "Optical Fiber",
+          "SD-WAN Engines"
+        ],
         "benefits": [
           "High network core redundancy",
           "Sleek sub-millisecond local routing",
@@ -105,7 +112,12 @@
           "Zero-Trust Network Access (ZTNA) policies",
           "Security Event & Incident Monitoring (SIEM)"
         ],
-        "technologies": ["Fortinet FortiGate", "Palo Alto Networks NGFW", "IPsec/SSL VPN", "UTM Fabrics"],
+        "technologies": [
+          "Fortinet FortiGate",
+          "Palo Alto Networks NGFW",
+          "IPsec/SSL VPN",
+          "UTM Fabrics"
+        ],
         "benefits": [
           "Elimination of open intrusion vectors",
           "Adherence to banking and government security norms",
@@ -119,7 +131,12 @@
           "High-availability Storage Area Networks (SAN)",
           "Failover testing and Disaster Recovery Replication"
         ],
-        "technologies": ["VMware vSphere", "Dell EMC Storage", "Windows Server Active Directory", "Veeam Backup"],
+        "technologies": [
+          "VMware vSphere",
+          "Dell EMC Storage",
+          "Windows Server Active Directory",
+          "Veeam Backup"
+        ],
         "benefits": [
           "Minimal recovery time objectives (RTO)",
           "Lowered space and electric foot prints",
@@ -133,7 +150,12 @@
           "Dedicated Private Cloud Environments",
           "Cost Optimization audits and limits"
         ],
-        "technologies": ["AWS Cloud Services", "Microsoft Azure", "Docker & Kubernetes", "Hybrid Gateways"],
+        "technologies": [
+          "AWS Cloud Services",
+          "Microsoft Azure",
+          "Docker & Kubernetes",
+          "Hybrid Gateways"
+        ],
         "benefits": [
           "Infinite processing scale flexibility",
           "Transparent pay-as-you-use pricing controls",
@@ -147,7 +169,12 @@
           "Automated script-based office workflows",
           "Modernizations of legacy terminal applications"
         ],
-        "technologies": ["Vue.js / Node.js", "PostgreSQL / MS SQL", "REST / GraphQL", "Docker Containers"],
+        "technologies": [
+          "Vue.js / Node.js",
+          "PostgreSQL / MS SQL",
+          "REST / GraphQL",
+          "Docker Containers"
+        ],
         "benefits": [
           "Abolition of manual operational bottlenecks",
           "Reliable integrations between old and new systems",
@@ -161,7 +188,12 @@
           "Automated patch application sequences",
           "Remote technical administration and system health checks"
         ],
-        "technologies": ["Helpdesk SLA Tracking", "Zabbix & Nagios", "Secure Shell (SSH)", "Preventive Audits"],
+        "technologies": [
+          "Helpdesk SLA Tracking",
+          "Zabbix & Nagios",
+          "Secure Shell (SSH)",
+          "Preventive Audits"
+        ],
         "benefits": [
           "Guaranteed support desk reaction parameters",
           "Proactive error and system crash mitigation",
@@ -352,17 +384,162 @@
     }
   },
   "partners": {
-    "title": "Technology Partners & Ecosystem",
-    "subtitle": "Integrating best-of-breed enterprise technologies from global hardware and software manufacturers.",
-    "tiers": {
-      "gold_integrator": "Gold Integrator",
-      "authorized_partner": "Authorized Partner",
-      "innovator_partner": "Innovator Partner",
-      "solution_provider": "Solution Provider",
-      "gold_business_partner": "Gold Business Partner",
-      "select_consulting_partner": "Select Consulting Partner",
-      "solutions_partner": "Solutions Partner",
-      "enterprise_partner": "Enterprise Partner"
+    "title": "Trusted Technology Partners",
+    "subtitle": "Global Collaborations for Secure, Resilient Solutions",
+    "description": "Amwaj Tech collaborates with leading global technology vendors to deliver secure, scalable, and reliable solutions for enterprise, government, healthcare, banking, and education sectors.",
+    "searchPlaceholder": "Search partners by name or category...",
+    "filterAll": "All Categories",
+    "categoryLabel": "Technology Category",
+    "servicesLabel": "Related Services",
+    "viewWebsite": "Visit Official Website",
+    "learnMore": "Learn More",
+    "contactCTA": "Ready to leverage this technology?",
+    "contactCTADesc": "Connect with our systems architects to design, deploy, and support solutions leveraging these elite technology platforms.",
+    "contactCTAButton": "Schedule Technical Consultation",
+    "backToPartners": "Back to Partners",
+    "metaTitle": "Technology Partners | Amwaj Tech",
+    "metaDescription": "Discover the global technology leaders Amwaj Tech partners with to design, implement, and support enterprise-grade systems.",
+    "items": {
+      "sophos": {
+        "name": "Sophos",
+        "category": "Cybersecurity & Threat Intelligence",
+        "shortDesc": "Next-gen endpoint protection, firewall solutions, and synchronized cybersecurity.",
+        "about": "Sophos is a global leader in next-generation cybersecurity, protecting organizations of all sizes from advanced cyber threats with cloud-native, AI-powered endpoint and network security solutions.",
+        "leverage": "Amwaj Tech integrates Sophos firewalls and endpoint security systems to establish unified threat management frameworks with real-time response."
+      },
+      "veeam": {
+        "name": "Veeam",
+        "category": "Data Protection & Backup",
+        "shortDesc": "Enterprise backup, instant recovery, and hybrid cloud data management solutions.",
+        "about": "Veeam Software is the leader in backup, recovery, and data management solutions that deliver Modern Data Protection, ensuring business continuity for hybrid environments.",
+        "leverage": "We deploy Veeam architectures to provide automated backup, instant disaster recovery, and high-availability data replication for critical databases."
+      },
+      "ruijie": {
+        "name": "Ruijie",
+        "category": "Enterprise Networking",
+        "shortDesc": "Innovative enterprise switches, access points, and cloud-managed networks.",
+        "about": "Ruijie Networks is a leading ICT enterprise brand specializing in R&D and manufacturing of high-performance switching, routing, and wireless infrastructure.",
+        "leverage": "We deploy Ruijie switches and wireless access points to deliver robust, high-density networks with centralized cloud-managed administration."
+      },
+      "lenovo": {
+        "name": "Lenovo",
+        "category": "Server & Storage Hardware",
+        "shortDesc": "Reliable enterprise servers, high-capacity storage, and hyperconverged systems.",
+        "about": "Lenovo is a global technology powerhouse delivering enterprise-grade hardware, including ThinkSystem servers and storage solutions designed for reliability and scalability.",
+        "leverage": "Amwaj Tech utilizes Lenovo ThinkSystem servers and SAN arrays to construct virtualization hosts and hyperconverged data center clusters."
+      },
+      "ruckus": {
+        "name": "Ruckus",
+        "category": "Wireless Infrastructure",
+        "shortDesc": "Premium high-density Wi-Fi access points, controllers, and switching.",
+        "about": "Ruckus Networks, a CommScope business, designs high-density, smart-routing wireless connectivity systems tailored for campuses, hospitality, and large enterprises.",
+        "leverage": "We implement Ruckus smart Wi-Fi systems and network controllers to ensure seamless, high-density wireless coverage in demanding university and enterprise campuses."
+      },
+      "hp": {
+        "name": "HP",
+        "category": "Enterprise Computing",
+        "shortDesc": "Professional workstations, secure client computing, and business systems.",
+        "about": "HP provides advanced business computing hardware, professional engineering workstations, and secure fleet management systems designed for modern workspace collaboration.",
+        "leverage": "We supply and configure high-performance HP workspaces, secure client terminals, and management systems for regional enterprises and public sectors."
+      },
+      "synology": {
+        "name": "Synology",
+        "category": "Network Attached Storage (NAS)",
+        "shortDesc": "Smart data storage, private cloud hosting, and robust backup servers.",
+        "about": "Synology creates network-attached storage, IP surveillance solutions, and network equipment that transform how users manage data, conduct surveillance, and secure cloud backups.",
+        "leverage": "We design and deploy Synology NAS arrays to provide local document collaboration, secure backup vaulting, and cost-effective video storage repositories."
+      },
+      "commscope": {
+        "name": "CommScope",
+        "category": "Structured Cabling & Connectivity",
+        "shortDesc": "High-performance structured cabling, copper, and fiber physical network backbones.",
+        "about": "CommScope is a global leader in infrastructure solutions for communications networks, specializing in high-performance copper and fiber cabling systems.",
+        "leverage": "We design and install CommScope copper and fiber structured cabling backbones to guarantee certified transmission speeds and physical infrastructure durability."
+      },
+      "adobe": {
+        "name": "Adobe",
+        "category": "Digital Creative & Document Systems",
+        "shortDesc": "Industry-standard creative tools, document cloud, and secure PDF workflows.",
+        "about": "Adobe is the global leader in digital media and digital marketing solutions, providing creative tools and secure document workflow management with Adobe Document Cloud.",
+        "leverage": "We supply and manage Adobe enterprise licenses, enabling departments to establish secure, legally binding digital signature workflows and creative collaborations."
+      },
+      "dahua": {
+        "name": "Dahua",
+        "category": "Physical Security & Video Surveillance",
+        "shortDesc": "Advanced IP surveillance cameras, AI video analytics, and access control.",
+        "about": "Dahua Technology is a world-leading video-centric smart IoT solution and service provider, delivering security systems and smart video analytics.",
+        "leverage": "We deploy Dahua IP cameras, NVRs, and AI-powered video analytics to implement secure perimeter surveillance and advanced access control grids."
+      },
+      "apc": {
+        "name": "APC",
+        "category": "Power Infrastructure & UPS",
+        "shortDesc": "Uninterruptible power supplies (UPS), power distribution, and rack containment.",
+        "about": "APC by Schneider Electric is the industry standard for physical infrastructure and power protection, offering UPS systems, rack enclosures, and cooling solutions.",
+        "leverage": "We install APC UPS systems, power distribution units (PDUs), and data center containment structures to protect sensitive IT hardware from electrical disruptions."
+      },
+      "heimdal": {
+        "name": "Heimdal",
+        "category": "Endpoint Security & Patch Management",
+        "shortDesc": "Unified cybersecurity solutions, email security, and automated patching.",
+        "about": "Heimdal Security is a leading provider of cloud-based cybersecurity solutions, specializing in automated patch management, DNS filtering, and privileged access management.",
+        "leverage": "We implement Heimdal's security suite to automate system patch management and enforce proactive DNS-level web threat filtering across enterprise fleets."
+      },
+      "searchinform": {
+        "name": "SearchInform",
+        "category": "Information Security & DLP",
+        "shortDesc": "Data loss prevention (DLP) and internal threat mitigation platforms.",
+        "about": "SearchInform is a leading developer of risk management and security solutions, focusing on Data Loss Prevention (DLP) to protect confidential information and prevent leaks.",
+        "leverage": "We configure and manage SearchInform DLP suites to audit corporate data flows, detect insider threats, and prevent unauthorized intellectual property leakage."
+      },
+      "hikvision": {
+        "name": "Hikvision",
+        "category": "Surveillance & Access Control",
+        "shortDesc": "Comprehensive IP video surveillance, biometric readers, and alarm systems.",
+        "about": "Hikvision is an IoT solution provider with video surveillance as its core competency, offering security cameras, biometric readers, and thermal sensors.",
+        "leverage": "We deploy Hikvision security solutions, incorporating thermal imaging, license plate recognition, and multi-factor biometric access control systems."
+      },
+      "aec": {
+        "name": "AEC",
+        "category": "Power Solutions & Industrial UPS",
+        "shortDesc": "Industrial-grade UPS systems and reliable electrical backup infrastructure.",
+        "about": "AEC (Allis Electric Co.) designs and manufactures high-capacity industrial uninterruptible power supply (UPS) systems and power conversion equipment.",
+        "leverage": "We utilize AEC industrial UPS architectures to provide continuous, clean electrical backup systems for heavy industrial facilities and large data centers."
+      },
+      "grandstream": {
+        "name": "Grandstream",
+        "category": "IP Communications & VoIP",
+        "shortDesc": "Unified voice, video communications, IP phones, and PBX systems.",
+        "about": "Grandstream Networks connects the world with IP voice, video, data, and mobility solutions that allow businesses to be more productive than ever before.",
+        "leverage": "We design and deploy Grandstream IP-PBX platforms, VoIP phones, and unified communication systems to support modern collaboration and call centers."
+      },
+      "dell": {
+        "name": "Dell Technologies",
+        "category": "Enterprise Systems & Storage",
+        "shortDesc": "High-performance servers, SAN arrays, virtualization hosts, and client hardware.",
+        "about": "Dell Technologies is an industry leader in enterprise solutions, providing hyperconverged systems, PowerEdge servers, robust SAN storage, and secure endpoints.",
+        "leverage": "We deploy Dell PowerEdge server grids and PowerStore SAN storage solutions to build resilient virtualization backends for government and enterprise portals."
+      },
+      "hillstone": {
+        "name": "Hillstone Networks",
+        "category": "Next-Gen Firewalls",
+        "shortDesc": "Intelligent next-generation firewalls, SD-WAN, and cloud security.",
+        "about": "Hillstone Networks provides innovative, proven, and effective cybersecurity solutions, delivering visibility and protection to help enterprises defend against modern cyber attacks.",
+        "leverage": "We integrate Hillstone next-generation firewalls (NGFW) to establish zero-trust boundary perimeters and secure multi-branch SD-WAN tunnels."
+      },
+      "eiboard": {
+        "name": "Eiboard",
+        "category": "Interactive Display Solutions",
+        "shortDesc": "Smart interactive whiteboards, touch screens, and digital classroom displays.",
+        "about": "Eiboard specializes in interactive education and presentation displays, offering smart touchscreens and interactive whiteboards for education and corporate meeting rooms.",
+        "leverage": "We install and integrate Eiboard smart touch displays and digital whiteboards to build modern interactive classrooms and hybrid boardrooms."
+      },
+      "microsoft": {
+        "name": "Microsoft",
+        "category": "Cloud Ecosystem & Productive Software",
+        "shortDesc": "Azure cloud systems, Office 365 productivity, and enterprise software.",
+        "about": "Microsoft is the world's leading software and cloud provider, delivering Azure cloud environments, Active Directory systems, and industry-standard productivity tools.",
+        "leverage": "We deploy Microsoft Azure hybrid cloud setups, Active Directory identity systems, and manage Office 365 licensing for high-compliance enterprise domains."
+      }
     }
   },
   "overview": {
@@ -495,5 +672,96 @@
     "ctaTitle": "Ready to secure and scale your enterprise infrastructure?",
     "ctaText": "Connect with our systems architects today to schedule a technical discovery consultation.",
     "ctaButton": "Request Consultation"
+  },
+  "clients": {
+    "title": "Trusted by Leading Organizations",
+    "subtitle": "Amwaj Tech delivers IT infrastructure, network security, and technology solutions to government, healthcare, education, financial, and enterprise clients across the region.",
+    "searchPlaceholder": "Search clients by name or sector...",
+    "filterAll": "All Sectors",
+    "categoryLabel": "Sector",
+    "workLabel": "Work with Amwaj Tech",
+    "aboutLabel": "About the Organization",
+    "contextLabel": "Industry Context",
+    "learnMore": "View Details",
+    "viewWebsite": "Visit Official Website",
+    "contactCTA": "Let's build your enterprise infrastructure",
+    "contactCTADesc": "Connect with our systems architects to design, deploy, and support solutions leveraging these elite technology platforms.",
+    "contactCTAButton": "Contact Amwaj Tech",
+    "backToClients": "Back to Clients",
+    "metaTitle": "Clients | Amwaj Tech",
+    "metaDescription": "Discover the leading organizations Amwaj Tech works with to provide secure, resilient, and enterprise-grade solutions.",
+    "sectors": {
+      "government": "Government",
+      "financial": "Financial Institutions",
+      "healthcare": "Healthcare",
+      "education": "Education",
+      "enterprise": "Enterprises / Companies"
+    },
+    "items": {
+      "safwa_islamic_bank": {
+        "name": "Safwa Islamic Bank",
+        "category": "Financial Institutions",
+        "shortDesc": "A leading Islamic bank providing digital banking and secure financial infrastructure.",
+        "about": "Safwa Islamic Bank is one of the premier Islamic banking institutions in the region, operating under Sharia-compliant principles to provide personal, corporate, and digital financial services.",
+        "work": "Amwaj Tech supports Safwa Islamic Bank with robust network infrastructure integration, core server connectivity, and specialized next-generation cybersecurity architectures to ensure uninterrupted banking transactions.",
+        "context": "Financial institutions rely heavily on low-latency, active-active data redundancy, and next-generation perimeter firewalls to prevent fraud, secure client data, and maintain high service availability."
+      },
+      "istishari_hospital": {
+        "name": "Istishari Hospital",
+        "category": "Healthcare",
+        "shortDesc": "A premium healthcare facility utilizing robust IT connectivity and digital diagnostic integrations.",
+        "about": "Istishari Hospital is a leading private medical institution known for its high standards of clinical care, diagnostic systems, and advanced patient treatment methodologies.",
+        "work": "We provide IT maintenance, secure clinical network segregation, high-availability data storage solutions for electronic medical records (EMR), and continuous technical support desk services.",
+        "context": "Modern hospital systems require secure local area networks to interface with sensitive diagnostic hardware, compliant data archiving to protect patient privacy, and reliable backup power systems."
+      },
+      "royal_hospital": {
+        "name": "Royal Hospital",
+        "category": "Healthcare",
+        "shortDesc": "A state-of-the-art medical center deploying secure cloud telemetry and private hosting backends.",
+        "about": "The Royal Hospital is a major regional hospital providing specialized clinical departments, emergency response facilities, and automated laboratory infrastructures.",
+        "work": "Amwaj Tech configured and deployed high-performance server virtualization clusters, hyperconverged storage architectures, and continuous hardware preventive audits.",
+        "context": "Healthcare facilities must eliminate single points of failure in their networks to maintain operational status for life-support telemetry and real-time electronic medical charting."
+      },
+      "usaid": {
+        "name": "USAID",
+        "category": "Enterprises / Companies",
+        "shortDesc": "An international development agency leveraging secure middleware integrations and cloud productivity.",
+        "about": "USAID is the world's premier international development agency, partnering with governments and regional organizations to drive economic growth, public health, and social stability.",
+        "work": "Amwaj Tech supports their regional collaboration hubs with high-speed secure VPN routing tunnels, managed cloud systems integration, and customized directory access policies.",
+        "context": "Global development organizations demand secure hybrid cloud ecosystems to enable remote field agents to access central databases while complying with strict international privacy mandates."
+      },
+      "petra_university": {
+        "name": "Petra University",
+        "category": "Education",
+        "shortDesc": "A top-tier academic campus with campus-wide optical network rings and high-density Wi-Fi.",
+        "about": "University of Petra is a leading higher education institution in Jordan, hosting thousands of students and faculty members across a modern, interconnected campus environment.",
+        "work": "We deployed campus-wide high-density wireless access configurations, core switching infrastructure backbones, and provided multi-tier support service SLAs.",
+        "context": "Educational institutions require high-bandwidth infrastructure designed for multi-tenant student workloads, balanced with web filters and secure database endpoints for registrar portals."
+      },
+      "new_english_school": {
+        "name": "The New English School",
+        "category": "Education",
+        "shortDesc": "A prestigious private school utilizing secure digital classroom setups and IT integrations.",
+        "about": "The New English School (NES) is a highly respected international school providing comprehensive primary and secondary curricula supported by digital classroom learning frameworks.",
+        "work": "Amwaj Tech designed their school-wide routing layout, configured touch-screen interactive smartboard integrations, and established student web filters.",
+        "context": "Primary and secondary schools require secure local networks that protect children from external web content while facilitating fast, high-density student access to learning portals."
+      },
+      "american_university_of_madaba": {
+        "name": "American University Of Madaba",
+        "category": "Education",
+        "shortDesc": "A modern university utilizing hyperconverged virtualization setups and reliable server rooms.",
+        "about": "The American University of Madaba (AUM) is a state-of-the-art university providing American-style higher education supported by modern research facilities and digital libraries.",
+        "work": "We engineered their hyperconverged data center servers setup, deployed virtual hypervisor clusters, and configured offsite disaster recovery vaulting.",
+        "context": "Research-focused universities require massive data storage arrays, high-throughput network cores for compute grids, and reliable backups for scholarly publications."
+      },
+      "ministry_of_health": {
+        "name": "Ministry Of Health",
+        "category": "Government",
+        "shortDesc": "A primary public health authority employing national network backbones and secure health databases.",
+        "about": "The Ministry of Health oversees the national public healthcare system, hospital operations, medical licensing, and health insurance infrastructures for the country.",
+        "work": "Amwaj Tech engineered their regional office network routing layouts, deployed Next-Gen firewalls to secure database ports, and designed system redundancies.",
+        "context": "Government agencies operating public welfare systems demand highly secure national backbones, strict network segmentation, and audited identity management directories."
+      }
+    }
   }
 }

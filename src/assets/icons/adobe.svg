@@ -1,0 +1,8 @@
+<svg width="140" height="48" viewBox="0 0 140 48" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(10, 10) scale(0.66)">
+      <!-- Adobe vector logo -->
+      <polygon points="24,4 41,38 33,38 29,29 19,29 15,38 7,38" fill="#FF0000" />
+      <polygon points="24,15 21,23 27,23" fill="#FFFFFF" />
+    </g>
+    <text x="46" y="29" fill="#1A1A1A" font-family="Montserrat, sans-serif" font-weight="900" font-size="17" letter-spacing="-0.5">Adobe</text>
+  </svg>

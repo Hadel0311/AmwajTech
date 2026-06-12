@@ -7,6 +7,10 @@ import IndustriesView from '../views/IndustriesView.vue'
 import IndustryDetailView from '../views/IndustryDetailView.vue'
 import ProjectsView from '../views/ProjectsView.vue'
 import ContactView from '../views/ContactView.vue'
+import PartnersView from '../views/PartnersView.vue'
+import PartnerDetailView from '../views/PartnerDetailView.vue'
+import ClientsView from '../views/ClientsView.vue'
+import ClientDetailView from '../views/ClientDetailView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -18,7 +22,11 @@ const router = createRouter({
     { path: '/industries', name: 'industries', component: IndustriesView },
     { path: '/industries/:id', name: 'industry-detail', component: IndustryDetailView },
     { path: '/projects', name: 'projects', component: ProjectsView },
-    { path: '/contact', name: 'contact', component: ContactView }
+    { path: '/contact', name: 'contact', component: ContactView },
+    { path: '/partners', name: 'partners', component: PartnersView },
+    { path: '/partners/:id', name: 'partner-detail', component: PartnerDetailView },
+    { path: '/clients', name: 'clients', component: ClientsView },
+    { path: '/clients/:id', name: 'client-detail', component: ClientDetailView }
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {

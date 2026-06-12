@@ -1,0 +1,8 @@
+<svg width="140" height="48" viewBox="0 0 140 48" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(10, 10)">
+      <!-- Hillstone dual mountains -->
+      <polygon points="10,2 2,22 18,22" fill="#0D9488" />
+      <polygon points="16,8 10,22 22,22" fill="#0A5C5A" />
+    </g>
+    <text x="38" y="29" fill="#0D9488" font-family="Montserrat, sans-serif" font-weight="900" font-size="13" letter-spacing="0.5">Hillstone</text>
+  </svg>

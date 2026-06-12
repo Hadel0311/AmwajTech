@@ -1,0 +1,8 @@
+<svg width="140" height="48" viewBox="0 0 140 48" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(10, 10)">
+      <!-- AEC blue triangle -->
+      <polygon points="12,2 2,22 22,22" fill="#1E3A8A" />
+      <path d="M7,12 L17,12" stroke="#FFFFFF" stroke-width="2.5" />
+    </g>
+    <text x="42" y="29" fill="#1E3A8A" font-family="Montserrat, sans-serif" font-weight="900" font-size="18" letter-spacing="1.5">AEC</text>
+  </svg>

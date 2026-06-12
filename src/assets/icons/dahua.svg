@@ -1,0 +1,9 @@
+<svg width="140" height="48" viewBox="0 0 140 48" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(10, 10)">
+      <!-- Dahua circle logo -->
+      <circle cx="14" cy="14" r="9" fill="#DC2626" />
+      <circle cx="12" cy="14" r="5" fill="#FFFFFF" />
+      <rect x="18" y="4" width="4" height="20" fill="#DC2626" />
+    </g>
+    <text x="42" y="29" fill="#0F172A" font-family="Montserrat, sans-serif" font-weight="bold" font-size="17" letter-spacing="0">dahua</text>
+  </svg>

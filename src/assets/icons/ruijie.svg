@@ -1,0 +1,8 @@
+<svg width="140" height="48" viewBox="0 0 140 48" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(12, 12)">
+      <!-- Ruijie blue curves -->
+      <path d="M2,2 L14,2 C19,2 19,9 14,9 L8,9 L8,18" stroke="#1E40AF" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M13,9 L19,18" stroke="#1E40AF" stroke-width="3.5" fill="none" stroke-linecap="round" />
+    </g>
+    <text x="40" y="29" fill="#1E40AF" font-family="Montserrat, sans-serif" font-weight="900" font-size="16" letter-spacing="0.5">Ruijie</text>
+  </svg>

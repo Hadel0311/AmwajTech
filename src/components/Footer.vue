@@ -121,7 +121,6 @@ const scrollToSection = (sectionId) => {
   width: 40px;
   height: 40px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
 }
 
 .logo-text {

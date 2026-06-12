@@ -1,0 +1,146 @@
+:root {
+  /* Color Palette (Scope ME Style) */
+  --color-primary: #1a2a4a; /* Deep Royal Blue */
+  --color-primary-dark: #101a2f;
+  --color-primary-light: #28406e;
+  --color-accent: #f9b233; /* Warm Accent Yellow */
+  --color-accent-hover: #e8a020;
+  --color-bg-light: #ffffff; /* Pure White */
+  --color-bg-alt: #f4f4f4; /* Light Gray for alternating sections */
+  --color-bg-dark: #222222; /* Dark Footer/Sections */
+  
+  --color-text-main: #333333;
+  --color-text-muted: #666666;
+  --color-text-inverse: #ffffff;
+  
+  /* Typography */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Utilities */
+  --border-radius: 4px; /* More corporate, sharper edges than glassmorphism */
+  --border-radius-lg: 8px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-light);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+/* Typography Utilities */
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+/* Button Utilities */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: #1a1a1a;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--color-bg-light);
+  color: var(--color-bg-light);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-bg-light);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-padding {
+  padding: 5rem 0;
+}
+
+.bg-light { background-color: var(--color-bg-light); }
+.bg-alt { background-color: var(--color-bg-alt); }
+.bg-dark { background-color: var(--color-bg-dark); }
+.bg-primary { background-color: var(--color-primary); color: var(--color-text-inverse); }
+
+/* Animation Utilities (Kept from original but simplified) */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}

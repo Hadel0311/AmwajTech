@@ -1,0 +1,230 @@
+/* Projects Section */
+.projects-section {
+  min-height: 100dvh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 6rem 2rem 0 2rem;
+  z-index: 2;
+}
+
+.projects-content {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.projects-content .section-title {
+  color: var(--color-primary);
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.section-subtitle {
+  color: var(--color-text-secondary);
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  opacity: 0.9;
+  text-align: center;
+}
+
+.project-card {
+  background: var(--color-bg-primary);
+  box-shadow: var(--shadow-card);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+}
+
+.project-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.project-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project-logo-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.logo-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.logo-text {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.project-tagline {
+  font-size: var(--text-base);
+  opacity: 0.8;
+  font-weight: var(--font-medium);
+  margin: 0;
+}
+
+.project-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+.project-description {
+  font-size: var(--text-base);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  opacity: 0.9;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.features-column {
+  background: var(--color-bg-secondary);
+  padding: 30px;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.technologies-column {
+  background: var(--color-bg-secondary);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+}
+
+.details-title {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  margin-bottom: var(--spacing-sm);
+}
+
+.features-list, .technologies-list {
+  list-style: none;
+}
+
+.features-list li, .technologies-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.checkmark {
+  color: var(--color-secondary);
+  font-weight: var(--font-bold);
+}
+
+.technologies-list svg path {
+  stroke: var(--color-primary) !important;
+}
+
+.tech-icon {
+  color: var(--color-secondary);
+  font-weight: var(--font-bold);
+}
+
+.project-cta {
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
+  border: none;
+  padding: 16px 32px;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-base);
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto;
+}
+
+.project-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-cta);
+}
+
+/* Project Info Cards */
+.project-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+  background-color: var(--color-bg-secondary);
+  padding: 3rem 2rem;
+  position: relative;
+  z-index: 3;
+}
+
+.project-info-card {
+  background: var(--color-bg-primary);
+  box-shadow: var(--shadow-card);
+  padding: 2.5rem;
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+}
+
+.project-info-card:last-child {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.project-info-card:last-child .info-card-title {
+  color: var(--color-text-inverse);
+}
+
+.info-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+}
+
+.project-info-card .info-list {
+  list-style: none;
+}
+
+.project-info-card .info-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.project-info-card .checkmark {
+  color: var(--color-primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.project-info-card:last-child .star {
+  color: var(--color-accent);
+  font-size: 1.2rem;
+}

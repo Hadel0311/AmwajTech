@@ -1,0 +1,8 @@
+/* Main CSS - Import all separated stylesheets */
+@import './css/base.css';
+@import './css/animations.css';
+@import './css/about.css';
+@import './css/services.css';
+@import './css/projects.css';
+@import './css/contact.css';
+@import './css/responsive.css';

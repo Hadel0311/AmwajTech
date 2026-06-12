@@ -1,0 +1,98 @@
+/* Design Tokens - CSS Custom Properties (Scope ME Style) */
+:root {
+  /* Primary Colors */
+  --color-primary: #0A192F; /* Deep Corporate Navy Blue */
+  --color-primary-light: #172A45;
+  --color-primary-dark: #020C1B;
+  --color-primary-rgb: 10, 25, 47;
+  
+  /* Secondary/Accent Colors */
+  --color-secondary: #00509D; /* Professional Blue Accents */
+  --color-secondary-rgb: 0, 80, 157;
+  --color-accent: #0D9488; /* Subtle Technology Teal */
+  --color-accent-hover: #0F766E;
+  --color-accent-rgb: 13, 148, 136;
+  
+  /* Background Colors */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8fafc; /* Very light slate gray */
+  --color-bg-alt: #f1f5f9;
+  --color-bg-card: #ffffff;
+  --color-bg-card-light: #ffffff;
+  --color-bg-card-accent: #f8fafc;
+  --color-bg-overlay: rgba(255, 255, 255, 0.98);
+  --color-bg-overlay-dark: rgba(10, 25, 47, 0.92); /* For hero overlay */
+  --color-bg-glass: rgba(255, 255, 255, 0.85); /* Premium glass effect */
+  
+  /* Text Colors */
+  --color-text-primary: #1e293b; /* Slate 800 */
+  --color-text-secondary: #475569; /* Slate 600 */
+  --color-text-muted: #64748b; /* Slate 500 */
+  --color-text-dark: #0f172a; /* Slate 900 */
+  --color-text-inverse: #ffffff;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  --gradient-locations: linear-gradient(90deg, #f8fafc, #ffffff);
+  --gradient-service-card: linear-gradient(180deg, #ffffff, #f8fafc);
+  
+  /* Shadows */
+  --shadow-cta: 0 4px 12px rgba(13, 148, 136, 0.25);
+  --shadow-card: 0 4px 20px rgba(15, 23, 42, 0.05);
+  --shadow-glass: 0 8px 32px 0 rgba(10, 25, 47, 0.05);
+  --shadow-header: 0 2px 20px rgba(10, 25, 47, 0.06);
+  
+  /* Border Radius - sharper for corporate */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+  --spacing-3xl: 6rem;
+  
+  /* Font Sizes */
+  --text-xs: 0.9rem;
+  --text-sm: 1rem;
+  --text-base: 1.1rem;
+  --text-lg: 1.2rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.5rem;
+  --text-4xl: 3rem;
+  --text-5xl: 3.5rem;
+  
+  /* Font Weights */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  
+  /* Z-Index */
+  --z-dropdown: 1001;
+  --z-navbar: 1000;
+  --z-content: 2;
+  --z-background: 1;
+  --z-info-cards: 3;
+  
+  /* Transitions */
+  --transition-fast: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --transition-bounce: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-smooth: 0.4s ease-in-out;
+  
+  /* Backdrop Filters - Remove blur for pure corporate look */
+  --backdrop-blur-sm: none;
+  --backdrop-blur-md: none;
+  --backdrop-blur-lg: none;
+  --backdrop-blur-xl: none;
+  --backdrop-blur-2xl: none;
+}

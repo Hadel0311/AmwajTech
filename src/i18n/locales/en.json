@@ -1,0 +1,415 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "industries": "Industries",
+    "projects": "Case Studies",
+    "contact": "Contact",
+    "companyName": "Amwaj Tech",
+    "tagline": "Enterprise Infrastructure & Security"
+  },
+  "hero": {
+    "location": "Regional Hub: Amman, Jordan",
+    "title": "Amwaj Tech",
+    "tagline": "Building Secure, Reliable, and Scalable Technology Infrastructure.",
+    "description": "Providing elite IT infrastructure, cyber security operations, data center systems, and managed IT services for government, banking, healthcare, and industrial sectors across the Middle East.",
+    "ctaPrimary": "Request Consultation",
+    "ctaSecondary": "Explore Services",
+    "established": "Established 2012"
+  },
+  "trust": {
+    "title": "Trusted by Leaders",
+    "subtitle": "Experienced. Certified. Enterprise-Ready.",
+    "clientLogosLabel": "Enterprise & Government Clients",
+    "certificationsLabel": "Key Certified Integrator Status",
+    "stats": {
+      "experience": {
+        "value": "14+",
+        "label": "Years of Excellence"
+      },
+      "deployments": {
+        "value": "320+",
+        "label": "Enterprise Deployments"
+      },
+      "uptime": {
+        "value": "99.99%",
+        "label": "Infrastructure Uptime SLA"
+      },
+      "engineers": {
+        "value": "45+",
+        "label": "Certified IT Specialists"
+      }
+    }
+  },
+  "services": {
+    "title": "Core Enterprise Services",
+    "subtitle": "Robust, high-availability technical services designed for organizations requiring maximum uptime and stringent security compliance.",
+    "items": {
+      "network_infrastructure": {
+        "title": "Network Infrastructure",
+        "description": "High-performance enterprise networking, fiber backbones, multi-site SD-WAN deployments, and resilient switching architectures."
+      },
+      "network_security": {
+        "title": "Network Security",
+        "description": "Next-Gen firewalls, intrusion prevention systems, zero-trust access, security monitoring, and continuous threat mitigation."
+      },
+      "data_center": {
+        "title": "Data Center Solutions",
+        "description": "Hyperconverged systems, server virtualization, high-availability storage arrays, disaster recovery vaults, and cooling control."
+      },
+      "software_solutions": {
+        "title": "Software Solutions",
+        "description": "Custom enterprise software design, secure middleware integration, service API platforms, and system automation scripts."
+      },
+      "cloud_services": {
+        "title": "Cloud Services",
+        "description": "Hybrid cloud hosting, AWS & Azure certified migrations, secure private clouds, and ongoing infrastructure cost optimization."
+      },
+      "technical_support": {
+        "title": "Technical Support & SLA",
+        "description": "24/7/365 dedicated network operations center (NOC), prioritized incident responses, and structured preventive hardware audits."
+      }
+    },
+    "details": {
+      "network_infrastructure": {
+        "features": [
+          "Structured LAN/WAN Cabling Systems",
+          "Enterprise SD-WAN and Multi-Site Orchestration",
+          "Optical Fiber Ring Layouts and Splicing",
+          "High-Density Wireless AP Configurations"
+        ],
+        "technologies": ["Cisco Catalyst", "Dell PowerConnect", "Optical Fiber", "SD-WAN Engines"],
+        "benefits": [
+          "High network core redundancy",
+          "Sleek sub-millisecond local routing",
+          "Optimized data links between regional offices"
+        ]
+      },
+      "network_security": {
+        "features": [
+          "Next-Generation Firewall Deployment (NGFW)",
+          "Intrusion Prevention & Detection (IDS/IPS)",
+          "Zero-Trust Network Access (ZTNA) policies",
+          "Security Event & Incident Monitoring (SIEM)"
+        ],
+        "technologies": ["Fortinet FortiGate", "Palo Alto Networks NGFW", "IPsec/SSL VPN", "UTM Fabrics"],
+        "benefits": [
+          "Elimination of open intrusion vectors",
+          "Adherence to banking and government security norms",
+          "Protected access coordinates for remote workforces"
+        ]
+      },
+      "data_center": {
+        "features": [
+          "Hyperconverged Infrastructure (HCI) configurations",
+          "Server Virtualization and Hypervisor clustering",
+          "High-availability Storage Area Networks (SAN)",
+          "Failover testing and Disaster Recovery Replication"
+        ],
+        "technologies": ["VMware vSphere", "Dell EMC Storage", "Windows Server Active Directory", "Veeam Backup"],
+        "benefits": [
+          "Minimal recovery time objectives (RTO)",
+          "Lowered space and electric foot prints",
+          "Accelerated application response timelines"
+        ]
+      },
+      "cloud_services": {
+        "features": [
+          "Hybrid Cloud Orchestration",
+          "Automated Workload Migrations",
+          "Dedicated Private Cloud Environments",
+          "Cost Optimization audits and limits"
+        ],
+        "technologies": ["AWS Cloud Services", "Microsoft Azure", "Docker & Kubernetes", "Hybrid Gateways"],
+        "benefits": [
+          "Infinite processing scale flexibility",
+          "Transparent pay-as-you-use pricing controls",
+          "Global system distribution availability"
+        ]
+      },
+      "software_solutions": {
+        "features": [
+          "Custom Enterprise ERP and Middleware Systems",
+          "Restful and GraphQL API Gateway structures",
+          "Automated script-based office workflows",
+          "Modernizations of legacy terminal applications"
+        ],
+        "technologies": ["Vue.js / Node.js", "PostgreSQL / MS SQL", "REST / GraphQL", "Docker Containers"],
+        "benefits": [
+          "Abolition of manual operational bottlenecks",
+          "Reliable integrations between old and new systems",
+          "Tailor-made features matching local business logic"
+        ]
+      },
+      "technical_support": {
+        "features": [
+          "24/7/365 Network Operations Center (NOC) access",
+          "Hardware SLA maintenance and swapping",
+          "Automated patch application sequences",
+          "Remote technical administration and system health checks"
+        ],
+        "technologies": ["Helpdesk SLA Tracking", "Zabbix & Nagios", "Secure Shell (SSH)", "Preventive Audits"],
+        "benefits": [
+          "Guaranteed support desk reaction parameters",
+          "Proactive error and system crash mitigation",
+          "Extended usage life for expensive rack systems"
+        ]
+      }
+    }
+  },
+  "industries": {
+    "title": "Sectors We Serve",
+    "subtitle": "Tailoring secure IT infrastructure and software platforms to satisfy the rigorous compliance and security standards of critical industries.",
+    "sectors": {
+      "banking": {
+        "title": "Banking & Finance",
+        "description": "Secure transaction networks, PCI-DSS compliance, intrusion prevention, and high-availability backup systems."
+      },
+      "government": {
+        "title": "Government & Public Sector",
+        "description": "National network backbones, citizen-facing portal integrations, and secure data storage complying with local regulations."
+      },
+      "healthcare": {
+        "title": "Healthcare Systems",
+        "description": "HIPAA-compliant hosting, resilient networks for medical equipment, and unified patient records integrations."
+      },
+      "education": {
+        "title": "Higher Education",
+        "description": "Campus-wide optical networks, high-density secure Wi-Fi, virtualization systems, and database administration."
+      },
+      "enterprise": {
+        "title": "Large Enterprises",
+        "description": "Multi-regional SD-WAN networks, unified communications, active-active directory setups, and cloud hosting."
+      },
+      "industrial": {
+        "title": "Industrial & Utilities",
+        "description": "OT/SCADA secure networking, edge computing firewalls, environmental monitors, and system failure redundancy."
+      }
+    },
+    "details": {
+      "banking": {
+        "overview": "Providing ultra-secure financial transaction networks, offline backup systems, and localized server nodes designed to adhere to central banking directives.",
+        "requirements": [
+          "Zero-latency database synchronization across branches",
+          "Advanced network security layers for transaction lines",
+          "Active-Active disaster recovery zones"
+        ],
+        "standards": [
+          "PCI-DSS Compliant Infrastructure",
+          "Two-Factor Access controls for financial systems",
+          "Fully encrypted storage pools at rest"
+        ]
+      },
+      "government": {
+        "overview": "Designing localized citizen-facing portal infrastructures, municipal SD-WAN networks, and secure storage solutions in full compliance with state-level classifications.",
+        "requirements": [
+          "Encrypted data storage adhering to municipal laws",
+          "Redundant optical fiber backbones for government offices",
+          "Multi-site failover routers for state security"
+        ],
+        "standards": [
+          "National compliance standards alignment",
+          "Granular user privileges for administrative departments",
+          "Active Directory group security policies"
+        ]
+      },
+      "healthcare": {
+        "overview": "Architecting HIPAA-aligned digital infrastructures, secure local area networks for diagnostic medical equipment, and reliable storage arrays for electronic patient records.",
+        "requirements": [
+          "Secure, segregated clinician wireless networks",
+          "High availability patient database nodes",
+          "Resilient off-site data archives"
+        ],
+        "standards": [
+          "HIPAA Compliant system architectures",
+          "Restricted clinician access keys",
+          "End-to-end data encryption in transit"
+        ]
+      },
+      "education": {
+        "overview": "Deploying high-density campus-wide wireless networking, fast optical routing backbones, and virtualization hosts to manage complex university environments.",
+        "requirements": [
+          "Fast optical campus fiber backbones",
+          "Virtualization servers for dynamic classrooms",
+          "Structured IT support helpdesks for universities"
+        ],
+        "standards": [
+          "High-density multi-tenant network designs",
+          "Student data privacy key configurations",
+          "Web filters and network usage controls"
+        ]
+      },
+      "enterprise": {
+        "overview": "Building multi-regional corporate SD-WAN backbones, virtualization grids, and unified storage spaces that enhance workforce operational pipelines.",
+        "requirements": [
+          "Multi-site unified communications configurations",
+          "Virtualization server scaling for ERPs",
+          "Automated remote configuration backends"
+        ],
+        "standards": [
+          "Active-Active corporate directories configurations",
+          "Secure WAN connectivity protocols",
+          "Cost-effective server consolidation models"
+        ]
+      },
+      "industrial": {
+        "overview": "Imposing strict network segmentation and edge demilitarized zones (DMZs) to isolate critical operational technology (OT) and SCADA systems from external threat vectors.",
+        "requirements": [
+          "Ruggedized industrial switches for harsh settings",
+          "Strict data segmentations between OT and IT networks",
+          "Read-only engineering reporting gates"
+        ],
+        "standards": [
+          "NIST Industrial Security Standards compliance",
+          "Edge firewalls and data diode setups",
+          "SCADA environment isolation"
+        ]
+      }
+    }
+  },
+  "why": {
+    "title": "Why Amwaj Tech",
+    "subtitle": "Delivering technological consistency where failure is not an option.",
+    "items": {
+      "team": {
+        "title": "Experienced Engineering Team",
+        "description": "Our senior systems engineers bring decades of collective experience in planning and deploying complex network frameworks."
+      },
+      "solutions": {
+        "title": "Enterprise-Grade Architectures",
+        "description": "Every solution we draft is built for absolute high-availability, complete data redundancy, and robust security."
+      },
+      "specialists": {
+        "title": "Certified Specialists",
+        "description": "We hold premier vendor certifications from Cisco, Fortinet, Palo Alto Networks, Dell, and VMware."
+      },
+      "support": {
+        "title": "Long-Term Strategic Support",
+        "description": "We don't just deploy; we partner. Our SLAs provide 24/7/365 NOC monitoring and rapid field deployment."
+      },
+      "partnerships": {
+        "title": "Elite Vendor Partnerships",
+        "description": "Direct tier-1 channel partnerships with primary hardware manufacturers ensure rapid supply lines and tier-3 support access."
+      }
+    }
+  },
+  "projects": {
+    "title": "Featured Case Studies",
+    "subtitle": "Demonstrating our commitment to technical excellence and real-world operational security.",
+    "cases": {
+      "bank_upgrade": {
+        "title": "National Bank of Amman - Core Network Upgrade",
+        "industry": "Banking",
+        "challenge": "Replacing legacy switching fabrics and firewalls across 45 branches without interrupting live retail banking transactions.",
+        "solution": "Designed and deployed an active-active SD-WAN backbone using Fortinet Next-Gen firewalls, combined with a zero-downtime traffic rerouting sequence.",
+        "outcome": "Improved multi-branch secure database sync speeds by 300% while maintaining absolute compliance with local central bank security directives."
+      },
+      "health_cloud": {
+        "title": "Ministry of Health - High-Availability Private Cloud",
+        "industry": "Government / Healthcare",
+        "challenge": "Consolidating patient records from 12 regional hospital clusters into a secure, centralized portal accessible under heavy load.",
+        "solution": "Built a hybrid virtualization cluster using VMware and Dell PowerEdge servers, protected by robust data replication and active-active failover zones.",
+        "outcome": "Centralized patient database access with 99.999% proven uptime, lowering administrative overhead and enhancing secure medical diagnostic sharing."
+      },
+      "industrial_scada": {
+        "title": "Gulf Refining Facility - OT/SCADA Network Security",
+        "industry": "Industrial / Utilities",
+        "challenge": "Protecting operational technology (OT) monitoring systems from external internet cyber threats while enabling remote diagnostics.",
+        "solution": "Imposed strict network segmentation using Palo Alto Networks industrial firewalls and data diodes, establishing an isolated demilitarized zone (DMZ).",
+        "outcome": "Eliminated unauthorized access vectors into critical industrial controllers, allowing secure read-only diagnostic exports for engineering crews."
+      }
+    },
+    "ctaViewDetails": "View Project Details",
+    "labels": {
+      "challenge": "The Challenge",
+      "solution": "The Solution",
+      "outcome": "The Outcome"
+    }
+  },
+  "partners": {
+    "title": "Technology Partners & Ecosystem",
+    "subtitle": "Integrating best-of-breed enterprise technologies from global hardware and software manufacturers."
+  },
+  "overview": {
+    "title": "Company Overview",
+    "subtitle": "Experienced. Trusted. Enterprise-Ready.",
+    "mission": {
+      "title": "Our Mission",
+      "description": "To architect, secure, and manage mission-critical IT infrastructure for organizations driving economic progress, ensuring their systems are resilient, highly available, and ready for future technological growth."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "To be the premier partner for enterprise technology integration in the Middle East, serving as the benchmark for engineering quality, technical reliability, and cybersecurity trust."
+    },
+    "values": {
+      "title": "Our Core Values",
+      "items": {
+        "integrity": {
+          "title": "Uncompromising Integrity",
+          "description": "We serve banks, hospitals, and governments where confidentiality, trust, and transparent engineering advice are crucial."
+        },
+        "excellence": {
+          "title": "Engineering Excellence",
+          "description": "We do not believe in shortcuts. Every deployment is designed, double-checked, and documented to the highest technical standards."
+        },
+        "security": {
+          "title": "Security-First Mindset",
+          "description": "Security is not an add-on; it is the foundation of every router config, database script, and server deployment."
+        },
+        "accountability": {
+          "title": "Active Accountability",
+          "description": "Our SLAs are commitments. When a critical incident occurs, our senior engineers are active on-site until it is fully resolved."
+        }
+      }
+    }
+  },
+  "contact": {
+    "title": "Request a Consultation",
+    "subtitle": "Connect with our enterprise solutions architects to discuss your infrastructure, networking, software, or security needs.",
+    "form": {
+      "title": "Inquiry Details",
+      "name": "Full Name",
+      "email": "Official Email Address",
+      "org": "Organization Name",
+      "serviceType": {
+        "label": "Area of Interest",
+        "network": "Network Infrastructure & SD-WAN",
+        "security": "Network Security & Cyber Defense",
+        "data_center": "Data Center & Virtualization",
+        "software": "Custom Enterprise Software",
+        "managed": "Managed Services & Support SLAs"
+      },
+      "message": "Project Requirements Overview",
+      "submit": "Submit Consultation Request"
+    },
+    "info": {
+      "title": "Direct Contact",
+      "email": "info{'@'}amwaj-tech.com",
+      "phone": "+962 6 580 0000",
+      "location": "Amman, Jordan",
+      "locations": {
+        "title": "Regional Offices",
+        "jordan": "Amman, Jordan (HQ)",
+        "uae": "Dubai, UAE"
+      }
+    }
+  },
+  "footer": {
+    "companyName": "Amwaj Tech",
+    "tagline": "Experienced. Trusted. Enterprise-Ready.",
+    "description": "Providing elite IT Infrastructure, Network Security, Data Center Systems, and Software Solutions to enterprises and government entities across the Middle East.",
+    "copyright": "© 2026 Amwaj Tech. All rights reserved.",
+    "links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  },
+  "modal": {
+    "fullscreen": {
+      "enter": "Enter Fullscreen",
+      "exit": "Exit Fullscreen"
+    },
+    "close": "Close"
+  }
+}

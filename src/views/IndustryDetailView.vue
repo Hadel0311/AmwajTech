@@ -3,7 +3,7 @@
     <!-- Header Banner -->
     <section class="page-header">
       <div class="header-container">
-        <span class="category-label">SECTOR PORTFOLIO</span>
+        <span class="category-label">{{ t('industries.labels.portfolio') }}</span>
         <h1 class="page-title">{{ t(`industries.sectors.${sectorKey}.title`) }}</h1>
       </div>
     </section>
@@ -21,7 +21,7 @@
             </div>
             
             <div class="requirements-block">
-              <h2 class="sub-title">Infrastructure Requirements</h2>
+              <h2 class="sub-title">{{ t('industries.labels.requirements') }}</h2>
               <ul class="requirements-list">
                 <li v-for="(req, idx) in requirements" :key="idx" class="requirement-item">
                   <span class="bullet"></span>
@@ -35,7 +35,7 @@
           <div class="sidebar-info">
             <!-- Compliance standards -->
             <div class="sidebar-card standards-card" v-if="standards && standards.length">
-              <h3 class="card-title">Compliance & Design Standards</h3>
+              <h3 class="card-title">{{ t('industries.labels.standards') }}</h3>
               <ul class="standards-list">
                 <li v-for="(std, idx) in standards" :key="idx" class="std-item">
                   {{ std }}
@@ -45,7 +45,7 @@
 
             <!-- Action CTA -->
             <router-link to="/contact" class="sidebar-cta-btn">
-              Discuss Sector Solution
+              {{ t('industries.labels.discuss') }}
             </router-link>
           </div>
         </div>
@@ -54,9 +54,9 @@
   </main>
   <main class="industry-detail-view invalid-view" v-else>
     <div class="error-container">
-      <h2>Industry Not Found</h2>
-      <p>The requested industry route does not exist.</p>
-      <router-link to="/industries" class="back-link">Back to Industries</router-link>
+      <h2>{{ t('industries.labels.notFound') }}</h2>
+      <p>{{ t('industries.labels.notFoundDesc') }}</p>
+      <router-link to="/industries" class="back-link">{{ t('industries.labels.back') }}</router-link>
     </div>
   </main>
 </template>

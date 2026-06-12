@@ -46,7 +46,7 @@
 import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 const isOpen = ref(false)
 const currentCommand = ref('')
@@ -58,10 +58,7 @@ interface HistoryLine {
   type: 'input' | 'output' | 'error' | 'system'
 }
 
-const history = ref<HistoryLine[]>([
-  { text: 'Amwaj-Tech Interactive Terminal v1.0.0', type: 'system' },
-  { text: 'Type "help" to see available commands.', type: 'system' }
-])
+const history = ref<HistoryLine[]>([])
 
 const toggleTerminal = () => {
   isOpen.value = !isOpen.value
@@ -100,36 +97,67 @@ const executeCommand = () => {
 }
 
 const processCommand = (cmd: string) => {
+  const isAr = locale.value === 'ar'
   switch(cmd) {
     case 'help':
-      history.value.push({ text: 'Available commands:', type: 'output' })
-      history.value.push({ text: '&nbsp;&nbsp;about&nbsp;&nbsp;&nbsp;&nbsp;- Learn about Amwaj-Tech', type: 'output' })
-      history.value.push({ text: '&nbsp;&nbsp;services&nbsp;- List our core services', type: 'output' })
-      history.value.push({ text: '&nbsp;&nbsp;contact&nbsp;&nbsp;- Get our contact info', type: 'output' })
-      history.value.push({ text: '&nbsp;&nbsp;clear&nbsp;&nbsp;&nbsp;&nbsp;- Clear terminal history', type: 'output' })
+      if (isAr) {
+        history.value.push({ text: 'الأوامر المتاحة:', type: 'output' })
+        history.value.push({ text: '&nbsp;&nbsp;about&nbsp;&nbsp;&nbsp;&nbsp;- معلومات عن أمواج تك', type: 'output' })
+        history.value.push({ text: '&nbsp;&nbsp;services&nbsp;- قائمة بخدماتنا الأساسية', type: 'output' })
+        history.value.push({ text: '&nbsp;&nbsp;contact&nbsp;&nbsp;- معلومات الاتصال بنا', type: 'output' })
+        history.value.push({ text: '&nbsp;&nbsp;clear&nbsp;&nbsp;&nbsp;&nbsp;- مسح سجل الشاشة', type: 'output' })
+      } else {
+        history.value.push({ text: 'Available commands:', type: 'output' })
+        history.value.push({ text: '&nbsp;&nbsp;about&nbsp;&nbsp;&nbsp;&nbsp;- Learn about Amwaj-Tech', type: 'output' })
+        history.value.push({ text: '&nbsp;&nbsp;services&nbsp;- List our core services', type: 'output' })
+        history.value.push({ text: '&nbsp;&nbsp;contact&nbsp;&nbsp;- Get our contact info', type: 'output' })
+        history.value.push({ text: '&nbsp;&nbsp;clear&nbsp;&nbsp;&nbsp;&nbsp;- Clear terminal history', type: 'output' })
+      }
       break
     case 'about':
-      history.value.push({ text: 'Amwaj-Tech is a pioneering technology company headquartered in Amman, Jordan. We specialize in delivering cutting-edge software solutions, robust network infrastructure, and comprehensive digital transformation strategies.', type: 'output' })
+      if (isAr) {
+        history.value.push({ text: 'أمواج تك هي شركة تكنولوجيا رائدة يقع مقرها الرئيسي في عمان، الأردن. نحن متخصصون في تقديم الحلول البرمجية المتطورة، والبنية التحتية القوية للشبكات، واستراتيجيات التحول الرقمي الشاملة.', type: 'output' })
+      } else {
+        history.value.push({ text: 'Amwaj-Tech is a pioneering technology company headquartered in Amman, Jordan. We specialize in delivering cutting-edge software solutions, robust network infrastructure, and comprehensive digital transformation strategies.', type: 'output' })
+      }
       break
     case 'services':
-      history.value.push({ text: 'Our Services:', type: 'output' })
-      history.value.push({ text: '&nbsp;&nbsp;- Network Security', type: 'output' })
-      history.value.push({ text: '&nbsp;&nbsp;- Hardware Solutions', type: 'output' })
-      history.value.push({ text: '&nbsp;&nbsp;- Custom Software Development', type: 'output' })
-      history.value.push({ text: '&nbsp;&nbsp;- Web Application Development', type: 'output' })
+      if (isAr) {
+        history.value.push({ text: 'خدماتنا:', type: 'output' })
+        history.value.push({ text: '&nbsp;&nbsp;- أمن الشبكات والحلول الدفاعية', type: 'output' })
+        history.value.push({ text: '&nbsp;&nbsp;- البنية التحتية وحلول مراكز البيانات', type: 'output' })
+        history.value.push({ text: '&nbsp;&nbsp;- تطوير البرمجيات والأنظمة المخصصة للمؤسسات', type: 'output' })
+        history.value.push({ text: '&nbsp;&nbsp;- الخدمات السحابية والخدمات المدارة', type: 'output' })
+      } else {
+        history.value.push({ text: 'Our Services:', type: 'output' })
+        history.value.push({ text: '&nbsp;&nbsp;- Network Security', type: 'output' })
+        history.value.push({ text: '&nbsp;&nbsp;- Hardware Solutions', type: 'output' })
+        history.value.push({ text: '&nbsp;&nbsp;- Custom Software Development', type: 'output' })
+        history.value.push({ text: '&nbsp;&nbsp;- Web Application Development', type: 'output' })
+      }
       break
     case 'contact':
-      history.value.push({ text: 'Email: info@amwaj-tech.com', type: 'output' })
-      history.value.push({ text: 'Locations: Amman (Jordan) & Dubai (UAE)', type: 'output' })
-      history.value.push({ text: 'Website: www.amwaj-tech.com', type: 'output' })
+      if (isAr) {
+        history.value.push({ text: 'البريد الإلكتروني: info@amwaj-tech.com', type: 'output' })
+        history.value.push({ text: 'المواقع: عمان (الأردن) ودبي (الإمارات العربية المتحدة)', type: 'output' })
+        history.value.push({ text: 'الموقع الإلكتروني: www.amwaj-tech.com', type: 'output' })
+      } else {
+        history.value.push({ text: 'Email: info@amwaj-tech.com', type: 'output' })
+        history.value.push({ text: 'Locations: Amman (Jordan) & Dubai (UAE)', type: 'output' })
+        history.value.push({ text: 'Website: www.amwaj-tech.com', type: 'output' })
+      }
       break
     case 'clear':
       history.value = [
-        { text: 'Amwaj-Tech Interactive Terminal v1.0.0', type: 'system' }
+        { text: isAr ? 'طرفية أمواج تك التفاعلية v1.0.0' : 'Amwaj-Tech Interactive Terminal v1.0.0', type: 'system' }
       ]
       break
     default:
-      history.value.push({ text: `Command not found: ${cmd}. Type "help" for a list of commands.`, type: 'error' })
+      if (isAr) {
+        history.value.push({ text: `لم يتم العثور على الأمر: ${cmd}. اكتب "help" لعرض الأوامر المتاحة.`, type: 'error' })
+      } else {
+        history.value.push({ text: `Command not found: ${cmd}. Type "help" for a list of commands.`, type: 'error' })
+      }
   }
 }
 
@@ -147,6 +175,13 @@ const handleKeydown = (e: KeyboardEvent) => {
 
 onMounted(() => {
   document.addEventListener('keydown', handleKeydown)
+  
+  // Initialize terminal based on active language
+  const isAr = locale.value === 'ar'
+  history.value = [
+    { text: isAr ? 'طرفية أمواج تك التفاعلية v1.0.0' : 'Amwaj-Tech Interactive Terminal v1.0.0', type: 'system' },
+    { text: isAr ? 'اكتب "help" لعرض الأوامر المتاحة.' : 'Type "help" to see available commands.', type: 'system' }
+  ]
 })
 
 onUnmounted(() => {

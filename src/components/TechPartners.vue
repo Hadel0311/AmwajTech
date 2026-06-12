@@ -18,7 +18,7 @@
               <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="13" letter-spacing="1.5">{{ partner.name }}</text>
             </svg>
           </div>
-          <span class="partner-tier">{{ partner.tier }}</span>
+          <span class="partner-tier">{{ t('partners.tiers.' + partner.tierKey) }}</span>
         </div>
       </div>
     </div>
@@ -30,14 +30,14 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
 const partnersList = [
-  { name: 'CISCO', tier: 'Gold Integrator' },
-  { name: 'FORTINET', tier: 'Authorized Partner' },
-  { name: 'PALO ALTO', tier: 'Innovator Partner' },
-  { name: 'DELL TECH', tier: 'Solution Provider' },
-  { name: 'IBM', tier: 'Gold Business Partner' },
-  { name: 'AWS', tier: 'Select Consulting Partner' },
-  { name: 'MICROSOFT', tier: 'Solutions Partner' },
-  { name: 'VMWARE', tier: 'Enterprise Partner' }
+  { name: 'CISCO', tierKey: 'gold_integrator' },
+  { name: 'FORTINET', tierKey: 'authorized_partner' },
+  { name: 'PALO ALTO', tierKey: 'innovator_partner' },
+  { name: 'DELL TECH', tierKey: 'solution_provider' },
+  { name: 'IBM', tierKey: 'gold_business_partner' },
+  { name: 'AWS', tierKey: 'select_consulting_partner' },
+  { name: 'MICROSOFT', tierKey: 'solutions_partner' },
+  { name: 'VMWARE', tierKey: 'enterprise_partner' }
 ]
 </script>
 

@@ -4,13 +4,13 @@
       <div class="why-layout">
         <!-- Left Side: Narrative -->
         <div class="why-narrative">
-          <span class="why-subtitle">THE AMWAJ ADVANTAGE</span>
+          <span class="why-subtitle">{{ t('why.advantage') }}</span>
           <h2 class="why-title">{{ t('why.title') }}</h2>
           <p class="why-description">
             {{ t('why.subtitle') }}
           </p>
           <div class="certifications-summary">
-            <span class="cert-title">PARTNER ECOSYSTEM CERTIFICATIONS:</span>
+            <span class="cert-title">{{ t('why.certificationsTitle') }}</span>
             <div class="cert-logos">
               <span class="cert-badge">Cisco Gold</span>
               <span class="cert-badge">Fortinet NSE</span>

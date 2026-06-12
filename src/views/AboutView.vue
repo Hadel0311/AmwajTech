@@ -23,13 +23,13 @@
               <div class="loc-item">
                 <span class="loc-bullet"></span>
                 <div>
-                  <strong>Jordan Office (HQ):</strong> Amman, Mecca St.
+                  <strong>{{ t('about.locations.jordan') }}</strong> {{ t('about.locations.jordanAddress') }}
                 </div>
               </div>
               <div class="loc-item">
                 <span class="loc-bullet"></span>
                 <div>
-                  <strong>UAE Office:</strong> Dubai, Internet City.
+                  <strong>{{ t('about.locations.uae') }}</strong> {{ t('about.locations.uaeAddress') }}
                 </div>
               </div>
             </div>
@@ -40,16 +40,16 @@
             <h3 class="panel-inner-title">{{ t('trust.certificationsLabel') }}</h3>
             <div class="certifications-detailed-list">
               <div class="cert-item-box">
-                <div class="cert-title">Cisco Gold Integrator</div>
-                <p class="cert-desc">Highest standard of deployment, virtualization, and network architecture integrations certified directly by Cisco.</p>
+                <div class="cert-title">{{ t('about.certifications.cisco.title') }}</div>
+                <p class="cert-desc">{{ t('about.certifications.cisco.description') }}</p>
               </div>
               <div class="cert-item-box">
-                <div class="cert-title">Fortinet NSE Certified</div>
-                <p class="cert-desc">Recognized capability in deploying Unified Threat Management (UTM) and multi-site SD-WAN security fabrics.</p>
+                <div class="cert-title">{{ t('about.certifications.fortinet.title') }}</div>
+                <p class="cert-desc">{{ t('about.certifications.fortinet.description') }}</p>
               </div>
               <div class="cert-item-box">
-                <div class="cert-title">ISO 27001 Compliance</div>
-                <p class="cert-desc">Our internal configurations and system designs strictly align with international information security standards.</p>
+                <div class="cert-title">{{ t('about.certifications.iso.title') }}</div>
+                <p class="cert-desc">{{ t('about.certifications.iso.description') }}</p>
               </div>
             </div>
           </div>

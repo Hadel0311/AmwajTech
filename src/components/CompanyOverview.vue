@@ -5,7 +5,7 @@
         <!-- Left Column: Mission & Vision -->
         <div class="mission-vision-panel">
           <div class="overview-header">
-            <span class="overview-tagline">CORPORATE PROFILE</span>
+            <span class="overview-tagline">{{ t('overview.tagline') }}</span>
             <h2 class="section-title">{{ t('overview.title') }}</h2>
             <p class="section-subtitle">{{ t('overview.subtitle') }}</p>
           </div>

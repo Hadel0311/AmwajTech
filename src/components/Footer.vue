@@ -52,10 +52,10 @@
         <div class="footer-col partners-col">
           <h3 class="col-title">{{ t('trust.certificationsLabel') }}</h3>
           <div class="partner-badges">
-            <span class="badge">CISCO PARTNER</span>
-            <span class="badge">FORTINET AUTHORIZED</span>
-            <span class="badge">PALO ALTO SECURITY</span>
-            <span class="badge">ISO 27001 COMPLIANT</span>
+            <span class="badge">{{ t('footer.badges.cisco') }}</span>
+            <span class="badge">{{ t('footer.badges.fortinet') }}</span>
+            <span class="badge">{{ t('footer.badges.paloalto') }}</span>
+            <span class="badge">{{ t('footer.badges.iso') }}</span>
           </div>
         </div>
       </div>

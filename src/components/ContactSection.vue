@@ -20,7 +20,7 @@
                   v-model="form.name" 
                   required 
                   class="form-input" 
-                  placeholder="John Doe"
+                  :placeholder="t('contact.form.placeholders.name')"
                 />
               </div>
 
@@ -32,7 +32,7 @@
                   v-model="form.email" 
                   required 
                   class="form-input" 
-                  placeholder="name@organization.com"
+                  :placeholder="t('contact.form.placeholders.email')"
                 />
               </div>
 
@@ -44,7 +44,7 @@
                   v-model="form.org" 
                   required 
                   class="form-input" 
-                  placeholder="Acme Corp"
+                  :placeholder="t('contact.form.placeholders.org')"
                 />
               </div>
 
@@ -69,7 +69,7 @@
                 required 
                 rows="5" 
                 class="form-textarea"
-                placeholder="..."
+                :placeholder="t('contact.form.placeholders.message')"
               ></textarea>
             </div>
 
@@ -89,15 +89,15 @@
             <h3 class="info-title">{{ t('contact.info.title') }}</h3>
             <ul class="info-list">
               <li>
-                <span class="info-label">EMAIL</span>
+                <span class="info-label">{{ t('contact.labels.email') }}</span>
                 <a :href="`mailto:${t('contact.info.email')}`" class="info-link">{{ t('contact.info.email') }}</a>
               </li>
               <li>
-                <span class="info-label">PHONE</span>
+                <span class="info-label">{{ t('contact.labels.phone') }}</span>
                 <a href="tel:+96265800000" class="info-link">{{ t('contact.info.phone') }}</a>
               </li>
               <li>
-                <span class="info-label">LOCATION</span>
+                <span class="info-label">{{ t('contact.labels.location') }}</span>
                 <span class="info-text">{{ t('contact.info.location') }}</span>
               </li>
             </ul>
@@ -109,11 +109,11 @@
             <ul class="offices-list">
               <li>
                 <span class="office-name">{{ t('contact.info.locations.jordan') }}</span>
-                <span class="office-desc">Corporate Headquarters, Mecca St.</span>
+                <span class="office-desc">{{ t('contact.info.locations.jordanDesc') }}</span>
               </li>
               <li>
                 <span class="office-name">{{ t('contact.info.locations.uae') }}</span>
-                <span class="office-desc">Regional Office, Dubai Internet City</span>
+                <span class="office-desc">{{ t('contact.info.locations.uaeDesc') }}</span>
               </li>
             </ul>
           </div>

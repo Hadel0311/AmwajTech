@@ -25,7 +25,7 @@
               <h2 class="sector-card-title">{{ t(`industries.sectors.${sector.key}.title`) }}</h2>
               <p class="sector-card-desc">{{ t(`industries.sectors.${sector.key}.description`) }}</p>
               <div class="sector-card-action">
-                <span>View Sector Overview</span>
+                <span>{{ t('industries.viewOverview') }}</span>
                 <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
                   <path d="M4.16669 10H15.8334M15.8334 10L10.8334 5M15.8334 10L10.8334 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>

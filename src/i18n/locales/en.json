@@ -16,7 +16,8 @@
     "description": "Providing elite IT infrastructure, cyber security operations, data center systems, and managed IT services for government, banking, healthcare, and industrial sectors across the Middle East.",
     "ctaPrimary": "Request Consultation",
     "ctaSecondary": "Explore Services",
-    "established": "Established 2012"
+    "established": "Established 2012",
+    "scrollLabel": "EXPLORE"
   },
   "trust": {
     "title": "Trusted by Leaders",
@@ -45,6 +46,17 @@
   "services": {
     "title": "Core Enterprise Services",
     "subtitle": "Robust, high-availability technical services designed for organizations requiring maximum uptime and stringent security compliance.",
+    "exploreOffering": "Explore Offering",
+    "labels": {
+      "category": "Enterprise Service",
+      "capabilities": "Core Service Capabilities",
+      "techIntegrated": "Technologies Integrated",
+      "differentiators": "Key Differentiators",
+      "cta": "Request Consultation",
+      "notFound": "Service Not Found",
+      "notFoundDesc": "The requested service route does not exist.",
+      "back": "Back to Services"
+    },
     "items": {
       "network_infrastructure": {
         "title": "Network Infrastructure",
@@ -161,6 +173,16 @@
   "industries": {
     "title": "Sectors We Serve",
     "subtitle": "Tailoring secure IT infrastructure and software platforms to satisfy the rigorous compliance and security standards of critical industries.",
+    "viewOverview": "View Sector Overview",
+    "labels": {
+      "portfolio": "Sector Portfolio",
+      "requirements": "Infrastructure Requirements",
+      "standards": "Compliance & Design Standards",
+      "discuss": "Discuss Sector Solution",
+      "notFound": "Industry Not Found",
+      "notFoundDesc": "The requested industry route does not exist.",
+      "back": "Back to Industries"
+    },
     "sectors": {
       "banking": {
         "title": "Banking & Finance",
@@ -271,6 +293,8 @@
   "why": {
     "title": "Why Amwaj Tech",
     "subtitle": "Delivering technological consistency where failure is not an option.",
+    "advantage": "The Amwaj Advantage",
+    "certificationsTitle": "Partner Ecosystem Certifications:",
     "items": {
       "team": {
         "title": "Experienced Engineering Team",
@@ -329,11 +353,22 @@
   },
   "partners": {
     "title": "Technology Partners & Ecosystem",
-    "subtitle": "Integrating best-of-breed enterprise technologies from global hardware and software manufacturers."
+    "subtitle": "Integrating best-of-breed enterprise technologies from global hardware and software manufacturers.",
+    "tiers": {
+      "gold_integrator": "Gold Integrator",
+      "authorized_partner": "Authorized Partner",
+      "innovator_partner": "Innovator Partner",
+      "solution_provider": "Solution Provider",
+      "gold_business_partner": "Gold Business Partner",
+      "select_consulting_partner": "Select Consulting Partner",
+      "solutions_partner": "Solutions Partner",
+      "enterprise_partner": "Enterprise Partner"
+    }
   },
   "overview": {
     "title": "Company Overview",
     "subtitle": "Experienced. Trusted. Enterprise-Ready.",
+    "tagline": "Corporate Profile",
     "mission": {
       "title": "Our Mission",
       "description": "To architect, secure, and manage mission-critical IT infrastructure for organizations driving economic progress, ensuring their systems are resilient, highly available, and ready for future technological growth."
@@ -367,6 +402,11 @@
   "contact": {
     "title": "Request a Consultation",
     "subtitle": "Connect with our enterprise solutions architects to discuss your infrastructure, networking, software, or security needs.",
+    "labels": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location"
+    },
     "form": {
       "title": "Inquiry Details",
       "name": "Full Name",
@@ -381,7 +421,13 @@
         "managed": "Managed Services & Support SLAs"
       },
       "message": "Project Requirements Overview",
-      "submit": "Submit Consultation Request"
+      "submit": "Submit Consultation Request",
+      "placeholders": {
+        "name": "e.g., John Doe",
+        "email": "e.g., name@organization.com",
+        "org": "e.g., Acme Corporation",
+        "message": "Please outline your project requirements or specific inquiry..."
+      }
     },
     "info": {
       "title": "Direct Contact",
@@ -391,7 +437,9 @@
       "locations": {
         "title": "Regional Offices",
         "jordan": "Amman, Jordan (HQ)",
-        "uae": "Dubai, UAE"
+        "jordanDesc": "Corporate Headquarters, Mecca St.",
+        "uae": "Dubai, UAE",
+        "uaeDesc": "Regional Office, Dubai Internet City"
       }
     }
   },
@@ -403,6 +451,12 @@
     "links": {
       "privacy": "Privacy Policy",
       "terms": "Terms of Service"
+    },
+    "badges": {
+      "cisco": "CISCO PARTNER",
+      "fortinet": "FORTINET AUTHORIZED",
+      "paloalto": "PALO ALTO SECURITY",
+      "iso": "ISO 27001 COMPLIANT"
     }
   },
   "modal": {
@@ -411,5 +465,35 @@
       "exit": "Exit Fullscreen"
     },
     "close": "Close"
+  },
+  "about": {
+    "title": "About Amwaj Tech",
+    "locations": {
+      "title": "Regional Presence",
+      "jordan": "Jordan Office (HQ):",
+      "jordanAddress": "Amman, Mecca St.",
+      "uae": "UAE Office:",
+      "uaeAddress": "Dubai, Internet City"
+    },
+    "description": "Amwaj Tech is a premier system integrator and technology solutions provider in the Middle East. Since our founding in 2012, we have focused on delivering high-availability IT networks, next-generation security fabrics, and robust private cloud infrastructure. We serve clients who cannot afford system downtime.",
+    "certifications": {
+      "cisco": {
+        "title": "Cisco Gold Integrator",
+        "description": "Highest standard of deployment, virtualization, and network architecture integrations certified directly by Cisco."
+      },
+      "fortinet": {
+        "title": "Fortinet NSE Certified",
+        "description": "Recognized capability in deploying Unified Threat Management (UTM) and multi-site SD-WAN security fabrics."
+      },
+      "iso": {
+        "title": "ISO 27001 Compliance",
+        "description": "Our internal configurations and system designs strictly align with international information security standards."
+      }
+    }
+  },
+  "home": {
+    "ctaTitle": "Ready to secure and scale your enterprise infrastructure?",
+    "ctaText": "Connect with our systems architects today to schedule a technical discovery consultation.",
+    "ctaButton": "Request Consultation"
   }
 }

@@ -3,7 +3,7 @@
     <!-- Header Banner -->
     <section class="page-header">
       <div class="header-container">
-        <span class="category-label">ENTERPRISE SERVICE</span>
+        <span class="category-label">{{ t('services.labels.category') }}</span>
         <h1 class="page-title">{{ t(`services.items.${serviceKey}.title`) }}</h1>
       </div>
     </section>
@@ -21,7 +21,7 @@
             </div>
             
             <div class="features-block">
-              <h2 class="sub-title">Core Service Capabilities</h2>
+              <h2 class="sub-title">{{ t('services.labels.capabilities') }}</h2>
               <ul class="features-list">
                 <li v-for="(feature, idx) in features" :key="idx" class="feature-item">
                   <span class="checkmark">✔</span>
@@ -35,7 +35,7 @@
           <div class="sidebar-info">
             <!-- Integrated Technologies -->
             <div class="sidebar-card technologies-card" v-if="technologies && technologies.length">
-              <h3 class="card-title">Technologies Integrated</h3>
+              <h3 class="card-title">{{ t('services.labels.techIntegrated') }}</h3>
               <div class="tech-tags">
                 <span v-for="(tech, idx) in technologies" :key="idx" class="tech-tag">{{ tech }}</span>
               </div>
@@ -43,7 +43,7 @@
 
             <!-- Benefits -->
             <div class="sidebar-card benefits-card" v-if="benefits && benefits.length">
-              <h3 class="card-title">Key Differentiators</h3>
+              <h3 class="card-title">{{ t('services.labels.differentiators') }}</h3>
               <ul class="benefits-list">
                 <li v-for="(benefit, idx) in benefits" :key="idx" class="benefit-item">
                   {{ benefit }}
@@ -53,7 +53,7 @@
 
             <!-- Action CTA -->
             <router-link to="/contact" class="sidebar-cta-btn">
-              Request Consultation
+              {{ t('services.labels.cta') }}
             </router-link>
           </div>
         </div>
@@ -62,9 +62,9 @@
   </main>
   <main class="service-detail-view invalid-view" v-else>
     <div class="error-container">
-      <h2>Service Not Found</h2>
-      <p>The requested service route does not exist.</p>
-      <router-link to="/services" class="back-link">Back to Services</router-link>
+      <h2>{{ t('services.labels.notFound') }}</h2>
+      <p>{{ t('services.labels.notFoundDesc') }}</p>
+      <router-link to="/services" class="back-link">{{ t('services.labels.back') }}</router-link>
     </div>
   </main>
 </template>

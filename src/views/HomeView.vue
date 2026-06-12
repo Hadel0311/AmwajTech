@@ -18,10 +18,10 @@
     <!-- 6. Professional Contact CTA -->
     <section class="contact-cta-section">
       <div class="cta-container">
-        <h2 class="cta-title">Ready to secure and scale your enterprise infrastructure?</h2>
-        <p class="cta-text">Connect with our systems architects today to schedule a technical discovery consultation.</p>
+        <h2 class="cta-title">{{ t('home.ctaTitle') }}</h2>
+        <p class="cta-text">{{ t('home.ctaText') }}</p>
         <router-link to="/contact" class="btn btn-primary cta-btn">
-          Request Consultation
+          {{ t('home.ctaButton') }}
           <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-arrow">
             <path d="M4.16669 10H15.8334M15.8334 10L10.8334 5M15.8334 10L10.8334 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -32,11 +32,14 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
 import Hero from '@/components/Hero.vue'
 import TrustCredibility from '@/components/TrustCredibility.vue'
 import ServicesGrid from '@/components/ServicesGrid.vue'
 import IndustriesServed from '@/components/IndustriesServed.vue'
 import WhyAmwaj from '@/components/WhyAmwaj.vue'
+
+const { t } = useI18n()
 </script>
 
 <style scoped>

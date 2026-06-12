@@ -26,12 +26,7 @@
                   <strong>{{ t('about.locations.jordan') }}</strong> {{ t('about.locations.jordanAddress') }}
                 </div>
               </div>
-              <div class="loc-item">
-                <span class="loc-bullet"></span>
-                <div>
-                  <strong>{{ t('about.locations.uae') }}</strong> {{ t('about.locations.uaeAddress') }}
-                </div>
-              </div>
+
             </div>
           </div>
 

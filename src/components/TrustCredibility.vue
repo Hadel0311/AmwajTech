@@ -28,14 +28,32 @@
       <div class="clients-area">
         <h3 class="trust-label">{{ t('trust.clientLogosLabel') }}</h3>
         <div class="client-logos-row">
-          <router-link 
-            v-for="client in clientsList" 
-            :key="client.id"
-            :to="`/clients/${client.id}`"
-            class="client-logo"
-          >
-            <img :src="getLogoUrl(client.logo)" :alt="client.name + ' Logo'" class="trust-client-logo-img" />
-          </router-link>
+          <!-- SVG Client Logo Mockups (Corporate Grayscale style) -->
+          <div class="client-logo">
+            <svg width="120" height="40" viewBox="0 0 120 40" fill="currentColor">
+              <text x="10" y="25" font-family="Montserrat" font-weight="700" font-size="12" letter-spacing="1">AL-WATANIYA BANK</text>
+            </svg>
+          </div>
+          <div class="client-logo">
+            <svg width="120" height="40" viewBox="0 0 120 40" fill="currentColor">
+              <text x="10" y="25" font-family="Montserrat" font-weight="700" font-size="12" letter-spacing="1">GULF MEDICAL</text>
+            </svg>
+          </div>
+          <div class="client-logo">
+            <svg width="120" height="40" viewBox="0 0 120 40" fill="currentColor">
+              <text x="10" y="25" font-family="Montserrat" font-weight="700" font-size="12" letter-spacing="1">MINISTRY OF IT</text>
+            </svg>
+          </div>
+          <div class="client-logo">
+            <svg width="120" height="40" viewBox="0 0 120 40" fill="currentColor">
+              <text x="10" y="25" font-family="Montserrat" font-weight="700" font-size="12" letter-spacing="1">CAPITAL TELECOM</text>
+            </svg>
+          </div>
+          <div class="client-logo">
+            <svg width="120" height="40" viewBox="0 0 120 40" fill="currentColor">
+              <text x="10" y="25" font-family="Montserrat" font-weight="700" font-size="12" letter-spacing="1">AMMAN PORT AUTHORITY</text>
+            </svg>
+          </div>
         </div>
       </div>
     </div>
@@ -44,14 +62,7 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
-import { clientsList } from '@/data/clients.js'
-
 const { t } = useI18n()
-
-const logoImages = import.meta.glob('../assets/images/Clients/*', { eager: true, import: 'default' })
-const getLogoUrl = (logoName) => {
-  return logoImages[`../assets/images/Clients/${logoName}`] || ''
-}
 </script>
 
 <style scoped>
@@ -124,25 +135,18 @@ const getLogoUrl = (logoName) => {
 }
 
 .client-logo {
-  transition: all var(--transition-smooth);
-  flex: 1 1 120px;
+  color: var(--color-text-muted);
+  opacity: 0.5;
+  transition: all var(--transition-fast);
+  flex: 1 1 160px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem;
 }
 
-.trust-client-logo-img {
-  max-width: 100px;
-  max-height: 35px;
-  object-fit: contain;
-  filter: grayscale(100%) opacity(0.55);
-  transition: all var(--transition-smooth);
-}
-
-.client-logo:hover .trust-client-logo-img {
-  filter: grayscale(0%) opacity(1);
-  transform: scale(1.08);
+.client-logo:hover {
+  color: var(--color-primary);
+  opacity: 0.9;
 }
 
 /* Responsiveness */

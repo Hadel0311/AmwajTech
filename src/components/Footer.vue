@@ -257,14 +257,14 @@ const scrollToSection = (sectionId) => {
 }
 
 /* Responsiveness */
-@media (max-width: 992px) {
+@media (max-width: 1023px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 767px) {
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -273,6 +273,9 @@ const scrollToSection = (sectionId) => {
     flex-direction: column;
     gap: 1rem;
     align-items: flex-start;
+  }
+  .footer-section {
+    padding: 4rem 0 2rem;
   }
 }
 </style>

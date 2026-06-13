@@ -150,20 +150,21 @@ const { t } = useI18n()
 }
 
 /* Responsiveness */
-@media (max-width: 992px) {
+@media (max-width: 1023px) {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 767px) {
   .stats-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
   .client-logos-row {
     justify-content: center;
+    gap: 1rem;
   }
 }
 </style>

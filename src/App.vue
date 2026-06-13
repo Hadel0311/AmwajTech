@@ -172,7 +172,7 @@ onMounted(() => {
 
 main {
   flex: 1;
-  margin-top: 80px; /* Offset fixed header */
+  margin-top: var(--navbar-height, 68px);
   background-color: var(--color-bg-primary);
 }
 

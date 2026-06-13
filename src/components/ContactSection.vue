@@ -418,14 +418,14 @@ const handleSubmit = () => {
 }
 
 /* Responsiveness */
-@media (max-width: 992px) {
+@media (max-width: 1023px) {
   .contact-layout {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .form-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -438,6 +438,7 @@ const handleSubmit = () => {
   }
   .submit-btn {
     align-self: stretch;
+    justify-content: center;
   }
 }
 </style>

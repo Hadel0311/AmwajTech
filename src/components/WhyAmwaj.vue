@@ -191,10 +191,18 @@ const whyItems = [
 }
 
 /* Responsiveness */
-@media (max-width: 992px) {
+@media (max-width: 1023px) {
   .why-layout {
     grid-template-columns: 1fr;
     gap: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .why-item {
+    padding: 1.5rem;
+    flex-direction: column;
+    gap: 1rem;
   }
 }
 </style>

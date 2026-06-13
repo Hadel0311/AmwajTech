@@ -158,13 +158,13 @@ const servicesList = [
 }
 
 /* Responsiveness */
-@media (max-width: 992px) {
+@media (max-width: 1023px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 767px) {
   .services-grid {
     grid-template-columns: 1fr;
   }

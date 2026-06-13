@@ -135,4 +135,14 @@ const { t } = useI18n()
 [dir="rtl"] .btn-primary:hover .btn-arrow {
   transform: rotate(180deg) translateX(4px);
 }
+
+/* Responsiveness */
+@media (max-width: 767px) {
+  .contact-cta-section {
+    padding: 4rem 0;
+  }
+  .cta-btn {
+    width: 100%;
+  }
+}
 </style>

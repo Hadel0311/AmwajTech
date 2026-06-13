@@ -209,15 +209,18 @@ const categories = [
 }
 
 /* Responsiveness */
-@media (max-width: 992px) {
+@media (max-width: 1023px) {
   .services-overview-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 767px) {
   .services-overview-grid {
     grid-template-columns: 1fr;
+  }
+  .page-header {
+    padding: 4rem 0;
   }
 }
 </style>

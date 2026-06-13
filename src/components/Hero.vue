@@ -276,7 +276,11 @@ const scrollToSection = (sectionId) => {
 }
 
 /* Responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+  .hero-section {
+    height: 85vh;
+    min-height: 600px;
+  }
   .hero-container {
     padding: 0 1.5rem;
   }
@@ -288,10 +292,27 @@ const scrollToSection = (sectionId) => {
   }
   .hero-actions {
     justify-content: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn {
+    width: 100%;
   }
   .hero-description {
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-scroll-indicator {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video {
+    display: none;
   }
 }
 </style>

@@ -9,7 +9,14 @@
     "partners": "Partners",
     "clients": "Clients",
     "companyName": "Amwaj Tech",
-    "tagline": "Enterprise Infrastructure & Security"
+    "tagline": "Enterprise Infrastructure & Security",
+    "getInTouch": "Get in Touch",
+    "resources": "Resources",
+    "news": "News & Insights",
+    "consultation": "Consultation",
+    "careers": "Careers",
+    "company": "Company",
+    "solutionFinder": "Solution Finder"
   },
   "hero": {
     "location": "Regional Hub: Amman, Jordan",
@@ -1175,5 +1182,139 @@
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       }
     }
+  },
+  "resources": {
+    "title": "Resources Center",
+    "subtitle": "Insights, guides, and technical whitepapers from our engineering experts.",
+    "articles": "Articles",
+    "guides": "Guides",
+    "whitepapers": "Whitepapers",
+    "readMore": "Read More",
+    "download": "Download PDF"
+  },
+  "news": {
+    "title": "News & Insights",
+    "subtitle": "Stay updated with the latest industry news and cybersecurity trends.",
+    "categories": {
+      "all": "All News",
+      "industry": "Industry News",
+      "cybersecurity": "Cybersecurity Trends",
+      "technology": "Technology Updates"
+    },
+    "readArticle": "Read Article"
+  },
+  "consultation": {
+    "title": "Dedicated Consultation",
+    "subtitle": "Provide details about your enterprise infrastructure needs and our architects will get in touch.",
+    "form": {
+      "companyName": "Company Name",
+      "industry": "Industry",
+      "serviceNeeded": "Service Needed",
+      "budgetRange": "Budget Range",
+      "selectIndustry": "Select your industry",
+      "selectBudget": "Select estimated budget",
+      "budgets": {
+        "b1": "Under $50,000",
+        "b2": "$50,000 - $150,000",
+        "b3": "$150,000 - $500,000",
+        "b4": "Over $500,000"
+      }
+    }
+  },
+  "process": {
+    "title": "Why Choose Amwaj Process",
+    "subtitle": "Our systematic approach to delivering enterprise-grade infrastructure.",
+    "steps": {
+      "assessment": {
+        "title": "Assessment",
+        "desc": "Deep dive into current architecture and security gaps."
+      },
+      "planning": {
+        "title": "Planning",
+        "desc": "Detailed engineering designs and compliance mapping."
+      },
+      "deployment": {
+        "title": "Deployment",
+        "desc": "Zero-downtime execution by certified engineers."
+      },
+      "testing": {
+        "title": "Testing",
+        "desc": "Rigorous stress tests and vulnerability scanning."
+      },
+      "support": {
+        "title": "Support",
+        "desc": "24/7 NOC monitoring and strict SLA adherence."
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Client Testimonials",
+    "subtitle": "What our enterprise partners say about our work.",
+    "items": [
+      {
+        "quote": "Amwaj Tech completely transformed our core banking network with zero downtime. Exceptional professionalism.",
+        "name": "Ahmad Al-Saeed",
+        "role": "CTO, National Bank"
+      },
+      {
+        "quote": "Their cybersecurity implementation secured our hospital databases against advanced threats.",
+        "name": "Sarah Khalid",
+        "role": "IT Director, Royal Hospital"
+      },
+      {
+        "quote": "The best system integrator we have worked with for our university campus optical networks.",
+        "name": "Dr. Omar Yassin",
+        "role": "Dean of IT, Petra University"
+      }
+    ]
+  },
+  "careers": {
+    "title": "Careers at Amwaj Tech",
+    "subtitle": "Join the elite team building the Middle East's secure infrastructure.",
+    "culture": {
+      "title": "Company Culture",
+      "desc": "We value engineering excellence, continuous learning, and an unwavering commitment to security. We offer sponsored certifications and an environment where technical skills thrive."
+    },
+    "positions": "Open Positions",
+    "apply": "Apply Now",
+    "noPositions": "No open positions currently. Please send your CV for future opportunities."
+  },
+  "ecosystem": {
+    "title": "Technology Ecosystem",
+    "subtitle": "Integrated architectures leveraging world-class technology partners.",
+    "categories": {
+      "security": "Cybersecurity",
+      "infrastructure": "Data Center Infrastructure",
+      "networking": "Enterprise Networking",
+      "cloud": "Cloud & Productivity"
+    }
+  },
+  "solutionFinder": {
+    "title": "Interactive Solution Finder",
+    "subtitle": "Answer a few questions to discover the best technology architecture for your organization.",
+    "steps": {
+      "step1": "What is your primary industry?",
+      "step2": "What is your organization size?",
+      "step3": "What is your biggest IT challenge?"
+    },
+    "options": {
+      "finance": "Finance / Banking",
+      "gov": "Government",
+      "health": "Healthcare",
+      "edu": "Education",
+      "other": "Other Enterprise",
+      "size1": "1 - 50 Employees",
+      "size2": "51 - 500 Employees",
+      "size3": "500+ Employees",
+      "chal1": "Network Instability & Speed",
+      "chal2": "Cybersecurity & Compliance",
+      "chal3": "Data Storage & Disaster Recovery",
+      "chal4": "Legacy Software Modernization"
+    },
+    "result": "Recommended Solution Package",
+    "cta": "Discuss this solution",
+    "next": "Next Step",
+    "prev": "Previous",
+    "start": "Start Wizard"
   }
 }

@@ -321,10 +321,20 @@ const benefits = computed(() => {
 }
 
 /* Responsiveness */
-@media (max-width: 992px) {
+@media (max-width: 1023px) {
   .detail-layout {
     grid-template-columns: 1fr;
     gap: 3.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .detail-content-section {
+    padding: 4rem 0;
+  }
+  .sidebar-cta-btn {
+    width: 100%;
+    display: block;
   }
 }
 </style>

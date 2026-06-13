@@ -58,16 +58,16 @@
   --spacing-2xl: 4rem;
   --spacing-3xl: 6rem;
   
-  /* Font Sizes */
-  --text-xs: 0.9rem;
-  --text-sm: 1rem;
-  --text-base: 1.1rem;
-  --text-lg: 1.2rem;
-  --text-xl: 1.5rem;
-  --text-2xl: 2rem;
-  --text-3xl: 2.5rem;
-  --text-4xl: 3rem;
-  --text-5xl: 3.5rem;
+  /* Font Sizes — Fluid Typography */
+  --text-xs: clamp(0.8rem, 0.75rem + 0.25vw, 0.9rem);
+  --text-sm: clamp(0.875rem, 0.825rem + 0.25vw, 1rem);
+  --text-base: clamp(0.95rem, 0.875rem + 0.35vw, 1.1rem);
+  --text-lg: clamp(1.05rem, 0.975rem + 0.35vw, 1.2rem);
+  --text-xl: clamp(1.2rem, 1.05rem + 0.7vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.25rem + 1.1vw, 2rem);
+  --text-3xl: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);
+  --text-4xl: clamp(2rem, 1.5rem + 2.2vw, 3rem);
+  --text-5xl: clamp(2.25rem, 1.6rem + 2.8vw, 3.5rem);
   
   /* Font Weights */
   --font-light: 300;
@@ -79,9 +79,14 @@
   /* Z-Index */
   --z-dropdown: 1001;
   --z-navbar: 1000;
+  --z-mobile-menu: 1001;
+  --z-mobile-overlay: 999;
   --z-content: 2;
   --z-background: 1;
   --z-info-cards: 3;
+
+  /* Layout */
+  --navbar-height: 68px;
   
   /* Transitions */
   --transition-fast: 0.3s ease;

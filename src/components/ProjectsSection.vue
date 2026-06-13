@@ -239,19 +239,29 @@ const triggerModal = (key) => {
 }
 
 /* Responsiveness */
-@media (max-width: 992px) {
+@media (max-width: 1023px) {
   .project-card-body {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 767px) {
   .project-card {
     padding: 1.5rem;
   }
   .project-card-header {
     margin-bottom: 1.5rem;
+  }
+  .project-card-footer {
+    justify-content: stretch;
+  }
+  .view-details-btn {
+    width: 100%;
+    justify-content: center;
+    background-color: rgba(13, 148, 136, 0.1);
+    padding: 1rem;
+    border-radius: 4px;
   }
 }
 </style>

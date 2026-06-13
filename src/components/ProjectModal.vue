@@ -255,7 +255,7 @@ onUnmounted(() => {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .modal-overlay {
     padding: var(--spacing-sm, 0.75rem);
   }

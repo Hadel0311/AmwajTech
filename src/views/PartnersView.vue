@@ -20,28 +20,35 @@
           <input 
             type="text" 
             v-model="searchQuery" 
-            :placeholder="t('partners.searchPlaceholder')"
+            placeholder="Search partners by name only..."
           />
         </div>
 
         <!-- Category Filter Chips -->
-        <div class="partners-categories">
-          <button 
-            class="category-chip" 
-            :class="{ active: selectedCategory === 'all' }"
-            @click="selectedCategory = 'all'"
-          >
-            {{ t('partners.filterAll') }}
-          </button>
-          <button 
-            v-for="cat in availableCategories" 
-            :key="cat.key"
-            class="category-chip" 
-            :class="{ active: selectedCategory === cat.key }"
-            @click="selectedCategory = cat.key"
-          >
-            {{ t(cat.translationKey) }}
-          </button>
+        <div class="partners-categories-wrapper">
+          <div class="partners-categories">
+            <button 
+              class="category-chip" 
+              :class="{ active: selectedCategory === 'all' }"
+              @click="selectedCategory = 'all'"
+            >
+              {{ t('partners.filterAll') }}
+            </button>
+            <button 
+              v-for="cat in availableCategories" 
+              :key="cat.key"
+              class="category-chip" 
+              :class="{ active: selectedCategory === cat.key }"
+              @click="selectedCategory = cat.key"
+            >
+              {{ t(cat.translationKey) }}
+            </button>
+          </div>
+          <div class="categories-scroll-indicator">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </div>
         </div>
       </div>
     </section>
@@ -55,12 +62,13 @@
             :key="partner.id"
             class="partner-grid-card"
           >
-            <div class="partner-card-header">
-              <!-- Official Brand Logo -->
-              <div class="partner-card-logo-container">
-                <img :src="getLogoUrl(partner.logo)" :alt="partner.name + ' Logo'" class="partner-logo" />
-              </div>
+            <!-- Default View: Just Logo centered -->
+            <div class="partner-card-logo-container">
+              <img :src="getLogoUrl(partner.logo)" :alt="partner.name + ' Logo'" class="partner-logo" />
+            </div>
 
+            <!-- Hover Overlay View -->
+            <div class="partner-card-overlay">
               <!-- Main Category Badge -->
               <span class="partner-card-cat-badge">
                 {{ t(`partners.items.${partner.key}.category`) }}
@@ -73,16 +81,10 @@
               <p class="partner-card-desc">
                 {{ t(`partners.items.${partner.key}.shortDesc`) }}
               </p>
-            </div>
 
-            <!-- Card Footer Link -->
-            <div class="partner-card-footer">
+              <!-- Card Footer Link -->
               <router-link :to="`/partners/${partner.id}`" class="partner-card-link">
-                <span>{{ t('partners.learnMore') }}</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" :style="locale === 'ar' ? 'transform: scaleX(-1)' : ''">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
+                <span>View Details &rarr;</span>
               </router-link>
             </div>
           </article>

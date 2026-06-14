@@ -75,11 +75,10 @@
         <router-link to="/partners" class="nav-link-item">{{ t('nav.partners') }}</router-link>
         <router-link to="/clients" class="nav-link-item">{{ t('nav.clients') }}</router-link>
         <router-link to="/projects" class="nav-link-item">{{ t('nav.projects') }}</router-link>
-        <router-link to="/contact" class="nav-link-item">{{ t('nav.contact') }}</router-link>
       </div>
 
       <div class="nav-actions">
-        <router-link to="/contact" class="nav-cta-btn desktop-only">{{ t('nav.getInTouch') || 'Get in Touch' }}</router-link>
+        <router-link to="/request-consultation" class="nav-cta-btn desktop-only">{{ t('nav.requestConsultation') }}</router-link>
         
         <div class="lang-dropdown desktop-only">
           <button @click="toggleDropdown" class="lang-btn" aria-label="Toggle Language">
@@ -193,11 +192,10 @@
         <router-link to="/partners" class="mobile-nav-link" @click="closeMobileMenu">{{ t('nav.partners') }}</router-link>
         <router-link to="/clients" class="mobile-nav-link" @click="closeMobileMenu">{{ t('nav.clients') }}</router-link>
         <router-link to="/projects" class="mobile-nav-link" @click="closeMobileMenu">{{ t('nav.projects') }}</router-link>
-        <router-link to="/contact" class="mobile-nav-link" @click="closeMobileMenu">{{ t('nav.contact') }}</router-link>
       </div>
       
       <div class="mobile-menu-footer">
-        <router-link to="/contact" class="mobile-cta-btn" @click="closeMobileMenu">{{ t('nav.getInTouch') || 'Get in Touch' }}</router-link>
+        <router-link to="/request-consultation" class="mobile-cta-btn" @click="closeMobileMenu">{{ t('nav.requestConsultation') }}</router-link>
         
         <div class="mobile-lang-selector">
           <button @click="selectLanguage('en')" class="mobile-lang-btn" :class="{ 'is-active': currentLocale === 'en' }">English</button>

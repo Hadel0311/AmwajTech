@@ -5,12 +5,11 @@
     "services": "Services",
     "industries": "Industries",
     "projects": "Case Studies",
-    "contact": "Contact",
+    "requestConsultation": "Request Consultation",
     "partners": "Partners",
     "clients": "Clients",
     "companyName": "Amwaj Tech",
     "tagline": "Enterprise Infrastructure & Security",
-    "getInTouch": "Get in Touch",
     "resources": "Resources",
     "news": "News & Insights",
     "consultation": "Consultation",
@@ -1316,5 +1315,119 @@
     "next": "Next Step",
     "prev": "Previous",
     "start": "Start Wizard"
+  },
+  "timeline": {
+    "title": "How We Deliver Success",
+    "subtitle": "Every successful technology project follows a clear journey. From understanding business requirements to long-term support, Amwaj Tech partners with clients every step of the way.",
+    "finalMessage": "Technology projects are not one-time installations. They are long-term partnerships built on planning, expertise, execution, and continuous support.",
+    "ctaButton": "Request Consultation",
+    "steps": {
+      "discovery": {
+        "title": "Discovery & Assessment",
+        "description": "Understand business goals, existing infrastructure, and technical requirements."
+      },
+      "planning": {
+        "title": "Strategic Planning",
+        "description": "Design a tailored solution aligned with business objectives and scalability requirements."
+      },
+      "design": {
+        "title": "Solution Design",
+        "description": "Define architecture, technologies, security requirements, and implementation strategy."
+      },
+      "deployment": {
+        "title": "Deployment & Integration",
+        "description": "Deploy and integrate solutions with minimal operational disruption."
+      },
+      "testing": {
+        "title": "Testing & Optimization",
+        "description": "Validate performance, reliability, and security while optimizing the environment."
+      },
+      "support": {
+        "title": "Ongoing Support",
+        "description": "Provide continuous maintenance, monitoring, support, and future growth recommendations."
+      }
+    }
+  },
+  "requestConsultation": {
+    "hero": {
+      "title": "Let's Discuss Your Technology Requirements",
+      "subtitle": "Whether you're planning a new infrastructure deployment, upgrading your network, improving security, or exploring digital transformation initiatives, our team is ready to help.",
+      "cta": "Schedule a Consultation"
+    },
+    "journeyTitle": "Consultation Journey",
+    "journeySteps": {
+      "step1": "Submit Request",
+      "step2": "Initial Assessment",
+      "step3": "Consultation Meeting",
+      "step4": "Solution Proposal",
+      "step5": "Implementation Planning",
+      "step6": "Project Delivery & Support"
+    },
+    "form": {
+      "fullName": "Full Name",
+      "companyName": "Company Name",
+      "jobTitle": "Job Title",
+      "businessEmail": "Business Email",
+      "phoneNumber": "Phone Number",
+      "industry": "Industry",
+      "requiredService": "Required Service",
+      "projectSize": "Project Size",
+      "projectTimeline": "Project Timeline",
+      "message": "Message",
+      "submit": "Request Consultation"
+    },
+    "options": {
+      "industry": {
+        "gov": "Government",
+        "bank": "Banking",
+        "health": "Healthcare",
+        "edu": "Education",
+        "ent": "Enterprise",
+        "ind": "Industrial",
+        "other": "Other"
+      },
+      "service": {
+        "net_inf": "Network Infrastructure",
+        "net_sec": "Network Security",
+        "dc": "Data Center Solutions",
+        "cloud": "Cloud Services",
+        "sw": "Software Solutions",
+        "ts": "Technical Support",
+        "ms": "Managed Services",
+        "multi": "Multiple Services"
+      },
+      "size": {
+        "small": "Small Business",
+        "medium": "Medium Organization",
+        "enterprise": "Enterprise",
+        "gov": "Government Project"
+      },
+      "timeline": {
+        "immediate": "Immediate",
+        "1m": "Within 1 Month",
+        "3m": "Within 3 Months",
+        "6m": "Within 6 Months",
+        "future": "Future Planning"
+      }
+    },
+    "whyClients": {
+      "title": "Why Clients Work With Amwaj",
+      "cards": {
+        "expertise": "Enterprise Expertise",
+        "technologies": "Certified Technologies",
+        "support": "Long-Term Support",
+        "partnerships": "Trusted Partnerships"
+      }
+    },
+    "industries": {
+      "title": "Industries We Support",
+      "cards": {
+        "banking": "Banking",
+        "healthcare": "Healthcare",
+        "government": "Government",
+        "education": "Education",
+        "enterprise": "Enterprise"
+      }
+    }
   }
 }

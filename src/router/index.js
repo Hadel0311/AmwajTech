@@ -6,7 +6,7 @@ import ServiceDetailView from '../views/ServiceDetailView.vue'
 import IndustriesView from '../views/IndustriesView.vue'
 import IndustryDetailView from '../views/IndustryDetailView.vue'
 import ProjectsView from '../views/ProjectsView.vue'
-import ContactView from '../views/ContactView.vue'
+import RequestConsultationView from '../views/RequestConsultationView.vue'
 import PartnersView from '../views/PartnersView.vue'
 import PartnerDetailView from '../views/PartnerDetailView.vue'
 import ClientsView from '../views/ClientsView.vue'
@@ -22,7 +22,7 @@ const router = createRouter({
     { path: '/industries', name: 'industries', component: IndustriesView },
     { path: '/industries/:id', name: 'industry-detail', component: IndustryDetailView },
     { path: '/projects', name: 'projects', component: ProjectsView },
-    { path: '/contact', name: 'contact', component: ContactView },
+    { path: '/request-consultation', name: 'request-consultation', component: RequestConsultationView },
     { path: '/partners', name: 'partners', component: PartnersView },
     { path: '/partners/:id', name: 'partner-detail', component: PartnerDetailView },
     { path: '/clients', name: 'clients', component: ClientsView },

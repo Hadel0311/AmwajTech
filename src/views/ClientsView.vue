@@ -20,28 +20,35 @@
           <input 
             type="text" 
             v-model="searchQuery" 
-            :placeholder="t('clients.searchPlaceholder')"
+            placeholder="Search clients by name only..."
           />
         </div>
 
         <!-- Category Filter Chips -->
-        <div class="clients-categories">
-          <button 
-            class="category-chip" 
-            :class="{ active: selectedCategory === 'all' }"
-            @click="selectedCategory = 'all'"
-          >
-            {{ t('clients.filterAll') }}
-          </button>
-          <button 
-            v-for="cat in availableCategories" 
-            :key="cat.key"
-            class="category-chip" 
-            :class="{ active: selectedCategory === cat.key }"
-            @click="selectedCategory = cat.key"
-          >
-            {{ t(`clients.sectors.${cat.key}`) }}
-          </button>
+        <div class="clients-categories-wrapper">
+          <div class="clients-categories">
+            <button 
+              class="category-chip" 
+              :class="{ active: selectedCategory === 'all' }"
+              @click="selectedCategory = 'all'"
+            >
+              {{ t('clients.filterAll') }}
+            </button>
+            <button 
+              v-for="cat in availableCategories" 
+              :key="cat.key"
+              class="category-chip" 
+              :class="{ active: selectedCategory === cat.key }"
+              @click="selectedCategory = cat.key"
+            >
+              {{ t(`clients.sectors.${cat.key}`) }}
+            </button>
+          </div>
+          <div class="categories-scroll-indicator">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </div>
         </div>
       </div>
     </section>
@@ -55,36 +62,27 @@
             :key="client.id"
             class="client-grid-card"
           >
-            <div class="client-card-header">
-              <!-- Official Brand Logo -->
-              <div class="client-card-logo-container">
-                <img :src="getLogoUrl(client.logo)" :alt="client.name + ' Logo'" class="client-logo" />
-              </div>
+            <!-- Default View: Just Logo centered -->
+            <div class="client-card-logo-container">
+              <img :src="getLogoUrl(client.logo)" :alt="client.name + ' Logo'" class="client-logo" />
+            </div>
 
-              <!-- Sector Badge -->
+            <!-- Hover Overlay View -->
+            <div class="client-card-overlay">
               <span class="client-card-cat-badge">
                 {{ t(`clients.sectors.${client.category}`) }}
               </span>
 
-              <!-- Client Title -->
               <h3 class="client-card-title">
                 {{ t(`clients.items.${client.key}.name`) }}
               </h3>
 
-              <!-- Short Description -->
               <p class="client-card-desc">
                 {{ t(`clients.items.${client.key}.shortDesc`) }}
               </p>
-            </div>
 
-            <!-- Card Footer Link -->
-            <div class="client-card-footer">
               <router-link :to="`/clients/${client.id}`" class="client-card-link">
-                <span>{{ t('clients.learnMore') }}</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" :style="locale === 'ar' ? 'transform: scaleX(-1)' : ''">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
+                <span>View Details &rarr;</span>
               </router-link>
             </div>
           </article>

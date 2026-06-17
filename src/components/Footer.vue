@@ -30,9 +30,10 @@
             <li><router-link to="/">{{ t('nav.home', 'Home') }}</router-link></li>
             <li><router-link to="/about">{{ t('nav.about', 'About Us') }}</router-link></li>
             <li><router-link to="/services">{{ t('nav.services') }}</router-link></li>
-            <li><router-link to="/projects">{{ t('nav.projects') }}</router-link></li>
             <li><router-link to="/clients">{{ t('nav.clients') }}</router-link></li>
             <li><router-link to="/partners">{{ t('nav.partners') }}</router-link></li>
+            <li><router-link to="/careers">{{ t('nav.careers', 'Careers') }}</router-link></li>
+            <li><router-link to="/support">{{ t('nav.support', 'Support') }}</router-link></li>
             <li><router-link to="/contact">{{ t('nav.contact') }}</router-link></li>
           </ul>
         </div>
@@ -76,11 +77,6 @@
       <!-- Bottom Bar -->
       <div class="footer-bottom">
         <p class="copyright">{{ t('footer.copyright') }}</p>
-        <div class="legal-links">
-          <router-link to="/privacy-policy">{{ t('footer.links.privacy', 'Privacy Policy') }}</router-link>
-          <span class="separator">|</span>
-          <router-link to="/terms-of-service">{{ t('footer.links.terms', 'Terms of Service') }}</router-link>
-        </div>
       </div>
     </div>
   </footer>

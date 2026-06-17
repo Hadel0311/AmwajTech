@@ -102,7 +102,7 @@ const processCommand = (cmd: string) => {
     case 'help':
       if (isAr) {
         history.value.push({ text: 'الأوامر المتاحة:', type: 'output' })
-        history.value.push({ text: '&nbsp;&nbsp;about&nbsp;&nbsp;&nbsp;&nbsp;- معلومات عن أمواج تك', type: 'output' })
+        history.value.push({ text: '&nbsp;&nbsp;about&nbsp;&nbsp;&nbsp;&nbsp;- معلومات عن أمواج الأردن', type: 'output' })
         history.value.push({ text: '&nbsp;&nbsp;services&nbsp;- قائمة بخدماتنا الأساسية', type: 'output' })
         history.value.push({ text: '&nbsp;&nbsp;contact&nbsp;&nbsp;- معلومات الاتصال بنا', type: 'output' })
         history.value.push({ text: '&nbsp;&nbsp;clear&nbsp;&nbsp;&nbsp;&nbsp;- مسح سجل الشاشة', type: 'output' })
@@ -116,7 +116,7 @@ const processCommand = (cmd: string) => {
       break
     case 'about':
       if (isAr) {
-        history.value.push({ text: 'أمواج تك هي شركة تكنولوجيا رائدة يقع مقرها الرئيسي في عمان، الأردن. نحن متخصصون في تقديم الحلول البرمجية المتطورة، والبنية التحتية القوية للشبكات، واستراتيجيات التحول الرقمي الشاملة.', type: 'output' })
+        history.value.push({ text: 'أمواج الأردن هي شركة تكنولوجيا رائدة يقع مقرها الرئيسي في عمان، الأردن. نحن متخصصون في تقديم الحلول البرمجية المتطورة، والبنية التحتية القوية للشبكات، واستراتيجيات التحول الرقمي الشاملة.', type: 'output' })
       } else {
         history.value.push({ text: 'Amwaj-Tech is a pioneering technology company headquartered in Amman, Jordan. We specialize in delivering cutting-edge software solutions, robust network infrastructure, and comprehensive digital transformation strategies.', type: 'output' })
       }
@@ -149,7 +149,7 @@ const processCommand = (cmd: string) => {
       break
     case 'clear':
       history.value = [
-        { text: isAr ? 'طرفية أمواج تك التفاعلية v1.0.0' : 'Amwaj-Tech Interactive Terminal v1.0.0', type: 'system' }
+        { text: isAr ? 'طرفية أمواج الأردن التفاعلية v1.0.0' : 'Amwaj-Tech Interactive Terminal v1.0.0', type: 'system' }
       ]
       break
     default:
@@ -179,7 +179,7 @@ onMounted(() => {
   // Initialize terminal based on active language
   const isAr = locale.value === 'ar'
   history.value = [
-    { text: isAr ? 'طرفية أمواج تك التفاعلية v1.0.0' : 'Amwaj-Tech Interactive Terminal v1.0.0', type: 'system' },
+    { text: isAr ? 'طرفية أمواج الأردن التفاعلية v1.0.0' : 'Amwaj-Tech Interactive Terminal v1.0.0', type: 'system' },
     { text: isAr ? 'اكتب "help" لعرض الأوامر المتاحة.' : 'Type "help" to see available commands.', type: 'system' }
   ]
 })

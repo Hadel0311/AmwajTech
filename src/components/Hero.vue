@@ -73,7 +73,7 @@ const scrollToSection = (sectionId) => {
   height: auto;
   transform: translate(-50%, -50%);
   object-fit: cover;
-  opacity: 0.18;
+  opacity: 0.45;
   z-index: 1;
 }
 
@@ -84,7 +84,7 @@ const scrollToSection = (sectionId) => {
   right: 0;
   bottom: 0;
   background: radial-gradient(circle at center, transparent 30%, var(--color-primary-dark) 90%),
-              linear-gradient(180deg, rgba(10, 25, 47, 0.4) 0%, var(--color-primary-dark) 100%);
+              linear-gradient(180deg, rgba(10, 25, 47, 0.2) 0%, var(--color-primary-dark) 100%);
   z-index: 2;
 }
 

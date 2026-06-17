@@ -74,10 +74,11 @@
 
         <router-link to="/partners" class="nav-link-item">{{ t('nav.partners') }}</router-link>
         <router-link to="/clients" class="nav-link-item">{{ t('nav.clients') }}</router-link>
-        <router-link to="/projects" class="nav-link-item">{{ t('nav.projects') }}</router-link>
+        <router-link to="/careers" class="nav-link-item">{{ t('nav.careers', 'Careers') }}</router-link>
       </div>
 
       <div class="nav-actions">
+        <router-link to="/support" class="nav-outline-btn desktop-only">{{ t('nav.support', 'Support') }}</router-link>
         <router-link to="/request-consultation" class="nav-cta-btn desktop-only">{{ t('nav.requestConsultation') }}</router-link>
         
         <div class="lang-dropdown desktop-only">
@@ -191,10 +192,11 @@
 
         <router-link to="/partners" class="mobile-nav-link" @click="closeMobileMenu">{{ t('nav.partners') }}</router-link>
         <router-link to="/clients" class="mobile-nav-link" @click="closeMobileMenu">{{ t('nav.clients') }}</router-link>
-        <router-link to="/projects" class="mobile-nav-link" @click="closeMobileMenu">{{ t('nav.projects') }}</router-link>
+        <router-link to="/careers" class="mobile-nav-link" @click="closeMobileMenu">{{ t('nav.careers', 'Careers') }}</router-link>
       </div>
       
       <div class="mobile-menu-footer">
+        <router-link to="/support" class="mobile-outline-btn" @click="closeMobileMenu">{{ t('nav.support', 'Support') }}</router-link>
         <router-link to="/request-consultation" class="mobile-cta-btn" @click="closeMobileMenu">{{ t('nav.requestConsultation') }}</router-link>
         
         <div class="mobile-lang-selector">
@@ -491,6 +493,30 @@ onMounted(() => {
   box-shadow: 0 4px 12px rgba(10, 25, 47, 0.2);
 }
 
+/* Outline Button */
+.nav-outline-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--color-primary, #0A192F);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.55rem 1.35rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+  border: 2px solid var(--color-primary, #0A192F);
+}
+
+.nav-outline-btn:hover {
+  background: rgba(10, 25, 47, 0.05);
+  transform: translateY(-1px);
+}
+
+
 /* Language Dropdown */
 .lang-dropdown {
   position: relative;
@@ -776,6 +802,19 @@ onMounted(() => {
   text-align: center;
   background-color: var(--color-accent);
   color: #1a1a1a;
+  font-weight: 700;
+  padding: 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.mobile-outline-btn {
+  display: block;
+  text-align: center;
+  background-color: transparent;
+  color: var(--color-primary, #0A192F);
+  border: 2px solid var(--color-primary, #0A192F);
   font-weight: 700;
   padding: 1rem;
   border-radius: 4px;

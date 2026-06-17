@@ -1192,15 +1192,19 @@
     "download": "Download PDF"
   },
   "news": {
-    "title": "News & Insights",
-    "subtitle": "Stay updated with the latest industry news and cybersecurity trends.",
+    "sectionTitle": "Latest News & Announcements",
+    "sectionSubtitle": "Stay updated with the latest company news, technology updates, partnerships, and special announcements.",
+    "readMore": "Read More",
+    "related": "Related Announcements",
+    "backToList": "Back to News",
     "categories": {
-      "all": "All News",
-      "industry": "Industry News",
-      "cybersecurity": "Cybersecurity Trends",
-      "technology": "Technology Updates"
-    },
-    "readArticle": "Read Article"
+      "announcements": "Announcements",
+      "events": "Events",
+      "partnerships": "Partnerships",
+      "achievements": "Achievements",
+      "holidays": "Holiday Greetings",
+      "tech": "Technology Updates"
+    }
   },
   "consultation": {
     "title": "Dedicated Consultation",
@@ -1268,15 +1272,194 @@
     ]
   },
   "careers": {
-    "title": "Careers at Amwaj Tech",
-    "subtitle": "Join the elite team building the Middle East's secure infrastructure.",
-    "culture": {
-      "title": "Company Culture",
-      "desc": "We value engineering excellence, continuous learning, and an unwavering commitment to security. We offer sponsored certifications and an environment where technical skills thrive."
+    "hero": {
+      "title": "Build Your Future With Amwaj Tech",
+      "subtitle": "We're always looking for passionate professionals who want to create impactful technology solutions and grow alongside a team committed to excellence.",
+      "cta": "Explore Opportunities"
     },
-    "positions": "Open Positions",
-    "apply": "Apply Now",
-    "noPositions": "No open positions currently. Please send your CV for future opportunities."
+    "culture": {
+      "title": "Life at Amwaj Tech",
+      "subtitle": "We're building more than technology solutions. We're building a team of professionals who learn, grow, and succeed together.",
+      "cards": {
+        "collaboration": {
+          "title": "Team Collaboration",
+          "desc": "Work closely with experts to solve complex challenges."
+        },
+        "learning": {
+          "title": "Learning & Development",
+          "desc": "Continuous opportunities to upskill and master new technologies."
+        },
+        "innovation": {
+          "title": "Innovation Mindset",
+          "desc": "Contribute to cutting-edge enterprise projects."
+        },
+        "excellence": {
+          "title": "Professional Excellence",
+          "desc": "High standards and a commitment to quality in everything we do."
+        }
+      }
+    },
+    "highlights": {
+      "team": {
+        "title": "Professional Team",
+        "desc": "Experienced specialists delivering technology solutions across multiple industries."
+      },
+      "projects": {
+        "title": "Enterprise Projects",
+        "desc": "Contributing to infrastructure, cloud, software, and security initiatives."
+      },
+      "learning": {
+        "title": "Continuous Learning",
+        "desc": "Supporting certifications, training, and professional development."
+      },
+      "culture": {
+        "title": "Collaborative Culture",
+        "desc": "Encouraging teamwork, innovation, and knowledge sharing."
+      }
+    },
+    "whyJoin": {
+      "growth": {
+        "title": "Professional Growth",
+        "desc": "Work on challenging projects that accelerate technical and professional development."
+      },
+      "learning": {
+        "title": "Continuous Learning",
+        "desc": "Gain exposure to new technologies, certifications, and industry best practices."
+      },
+      "environment": {
+        "title": "Collaborative Environment",
+        "desc": "Work alongside experienced professionals in a supportive culture."
+      },
+      "projects": {
+        "title": "Innovative Projects",
+        "desc": "Participate in impactful technology initiatives across diverse industries."
+      },
+      "development": {
+        "title": "Career Development",
+        "desc": "Build a long-term professional path with opportunities for advancement."
+      },
+      "supportive": {
+        "title": "Supportive Team Culture",
+        "desc": "Join a workplace that values respect, teamwork, and shared success."
+      }
+    },
+    "positions": {
+      "title": "Current Opportunities",
+      "applyNow": "Apply Now",
+      "noOpenings": "We are always interested in connecting with talented professionals. Submit your application and we'll contact you when a suitable opportunity becomes available.",
+      "roles": {
+        "networkEngineer": {
+          "title": "Network Engineer",
+          "dept": "Infrastructure",
+          "type": "Full-Time",
+          "loc": "Amman, Jordan",
+          "desc": "Design, implement, and manage secure enterprise network infrastructures."
+        },
+        "softwareDeveloper": {
+          "title": "Software Developer",
+          "dept": "Engineering",
+          "type": "Full-Time",
+          "loc": "Amman, Jordan",
+          "desc": "Develop scalable software solutions utilizing modern frameworks."
+        },
+        "techSupport": {
+          "title": "Technical Support Engineer",
+          "dept": "Customer Success",
+          "type": "Full-Time",
+          "loc": "Amman, Jordan",
+          "desc": "Provide expert-level support and troubleshooting for enterprise clients."
+        },
+        "sysAdmin": {
+          "title": "System Administrator",
+          "dept": "IT Operations",
+          "type": "Full-Time",
+          "loc": "Amman, Jordan",
+          "desc": "Ensure the stability, integrity, and efficient operation of in-house information systems."
+        },
+        "cybersecurity": {
+          "title": "Cybersecurity Specialist",
+          "dept": "Security",
+          "type": "Full-Time",
+          "loc": "Dubai, UAE",
+          "desc": "Protect enterprise environments by implementing advanced security measures."
+        },
+        "salesExec": {
+          "title": "Sales Executive",
+          "dept": "Sales",
+          "type": "Full-Time",
+          "loc": "Riyadh, KSA",
+          "desc": "Drive growth by building relationships with enterprise clients."
+        },
+        "secretary": {
+          "title": "Secretary / Administrative Assistant",
+          "dept": "Administration",
+          "type": "Full-Time",
+          "loc": "Amman, Jordan",
+          "desc": "Support daily operations with exceptional organizational and administrative skills."
+        }
+      }
+    },
+    "application": {
+      "title": "Submit Application",
+      "fullName": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "linkedin": "LinkedIn Profile (Optional)",
+      "cv": "Upload CV / Resume",
+      "cvHint": "Accepted Formats: PDF, DOC, DOCX",
+      "message": "Additional Message",
+      "messagePlaceholder": "Tell us a little about yourself.",
+      "submit": "Submit Application",
+      "fields": {
+        "adminExp": "Years of Administrative Experience",
+        "msOffice": "Microsoft Office Proficiency",
+        "languages": "Languages Spoken",
+        "availability": "Availability",
+        "progLanguages": "Programming Languages",
+        "frameworks": "Frameworks",
+        "yearsExp": "Years of Experience",
+        "portfolio": "Portfolio URL",
+        "github": "GitHub Profile",
+        "ciscoExp": "Cisco Experience",
+        "netCerts": "Network Certifications",
+        "infraProjects": "Infrastructure Projects Worked On",
+        "troubleshootingExp": "Troubleshooting Experience",
+        "supportExp": "Customer Support Experience",
+        "techCerts": "Technical Certifications",
+        "fieldWork": "Field Work Availability"
+      }
+    },
+    "timeline": {
+      "title": "Hiring Process",
+      "subtitle": "Our transparent approach to welcoming new talent to the Amwaj Tech team.",
+      "finalMessage": "Ready to build your future with us?",
+      "steps": {
+        "apply": {
+          "title": "Submit Application",
+          "desc": "Review our open positions and submit your application with relevant details."
+        },
+        "review": {
+          "title": "Application Review",
+          "desc": "Our recruitment team carefully evaluates your qualifications and experience."
+        },
+        "initial": {
+          "title": "Initial Interview",
+          "desc": "A brief conversation to understand your career goals and mutual fit."
+        },
+        "assessment": {
+          "title": "Technical Assessment",
+          "desc": "Showcase your skills through role-specific evaluations or practical tasks."
+        },
+        "final": {
+          "title": "Final Interview",
+          "desc": "Meet with team leaders to discuss potential impact and cultural alignment."
+        },
+        "welcome": {
+          "title": "Welcome To The Team",
+          "desc": "Receive an offer and begin your onboarding journey with Amwaj Tech."
+        }
+      }
+    }
   },
   "ecosystem": {
     "title": "Technology Ecosystem",
@@ -1429,5 +1612,9 @@
         "enterprise": "Enterprise"
       }
     }
+  },
+  "marquee": {
+    "title": "Trusted Technology Partners",
+    "subtitle": "Collaborating with world-leading technology providers to deliver secure, scalable, and reliable solutions."
   }
 }

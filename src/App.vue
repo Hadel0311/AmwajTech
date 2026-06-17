@@ -136,7 +136,7 @@ const updateTitleAndMeta = () => {
   const metaDesc = document.querySelector('meta[name="description"]')
   if (metaDesc) {
     if (locale.value === 'ar') {
-      metaDesc.setAttribute('content', 'أمواج تك: تمكين عملك من خلال التكنولوجيا المبتكرة. حلول تقنية قابلة للتطوير وموثوقة وآمنة للمؤسسات والجهات الحكومية.')
+      metaDesc.setAttribute('content', 'أمواج الأردن: تمكين عملك من خلال التكنولوجيا المبتكرة. حلول تقنية قابلة للتطوير وموثوقة وآمنة للمؤسسات والجهات الحكومية.')
     } else {
       metaDesc.setAttribute('content', 'Amwaj Tech: Empowering your business through innovative technology. Scalable, reliable, and secure enterprise infrastructure solutions.')
     }

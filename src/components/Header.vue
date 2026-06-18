@@ -78,7 +78,7 @@
       </div>
 
       <div class="nav-actions">
-        <router-link to="/support" class="nav-outline-btn desktop-only">{{ t('nav.support', 'Support') }}</router-link>
+        <a href="https://support.amwaj-tech.com/#login" target="_blank" class="nav-outline-btn desktop-only">{{ t('nav.support', 'Support') }}</a>
         <router-link to="/request-consultation" class="nav-cta-btn desktop-only">{{ t('nav.requestConsultation') }}</router-link>
         
         <div class="lang-dropdown desktop-only">
@@ -196,7 +196,7 @@
       </div>
       
       <div class="mobile-menu-footer">
-        <router-link to="/support" class="mobile-outline-btn" @click="closeMobileMenu">{{ t('nav.support', 'Support') }}</router-link>
+        <a href="https://support.amwaj-tech.com/#login" target="_blank" class="mobile-outline-btn" @click="closeMobileMenu">{{ t('nav.support', 'Support') }}</a>
         <router-link to="/request-consultation" class="mobile-cta-btn" @click="closeMobileMenu">{{ t('nav.requestConsultation') }}</router-link>
         
         <div class="mobile-lang-selector">

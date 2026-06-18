@@ -33,7 +33,7 @@
             <li><router-link to="/clients">{{ t('nav.clients') }}</router-link></li>
             <li><router-link to="/partners">{{ t('nav.partners') }}</router-link></li>
             <li><router-link to="/careers">{{ t('nav.careers', 'Careers') }}</router-link></li>
-            <li><router-link to="/support">{{ t('nav.support', 'Support') }}</router-link></li>
+            <li><a href="https://support.amwaj-tech.com/#login" target="_blank">{{ t('nav.support', 'Support') }}</a></li>
             <li><router-link to="/contact">{{ t('nav.contact') }}</router-link></li>
           </ul>
         </div>

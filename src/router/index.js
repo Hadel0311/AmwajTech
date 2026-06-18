@@ -12,7 +12,6 @@ import PartnerDetailView from '../views/PartnerDetailView.vue'
 import ClientsView from '../views/ClientsView.vue'
 import ClientDetailView from '../views/ClientDetailView.vue'
 import CareersView from '../views/CareersView.vue'
-import SupportView from '../views/SupportView.vue'
 import ContactView from '../views/ContactView.vue'
 
 const router = createRouter({
@@ -31,7 +30,6 @@ const router = createRouter({
     { path: '/clients', name: 'clients', component: ClientsView },
     { path: '/clients/:id', name: 'client-detail', component: ClientDetailView },
     { path: '/careers', name: 'careers', component: CareersView },
-    { path: '/support', name: 'support', component: SupportView },
     { path: '/contact', name: 'contact', component: ContactView }
   ],
   scrollBehavior(to, from, savedPosition) {

@@ -120,8 +120,8 @@ const formatCategory = (serviceKey) => {
   justify-content: space-around;
   min-width: 100%;
   flex-shrink: 0;
-  gap: 4rem;
-  padding: 0 2rem;
+  gap: 1rem;
+  padding: 0 0.5rem;
 }
 
 .partner-logo-item {
@@ -232,7 +232,7 @@ const formatCategory = (serviceKey) => {
   }
   
   .marquee-group {
-    gap: 2rem;
+    gap: 0.5rem;
   }
   
   .partner-tooltip {

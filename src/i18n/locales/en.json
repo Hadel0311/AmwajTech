@@ -15,7 +15,9 @@
     "consultation": "Consultation",
     "careers": "Careers",
     "company": "Company",
-    "solutionFinder": "Solution Finder"
+    "solutionFinder": "Solution Finder",
+    "contact": "Contact Us",
+    "getInTouch": "Get In Touch"
   },
   "hero": {
     "location": "Regional Hub: Amman, Jordan",
@@ -620,7 +622,9 @@
       "locations": {
         "title": "Regional Offices",
         "jordan": "Amman, Jordan (HQ)",
-        "jordanDesc": "Corporate Headquarters, Mecca St."
+        "jordanDesc": "Corporate Headquarters, Mecca St.",
+        "uae": "Dubai, UAE",
+        "uaeDesc": "Regional Office, Dubai Internet City"
       }
     }
   },
@@ -652,7 +656,9 @@
     "locations": {
       "title": "Regional Presence",
       "jordan": "Jordan Office (HQ):",
-      "jordanAddress": "Amman, Mecca St."
+      "jordanAddress": "Amman, Mecca St.",
+      "uae": "UAE Office:",
+      "uaeAddress": "Dubai, Internet City"
     },
     "description": "Amwaj Tech is a premier system integrator and technology solutions provider in the Middle East. Since our founding in 2012, we have focused on delivering high-availability IT networks, next-generation security fabrics, and robust private cloud infrastructure. We serve clients who cannot afford system downtime.",
     "certifications": {

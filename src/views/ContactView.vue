@@ -54,51 +54,76 @@
             <h2 class="card-title">Visit Us</h2>
             <p class="card-desc">Our office is located in the heart of Amman. Visit us or contact us using the information below.</p>
             
-            <div class="info-grid">
-              <div class="info-item">
-                <div class="info-icon-wrapper">
-                  <MapPin class="info-icon" />
+            <div class="contact-list">
+              <!-- Phone -->
+              <div class="contact-group">
+                <div class="group-icon-wrapper">
+                  <Phone class="group-icon" />
                 </div>
-                <div class="info-content">
-                  <h4>Location</h4>
-                  <p>Amman-Jordan-gardens st – alzaytona building (53)</p>
-                </div>
-              </div>
-              
-              <div class="info-item">
-                <div class="info-icon-wrapper">
-                  <Phone class="info-icon" />
-                </div>
-                <div class="info-content">
-                  <h4>Phone</h4>
-                  <p>06-5545514</p>
+                <div class="group-content">
+                  <div class="content-row">
+                    <h4>Phone</h4>
+                    <p>+962-655-45514</p>
+                  </div>
                 </div>
               </div>
-              
-              <div class="info-item">
-                <div class="info-icon-wrapper">
-                  <Printer class="info-icon" />
+
+              <!-- Mobile -->
+              <div class="contact-group mt-lg">
+                <div class="group-icon-wrapper">
+                  <Smartphone class="group-icon" />
                 </div>
-                <div class="info-content">
-                  <h4>Fax</h4>
-                  <p>06-5511937</p>
+                <div class="group-content">
+                  <div class="content-row">
+                    <h4>Mobile</h4>
+                    <p>+962-77-5545514</p>
+                  </div>
                 </div>
               </div>
-              
-              <div class="info-item">
-                <div class="info-icon-wrapper">
-                  <Mail class="info-icon" />
+
+              <!-- Fax -->
+              <div class="contact-group mt-lg">
+                <div class="group-icon-wrapper">
+                  <Printer class="group-icon" />
                 </div>
-                <div class="info-content">
-                  <h4>Email</h4>
-                  <p><a href="mailto:info@amwaj-tech.com">info@amwaj-tech.com</a></p>
+                <div class="group-content">
+                  <div class="content-row">
+                    <h4>Fax</h4>
+                    <p>+962-655-11937</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="contact-group mt-lg">
+                <div class="group-icon-wrapper">
+                  <Mail class="group-icon" />
+                </div>
+                <div class="group-content">
+                  <div class="content-row">
+                    <h4>Email</h4>
+                    <p><a href="mailto:info@amwaj-tech.com">info@amwaj-tech.com</a></p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Address -->
+              <div class="contact-group mt-lg">
+                <div class="group-icon-wrapper">
+                  <MapPin class="group-icon" />
+                </div>
+                <div class="group-content">
+                  <div class="content-row">
+                    <h4>Address</h4>
+                    <p>Amman-Jordan-gardens st alzaytona building (53)<br>First floor, office number 2</p>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div class="map-wrapper">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.281146313437!2d35.87532391515949!3d31.979603081220037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ca10000000000%3A0x0!2sGardens%20St.%2C%20Amman%2C%20Jordan!5e0!3m2!1sen!2sus!4v1718640000000!5m2!1sen!2sus" 
+                src="https://maps.google.com/maps?q=Amwaj+Tech,+Amman&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                 width="100%" 
                 height="100%" 
                 style="border:0;" 
@@ -108,7 +133,7 @@
               </iframe>
             </div>
             
-            <a href="https://maps.google.com/?q=Amman+Jordan+gardens+st" target="_blank" rel="noopener noreferrer" class="btn-secondary directions-btn">
+            <a href="https://maps.app.goo.gl/sigDeFr57aNF2ua69" target="_blank" rel="noopener noreferrer" class="btn-secondary directions-btn">
               Get Directions
             </a>
           </div>
@@ -121,7 +146,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { MapPin, Phone, Mail, Printer } from 'lucide-vue-next'
+import { MapPin, Phone, Mail, Printer, Smartphone } from 'lucide-vue-next'
 
 const form = ref({
   fullName: '',
@@ -282,74 +307,77 @@ const submitForm = () => {
   font-size: 1.1rem;
 }
 
-/* Info Grid Styles */
-.info-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+/* Contact List Styles */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
   margin-bottom: 2.5rem;
+  padding-left: 0.5rem;
 }
 
-.info-item {
+.contact-group {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
-  padding: 1.25rem;
-  background-color: #F8FAFC;
-  border-radius: 12px;
-  border: 1px solid rgba(15, 23, 42, 0.03);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  gap: 1.25rem;
 }
 
-.info-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.04);
-  background-color: #FFFFFF;
-  border-color: rgba(0, 194, 255, 0.2);
+.contact-group.mt-lg {
+  margin-top: 0;
 }
 
-.info-icon-wrapper {
+.group-icon-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  background-color: rgba(15, 61, 145, 0.05);
+  background-color: #F1F5F9;
   flex-shrink: 0;
 }
 
-.info-icon {
-  width: 20px;
-  height: 20px;
+.group-icon {
+  width: 24px;
+  height: 24px;
   color: #0F3D91;
+  stroke-width: 2px;
 }
 
-.info-content h4 {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #64748b;
-  margin-bottom: 0.25rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+.group-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-top: 0.25rem;
 }
 
-.info-content p {
-  font-size: 1rem;
+.content-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.content-row h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0d4a70;
+  margin: 0;
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+}
+
+.content-row p, .content-row a {
+  font-size: 1.05rem;
   font-weight: 500;
-  color: #0F172A;
+  color: #2b5c77;
   margin: 0;
   line-height: 1.4;
-}
-
-.info-content a {
-  color: #0F3D91;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
-.info-content a:hover {
-  color: #00C2FF;
+.content-row a:hover {
+  color: #1b73b5;
 }
 
 /* Map Styles */
@@ -433,10 +461,6 @@ const submitForm = () => {
 
 @media (max-width: 640px) {
   .form-row {
-    grid-template-columns: 1fr;
-  }
-  
-  .info-grid {
     grid-template-columns: 1fr;
   }
   

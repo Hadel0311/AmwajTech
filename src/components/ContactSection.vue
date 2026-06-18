@@ -111,10 +111,7 @@
                 <span class="office-name">{{ t('contact.info.locations.jordan') }}</span>
                 <span class="office-desc">{{ t('contact.info.locations.jordanDesc') }}</span>
               </li>
-              <li>
-                <span class="office-name">{{ t('contact.info.locations.uae') }}</span>
-                <span class="office-desc">{{ t('contact.info.locations.uaeDesc') }}</span>
-              </li>
+
             </ul>
           </div>
         </div>

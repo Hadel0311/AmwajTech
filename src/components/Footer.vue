@@ -48,13 +48,7 @@
               <span class="value">{{ t('contact.info.phone') }}</span>
             </div>
           </div>
-          <div class="contact-item">
-            <MapPin class="icon-small" />
-            <div class="contact-details">
-              <span class="label">{{ t('contact.info.locations.uae') }}</span>
-              <span class="value">info@amwaj-tech.com</span>
-            </div>
-          </div>
+
           <router-link to="/request-consultation" class="cta-link">
             {{ t('nav.requestConsultation', 'Request Consultation') }}
             <ArrowRight class="icon-small rtl-flip" />

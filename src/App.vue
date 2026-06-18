@@ -15,6 +15,9 @@
       :project-key="activeProjectKey" 
       @close="closeModal" 
     />
+
+    <!-- Floating Contact Button -->
+    <FloatingContactButton />
   </div>
 </template>
 
@@ -26,6 +29,7 @@ import { useI18n } from 'vue-i18n'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import ProjectModal from '@/components/ProjectModal.vue'
+import FloatingContactButton from '@/components/FloatingContactButton.vue'
 import { partnersList } from '@/data/partners.js'
 import { clientsList } from '@/data/clients.js'
 

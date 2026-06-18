@@ -33,10 +33,7 @@
         </div>
       </div>
     </div>
-    <div class="hero-scroll-indicator" @click="scrollToSection('services')">
-      <span class="scroll-label">{{ t('hero.scrollLabel') }}</span>
-      <span class="scroll-arrow">↓</span>
-    </div>
+
   </section>
 </template>
 

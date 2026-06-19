@@ -1,10 +1,11 @@
 <template>
   <main class="consultation-view">
     <!-- Hero Section -->
-    <section class="consultation-hero">
-      <div class="hero-content">
-        <h1 class="hero-title">{{ t('requestConsultation.hero.title') }}</h1>
-        <p class="hero-subtitle">{{ t('requestConsultation.hero.subtitle') }}</p>
+    <section class="page-hero">
+      <div class="page-hero-content container">
+        <span class="page-cta-tag">{{ t('nav.consultation') || 'Consultation' }}</span>
+        <h1>{{ t('requestConsultation.hero.title') }}</h1>
+        <p>{{ t('requestConsultation.hero.subtitle') }}</p>
       </div>
     </section>
 

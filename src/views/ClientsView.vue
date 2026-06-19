@@ -1,9 +1,9 @@
 <template>
   <main class="clients-view-page">
     <!-- Hero Section -->
-    <section class="clients-hero">
-      <div class="clients-hero-content container">
-        <span class="client-cta-tag">{{ t('nav.clients') || 'Our Clients' }}</span>
+    <section class="page-hero">
+      <div class="page-hero-content container">
+        <span class="page-cta-tag">{{ t('nav.clients') || 'Our Clients' }}</span>
         <h1>{{ t('clients.title') }}</h1>
         <p>{{ t('clients.subtitle') }}</p>
       </div>

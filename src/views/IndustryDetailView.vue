@@ -1,10 +1,10 @@
 <template>
   <main class="industry-detail-view" v-if="isValidSector">
     <!-- Header Banner -->
-    <section class="page-header">
-      <div class="header-container">
-        <span class="category-label">{{ t('industries.labels.portfolio') }}</span>
-        <h1 class="page-title">{{ t(`industries.sectors.${sectorKey}.title`) }}</h1>
+    <section class="page-hero">
+      <div class="page-hero-content container">
+        <span class="page-cta-tag">{{ t('industries.labels.portfolio') }}</span>
+        <h1>{{ t(`industries.sectors.${sectorKey}.title`) }}</h1>
       </div>
     </section>
 

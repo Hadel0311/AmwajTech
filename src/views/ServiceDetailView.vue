@@ -1,10 +1,10 @@
 <template>
   <main class="service-detail-view" v-if="isValidService">
     <!-- Header Banner -->
-    <section class="page-header">
-      <div class="header-container">
-        <span class="category-label">{{ t('services.labels.category') }}</span>
-        <h1 class="page-title">{{ t(`services.items.${serviceKey}.title`) }}</h1>
+    <section class="page-hero">
+      <div class="page-hero-content container">
+        <span class="page-cta-tag">{{ t('services.labels.category') }}</span>
+        <h1>{{ t(`services.items.${serviceKey}.title`) }}</h1>
       </div>
     </section>
 

@@ -1,10 +1,11 @@
 <template>
   <main class="services-view">
     <!-- Header Banner -->
-    <section class="page-header">
-      <div class="header-container">
-        <h1 class="page-title">{{ t('services.title') }}</h1>
-        <p class="page-subtitle">{{ t('services.subtitle') }}</p>
+    <section class="page-hero">
+      <div class="page-hero-content container">
+        <span class="page-cta-tag">{{ t('nav.services') || 'Services' }}</span>
+        <h1>{{ t('services.title') }}</h1>
+        <p>{{ t('services.subtitle') }}</p>
       </div>
     </section>
 

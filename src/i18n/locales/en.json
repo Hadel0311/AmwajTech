@@ -1324,29 +1324,29 @@
       }
     },
     "whyJoin": {
-      "growth": {
-        "title": "Professional Growth",
-        "desc": "Work on challenging projects that accelerate technical and professional development."
+      "careerGrowth": {
+        "title": "Career Growth",
+        "desc": "Build long-term career opportunities through challenging and meaningful projects."
       },
-      "learning": {
+      "enterpriseProjects": {
+        "title": "Enterprise Projects",
+        "desc": "Work on impactful infrastructure, security, cloud, and software solutions."
+      },
+      "professionalCertifications": {
+        "title": "Professional Certifications",
+        "desc": "Gain exposure to industry-leading technologies and certification opportunities."
+      },
+      "continuousLearning": {
         "title": "Continuous Learning",
-        "desc": "Gain exposure to new technologies, certifications, and industry best practices."
+        "desc": "Develop new technical and professional skills through ongoing learning."
       },
-      "environment": {
-        "title": "Collaborative Environment",
-        "desc": "Work alongside experienced professionals in a supportive culture."
+      "supportiveCulture": {
+        "title": "Supportive Culture",
+        "desc": "Join a collaborative environment that values teamwork and knowledge sharing."
       },
-      "projects": {
-        "title": "Innovative Projects",
-        "desc": "Participate in impactful technology initiatives across diverse industries."
-      },
-      "development": {
-        "title": "Career Development",
-        "desc": "Build a long-term professional path with opportunities for advancement."
-      },
-      "supportive": {
-        "title": "Supportive Team Culture",
-        "desc": "Join a workplace that values respect, teamwork, and shared success."
+      "longTermOpportunities": {
+        "title": "Long-Term Opportunities",
+        "desc": "Grow within a company focused on sustainable success and professional advancement."
       }
     },
     "positions": {

@@ -1,10 +1,11 @@
 <template>
   <main class="industries-view">
     <!-- Header Banner -->
-    <section class="page-header">
-      <div class="header-container">
-        <h1 class="page-title">{{ t('industries.title') }}</h1>
-        <p class="page-subtitle">{{ t('industries.subtitle') }}</p>
+    <section class="page-hero">
+      <div class="page-hero-content container">
+        <span class="page-cta-tag">{{ t('nav.industries') || 'Industries' }}</span>
+        <h1>{{ t('industries.title') }}</h1>
+        <p>{{ t('industries.subtitle') }}</p>
       </div>
     </section>
 

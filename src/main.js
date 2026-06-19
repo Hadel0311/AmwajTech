@@ -7,6 +7,7 @@ import './assets/css/about.css'
 import './assets/css/contact.css'
 import './assets/css/partners.css'
 import './assets/css/clients.css'
+import './assets/css/page-hero.css'
 import './style.css'
 
 import { createApp } from 'vue'

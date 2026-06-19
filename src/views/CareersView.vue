@@ -1,12 +1,12 @@
 <template>
   <div class="careers-view page-transition">
     <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-overlay"></div>
-      <div class="hero-content text-center">
-        <h1 class="hero-title slide-up">{{ t('careers.hero.title') }}</h1>
-        <p class="hero-subtitle slide-up delay-100">{{ t('careers.hero.subtitle') }}</p>
-        <div class="hero-actions slide-up delay-200">
+    <section class="page-hero">
+      <div class="page-hero-content container">
+        <span class="page-cta-tag">{{ t('nav.careers') || 'Careers' }}</span>
+        <h1>{{ t('careers.hero.title') }}</h1>
+        <p>{{ t('careers.hero.subtitle') }}</p>
+        <div class="hero-actions slide-up delay-200" style="margin-top: 2rem;">
           <button @click="scrollToPositions" class="btn btn-primary cta-btn">
             {{ t('careers.hero.cta') }}
           </button>
@@ -33,33 +33,7 @@
       </div>
     </section>
 
-    <!-- Team Highlights -->
-    <section class="highlights-section section-padding bg-alt">
-      <div class="container">
-        <div class="highlights-grid">
-          <div class="highlight-stat" v-for="(hl, key) in highlights" :key="key">
-            <div class="stat-icon">
-              <component :is="hl.icon" />
-            </div>
-            <h3 class="stat-title">{{ t(`careers.highlights.${key}.title`) }}</h3>
-            <p class="stat-desc">{{ t(`careers.highlights.${key}.desc`) }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Why Join Amwaj Tech -->
-    <section class="benefits-section section-padding">
-      <div class="container">
-        <div class="benefits-grid">
-          <div class="benefit-card" v-for="(benefit, key) in benefits" :key="key">
-            <h3 class="benefit-title">{{ t(`careers.whyJoin.${key}.title`) }}</h3>
-            <p class="benefit-desc">{{ t(`careers.whyJoin.${key}.desc`) }}</p>
-            <div class="benefit-accent"></div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Open Positions & Application -->
     <section id="open-positions" class="positions-section section-padding bg-alt">
@@ -93,6 +67,32 @@
               {{ t('careers.positions.applyNow') }}
               <ArrowRightIcon class="icon-small rtl-flip" />
             </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Hiring Process Timeline -->
+    <section class="timeline-section section-padding bg-alt">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <h2 class="section-title">{{ t('careers.timeline.title') }}</h2>
+          <p class="section-subtitle">{{ t('careers.timeline.subtitle') }}</p>
+        </div>
+        
+        <div class="timeline-wrapper">
+          <div class="timeline-track"></div>
+          <div class="timeline-steps">
+            <div class="timeline-step" v-for="(step, key, index) in timelineSteps" :key="key">
+              <div class="step-indicator">
+                <span class="step-number">{{ index + 1 }}</span>
+              </div>
+              <div class="step-content">
+                <h3 class="step-title">{{ t(`careers.timeline.steps.${key}.title`) }}</h3>
+                <p class="step-description">{{ t(`careers.timeline.steps.${key}.desc`) }}</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -167,32 +167,6 @@
           </div>
         </div>
 
-      </div>
-    </section>
-
-    <!-- Hiring Process Timeline -->
-    <section class="timeline-section section-padding">
-      <div class="container">
-        <div class="section-header text-center mb-5">
-          <h2 class="section-title">{{ t('careers.timeline.title') }}</h2>
-          <p class="section-subtitle">{{ t('careers.timeline.subtitle') }}</p>
-        </div>
-        
-        <div class="timeline-wrapper">
-          <div class="timeline-track"></div>
-          <div class="timeline-steps">
-            <div class="timeline-step" v-for="(step, key, index) in timelineSteps" :key="key">
-              <div class="step-indicator">
-                <span class="step-number">{{ index + 1 }}</span>
-              </div>
-              <div class="step-content">
-                <h3 class="step-title">{{ t(`careers.timeline.steps.${key}.title`) }}</h3>
-                <p class="step-description">{{ t(`careers.timeline.steps.${key}.desc`) }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div class="text-center mt-5">
           <p class="final-message mb-3" style="font-weight: 600; font-size: 1.1rem;">{{ t('careers.timeline.finalMessage') }}</p>
           <button @click="scrollToPositions" class="btn btn-primary">
@@ -229,18 +203,6 @@ const cultureCards = {
   learning: { icon: BookOpen },
   innovation: { icon: Lightbulb },
   excellence: { icon: Award }
-}
-
-const highlights = {
-  team: { icon: Users },
-  projects: { icon: Server },
-  learning: { icon: BookOpen },
-  culture: { icon: Briefcase }
-}
-
-const benefits = {
-  growth: {}, learning: {}, environment: {}, 
-  projects: {}, development: {}, supportive: {}
 }
 
 const roles = {
@@ -512,93 +474,6 @@ const submitApplication = () => {
   color: #64748b;
   line-height: 1.6;
   font-size: 0.95rem;
-}
-
-/* Highlights Grid */
-.highlights-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.5rem;
-}
-
-.highlight-stat {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.stat-icon {
-  color: var(--color-accent, #3b82f6);
-}
-
-.stat-icon svg {
-  width: 40px;
-  height: 40px;
-}
-
-.stat-title {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--color-primary, #0A192F);
-}
-
-.stat-desc {
-  color: #475569;
-  line-height: 1.6;
-}
-
-/* Benefits Grid */
-.benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.benefit-card {
-  position: relative;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  padding: 2rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  overflow: hidden;
-}
-
-.benefit-card:hover {
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  transform: translateY(-3px);
-}
-
-.benefit-title {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--color-primary, #0A192F);
-  margin-bottom: 1rem;
-}
-
-.benefit-desc {
-  color: #64748b;
-  line-height: 1.6;
-  font-size: 0.95rem;
-  position: relative;
-  z-index: 2;
-}
-
-.benefit-accent {
-  position: absolute;
-  top: 0; left: 0;
-  width: 4px;
-  height: 0;
-  background-color: var(--color-accent, #3b82f6);
-  transition: height 0.3s ease;
-}
-
-[dir="rtl"] .benefit-accent {
-  left: auto; right: 0;
-}
-
-.benefit-card:hover .benefit-accent {
-  height: 100%;
 }
 
 /* Positions Grid */

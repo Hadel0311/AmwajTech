@@ -1,9 +1,10 @@
 <template>
   <main class="contact-view">
-    <section class="page-header">
-      <div class="header-container">
-        <h1 class="page-title">Contact Us</h1>
-        <p class="page-subtitle">Have a question, need assistance, or want to learn more about our solutions? Our team is ready to help.</p>
+    <section class="page-hero">
+      <div class="page-hero-content container">
+        <span class="page-cta-tag">Contact</span>
+        <h1>Contact Us</h1>
+        <p>Have a question, need assistance, or want to learn more about our solutions? Our team is ready to help.</p>
       </div>
     </section>
 
@@ -115,7 +116,7 @@
                 <div class="group-content">
                   <div class="content-row">
                     <h4>Address</h4>
-                    <p>Amman-Jordan-gardens st alzaytona building (53)<br>First floor, office number 2</p>
+                    <p>Amman-Jordan-gardens st alzaytona building (53) First floor, office number 2</p>
                   </div>
                 </div>
               </div>

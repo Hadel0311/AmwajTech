@@ -1,5 +1,13 @@
 <template>
   <main class="projects-page">
+    <!-- Hero Section -->
+    <section class="page-hero">
+      <div class="page-hero-content container">
+        <span class="page-cta-tag">{{ t('nav.projects') || 'Projects' }}</span>
+        <h1>{{ t('projects.title') }}</h1>
+        <p>{{ t('projects.subtitle') }}</p>
+      </div>
+    </section>
     <ProjectsSection @open-project-modal="openModal" />
   </main>
 </template>

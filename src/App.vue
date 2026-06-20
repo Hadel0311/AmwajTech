@@ -30,8 +30,6 @@ import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import ProjectModal from '@/components/ProjectModal.vue'
 import FloatingContactButton from '@/components/FloatingContactButton.vue'
-import { partnersList } from '@/data/partners.js'
-import { clientsList } from '@/data/clients.js'
 
 const route = useRoute()
 const { locale, t } = useI18n()
@@ -109,21 +107,13 @@ const updateTitleAndMeta = () => {
       titleKey = 'nav.partners'
       break
     case 'partner-detail':
-      const pId = route.params.id as string
-      const found = partnersList.find(p => p.id === pId)
-      if (found) {
-        customTitle = `${t('nav.companyName')} | ${found.name}`
-      }
+      titleKey = 'nav.partners'
       break
     case 'clients':
       titleKey = 'nav.clients'
       break
     case 'client-detail':
-      const cId = route.params.id as string
-      const foundClient = clientsList.find(c => c.id === cId)
-      if (foundClient) {
-        customTitle = `${t('nav.companyName')} | ${t(`clients.items.${foundClient.key}.name`)}`
-      }
+      titleKey = 'nav.clients'
       break
   }
   

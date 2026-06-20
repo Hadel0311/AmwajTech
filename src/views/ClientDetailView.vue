@@ -21,40 +21,32 @@
         <article class="client-detail-body">
           <header class="client-detail-header">
             <span class="client-detail-category">
-              {{ t(`clients.sectors.${client.category}`) }}
+              {{ t(`industries.sectors.${client.industry?.toLowerCase() || 'enterprise'}.title`) || client.industry }}
             </span>
-            <h1 class="client-detail-name">
-              {{ t(`clients.items.${client.key}.name`) }}
-            </h1>
+            <h1 class="client-detail-name">{{ client.name }}</h1>
           </header>
 
           <!-- About Section -->
           <section class="client-detail-section">
-            <h2 class="client-detail-section-title">
-              {{ t('clients.aboutLabel') }}
-            </h2>
+            <h2 class="client-detail-section-title">{{ t('clients.aboutLabel') }}</h2>
             <p class="client-detail-text">
-              {{ t(`clients.items.${client.key}.about`) }}
+              {{ client.aboutDesc || t(`clients.items.${client.key}.about`) || 'Details about this organization will be added soon.' }}
             </p>
           </section>
 
-          <!-- Work with Amwaj Tech Section -->
+          <!-- Work Section -->
           <section class="client-detail-section">
-            <h2 class="client-detail-section-title">
-              {{ t('clients.workLabel') }}
-            </h2>
+            <h2 class="client-detail-section-title">{{ t('clients.workLabel') }}</h2>
             <p class="client-detail-text">
-              {{ t(`clients.items.${client.key}.work`) }}
+              {{ client.workDesc || t(`clients.items.${client.key}.work`) || 'Details on our work with this client will be updated shortly.' }}
             </p>
           </section>
 
-          <!-- Industry Context Section -->
+          <!-- Context Section -->
           <section class="client-detail-section">
-            <h2 class="client-detail-section-title">
-              {{ t('clients.contextLabel') }}
-            </h2>
+            <h2 class="client-detail-section-title">{{ t('clients.contextLabel') }}</h2>
             <p class="client-detail-text">
-              {{ t(`clients.items.${client.key}.context`) }}
+              {{ client.contextDesc || t(`clients.items.${client.key}.context`) || 'Industry context will be provided soon.' }}
             </p>
           </section>
         </article>
@@ -73,8 +65,8 @@
             <h3 class="sidebar-title">{{ t('partners.servicesLabel') || 'Integrated Solutions' }}</h3>
             <ul class="services-list">
               <li v-for="serviceKey in client.services" :key="serviceKey">
-                <router-link :to="`/services/${serviceKey}`" class="service-item-link">
-                  <span>{{ t(`services.items.${serviceKey.replace('-', '_')}.title`) }}</span>
+                <router-link :to="`/services/${serviceKey.toLowerCase().replace(/\\s+/g, '-')}`" class="service-item-link">
+                  <span>{{ formatServiceName(serviceKey) }}</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" :style="locale === 'ar' ? 'transform: scaleX(-1)' : ''">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
@@ -116,25 +108,44 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref, computed, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { api } from '@/services/api'
 import { useI18n } from 'vue-i18n'
-import { clientsList } from '@/data/clients.js'
 
 const route = useRoute()
+const router = useRouter()
 const { t, locale } = useI18n()
 
-const logoImages = import.meta.glob('../assets/images/Clients/*', { eager: true, import: 'default' })
-console.log('Registered detail client logos:', Object.keys(logoImages))
+const client = ref(null)
+
+onMounted(async () => {
+  try {
+    client.value = await api.getOne('clients', route.params.id)
+  } catch (err) {
+    console.error('Failed to load client detail', err)
+  }
+})
+
+const logoImages = import.meta.glob('../assets/images/clients/*', { eager: true, import: 'default' })
 
 const getLogoUrl = (logoName) => {
-  return logoImages[`../assets/images/Clients/${logoName}`] || ''
+  if (logoName && (logoName.startsWith('http') || logoName.startsWith('/'))) {
+    return logoName
+  }
+  return logoImages[`../assets/images/clients/${logoName}`] || ''
 }
 
-// Find client by route parameter ID
-const client = computed(() => {
-  return clientsList.find(c => c.id === route.params.id)
-})
+const formatServiceName = (serviceKey) => {
+  if (!serviceKey) return ''
+  const transKey = `services.items.${serviceKey.replace(/-/g, '_').toLowerCase()}.title`
+  const translated = t(transKey)
+  if (translated !== transKey) {
+    return translated
+  }
+  // Fallback: Title Case the raw string
+  return serviceKey.split(/[-_ ]+/).map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ')
+}
 
 // Map client service keys to Contact form service selection dropdown values
 const contactServiceParam = computed(() => {

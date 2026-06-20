@@ -70,15 +70,15 @@
             <!-- Hover Overlay View -->
             <div class="client-card-overlay">
               <span class="client-card-cat-badge">
-                {{ t(`clients.sectors.${client.category}`) }}
+                {{ client.industry || t(`clients.sectors.${client.category || 'enterprise'}`) }}
               </span>
 
               <h3 class="client-card-title">
-                {{ t(`clients.items.${client.key}.name`) }}
+                {{ client.name || t(`clients.items.${client.key}.name`) }}
               </h3>
 
               <p class="client-card-desc">
-                {{ t(`clients.items.${client.key}.shortDesc`) }}
+                {{ client.description || t(`clients.items.${client.key}.shortDesc`) }}
               </p>
 
               <router-link :to="`/clients/${client.id}`" class="client-card-link">
@@ -93,17 +93,29 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { api } from '@/services/api'
 import { useI18n } from 'vue-i18n'
-import { clientsList } from '@/data/clients.js'
 
-const { t, locale } = useI18n()
+const { t } = useI18n()
+const clientsList = ref([])
 
-const logoImages = import.meta.glob('../assets/images/Clients/*', { eager: true, import: 'default' })
-console.log('Registered client logos:', Object.keys(logoImages))
+onMounted(async () => {
+  try {
+    const data = await api.getAll('clients')
+    clientsList.value = data.sort((a, b) => (a.order || 0) - (b.order || 0))
+  } catch (err) {
+    console.error('Error loading clients', err)
+  }
+})
+
+const logoImages = import.meta.glob('../assets/images/clients/*', { eager: true, import: 'default' })
 
 const getLogoUrl = (logoName) => {
-  return logoImages[`../assets/images/Clients/${logoName}`] || ''
+  if (logoName && (logoName.startsWith('http') || logoName.startsWith('/'))) {
+    return logoName
+  }
+  return logoImages[`../assets/images/clients/${logoName}`] || ''
 }
 
 const searchQuery = ref('')
@@ -119,7 +131,7 @@ const availableCategories = [
 ]
 
 const filteredClients = computed(() => {
-  return clientsList.filter(client => {
+  return clientsList.value.filter(client => {
     // 1. Filter by category
     if (selectedCategory.value !== 'all') {
       if (client.category !== selectedCategory.value) {
@@ -130,9 +142,9 @@ const filteredClients = computed(() => {
     // 2. Filter by search query
     if (searchQuery.value.trim() !== '') {
       const query = searchQuery.value.toLowerCase()
-      const name = t(`clients.items.${client.key}.name`).toLowerCase()
-      const sector = t(`clients.sectors.${client.category}`).toLowerCase()
-      const desc = t(`clients.items.${client.key}.shortDesc`).toLowerCase()
+      const name = (client.name || t(`clients.items.${client.key}.name`) || '').toLowerCase()
+      const sector = (client.industry || t(`clients.sectors.${client.category || 'enterprise'}`) || '').toLowerCase()
+      const desc = (client.description || t(`clients.items.${client.key}.shortDesc`) || '').toLowerCase()
 
       return name.includes(query) || sector.includes(query) || desc.includes(query)
     }

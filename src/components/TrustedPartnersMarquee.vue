@@ -51,16 +51,29 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { partnersList } from '@/data/partners.js'
+import { ref, onMounted } from 'vue'
+import { api } from '@/services/api'
 
 const activeTooltip = ref(null)
+const partnersList = ref([])
 
 const logoImages = import.meta.glob('../assets/images/Partners/*', { eager: true, import: 'default' })
 
 const getLogoUrl = (logoName) => {
+  if (logoName && (logoName.startsWith('http') || logoName.startsWith('/'))) {
+    return logoName
+  }
   return logoImages[`../assets/images/Partners/${logoName}`] || ''
 }
+
+onMounted(async () => {
+  try {
+    const data = await api.getAll('partners')
+    partnersList.value = data.sort((a, b) => (a.order || 0) - (b.order || 0))
+  } catch (error) {
+    console.error('Failed to load partners:', error)
+  }
+})
 
 const formatCategory = (serviceKey) => {
   const mapping = {

@@ -71,7 +71,7 @@
             <div class="partner-card-overlay">
               <!-- Main Category Badge -->
               <span class="partner-card-cat-badge">
-                {{ t(`partners.items.${partner.key}.category`) }}
+                {{ partner.category || t(`partners.items.${partner.key}.category`) || 'Technology Partner' }}
               </span>
 
               <!-- Partner Title -->
@@ -79,7 +79,7 @@
 
               <!-- Short Description -->
               <p class="partner-card-desc">
-                {{ t(`partners.items.${partner.key}.shortDesc`) }}
+                {{ partner.shortDesc || t(`partners.items.${partner.key}.shortDesc`) || 'Leading technology solutions provider.' }}
               </p>
 
               <!-- Card Footer Link -->
@@ -95,16 +95,28 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { api } from '@/services/api'
 import { useI18n } from 'vue-i18n'
-import { partnersList } from '@/data/partners.js'
 
-const { t, locale } = useI18n()
+const { t } = useI18n()
+const partnersList = ref([])
+
+onMounted(async () => {
+  try {
+    const data = await api.getAll('partners')
+    partnersList.value = data.sort((a, b) => (a.order || 0) - (b.order || 0))
+  } catch (err) {
+    console.error('Error loading partners', err)
+  }
+})
 
 const logoImages = import.meta.glob('../assets/images/Partners/*', { eager: true, import: 'default' })
-console.log('Registered partner logos:', Object.keys(logoImages))
 
 const getLogoUrl = (logoName) => {
+  if (logoName && (logoName.startsWith('http') || logoName.startsWith('/'))) {
+    return logoName
+  }
   return logoImages[`../assets/images/Partners/${logoName}`] || ''
 }
 
@@ -122,7 +134,7 @@ const availableCategories = [
 ]
 
 const filteredPartners = computed(() => {
-  return partnersList.filter(partner => {
+  return partnersList.value.filter(partner => {
     // 1. Filter by category
     if (selectedCategory.value !== 'all') {
       if (!partner.services || !partner.services.includes(selectedCategory.value)) {
@@ -134,8 +146,8 @@ const filteredPartners = computed(() => {
     if (searchQuery.value.trim() !== '') {
       const query = searchQuery.value.toLowerCase()
       const name = partner.name.toLowerCase()
-      const category = t(`partners.items.${partner.key}.category`).toLowerCase()
-      const desc = t(`partners.items.${partner.key}.shortDesc`).toLowerCase()
+      const category = (partner.category || t(`partners.items.${partner.key}.category`) || '').toLowerCase()
+      const desc = (partner.shortDesc || t(`partners.items.${partner.key}.shortDesc`) || '').toLowerCase()
 
       return name.includes(query) || category.includes(query) || desc.includes(query)
     }

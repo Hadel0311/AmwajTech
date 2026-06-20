@@ -27,18 +27,29 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
-const { t } = useI18n()
+import { ref, onMounted } from 'vue'
+import { api } from '@/services/api'
 
-const partnersList = [
-  { name: 'CISCO', tierKey: 'gold_integrator' },
-  { name: 'FORTINET', tierKey: 'authorized_partner' },
-  { name: 'PALO ALTO', tierKey: 'innovator_partner' },
-  { name: 'DELL TECH', tierKey: 'solution_provider' },
-  { name: 'IBM', tierKey: 'gold_business_partner' },
-  { name: 'AWS', tierKey: 'select_consulting_partner' },
-  { name: 'MICROSOFT', tierKey: 'solutions_partner' },
-  { name: 'VMWARE', tierKey: 'enterprise_partner' }
-]
+const { t } = useI18n()
+const partnersList = ref([])
+
+onMounted(async () => {
+  try {
+    const data = await api.getAll('partners')
+    partnersList.value = data.sort((a, b) => (a.order || 0) - (b.order || 0))
+  } catch (error) {
+    console.error('Error loading tech partners', error)
+  }
+})
+
+const logoImages = import.meta.glob('../assets/images/Partners/*', { eager: true, import: 'default' })
+
+const getLogoUrl = (logoName) => {
+  if (logoName && (logoName.startsWith('http') || logoName.startsWith('/'))) {
+    return logoName
+  }
+  return logoImages[`../assets/images/Partners/${logoName}`] || ''
+}
 </script>
 
 <style scoped>

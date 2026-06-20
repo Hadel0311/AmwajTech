@@ -21,7 +21,7 @@
         <article class="partner-detail-body">
           <header class="partner-detail-header">
             <span class="partner-detail-category">
-              {{ t(`partners.items.${partner.key}.category`) }}
+              {{ partner.category || t(`partners.items.${partner.key}.category`) || 'Technology Partner' }}
             </span>
             <h1 class="partner-detail-name">{{ partner.name }}</h1>
           </header>
@@ -32,7 +32,7 @@
               {{ t('about.title') }}
             </h2>
             <p class="partner-detail-text">
-              {{ t(`partners.items.${partner.key}.about`) }}
+              {{ partner.aboutDesc || t(`partners.items.${partner.key}.about`) || 'More details about this partner will be added soon.' }}
             </p>
           </section>
 
@@ -42,7 +42,7 @@
               {{ locale === 'ar' ? `كيف نستفيد من تقنية ${partner.name}` : `How We Leverage ${partner.name} Technology` }}
             </h2>
             <p class="partner-detail-text">
-              {{ t(`partners.items.${partner.key}.leverage`) }}
+              {{ partner.leverageDesc || t(`partners.items.${partner.key}.leverage`) || 'Details on how we leverage this technology will be updated shortly.' }}
             </p>
           </section>
         </article>
@@ -76,8 +76,8 @@
             <h3 class="sidebar-title">{{ t('partners.servicesLabel') }}</h3>
             <ul class="services-list">
               <li v-for="serviceKey in partner.services" :key="serviceKey">
-                <router-link :to="`/services/${serviceKey}`" class="service-item-link">
-                  <span>{{ t(`services.items.${serviceKey.replace('-', '_')}.title`) }}</span>
+                <router-link :to="`/services/${serviceKey.toLowerCase().replace(/\\s+/g, '-')}`" class="service-item-link">
+                  <span>{{ formatServiceName(serviceKey) }}</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" :style="locale === 'ar' ? 'transform: scaleX(-1)' : ''">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
@@ -119,25 +119,44 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref, computed, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { api } from '@/services/api'
 import { useI18n } from 'vue-i18n'
-import { partnersList } from '@/data/partners.js'
 
 const route = useRoute()
+const router = useRouter()
 const { t, locale } = useI18n()
 
+const partner = ref(null)
+
+onMounted(async () => {
+  try {
+    partner.value = await api.getOne('partners', route.params.id)
+  } catch (err) {
+    console.error('Failed to load partner detail', err)
+  }
+})
+
 const logoImages = import.meta.glob('../assets/images/Partners/*', { eager: true, import: 'default' })
-console.log('Registered detail partner logos:', Object.keys(logoImages))
 
 const getLogoUrl = (logoName) => {
+  if (logoName && (logoName.startsWith('http') || logoName.startsWith('/'))) {
+    return logoName
+  }
   return logoImages[`../assets/images/Partners/${logoName}`] || ''
 }
 
-// Find partner by route parameter ID
-const partner = computed(() => {
-  return partnersList.find(p => p.id === route.params.id)
-})
+const formatServiceName = (serviceKey) => {
+  if (!serviceKey) return ''
+  const transKey = `services.items.${serviceKey.replace(/-/g, '_').toLowerCase()}.title`
+  const translated = t(transKey)
+  if (translated !== transKey) {
+    return translated
+  }
+  // Fallback: Title Case the raw string
+  return serviceKey.split(/[-_ ]+/).map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ')
+}
 
 // Map partner service keys to Contact form service selection dropdown values
 const contactServiceParam = computed(() => {

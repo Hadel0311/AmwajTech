@@ -68,13 +68,24 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { newsList } from '@/data/news.js'
+import { api } from '@/services/api'
 
 const { t } = useI18n()
 const carouselTrack = ref(null)
 const selectedItem = ref(null)
+const newsList = ref([])
+
+onMounted(async () => {
+  try {
+    const data = await api.getAll('announcements')
+    // Sort by date descending
+    newsList.value = data.sort((a, b) => new Date(b.date) - new Date(a.date))
+  } catch (error) {
+    console.error('Failed to load news:', error)
+  }
+})
 
 const scrollPrev = () => {
   if (carouselTrack.value) {

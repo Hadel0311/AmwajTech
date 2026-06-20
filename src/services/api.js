@@ -1,56 +1,36 @@
-import { auth } from '../firebase/config.js';
-
-const API_BASE_URL = '/api/content';
-
-// Helper to get auth token
-const getAuthToken = async () => {
-  if (auth.currentUser) {
-    return await auth.currentUser.getIdToken();
-  }
-  return null;
-};
-
-// Generic Fetch Helper
-const fetchAPI = async (endpoint, options = {}) => {
-  const token = await getAuthToken();
-  
-  const headers = {
-    'Content-Type': 'application/json',
-    ...options.headers,
-  };
-
-  if (token) {
-    headers['Authorization'] = `Bearer ${token}`;
-  }
-
-  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-    ...options,
-    headers,
-  });
-
-  if (!response.ok) {
-    const errorData = await response.json().catch(() => ({}));
-    throw new Error(errorData.error || 'API Request failed');
-  }
-
-  return response.json();
-};
+import { db } from '../firebase/config.js';
+import { collection, getDocs, doc, getDoc, addDoc, updateDoc, deleteDoc } from 'firebase/firestore';
 
 export const api = {
   // Public Data Fetching
-  getAll: (collection) => fetchAPI(`/${collection}`),
-  getOne: (collection, id) => fetchAPI(`/${collection}/${id}`),
+  getAll: async (collectionName) => {
+    const colRef = collection(db, collectionName);
+    const snapshot = await getDocs(colRef);
+    return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  },
+  getOne: async (collectionName, id) => {
+    const docRef = doc(db, collectionName, id);
+    const snapshot = await getDoc(docRef);
+    if (!snapshot.exists()) {
+      throw new Error('Document not found');
+    }
+    return { id: snapshot.id, ...snapshot.data() };
+  },
   
   // Protected Admin Methods
-  create: (collection, data) => fetchAPI(`/${collection}`, {
-    method: 'POST',
-    body: JSON.stringify(data),
-  }),
-  update: (collection, id, data) => fetchAPI(`/${collection}/${id}`, {
-    method: 'PUT',
-    body: JSON.stringify(data),
-  }),
-  delete: (collection, id) => fetchAPI(`/${collection}/${id}`, {
-    method: 'DELETE',
-  }),
+  create: async (collectionName, data) => {
+    const colRef = collection(db, collectionName);
+    const docRef = await addDoc(colRef, { ...data, createdAt: new Date().toISOString() });
+    return { id: docRef.id, ...data };
+  },
+  update: async (collectionName, id, data) => {
+    const docRef = doc(db, collectionName, id);
+    await updateDoc(docRef, { ...data, updatedAt: new Date().toISOString() });
+    return { id, ...data };
+  },
+  delete: async (collectionName, id) => {
+    const docRef = doc(db, collectionName, id);
+    await deleteDoc(docRef);
+    return { message: 'Document deleted successfully' };
+  }
 };

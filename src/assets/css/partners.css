@@ -81,7 +81,41 @@
   align-items: center;
   gap: 0.5rem;
   width: 100%;
+  position: relative;
   overflow: hidden;
+}
+
+.partners-slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-bg-alt);
+  color: var(--color-text-primary);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.partners-slider-arrow.left-arrow {
+  left: 0;
+}
+
+.partners-slider-arrow.right-arrow {
+  right: 0;
+}
+
+.partners-slider-arrow:hover {
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+  border-color: var(--color-accent);
 }
 
 .partners-categories {
@@ -91,19 +125,16 @@
   padding-bottom: 0.5rem;
   scrollbar-width: none; /* Firefox */
   flex: 1;
+  scroll-behavior: smooth;
 }
 
 .partners-categories::-webkit-scrollbar {
   display: none; /* Chrome/Safari */
 }
 
+/* Remove old scroll indicator */
 .categories-scroll-indicator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-muted, #94a3b8);
-  padding-bottom: 0.5rem;
-  animation: bounceRight 1.5s infinite;
+  display: none;
 }
 
 @keyframes bounceRight {

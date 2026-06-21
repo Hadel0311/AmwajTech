@@ -62,6 +62,11 @@ const router = createRouter({
           path: 'clients',
           name: 'admin-clients',
           component: () => import('../views/admin/ManageClients.vue')
+        },
+        {
+          path: 'jobs',
+          name: 'admin-jobs',
+          component: () => import('../views/admin/ManageJobs.vue')
         }
       ]
     }

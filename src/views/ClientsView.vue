@@ -20,13 +20,24 @@
           <input 
             type="text" 
             v-model="searchQuery" 
-            placeholder="Search clients by name only..."
+            :placeholder="t('clients.searchPlaceholder') || 'Search clients...'"
           />
         </div>
 
         <!-- Category Filter Chips -->
         <div class="clients-categories-wrapper">
-          <div class="clients-categories">
+          <button v-show="showLeftArrow" class="clients-slider-arrow left-arrow" @click="scrollLeft">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
+          
+          <div 
+            class="clients-categories" 
+            ref="categoriesContainer"
+            @scroll="checkArrows"
+            @wheel.prevent="handleWheel"
+          >
             <button 
               class="category-chip" 
               :class="{ active: selectedCategory === 'all' }"
@@ -44,11 +55,12 @@
               {{ t(`clients.sectors.${cat.key}`) }}
             </button>
           </div>
-          <div class="categories-scroll-indicator">
+
+          <button v-show="showRightArrow" class="clients-slider-arrow right-arrow" @click="scrollRight">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M9 18l6-6-6-6"/>
             </svg>
-          </div>
+          </button>
         </div>
       </div>
     </section>
@@ -56,7 +68,10 @@
     <!-- Clients Grid -->
     <section class="clients-grid-section">
       <div class="container">
-        <div class="clients-cards-grid">
+        <div v-if="filteredClients.length === 0" class="no-results-message" style="text-align: center; padding: 3rem; color: var(--color-text-muted); font-size: var(--text-lg);">
+          <p>No clients found matching your search criteria.</p>
+        </div>
+        <div v-else class="clients-cards-grid">
           <article 
             v-for="client in filteredClients" 
             :key="client.id"
@@ -93,20 +108,59 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import { api } from '@/services/api'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 const clientsList = ref([])
 
+// Scrolling logic
+const categoriesContainer = ref(null)
+const showLeftArrow = ref(false)
+const showRightArrow = ref(false)
+
+const checkArrows = () => {
+  if (!categoriesContainer.value) return
+  const { scrollLeft, scrollWidth, clientWidth } = categoriesContainer.value
+  showLeftArrow.value = scrollLeft > 0
+  showRightArrow.value = Math.ceil(scrollLeft) < scrollWidth - clientWidth - 1
+}
+
+const scrollLeft = () => {
+  if (categoriesContainer.value) {
+    categoriesContainer.value.scrollBy({ left: -200, behavior: 'smooth' })
+  }
+}
+
+const scrollRight = () => {
+  if (categoriesContainer.value) {
+    categoriesContainer.value.scrollBy({ left: 200, behavior: 'smooth' })
+  }
+}
+
+const handleWheel = (e) => {
+  if (categoriesContainer.value) {
+    categoriesContainer.value.scrollBy({ left: e.deltaY > 0 ? 100 : -100, behavior: 'smooth' })
+  }
+}
+
 onMounted(async () => {
+  nextTick(() => {
+    setTimeout(checkArrows, 100)
+  })
+  window.addEventListener('resize', checkArrows)
+
   try {
     const data = await api.getAll('clients')
     clientsList.value = data.sort((a, b) => (a.order || 0) - (b.order || 0))
   } catch (err) {
     console.error('Error loading clients', err)
   }
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', checkArrows)
 })
 
 const logoImages = import.meta.glob('../assets/images/clients/*', { eager: true, import: 'default' })

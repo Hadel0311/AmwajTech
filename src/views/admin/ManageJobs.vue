@@ -2,8 +2,8 @@
   <div class="manage-container">
     <div class="page-header">
       <div class="header-title">
-        <h2>Manage Partners</h2>
-        <p>Manage your technology and business partners.</p>
+        <h2>Manage Jobs</h2>
+        <p>Post and manage open career opportunities.</p>
       </div>
       <div class="header-actions">
         <button v-if="hasReordered" @click="saveOrder" class="btn btn-warning" :disabled="isSavingOrder">
@@ -12,15 +12,16 @@
         </button>
         <button @click="openModal()" class="btn btn-primary">
           <Plus :size="16" />
-          Add Partner
+          Add Job
         </button>
       </div>
     </div>
 
+    <!-- Advanced Table Controls -->
     <div class="table-controls">
       <div class="search-box">
         <Search :size="16" class="search-icon" />
-        <input type="text" v-model="searchQuery" placeholder="Search partners..." />
+        <input type="text" v-model="searchQuery" placeholder="Search jobs..." />
       </div>
       <div class="filter-actions">
         <button class="btn btn-outline">
@@ -36,7 +37,7 @@
 
     <div v-if="loading" class="loading-state">
       <div class="spinner"></div>
-      <p>Loading partners...</p>
+      <p>Loading jobs...</p>
     </div>
     
     <div class="table-container" v-else>
@@ -44,17 +45,16 @@
         <thead>
           <tr>
             <th style="width: 40px"></th>
-            <th style="width: 80px">Logo</th>
-            <th>Name</th>
-            <th>Website</th>
+            <th>Job Title</th>
+            <th>Department</th>
             <th style="width: 120px; text-align: right;">Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-if="filteredPartners.length === 0">
-            <td colspan="5" class="empty-state">No partners found.</td>
+          <tr v-if="filteredJobs.length === 0">
+            <td colspan="6" class="empty-state">No jobs found.</td>
           </tr>
-          <tr v-for="(item, index) in filteredPartners" :key="item.id"
+          <tr v-for="(item, index) in filteredJobs" :key="item.id"
               draggable="true"
               @dragstart="onDragStart($event, index)"
               @dragover.prevent="onDragOver($event, index)"
@@ -65,12 +65,9 @@
             <td class="drag-handle" title="Drag to reorder">
               <GripVertical :size="18" />
             </td>
+            <td class="font-medium">{{ item.title }}</td>
             <td>
-              <img :src="item.logo.startsWith('http') || item.logo.startsWith('/') ? item.logo : '/AmwajTech/partners/' + item.logo" :alt="item.name" style="height: 40px; object-fit: contain; max-width: 80px;" />
-            </td>
-            <td class="font-medium">{{ item.name }}</td>
-            <td>
-              <a :href="item.website" target="_blank" style="color: #2563eb; text-decoration: none;">{{ item.website }}</a>
+              <span class="badge bg-blue-light text-blue">{{ item.department }}</span>
             </td>
             <td class="actions-cell">
               <button @click="openModal(item)" class="action-btn edit-btn" title="Edit">
@@ -89,56 +86,49 @@
     <div v-if="showModal" class="modal-overlay">
       <div class="modal-content">
         <div class="modal-header">
-          <h3>{{ editingId ? 'Edit Partner' : 'New Partner' }}</h3>
+          <h3>{{ editingId ? 'Edit Job' : 'New Job' }}</h3>
           <button @click="showModal = false" class="close-btn"><X :size="20" /></button>
         </div>
         
         <form @submit.prevent="handleSubmit" class="modal-body">
           <div class="form-row">
             <div class="form-group flex-1">
-              <label>Partner Name</label>
-              <input v-model="formData.name" required placeholder="e.g. Microsoft" />
+              <label>Job Title</label>
+              <input v-model="formData.title" required placeholder="e.g. Senior Software Engineer" />
             </div>
             <div class="form-group flex-1">
-              <label>Category</label>
-              <input v-model="formData.category" required placeholder="e.g. Digital Creative" />
+              <label>Department</label>
+              <input v-model="formData.department" required placeholder="e.g. Engineering" />
             </div>
           </div>
 
           <div class="form-group">
-            <label>Website URL</label>
-            <input type="url" v-model="formData.website" required placeholder="https://..." />
-          </div>
-          
-          <div class="form-group">
-            <label>Logo Image URL / Filename</label>
-            <input v-model="formData.logo" required placeholder="e.g. microsoft.png or https://..." />
+            <label>Job Description</label>
+            <textarea v-model="formData.description" rows="5" required placeholder="Describe the role..."></textarea>
           </div>
 
           <div class="form-group">
-            <label>Short Description (Used for card hover)</label>
-            <textarea v-model="formData.shortDesc" rows="2" required></textarea>
-          </div>
-
-          <div class="form-group">
-            <label>About Partner Description</label>
-            <textarea v-model="formData.aboutDesc" rows="3" required></textarea>
-          </div>
-
-          <div class="form-group">
-            <label>How We Leverage Technology</label>
-            <textarea v-model="formData.leverageDesc" rows="3" required></textarea>
-          </div>
-
-          <div class="form-group">
-            <label>Services (Comma separated keys)</label>
-            <input v-model="servicesInput" placeholder="cloud-services, data-center" />
+            <label style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              Application Requirements
+              <button type="button" @click="addRequirement" class="btn btn-outline" style="padding: 0.25rem 0.5rem; font-size: 0.8rem; height: auto;">
+                <Plus :size="14" style="margin-right: 4px" /> Add
+              </button>
+            </label>
+            <div v-for="(req, index) in formData.requirements" :key="index" style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <input v-model="formData.requirements[index]" style="flex: 1" placeholder="e.g. Portfolio Link" required />
+              <button type="button" @click="removeRequirement(index)" class="btn btn-outline" style="padding: 0.5rem; color: #ef4444; border-color: #ef4444;">
+                <Trash2 :size="16" />
+              </button>
+            </div>
+            <p v-if="!formData.requirements || formData.requirements.length === 0" style="font-size: 0.85rem; color: #64748b; margin-top: 0.25rem;">
+              No custom requirements added. Default fields (Name, Email, Phone, CV, Message) will be shown.
+            </p>
           </div>
 
           <div class="modal-footer">
             <button type="button" @click="showModal = false" class="btn btn-outline">Cancel</button>
             <button type="submit" class="btn btn-primary" :disabled="isSaving">
-              {{ isSaving ? 'Saving...' : 'Save Partner' }}
+              {{ isSaving ? 'Saving...' : 'Save Job' }}
             </button>
           </div>
         </form>
@@ -155,7 +145,7 @@ import {
   Edit2, Trash2, GripVertical, Save, X 
 } from 'lucide-vue-next';
 
-const partners = ref([]);
+const jobs = ref([]);
 const loading = ref(true);
 const showModal = ref(false);
 const isSaving = ref(false);
@@ -169,32 +159,33 @@ const hasReordered = ref(false);
 const isSavingOrder = ref(false);
 
 const formData = ref({
-  key: '',
-  name: '',
-  category: '',
-  shortDesc: '',
-  website: '',
-  logo: '',
-  aboutDesc: '',
-  leverageDesc: '',
-  services: []
+  title: '',
+  department: '',
+  description: '',
+  requirements: []
 });
 
-const servicesInput = computed({
-  get: () => formData.value.services ? formData.value.services.join(', ') : '',
-  set: (val) => {
-    formData.value.services = val.split(',').map(s => s.trim()).filter(Boolean);
+const addRequirement = () => {
+  if (!formData.value.requirements) {
+    formData.value.requirements = [];
   }
-});
+  formData.value.requirements.push('');
+};
+
+const removeRequirement = (index) => {
+  formData.value.requirements.splice(index, 1);
+};
 
 const loadData = async () => {
   loading.value = true;
   hasReordered.value = false;
   try {
-    const data = await api.getAll('partners');
-    partners.value = data.sort((a, b) => (a.order || 0) - (b.order || 0));
+    const data = await api.getAll('jobs');
+    jobs.value = data.sort((a, b) => (a.order || 0) - (b.order || 0));
   } catch (err) {
-    console.error('Failed to load partners', err);
+    console.error('Failed to load jobs', err);
+    // If collection doesn't exist yet, just leave empty
+    jobs.value = [];
   } finally {
     loading.value = false;
   }
@@ -202,12 +193,12 @@ const loadData = async () => {
 
 onMounted(loadData);
 
-const filteredPartners = computed(() => {
-  if (!searchQuery.value) return partners.value;
+const filteredJobs = computed(() => {
+  if (!searchQuery.value) return jobs.value;
   const q = searchQuery.value.toLowerCase();
-  return partners.value.filter(p => 
-    p.name?.toLowerCase().includes(q) || 
-    p.category?.toLowerCase().includes(q)
+  return jobs.value.filter(j => 
+    j.title?.toLowerCase().includes(q) || 
+    j.department?.toLowerCase().includes(q)
   );
 });
 
@@ -215,7 +206,7 @@ const filteredPartners = computed(() => {
 const onDragStart = (e, index) => {
   if (searchQuery.value) {
     e.preventDefault();
-    return;
+    return; // disable drag if filtered
   }
   draggedIndex.value = index;
   e.dataTransfer.effectAllowed = 'move';
@@ -229,8 +220,8 @@ const onDrop = (e, index) => {
   dragOverIndex.value = null;
   if (draggedIndex.value === null || draggedIndex.value === index) return;
   
-  const movedItem = partners.value.splice(draggedIndex.value, 1)[0];
-  partners.value.splice(index, 0, movedItem);
+  const movedItem = jobs.value.splice(draggedIndex.value, 1)[0];
+  jobs.value.splice(index, 0, movedItem);
   hasReordered.value = true;
   draggedIndex.value = null;
 };
@@ -238,11 +229,11 @@ const onDrop = (e, index) => {
 const saveOrder = async () => {
   isSavingOrder.value = true;
   try {
-    const updates = partners.value.map((item, index) => {
+    const updates = jobs.value.map((item, index) => {
       item.order = index;
       return { id: item.id, data: { order: index } };
     });
-    await api.updateBatch('partners', updates);
+    await api.updateBatch('jobs', updates);
     hasReordered.value = false;
   } catch (err) {
     console.error('Failed to save order', err);
@@ -255,26 +246,22 @@ const saveOrder = async () => {
 const openModal = (item = null) => {
   if (item) {
     editingId.value = item.id;
-    formData.value = { ...item };
-    if (!formData.value.services) formData.value.services = [];
+    formData.value = { ...item, requirements: item.requirements ? [...item.requirements] : [] };
   } else {
     editingId.value = null;
-    formData.value = { key: '', name: '', category: '', shortDesc: '', website: '', logo: '', aboutDesc: '', leverageDesc: '', services: [] };
+    formData.value = { title: '', department: '', description: '', requirements: [] };
   }
   showModal.value = true;
 };
 
 const handleSubmit = async () => {
   isSaving.value = true;
-  if (!formData.value.key) {
-    formData.value.key = formData.value.name.toLowerCase().replace(/\s+/g, '-');
-  }
   try {
     if (editingId.value) {
-      await api.update('partners', editingId.value, formData.value);
+      await api.update('jobs', editingId.value, formData.value);
     } else {
-      formData.value.order = partners.value.length; // Add to end
-      await api.create('partners', formData.value);
+      formData.value.order = jobs.value.length; // Add to end
+      await api.create('jobs', formData.value);
     }
     showModal.value = false;
     await loadData();
@@ -287,9 +274,9 @@ const handleSubmit = async () => {
 };
 
 const handleDelete = async (id) => {
-  if (confirm('Are you sure you want to delete this partner?')) {
+  if (confirm('Are you sure you want to delete this job?')) {
     try {
-      await api.delete('partners', id);
+      await api.delete('jobs', id);
       await loadData();
     } catch (err) {
       alert('Failed to delete');

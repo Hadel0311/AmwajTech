@@ -49,21 +49,22 @@
           </button>
         </div>
 
-        <div v-else class="positions-grid">
-          <div class="job-card" v-for="(role, key) in roles" :key="key">
-            <div class="job-header">
-              <span class="job-dept">{{ t(`careers.positions.roles.${key}.dept`) }}</span>
-              <span class="job-type">{{ t(`careers.positions.roles.${key}.type`) }}</span>
-            </div>
-            <h3 class="job-title">{{ t(`careers.positions.roles.${key}.title`) }}</h3>
-            <div class="job-meta">
-              <span class="meta-item">
-                <MapPinIcon class="icon-small" />
-                {{ t(`careers.positions.roles.${key}.loc`) }}
-              </span>
-            </div>
-            <p class="job-desc">{{ t(`careers.positions.roles.${key}.desc`) }}</p>
-            <button @click="applyForRole(key)" class="btn btn-primary apply-btn">
+          <div class="controls-container mb-4 d-flex justify-between align-center">
+            <input type="text" v-model="searchQuery" :placeholder="t('careers.positions.search')" class="form-control search-input" />
+            <select v-model="sortOrder" class="form-control sort-select">
+              <option value="oldest">{{ t('careers.positions.sortOldest') }}</option>
+              <option value="newest">{{ t('careers.positions.sortNewest') }}</option>
+            </select>
+          </div>
+
+          <div class="positions-grid">
+            <div class="job-card" v-for="role in processedRoles" :key="role.key">
+              <div class="job-header">
+                <span class="job-dept">{{ role.dept }}</span>
+              </div>
+              <h3 class="job-title">{{ role.title }}</h3>
+              <p class="job-desc">{{ role.desc }}</p>
+              <button @click="applyForRole(role.key)" class="btn btn-primary apply-btn">
               {{ t('careers.positions.applyNow') }}
               <ArrowRightIcon class="icon-small rtl-flip" />
             </button>
@@ -73,36 +74,14 @@
       </div>
     </section>
 
-    <!-- Hiring Process Timeline -->
-    <section class="timeline-section section-padding bg-alt">
-      <div class="container">
-        <div class="section-header text-center mb-5">
-          <h2 class="section-title">{{ t('careers.timeline.title') }}</h2>
-          <p class="section-subtitle">{{ t('careers.timeline.subtitle') }}</p>
-        </div>
-        
-        <div class="timeline-wrapper">
-          <div class="timeline-track"></div>
-          <div class="timeline-steps">
-            <div class="timeline-step" v-for="(step, key, index) in timelineSteps" :key="key">
-              <div class="step-indicator">
-                <span class="step-number">{{ index + 1 }}</span>
-              </div>
-              <div class="step-content">
-                <h3 class="step-title">{{ t(`careers.timeline.steps.${key}.title`) }}</h3>
-                <p class="step-description">{{ t(`careers.timeline.steps.${key}.desc`) }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Dynamic Application Form -->
-        <div v-if="selectedRole" class="application-form-container mt-5" id="application-form">
+    <!-- Application Form Modal -->
+    <div v-if="selectedRole" class="modal-overlay" @click.self="closeApplication">
+      <div class="modal-container application-form-container" id="application-form">
           <div class="form-card">
             <div class="form-header">
               <h3 class="form-title">{{ t('careers.application.title') }}</h3>
               <p class="form-subtitle" v-if="selectedRole !== 'general'">
-                {{ t(`careers.positions.roles.${selectedRole}.title`) }}
+                {{ getSelectedRoleTitle() }}
               </p>
               <button @click="closeApplication" class="close-btn" aria-label="Close">
                 <XIcon />
@@ -136,8 +115,8 @@
               <div v-if="dynamicFields.length > 0" class="dynamic-fields-section">
                 <div class="form-row" v-for="(field, idx) in dynamicFields" :key="idx">
                   <div class="form-group w-100">
-                    <label>{{ t(`careers.application.fields.${field}`) }}</label>
-                    <input type="text" class="form-control" />
+                    <label>{{ field }}</label>
+                    <input type="text" class="form-control" required />
                   </div>
                 </div>
               </div>
@@ -165,22 +144,15 @@
               </div>
             </form>
           </div>
-        </div>
-
-        <div class="text-center mt-5">
-          <p class="final-message mb-3" style="font-weight: 600; font-size: 1.1rem;">{{ t('careers.timeline.finalMessage') }}</p>
-          <button @click="scrollToPositions" class="btn btn-primary">
-            {{ t('careers.positions.applyNow') }}
-          </button>
-        </div>
       </div>
-    </section>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { api } from '@/services/api'
 import { 
   Users, BookOpen, Lightbulb, Award, 
   Briefcase, Server, Shield, Monitor,
@@ -195,8 +167,22 @@ const ArrowRightIcon = ArrowRight
 const XIcon = X
 const UploadIcon = Upload
 
-const hasOpenPositions = ref(true)
+const jobsList = ref([])
+const loading = ref(true)
+
+const hasOpenPositions = computed(() => !loading.value && jobsList.value.length > 0)
 const selectedRole = ref(null)
+
+onMounted(async () => {
+  try {
+    const data = await api.getAll('jobs')
+    jobsList.value = data
+  } catch(e) {
+    console.error('Failed to load jobs', e)
+  } finally {
+    loading.value = false
+  }
+})
 
 const cultureCards = {
   collaboration: { icon: Users },
@@ -205,35 +191,39 @@ const cultureCards = {
   excellence: { icon: Award }
 }
 
-const roles = {
-  networkEngineer: {},
-  softwareDeveloper: {},
-  techSupport: {},
-  sysAdmin: {},
-  cybersecurity: {},
-  salesExec: {},
-  secretary: {}
-}
+const searchQuery = ref('')
+const sortOrder = ref('oldest')
 
-const timelineSteps = {
-  apply: {}, review: {}, initial: {},
-  assessment: {}, final: {}, welcome: {}
-}
+const processedRoles = computed(() => {
+  let result = jobsList.value.map(job => ({
+    key: job.id,
+    title: job.title || '',
+    desc: job.description || '',
+    dept: job.department || '',
+    requirements: job.requirements || [],
+    dateAdded: job.createdAt || new Date().toISOString(),
+    order: job.order || 0
+  }))
 
-// Role-specific field mapping
-const roleFields = {
-  secretary: ['adminExp', 'msOffice', 'languages', 'availability'],
-  softwareDeveloper: ['progLanguages', 'frameworks', 'yearsExp', 'portfolio', 'github'],
-  networkEngineer: ['ciscoExp', 'netCerts', 'yearsExp', 'infraProjects'],
-  techSupport: ['troubleshootingExp', 'supportExp', 'techCerts', 'fieldWork'],
-  sysAdmin: ['yearsExp', 'techCerts'],
-  cybersecurity: ['yearsExp', 'techCerts', 'infraProjects'],
-  salesExec: ['yearsExp', 'languages', 'availability']
-}
+  if (searchQuery.value) {
+    const q = searchQuery.value.toLowerCase()
+    result = result.filter(r => r.title.toLowerCase().includes(q) || r.desc.toLowerCase().includes(q) || r.dept.toLowerCase().includes(q))
+  }
+
+  // By default, sort by newest/oldest for UI. If they want custom order, we could add a sort by order option
+  result.sort((a, b) => {
+    const dateA = new Date(a.dateAdded).getTime()
+    const dateB = new Date(b.dateAdded).getTime()
+    return sortOrder.value === 'newest' ? dateB - dateA : dateA - dateB
+  })
+
+  return result
+})
 
 const dynamicFields = computed(() => {
-  if (!selectedRole.value || selectedRole.value === 'general') return []
-  return roleFields[selectedRole.value] || []
+  if (!selectedRole.value || selectedRole.value === 'general') return [];
+  const role = processedRoles.value.find(r => r.key === selectedRole.value);
+  return role ? role.requirements : [];
 })
 
 const scrollToPositions = () => {
@@ -245,10 +235,12 @@ const scrollToPositions = () => {
 
 const applyForRole = (roleKey) => {
   selectedRole.value = roleKey
-  setTimeout(() => {
-    const el = document.getElementById('application-form')
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
-  }, 100)
+}
+
+const getSelectedRoleTitle = () => {
+  if (!selectedRole.value || selectedRole.value === 'general') return '';
+  const role = processedRoles.value.find(r => r.key === selectedRole.value);
+  return role ? role.title : '';
 }
 
 const openGeneralApplication = () => {
@@ -571,9 +563,45 @@ const submitApplication = () => {
   gap: 0.5rem;
 }
 
-/* Application Form */
-.application-form-container {
+/* Controls */
+.controls-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+.search-input {
+  flex: 1;
+}
+.sort-select {
+  width: auto;
+  min-width: 150px;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10, 25, 47, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.modal-container {
+  max-height: 90vh;
+  overflow-y: auto;
+  width: 100%;
   max-width: 800px;
+  background: transparent;
+}
+
+.application-form-container {
   margin: 0 auto;
   animation: slideUp 0.4s ease forwards;
 }
@@ -715,108 +743,9 @@ const submitApplication = () => {
   margin-top: 1rem;
 }
 
-/* Timeline Section (Simplified matching storytelling) */
-.timeline-wrapper {
-  position: relative;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.timeline-track {
-  position: absolute;
-  top: 24px;
-  left: 5%;
-  right: 5%;
-  height: 4px;
-  background-color: #e2e8f0;
-  border-radius: 4px;
-  z-index: 1;
-}
-
-.timeline-steps {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 1rem;
-  position: relative;
-  z-index: 2;
-}
-
-.timeline-step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  position: relative;
-}
-
-.step-indicator {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  border: 4px solid #e2e8f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
-}
-
-.step-number {
-  font-weight: 700;
-  color: #94a3b8;
-  font-size: 1.1rem;
-}
-
-.timeline-step:hover .step-indicator {
-  border-color: var(--color-accent, #3b82f6);
-  background-color: var(--color-accent, #3b82f6);
-  transform: scale(1.1);
-}
-
-.timeline-step:hover .step-number {
-  color: #ffffff;
-}
-
-.step-title {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--color-primary, #0A192F);
-  margin-bottom: 0.5rem;
-}
-
-.step-description {
-  font-size: 0.85rem;
-  color: #64748b;
-  line-height: 1.5;
-  opacity: 0.8;
-}
-
-.timeline-step:hover .step-description {
-  opacity: 1;
-}
-
-@media (max-width: 1023px) {
-  .timeline-steps {
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 3rem;
-  }
-  .timeline-track { display: none; }
-}
-
 @media (max-width: 767px) {
   .hero-section { padding: 6rem 1.5rem 3rem; }
   .form-row { flex-direction: column; gap: 1.5rem; }
   .form-card { padding: 2rem 1.5rem; }
-  .timeline-steps { grid-template-columns: 1fr; gap: 2.5rem; }
-  .timeline-step { flex-direction: row; text-align: left; gap: 1.5rem; align-items: flex-start; }
-  [dir="rtl"] .timeline-step { text-align: right; }
-  .step-indicator { margin-bottom: 0; flex-shrink: 0; }
-  .timeline-wrapper::before {
-    content: ''; position: absolute; top: 24px; bottom: 0; left: 24px;
-    width: 2px; background-color: #e2e8f0; z-index: 1;
-  }
-  [dir="rtl"] .timeline-wrapper::before { left: auto; right: 24px; }
 }
 </style>

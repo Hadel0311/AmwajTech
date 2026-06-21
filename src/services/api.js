@@ -1,5 +1,5 @@
 import { db } from '../firebase/config.js';
-import { collection, getDocs, doc, getDoc, addDoc, updateDoc, deleteDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, getDoc, addDoc, updateDoc, deleteDoc, writeBatch } from 'firebase/firestore';
 
 export const api = {
   // Public Data Fetching
@@ -27,6 +27,15 @@ export const api = {
     const docRef = doc(db, collectionName, id);
     await updateDoc(docRef, { ...data, updatedAt: new Date().toISOString() });
     return { id, ...data };
+  },
+  updateBatch: async (collectionName, updates) => {
+    const batch = writeBatch(db);
+    updates.forEach(({ id, data }) => {
+      const docRef = doc(db, collectionName, id);
+      batch.update(docRef, { ...data, updatedAt: new Date().toISOString() });
+    });
+    await batch.commit();
+    return { message: 'Batch update successful' };
   },
   delete: async (collectionName, id) => {
     const docRef = doc(db, collectionName, id);

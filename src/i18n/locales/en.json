@@ -1352,6 +1352,10 @@
     "positions": {
       "title": "Current Opportunities",
       "applyNow": "Apply Now",
+      "search": "Search for a position...",
+      "sortLabel": "Sort By",
+      "sortNewest": "Newest to Oldest",
+      "sortOldest": "Oldest to Newest",
       "noOpenings": "We are always interested in connecting with talented professionals. Submit your application and we'll contact you when a suitable opportunity becomes available.",
       "roles": {
         "networkEngineer": {

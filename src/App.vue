@@ -1,28 +1,29 @@
 <template>
   <div id="app">
     <!-- Navigation Header -->
-    <Header />
+    <Header v-if="isPublicRoute" />
 
     <!-- Main Dynamic Route View -->
     <router-view />
 
     <!-- Footer -->
-    <Footer />
+    <Footer v-if="isPublicRoute" />
 
     <!-- Case Study Prototype Modal -->
     <ProjectModal 
+      v-if="isPublicRoute"
       :is-open="isModalOpen" 
       :project-key="activeProjectKey" 
       @close="closeModal" 
     />
 
     <!-- Floating Contact Button -->
-    <FloatingContactButton />
+    <FloatingContactButton v-if="isPublicRoute" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, provide, watch } from 'vue'
+import { ref, onMounted, provide, watch, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
@@ -32,6 +33,10 @@ import ProjectModal from '@/components/ProjectModal.vue'
 import FloatingContactButton from '@/components/FloatingContactButton.vue'
 
 const route = useRoute()
+
+const isPublicRoute = computed(() => {
+  return !route.path.startsWith('/admin') && route.path !== '/login'
+})
 const { locale, t } = useI18n()
 const currentLocale = ref('en')
 const isModalOpen = ref(false)

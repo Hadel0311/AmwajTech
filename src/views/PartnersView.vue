@@ -20,13 +20,24 @@
           <input 
             type="text" 
             v-model="searchQuery" 
-            placeholder="Search partners by name only..."
+            :placeholder="t('partners.searchPlaceholder') || 'Search partners...'"
           />
         </div>
 
         <!-- Category Filter Chips -->
         <div class="partners-categories-wrapper">
-          <div class="partners-categories">
+          <button v-show="showLeftArrow" class="partners-slider-arrow left-arrow" @click="scrollLeft">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
+          
+          <div 
+            class="partners-categories" 
+            ref="categoriesContainer"
+            @scroll="checkArrows"
+            @wheel.prevent="handleWheel"
+          >
             <button 
               class="category-chip" 
               :class="{ active: selectedCategory === 'all' }"
@@ -44,11 +55,12 @@
               {{ t(cat.translationKey) }}
             </button>
           </div>
-          <div class="categories-scroll-indicator">
+
+          <button v-show="showRightArrow" class="partners-slider-arrow right-arrow" @click="scrollRight">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M9 18l6-6-6-6"/>
             </svg>
-          </div>
+          </button>
         </div>
       </div>
     </section>
@@ -56,7 +68,10 @@
     <!-- Partners Grid -->
     <section class="partners-grid-section">
       <div class="container">
-        <div class="partners-cards-grid">
+        <div v-if="filteredPartners.length === 0" class="no-results-message" style="text-align: center; padding: 3rem; color: var(--color-text-muted); font-size: var(--text-lg);">
+          <p>No partners found matching your search criteria.</p>
+        </div>
+        <div v-else class="partners-cards-grid">
           <article 
             v-for="partner in filteredPartners" 
             :key="partner.id"
@@ -95,20 +110,59 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import { api } from '@/services/api'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 const partnersList = ref([])
 
+// Scrolling logic
+const categoriesContainer = ref(null)
+const showLeftArrow = ref(false)
+const showRightArrow = ref(false)
+
+const checkArrows = () => {
+  if (!categoriesContainer.value) return
+  const { scrollLeft, scrollWidth, clientWidth } = categoriesContainer.value
+  showLeftArrow.value = scrollLeft > 0
+  showRightArrow.value = Math.ceil(scrollLeft) < scrollWidth - clientWidth - 1
+}
+
+const scrollLeft = () => {
+  if (categoriesContainer.value) {
+    categoriesContainer.value.scrollBy({ left: -200, behavior: 'smooth' })
+  }
+}
+
+const scrollRight = () => {
+  if (categoriesContainer.value) {
+    categoriesContainer.value.scrollBy({ left: 200, behavior: 'smooth' })
+  }
+}
+
+const handleWheel = (e) => {
+  if (categoriesContainer.value) {
+    categoriesContainer.value.scrollBy({ left: e.deltaY > 0 ? 100 : -100, behavior: 'smooth' })
+  }
+}
+
 onMounted(async () => {
+  nextTick(() => {
+    setTimeout(checkArrows, 100)
+  })
+  window.addEventListener('resize', checkArrows)
+
   try {
     const data = await api.getAll('partners')
     partnersList.value = data.sort((a, b) => (a.order || 0) - (b.order || 0))
   } catch (err) {
     console.error('Error loading partners', err)
   }
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', checkArrows)
 })
 
 const logoImages = import.meta.glob('../assets/images/Partners/*', { eager: true, import: 'default' })
@@ -145,7 +199,7 @@ const filteredPartners = computed(() => {
     // 2. Filter by search query
     if (searchQuery.value.trim() !== '') {
       const query = searchQuery.value.toLowerCase()
-      const name = partner.name.toLowerCase()
+      const name = (partner.name || t(`partners.items.${partner.key}.name`) || '').toLowerCase()
       const category = (partner.category || t(`partners.items.${partner.key}.category`) || '').toLowerCase()
       const desc = (partner.shortDesc || t(`partners.items.${partner.key}.shortDesc`) || '').toLowerCase()
 

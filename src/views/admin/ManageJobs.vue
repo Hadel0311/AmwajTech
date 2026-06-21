@@ -23,16 +23,7 @@
         <Search :size="16" class="search-icon" />
         <input type="text" v-model="searchQuery" placeholder="Search jobs..." />
       </div>
-      <div class="filter-actions">
-        <button class="btn btn-outline">
-          <Filter :size="16" />
-          Filter
-        </button>
-        <button class="btn btn-outline">
-          <SlidersHorizontal :size="16" />
-          Sort
-        </button>
-      </div>
+      <!-- Filter actions removed -->
     </div>
 
     <div v-if="loading" class="loading-state">
@@ -47,7 +38,9 @@
             <th style="width: 40px"></th>
             <th>Job Title</th>
             <th>Department</th>
-            <th style="width: 120px; text-align: right;">Actions</th>
+            <th>Status</th>
+            <th>Applicants</th>
+            <th style="width: 140px; text-align: right;">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -69,7 +62,21 @@
             <td>
               <span class="badge bg-blue-light text-blue">{{ item.department }}</span>
             </td>
+            <td>
+              <span class="badge" :class="item.status === 'Closed' ? 'bg-purple-light icon-purple' : 'bg-green-light icon-green'">
+                {{ item.status || 'Open' }}
+              </span>
+            </td>
+            <td>
+              <div style="display: flex; align-items: center; gap: 0.25rem;">
+                <Users :size="14" style="color: #64748b;" />
+                <span style="font-weight: 500;">{{ applicantsCount[item.id] || 0 }}</span>
+              </div>
+            </td>
             <td class="actions-cell">
+              <router-link :to="`/admin/jobs/${item.id}/applicants`" class="action-btn" title="View Applicants" style="color: #3b82f6;">
+                <Users :size="16" />
+              </router-link>
               <button @click="openModal(item)" class="action-btn edit-btn" title="Edit">
                 <Edit2 :size="16" />
               </button>
@@ -99,6 +106,13 @@
             <div class="form-group flex-1">
               <label>Department</label>
               <input v-model="formData.department" required placeholder="e.g. Engineering" />
+            </div>
+            <div class="form-group" style="width: 120px;">
+              <label>Status</label>
+              <select v-model="formData.status" required style="padding: 0.5rem; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.95rem;">
+                <option value="Open">Open</option>
+                <option value="Closed">Closed</option>
+              </select>
             </div>
           </div>
 
@@ -142,7 +156,7 @@ import { ref, computed, onMounted } from 'vue';
 import { api } from '@/services/api';
 import { 
   Plus, Search, Filter, SlidersHorizontal, 
-  Edit2, Trash2, GripVertical, Save, X 
+  Edit2, Trash2, GripVertical, Save, X, Users
 } from 'lucide-vue-next';
 
 const jobs = ref([]);
@@ -151,6 +165,7 @@ const showModal = ref(false);
 const isSaving = ref(false);
 const editingId = ref(null);
 const searchQuery = ref('');
+const applicantsCount = ref({});
 
 // Drag and drop state
 const draggedIndex = ref(null);
@@ -162,6 +177,7 @@ const formData = ref({
   title: '',
   department: '',
   description: '',
+  status: 'Open',
   requirements: []
 });
 
@@ -180,11 +196,24 @@ const loadData = async () => {
   loading.value = true;
   hasReordered.value = false;
   try {
-    const data = await api.getAll('jobs');
-    jobs.value = data.sort((a, b) => (a.order || 0) - (b.order || 0));
+    const [jobsData, applicantsData] = await Promise.all([
+      api.getAll('jobs'),
+      api.getAll('applicants').catch(() => []) // Catch if collection doesn't exist
+    ]);
+    
+    jobs.value = jobsData.sort((a, b) => (a.order || 0) - (b.order || 0));
+    
+    // Compute applicant counts
+    const counts = {};
+    applicantsData.forEach(app => {
+      if (app.jobId) {
+        counts[app.jobId] = (counts[app.jobId] || 0) + 1;
+      }
+    });
+    applicantsCount.value = counts;
+
   } catch (err) {
     console.error('Failed to load jobs', err);
-    // If collection doesn't exist yet, just leave empty
     jobs.value = [];
   } finally {
     loading.value = false;
@@ -246,10 +275,10 @@ const saveOrder = async () => {
 const openModal = (item = null) => {
   if (item) {
     editingId.value = item.id;
-    formData.value = { ...item, requirements: item.requirements ? [...item.requirements] : [] };
+    formData.value = { ...item, requirements: item.requirements ? [...item.requirements] : [], status: item.status || 'Open' };
   } else {
     editingId.value = null;
-    formData.value = { title: '', department: '', description: '', requirements: [] };
+    formData.value = { title: '', department: '', description: '', status: 'Open', requirements: [] };
   }
   showModal.value = true;
 };

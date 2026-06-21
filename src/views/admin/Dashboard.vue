@@ -1,77 +1,62 @@
 <template>
   <div class="dashboard-wrapper">
-    <div class="page-header">
-      <div>
-        <h1 class="page-title">Dashboard Overview</h1>
-        <p class="page-subtitle">Welcome back, here's what's happening today.</p>
-      </div>
-      <div class="header-actions">
-        <button class="btn btn-outline">
-          <Calendar :size="16" />
-          <span>Last 30 Days</span>
-        </button>
-        <button class="btn btn-primary">
-          <Download :size="16" />
-          <span>Export Report</span>
-        </button>
-      </div>
-    </div>
+    <!-- Page Header moved to AdminLayout Topbar -->
 
     <!-- KPI Cards -->
     <div class="kpi-grid">
       <div class="kpi-card">
         <div class="kpi-header">
-          <span class="kpi-title">Total Clients</span>
-          <div class="kpi-icon bg-blue-light">
-            <Users class="icon-blue" :size="20" />
-          </div>
-        </div>
-        <div class="kpi-value">124</div>
-        <div class="kpi-trend positive">
-          <TrendingUp :size="14" />
-          <span>+12% from last month</span>
-        </div>
-      </div>
-
-      <div class="kpi-card">
-        <div class="kpi-header">
-          <span class="kpi-title">Active Partners</span>
-          <div class="kpi-icon bg-green-light">
-            <Network class="icon-green" :size="20" />
-          </div>
-        </div>
-        <div class="kpi-value">45</div>
-        <div class="kpi-trend positive">
-          <TrendingUp :size="14" />
-          <span>+5% from last month</span>
-        </div>
-      </div>
-
-      <div class="kpi-card">
-        <div class="kpi-header">
           <span class="kpi-title">Open Jobs</span>
-          <div class="kpi-icon bg-gold-light">
-            <Briefcase class="icon-gold" :size="20" />
+          <div class="kpi-icon bg-blue-light">
+            <Briefcase class="icon-blue" :size="20" />
           </div>
         </div>
-        <div class="kpi-value">8</div>
+        <div class="kpi-value">{{ kpis.openJobs }}</div>
         <div class="kpi-trend neutral">
           <Minus :size="14" />
-          <span>No change</span>
+          <span>Active Openings</span>
         </div>
       </div>
 
       <div class="kpi-card">
         <div class="kpi-header">
-          <span class="kpi-title">Announcements</span>
+          <span class="kpi-title">Total Applications</span>
           <div class="kpi-icon bg-purple-light">
-            <Megaphone class="icon-purple" :size="20" />
+            <Users class="icon-purple" :size="20" />
           </div>
         </div>
-        <div class="kpi-value">12</div>
-        <div class="kpi-trend negative">
-          <TrendingDown :size="14" />
-          <span>-2% from last month</span>
+        <div class="kpi-value">{{ kpis.totalApplications }}</div>
+        <div class="kpi-trend positive">
+          <TrendingUp :size="14" />
+          <span>In System</span>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-title">Interviews Scheduled</span>
+          <div class="kpi-icon bg-gold-light">
+            <Calendar class="icon-gold" :size="20" />
+          </div>
+        </div>
+        <div class="kpi-value">{{ kpis.interviewsScheduled }}</div>
+        <div class="kpi-trend neutral">
+          <Minus :size="14" />
+          <span>Upcoming</span>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-title">Accepted Candidates</span>
+          <div class="kpi-icon bg-green-light">
+            <User class="icon-green" :size="20" />
+          </div>
+        </div>
+        <div class="kpi-value">{{ kpis.acceptedCandidates }}</div>
+        <div class="kpi-trend positive">
+          <TrendingUp :size="14" />
+          <span>Successful Hires</span>
         </div>
       </div>
     </div>
@@ -177,6 +162,8 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue';
+import { api } from '@/services/api';
 import { 
   Users, 
   Network, 
@@ -190,6 +177,31 @@ import {
   Download,
   User
 } from 'lucide-vue-next';
+
+const kpis = ref({
+  openJobs: 0,
+  totalApplications: 0,
+  interviewsScheduled: 0,
+  acceptedCandidates: 0
+});
+
+const loadKpis = async () => {
+  try {
+    const [jobs, applicants] = await Promise.all([
+      api.getAll('jobs').catch(() => []),
+      api.getAll('applicants').catch(() => [])
+    ]);
+
+    kpis.value.openJobs = jobs.filter(j => j.status !== 'Closed').length;
+    kpis.value.totalApplications = applicants.length;
+    kpis.value.interviewsScheduled = applicants.filter(a => a.status === 'Interview Scheduled').length;
+    kpis.value.acceptedCandidates = applicants.filter(a => a.status === 'Accepted').length;
+  } catch (err) {
+    console.error('Failed to load KPIs', err);
+  }
+};
+
+onMounted(loadKpis);
 </script>
 
 <style scoped>

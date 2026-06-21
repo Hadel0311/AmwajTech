@@ -1,5 +1,6 @@
-import { db } from '../firebase/config.js';
+import { db, storage } from '../firebase/config.js';
 import { collection, getDocs, doc, getDoc, addDoc, updateDoc, deleteDoc, writeBatch } from 'firebase/firestore';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 export const api = {
   // Public Data Fetching
@@ -17,6 +18,14 @@ export const api = {
     return { id: snapshot.id, ...snapshot.data() };
   },
   
+  // File Upload
+  uploadFile: async (path, file) => {
+    if (!storage) throw new Error('Firebase storage not initialized');
+    const storageRef = ref(storage, path);
+    await uploadBytes(storageRef, file);
+    return await getDownloadURL(storageRef);
+  },
+
   // Protected Admin Methods
   create: async (collectionName, data) => {
     const colRef = collection(db, collectionName);

@@ -92,22 +92,22 @@
               <div class="form-row">
                 <div class="form-group">
                   <label>{{ t('careers.application.fullName') }} *</label>
-                  <input type="text" required class="form-control" />
+                  <input type="text" v-model="appFormData.fullName" required class="form-control" />
                 </div>
                 <div class="form-group">
                   <label>{{ t('careers.application.email') }} *</label>
-                  <input type="email" required class="form-control" />
+                  <input type="email" v-model="appFormData.email" required class="form-control" />
                 </div>
               </div>
               
               <div class="form-row">
                 <div class="form-group">
                   <label>{{ t('careers.application.phone') }} *</label>
-                  <input type="tel" required class="form-control" />
+                  <input type="tel" v-model="appFormData.phone" required class="form-control" />
                 </div>
                 <div class="form-group">
                   <label>{{ t('careers.application.linkedin') }}</label>
-                  <input type="url" class="form-control" />
+                  <input type="url" v-model="appFormData.linkedin" class="form-control" />
                 </div>
               </div>
 
@@ -116,7 +116,7 @@
                 <div class="form-row" v-for="(field, idx) in dynamicFields" :key="idx">
                   <div class="form-group w-100">
                     <label>{{ field }}</label>
-                    <input type="text" class="form-control" required />
+                    <input type="text" v-model="appFormData.dynamicFields[field]" class="form-control" required />
                   </div>
                 </div>
               </div>
@@ -124,22 +124,22 @@
               <div class="form-group file-upload-group">
                 <label>{{ t('careers.application.cv') }} *</label>
                 <div class="file-upload-wrapper">
-                  <input type="file" required accept=".pdf,.doc,.docx" class="file-input" />
+                  <input type="file" @change="handleFileChange" required accept=".pdf,.doc,.docx" class="file-input" />
                   <div class="file-upload-visual">
                     <UploadIcon class="upload-icon" />
-                    <span>{{ t('careers.application.cvHint') }}</span>
+                    <span>{{ cvFileName || t('careers.application.cvHint') }}</span>
                   </div>
                 </div>
               </div>
 
               <div class="form-group">
                 <label>{{ t('careers.application.message') }}</label>
-                <textarea rows="4" :placeholder="t('careers.application.messagePlaceholder')" class="form-control"></textarea>
+                <textarea rows="4" v-model="appFormData.message" :placeholder="t('careers.application.messagePlaceholder')" class="form-control"></textarea>
               </div>
 
               <div class="form-submit">
-                <button type="submit" class="btn btn-primary w-100 submit-btn">
-                  {{ t('careers.application.submit') }}
+                <button type="submit" class="btn btn-primary w-100 submit-btn" :disabled="isSubmitting">
+                  {{ isSubmitting ? 'Submitting...' : t('careers.application.submit') }}
                 </button>
               </div>
             </form>
@@ -195,15 +195,17 @@ const searchQuery = ref('')
 const sortOrder = ref('oldest')
 
 const processedRoles = computed(() => {
-  let result = jobsList.value.map(job => ({
-    key: job.id,
-    title: job.title || '',
-    desc: job.description || '',
-    dept: job.department || '',
-    requirements: job.requirements || [],
-    dateAdded: job.createdAt || new Date().toISOString(),
-    order: job.order || 0
-  }))
+  let result = jobsList.value
+    .filter(job => job.status !== 'Closed')
+    .map(job => ({
+      key: job.id,
+      title: job.title || '',
+      desc: job.description || '',
+      dept: job.department || '',
+      requirements: job.requirements || [],
+      dateAdded: job.createdAt || new Date().toISOString(),
+      order: job.order || 0
+    }))
 
   if (searchQuery.value) {
     const q = searchQuery.value.toLowerCase()
@@ -233,8 +235,38 @@ const scrollToPositions = () => {
   }
 }
 
+const appFormData = ref({
+  fullName: '',
+  email: '',
+  phone: '',
+  linkedin: '',
+  message: '',
+  dynamicFields: {}
+})
+const cvFile = ref(null)
+const cvFileName = ref('')
+const isSubmitting = ref(false)
+
+const handleFileChange = (e) => {
+  if (e.target.files && e.target.files[0]) {
+    cvFile.value = e.target.files[0]
+    cvFileName.value = e.target.files[0].name
+  }
+}
+
 const applyForRole = (roleKey) => {
   selectedRole.value = roleKey
+  // Reset form
+  appFormData.value = {
+    fullName: '',
+    email: '',
+    phone: '',
+    linkedin: '',
+    message: '',
+    dynamicFields: {}
+  }
+  cvFile.value = null
+  cvFileName.value = ''
 }
 
 const getSelectedRoleTitle = () => {
@@ -251,10 +283,40 @@ const closeApplication = () => {
   selectedRole.value = null
 }
 
-const submitApplication = () => {
-  // Mock submission
-  alert('Application submitted successfully!')
-  closeApplication()
+const submitApplication = async () => {
+  if (isSubmitting.value) return;
+  isSubmitting.value = true;
+  
+  try {
+    let cvUrl = '';
+    if (cvFile.value) {
+      const timestamp = new Date().getTime();
+      const path = `cvs/${timestamp}_${cvFile.value.name}`;
+      cvUrl = await api.uploadFile(path, cvFile.value);
+    }
+
+    const applicationData = {
+      jobId: selectedRole.value || 'general',
+      jobTitle: getSelectedRoleTitle() || 'General Application',
+      fullName: appFormData.value.fullName,
+      email: appFormData.value.email,
+      phone: appFormData.value.phone,
+      linkedin: appFormData.value.linkedin,
+      message: appFormData.value.message,
+      dynamicFields: appFormData.value.dynamicFields,
+      cvUrl,
+      status: 'New'
+    };
+
+    await api.create('applicants', applicationData);
+    alert('Application submitted successfully!');
+    closeApplication();
+  } catch (err) {
+    console.error('Failed to submit application', err);
+    alert('An error occurred while submitting your application. Please try again.');
+  } finally {
+    isSubmitting.value = false;
+  }
 }
 </script>
 

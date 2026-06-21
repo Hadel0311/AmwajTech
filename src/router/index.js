@@ -67,6 +67,11 @@ const router = createRouter({
           path: 'jobs',
           name: 'admin-jobs',
           component: () => import('../views/admin/ManageJobs.vue')
+        },
+        {
+          path: 'jobs/:jobId/applicants',
+          name: 'admin-job-applicants',
+          component: () => import('../views/admin/ManageApplicants.vue')
         }
       ]
     }

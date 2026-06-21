@@ -22,16 +22,7 @@
         <Search :size="16" class="search-icon" />
         <input type="text" v-model="searchQuery" placeholder="Search partners..." />
       </div>
-      <div class="filter-actions">
-        <button class="btn btn-outline">
-          <Filter :size="16" />
-          Filter
-        </button>
-        <button class="btn btn-outline">
-          <SlidersHorizontal :size="16" />
-          Sort
-        </button>
-      </div>
+      <!-- Filter actions removed -->
     </div>
 
     <div v-if="loading" class="loading-state">

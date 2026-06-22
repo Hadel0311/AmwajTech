@@ -69,37 +69,6 @@
           </div>
         </div>
         <div class="topbar-right">
-          <div class="notifications-wrapper" ref="notificationsDropdownRef">
-            <button class="topbar-btn notifications" @click.stop="toggleNotifications">
-              <Bell :size="20" />
-              <span class="notification-badge" v-if="unreadCount > 0">{{ unreadCount }}</span>
-            </button>
-            
-            <div class="notifications-dropdown" v-if="showNotifications" @click.stop>
-              <div class="notifications-header">
-                <h3>Notifications</h3>
-                <button class="mark-read-btn" @click="markAllRead" v-if="unreadCount > 0">Mark all as read</button>
-              </div>
-              <div class="notifications-body">
-                <div v-if="loadingNotifications" class="notifications-loading">Loading...</div>
-                <div v-else-if="notifications.length === 0" class="notifications-empty">No recent activity</div>
-                <div v-else class="notification-list">
-                  <div class="notification-item" v-for="(notif, idx) in notifications" :key="idx">
-                    <div class="notification-icon" :class="notif.colorClass">
-                      <component :is="notif.icon" :size="16" />
-                    </div>
-                    <div class="notification-content">
-                      <p><strong>{{ notif.type }}</strong> {{ notif.action }} <strong>{{ notif.name }}</strong></p>
-                      <span class="notification-time">{{ formatTime(notif.date) }}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="notifications-footer">
-                <router-link to="/admin" @click="showNotifications = false">View Dashboard</router-link>
-              </div>
-            </div>
-          </div>
           <div class="user-profile">
             <div class="avatar">
               <User :size="20" />
@@ -121,11 +90,10 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import { signOut } from 'firebase/auth';
 import { auth } from '@/firebase/config';
-import { api } from '@/services/api';
 import { 
   LayoutDashboard, 
   Megaphone, 
@@ -133,7 +101,6 @@ import {
   Network, 
   Briefcase, 
   LogOut, 
-  Bell, 
   User,
   ChevronLeft,
   ChevronRight
@@ -155,72 +122,6 @@ const handleLogout = async () => {
     console.error('Error signing out', error);
   }
 };
-
-// Notifications logic
-const notifications = ref([]);
-const showNotifications = ref(false);
-const unreadCount = ref(0);
-const loadingNotifications = ref(true);
-const notificationsDropdownRef = ref(null);
-
-const toggleNotifications = () => {
-  showNotifications.value = !showNotifications.value;
-};
-
-const closeNotifications = (e) => {
-  if (showNotifications.value && notificationsDropdownRef.value && !notificationsDropdownRef.value.contains(e.target)) {
-    showNotifications.value = false;
-  }
-};
-
-const markAllRead = () => {
-  unreadCount.value = 0;
-};
-
-const formatTime = (dateStr) => {
-  if (!dateStr) return 'Just now';
-  const date = new Date(dateStr);
-  const now = new Date();
-  const diffHours = Math.floor((now - date) / (1000 * 60 * 60));
-  if (diffHours < 1) return 'Just now';
-  if (diffHours < 24) return `${diffHours} hours ago`;
-  return `${Math.floor(diffHours / 24)} days ago`;
-};
-
-const fetchNotifications = async () => {
-  loadingNotifications.value = true;
-  try {
-    const [clientsData, partnersData, jobsData, announcementsData] = await Promise.all([
-      api.getAll('clients'),
-      api.getAll('partners'),
-      api.getAll('jobs'),
-      api.getAll('announcements')
-    ]);
-
-    const allItems = [
-      ...clientsData.map(d => ({ ...d, type: 'Client', icon: Users, colorClass: 'bg-blue-light icon-blue', name: d.name || d.title, action: d.updatedAt ? 'updated' : 'added', date: d.updatedAt || d.createdAt || new Date().toISOString() })),
-      ...partnersData.map(d => ({ ...d, type: 'Partner', icon: Network, colorClass: 'bg-green-light icon-green', name: d.name || d.title, action: d.updatedAt ? 'updated' : 'added', date: d.updatedAt || d.createdAt || new Date().toISOString() })),
-      ...jobsData.map(d => ({ ...d, type: 'Job', icon: Briefcase, colorClass: 'bg-gold-light icon-gold', name: d.title, action: d.updatedAt ? 'updated' : 'added', date: d.updatedAt || d.createdAt || new Date().toISOString() })),
-      ...announcementsData.map(d => ({ ...d, type: 'Announcement', icon: Megaphone, colorClass: 'bg-purple-light icon-purple', name: d.title, action: d.updatedAt ? 'updated' : 'added', date: d.updatedAt || d.createdAt || new Date().toISOString() }))
-    ];
-
-    notifications.value = allItems.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 5);
-    unreadCount.value = notifications.value.length;
-  } catch (error) {
-    console.error('Error fetching notifications:', error);
-  } finally {
-    loadingNotifications.value = false;
-  }
-};
-
-onMounted(() => {
-  fetchNotifications();
-  document.addEventListener('click', closeNotifications);
-});
-
-onUnmounted(() => {
-  document.removeEventListener('click', closeNotifications);
-});
 </script>
 
 <style scoped>
@@ -452,180 +353,6 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-}
-
-.notifications-wrapper {
-  position: relative;
-}
-
-.notifications-dropdown {
-  position: absolute;
-  top: calc(100% + 10px);
-  right: -50px;
-  width: 340px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--border-color);
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.notifications-header {
-  padding: 1rem 1.25rem;
-  border-bottom: 1px solid var(--border-color);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #f8fafc;
-}
-
-.notifications-header h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0;
-  color: var(--text-primary);
-}
-
-.mark-read-btn {
-  background: none;
-  border: none;
-  color: #3b82f6;
-  font-size: 0.8rem;
-  font-weight: 500;
-  cursor: pointer;
-  padding: 0;
-}
-
-.mark-read-btn:hover {
-  text-decoration: underline;
-}
-
-.notifications-body {
-  max-height: 350px;
-  overflow-y: auto;
-}
-
-.notifications-loading,
-.notifications-empty {
-  padding: 2rem;
-  text-align: center;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-}
-
-.notification-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.notification-item {
-  display: flex;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
-  border-bottom: 1px solid var(--border-color);
-  transition: background-color 0.2s;
-}
-
-.notification-item:hover {
-  background-color: #f8fafc;
-}
-
-.notification-item:last-child {
-  border-bottom: none;
-}
-
-.notification-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.notification-content {
-  flex: 1;
-}
-
-.notification-content p {
-  margin: 0 0 0.25rem 0;
-  font-size: 0.85rem;
-  line-height: 1.4;
-  color: var(--text-primary);
-}
-
-.notification-time {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-}
-
-.notifications-footer {
-  padding: 0.75rem;
-  text-align: center;
-  border-top: 1px solid var(--border-color);
-  background: #f8fafc;
-}
-
-.notifications-footer a {
-  color: #3b82f6;
-  font-size: 0.85rem;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.notifications-footer a:hover {
-  text-decoration: underline;
-}
-
-/* Utilities for notification icons */
-.bg-blue-light { background-color: #eff6ff; }
-.icon-blue { color: #3b82f6; }
-.bg-green-light { background-color: #f0fdf4; }
-.icon-green { color: #22c55e; }
-.bg-gold-light { background-color: #fefce8; }
-.icon-gold { color: #eab308; }
-.bg-purple-light { background-color: #faf5ff; }
-.icon-purple { color: #a855f7; }
-
-.topbar-btn {
-  background: transparent;
-  border: none;
-  color: var(--text-secondary);
-  cursor: pointer;
-  position: relative;
-  padding: 0.5rem;
-  border-radius: 50%;
-  transition: background-color 0.2s, color 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.topbar-btn:hover {
-  background-color: var(--admin-bg);
-  color: var(--sidebar-bg);
-}
-
-.notification-badge {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: #ef4444;
-  color: #fff;
-  font-size: 0.65rem;
-  font-weight: bold;
-  height: 16px;
-  min-width: 16px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 4px;
-  border: 2px solid #fff;
 }
 
 .user-profile {

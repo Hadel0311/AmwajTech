@@ -2,13 +2,15 @@
   <div class="manage-container">
     <div class="page-header">
       <div class="header-title">
-        <div style="display: flex; align-items: center; gap: 1rem;">
+        <div style="display: flex; align-items: flex-start; gap: 1rem;">
           <router-link to="/admin/jobs" class="back-btn" title="Back to Jobs">
             <ArrowLeft :size="20" />
           </router-link>
-          <h2>Applicants for {{ jobTitle }}</h2>
+          <div>
+            <h2 style="margin-top: 0; line-height: 36px;">Applicants for {{ jobTitle }}</h2>
+            <p>Review and manage candidates for this position.</p>
+          </div>
         </div>
-        <p>Review and manage candidates for this position.</p>
       </div>
     </div>
 
@@ -51,7 +53,7 @@
           <tr v-if="filteredApplicants.length === 0">
             <td colspan="6" class="empty-state">No applicants found.</td>
           </tr>
-          <tr v-for="applicant in filteredApplicants" :key="applicant.id" @click="openDrawer(applicant)" class="clickable-row">
+          <tr v-for="applicant in filteredApplicants" :key="applicant.id">
             <td class="font-medium">{{ applicant.fullName }}</td>
             <td>{{ applicant.email }}</td>
             <td>{{ applicant.phone }}</td>
@@ -62,6 +64,9 @@
               </span>
             </td>
             <td class="actions-cell" @click.stop>
+              <button @click="openDrawer(applicant)" class="action-btn view-btn" title="View Details">
+                <Eye :size="16" />
+              </button>
               <button @click="handleDelete(applicant.id)" class="action-btn delete-btn" title="Delete">
                 <Trash2 :size="16" />
               </button>
@@ -142,7 +147,7 @@ import { ref, computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { api } from '@/services/api';
 import { 
-  Search, ArrowLeft, Trash2, X, Mail, Phone, Linkedin, Download
+  Search, ArrowLeft, Trash2, X, Mail, Phone, Linkedin, Download, Eye
 } from 'lucide-vue-next';
 
 const route = useRoute();
@@ -279,12 +284,10 @@ const getStatusClass = (status) => {
   color: #0f172a;
 }
 
-.clickable-row {
-  cursor: pointer;
-}
-.clickable-row:hover {
-  background-color: #f8fafc;
-}
+
+
+.view-btn { color: #3b82f6; }
+.view-btn:hover { background: #eff6ff; }
 
 /* Status colors */
 .text-blue { color: #3b82f6; }

@@ -39,7 +39,7 @@
             <th>Job Title</th>
             <th>Department</th>
             <th>Status</th>
-            <th>Applicants</th>
+            <th style="text-align: center;">Applicants</th>
             <th style="width: 140px; text-align: right;">Actions</th>
           </tr>
         </thead>
@@ -67,11 +67,8 @@
                 {{ item.status || 'Open' }}
               </span>
             </td>
-            <td>
-              <div style="display: flex; align-items: center; gap: 0.25rem;">
-                <Users :size="14" style="color: #64748b;" />
-                <span style="font-weight: 500;">{{ applicantsCount[item.id] || 0 }}</span>
-              </div>
+            <td style="text-align: center;">
+              <span style="font-weight: 500;">{{ applicantsCount[item.id] || 0 }}</span>
             </td>
             <td class="actions-cell">
               <router-link :to="`/admin/jobs/${item.id}/applicants`" class="action-btn" title="View Applicants" style="color: #3b82f6;">
@@ -107,9 +104,9 @@
               <label>Department</label>
               <input v-model="formData.department" required placeholder="e.g. Engineering" />
             </div>
-            <div class="form-group" style="width: 120px;">
+            <div class="form-group flex-1">
               <label>Status</label>
-              <select v-model="formData.status" required style="padding: 0.5rem; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.95rem;">
+              <select v-model="formData.status" required>
                 <option value="Open">Open</option>
                 <option value="Closed">Closed</option>
               </select>

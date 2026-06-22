@@ -271,12 +271,12 @@ const lines = [
 .node-icon {
   width: 24px;
   height: 24px;
-  color: var(--color-secondary);
+  color: var(--color-accent);
   transition: color 0.3s;
 }
 
 .node-pill:hover .node-icon {
-  color: var(--color-primary);
+  color: var(--color-accent);
 }
 
 .node-text {
@@ -380,7 +380,7 @@ const lines = [
 .service-icon {
   width: 24px;
   height: 24px;
-  color: var(--color-secondary);
+  color: var(--color-accent);
   stroke-width: 1.75px;
   transition: color var(--transition-fast);
 }

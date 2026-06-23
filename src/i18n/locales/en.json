@@ -921,7 +921,7 @@
     "searchPlaceholder": "Search clients by name or sector...",
     "filterAll": "All Sectors",
     "categoryLabel": "Sector",
-    "workLabel": "Work with Amwaj Tech",
+    "workLabel": "Work with {clientName}",
     "aboutLabel": "About the Organization",
     "contextLabel": "Industry Context",
     "learnMore": "View Details",
@@ -943,7 +943,7 @@
       "safwa_islamic_bank": {
         "name": "Safwa Islamic Bank",
         "category": "Financial Institutions",
-        "shortDesc": "A leading Islamic bank providing digital banking and secure financial infrastructure.",
+        "shortDesc": "Jordanian Islamic bank offering comprehensive Sharia-compliant personal and corporate financial services.",
         "about": "Safwa Islamic Bank is one of the premier Islamic banking institutions in the region, operating under Sharia-compliant principles to provide personal, corporate, and digital financial services.",
         "work": "Amwaj Tech supports Safwa Islamic Bank with robust network infrastructure integration, core server connectivity, and specialized next-generation cybersecurity architectures to ensure uninterrupted banking transactions.",
         "context": "Financial institutions rely heavily on low-latency, active-active data redundancy, and next-generation perimeter firewalls to prevent fraud, secure client data, and maintain high service availability."
@@ -951,7 +951,7 @@
       "istishari_hospital": {
         "name": "Istishari Hospital",
         "category": "Healthcare",
-        "shortDesc": "A premium healthcare facility utilizing robust IT connectivity and digital diagnostic integrations.",
+        "shortDesc": "Private multi-specialty medical center located in Amman, Jordan.",
         "about": "Istishari Hospital is a leading private medical institution known for its high standards of clinical care, diagnostic systems, and advanced patient treatment methodologies.",
         "work": "We provide IT maintenance, secure clinical network segregation, high-availability data storage solutions for electronic medical records (EMR), and continuous technical support desk services.",
         "context": "Modern hospital systems require secure local area networks to interface with sensitive diagnostic hardware, compliant data archiving to protect patient privacy, and reliable backup power systems."
@@ -959,7 +959,7 @@
       "royal_hospital": {
         "name": "Royal Hospital",
         "category": "Healthcare",
-        "shortDesc": "A state-of-the-art medical center deploying secure cloud telemetry and private hosting backends.",
+        "shortDesc": "Modern private healthcare facility in Jordan providing specialized medical and surgical services.",
         "about": "The Royal Hospital is a major regional hospital providing specialized clinical departments, emergency response facilities, and automated laboratory infrastructures.",
         "work": "Amwaj Tech configured and deployed high-performance server virtualization clusters, hyperconverged storage architectures, and continuous hardware preventive audits.",
         "context": "Healthcare facilities must eliminate single points of failure in their networks to maintain operational status for life-support telemetry and real-time electronic medical charting."
@@ -967,7 +967,7 @@
       "usaid": {
         "name": "USAID",
         "category": "Enterprises / Companies",
-        "shortDesc": "An international development agency leveraging secure middleware integrations and cloud productivity.",
+        "shortDesc": "International development agency of the US federal government providing foreign aid and assistance.",
         "about": "USAID is the world's premier international development agency, partnering with governments and regional organizations to drive economic growth, public health, and social stability.",
         "work": "Amwaj Tech supports their regional collaboration hubs with high-speed secure VPN routing tunnels, managed cloud systems integration, and customized directory access policies.",
         "context": "Global development organizations demand secure hybrid cloud ecosystems to enable remote field agents to access central databases while complying with strict international privacy mandates."
@@ -975,7 +975,7 @@
       "petra_university": {
         "name": "Petra University",
         "category": "Education",
-        "shortDesc": "A top-tier academic campus with campus-wide optical network rings and high-density Wi-Fi.",
+        "shortDesc": "Private university in Amman, Jordan, offering undergraduate and graduate degree programs.",
         "about": "University of Petra is a leading higher education institution in Jordan, hosting thousands of students and faculty members across a modern, interconnected campus environment.",
         "work": "We deployed campus-wide high-density wireless access configurations, core switching infrastructure backbones, and provided multi-tier support service SLAs.",
         "context": "Educational institutions require high-bandwidth infrastructure designed for multi-tenant student workloads, balanced with web filters and secure database endpoints for registrar portals."
@@ -983,7 +983,7 @@
       "new_english_school": {
         "name": "The New English School",
         "category": "Education",
-        "shortDesc": "A prestigious private school utilizing secure digital classroom setups and IT integrations.",
+        "shortDesc": "Bilingual private co-educational school in Amman providing British curriculum education.",
         "about": "The New English School (NES) is a highly respected international school providing comprehensive primary and secondary curricula supported by digital classroom learning frameworks.",
         "work": "Amwaj Tech designed their school-wide routing layout, configured touch-screen interactive smartboard integrations, and established student web filters.",
         "context": "Primary and secondary schools require secure local networks that protect children from external web content while facilitating fast, high-density student access to learning portals."
@@ -991,7 +991,7 @@
       "american_university_of_madaba": {
         "name": "American University Of Madaba",
         "category": "Education",
-        "shortDesc": "A modern university utilizing hyperconverged virtualization setups and reliable server rooms.",
+        "shortDesc": "Private university in Madaba, Jordan, offering a variety of undergraduate programs.",
         "about": "The American University of Madaba (AUM) is a state-of-the-art university providing American-style higher education supported by modern research facilities and digital libraries.",
         "work": "We engineered their hyperconverged data center servers setup, deployed virtual hypervisor clusters, and configured offsite disaster recovery vaulting.",
         "context": "Research-focused universities require massive data storage arrays, high-throughput network cores for compute grids, and reliable backups for scholarly publications."
@@ -999,7 +999,7 @@
       "ministry_of_health": {
         "name": "Ministry Of Health",
         "category": "Government",
-        "shortDesc": "A primary public health authority employing national network backbones and secure health databases.",
+        "shortDesc": "Jordanian government body responsible for public healthcare services and medical regulations.",
         "about": "The Ministry of Health oversees the national public healthcare system, hospital operations, medical licensing, and health insurance infrastructures for the country.",
         "work": "Amwaj Tech engineered their regional office network routing layouts, deployed Next-Gen firewalls to secure database ports, and designed system redundancies.",
         "context": "Government agencies operating public welfare systems demand highly secure national backbones, strict network segmentation, and audited identity management directories."
@@ -1007,7 +1007,7 @@
       "amman_baccalaureate_school": {
         "name": "Amman Baccalaureate School",
         "category": "Education",
-        "shortDesc": "A premier academic institution deploying advanced high-density campus Wi-Fi.",
+        "shortDesc": "Private, co-educational day school in Jordan offering the International Baccalaureate curriculum.",
         "about": "Amman Baccalaureate School is a prestigious educational institution delivering world-class academic curricula, research facilities, and student services.",
         "work": "Amwaj Tech implemented campus-wide fiber rings, high-density secure Wi-Fi, and active directory systems for administrative control.",
         "context": "Educational networks must support thousands of simultaneous student connections while securing backend registrar files."
@@ -1015,7 +1015,7 @@
       "oxford_schools": {
         "name": "Oxford Schools",
         "category": "Education",
-        "shortDesc": "A premier academic institution deploying advanced high-density campus Wi-Fi.",
+        "shortDesc": "Private educational institution in Jordan offering national and international programs.",
         "about": "Oxford Schools is a prestigious educational institution delivering world-class academic curricula, research facilities, and student services.",
         "work": "Amwaj Tech implemented campus-wide fiber rings, high-density secure Wi-Fi, and active directory systems for administrative control.",
         "context": "Educational networks must support thousands of simultaneous student connections while securing backend registrar files."
@@ -1023,7 +1023,7 @@
       "ministry_of_planning_and_international_coorporation": {
         "name": "Ministry of planning and international coorporation",
         "category": "Government",
-        "shortDesc": "A national public authority employing secure data storage and backbone networks.",
+        "shortDesc": "Government ministry overseeing Jordan's national development strategies and foreign aid coordination.",
         "about": "Ministry of planning and international coorporation is a key public sector institution tasked with managing national assets, public infrastructure, and administrative programs.",
         "work": "We designed and supported multi-site SD-WAN routing tunnels, zero-trust endpoint directories, and server virtualization for Ministry of planning and international coorporation.",
         "context": "Government entities require high-security configurations, active auditing, and localized database hosting to meet local regulations."
@@ -1031,7 +1031,7 @@
       "jordan_olympic_committee": {
         "name": "Jordan Olympic Committee",
         "category": "Government",
-        "shortDesc": "A national public authority employing secure data storage and backbone networks.",
+        "shortDesc": "National governing body for sports and the Olympic movement in Jordan.",
         "about": "Jordan Olympic Committee is a key public sector institution tasked with managing national assets, public infrastructure, and administrative programs.",
         "work": "We designed and supported multi-site SD-WAN routing tunnels, zero-trust endpoint directories, and server virtualization for Jordan Olympic Committee.",
         "context": "Government entities require high-security configurations, active auditing, and localized database hosting to meet local regulations."
@@ -1039,7 +1039,7 @@
       "isra_university": {
         "name": "Isra University",
         "category": "Education",
-        "shortDesc": "A premier academic institution deploying advanced high-density campus Wi-Fi.",
+        "shortDesc": "Private university located in Amman, offering diverse academic disciplines and research programs.",
         "about": "Isra University is a prestigious educational institution delivering world-class academic curricula, research facilities, and student services.",
         "work": "Amwaj Tech implemented campus-wide fiber rings, high-density secure Wi-Fi, and active directory systems for administrative control.",
         "context": "Educational networks must support thousands of simultaneous student connections while securing backend registrar files."
@@ -1047,7 +1047,7 @@
       "pioneer_educational_schools": {
         "name": "Pioneer Educational Schools",
         "category": "Education",
-        "shortDesc": "A premier academic institution deploying advanced high-density campus Wi-Fi.",
+        "shortDesc": "Private schooling institution in Jordan focused on primary and secondary education.",
         "about": "Pioneer Educational Schools is a prestigious educational institution delivering world-class academic curricula, research facilities, and student services.",
         "work": "Amwaj Tech implemented campus-wide fiber rings, high-density secure Wi-Fi, and active directory systems for administrative control.",
         "context": "Educational networks must support thousands of simultaneous student connections while securing backend registrar files."
@@ -1055,7 +1055,7 @@
       "north_city_academy": {
         "name": "North City Academy",
         "category": "Education",
-        "shortDesc": "A premier academic institution deploying advanced high-density campus Wi-Fi.",
+        "shortDesc": "Private school in Jordan offering comprehensive primary and secondary education.",
         "about": "North City Academy is a prestigious educational institution delivering world-class academic curricula, research facilities, and student services.",
         "work": "Amwaj Tech implemented campus-wide fiber rings, high-density secure Wi-Fi, and active directory systems for administrative control.",
         "context": "Educational networks must support thousands of simultaneous student connections while securing backend registrar files."
@@ -1063,7 +1063,7 @@
       "universal_schools": {
         "name": "Universal Schools",
         "category": "Education",
-        "shortDesc": "A premier academic institution deploying advanced high-density campus Wi-Fi.",
+        "shortDesc": "Educational institution providing national and international educational curricula in Jordan.",
         "about": "Universal Schools is a prestigious educational institution delivering world-class academic curricula, research facilities, and student services.",
         "work": "Amwaj Tech implemented campus-wide fiber rings, high-density secure Wi-Fi, and active directory systems for administrative control.",
         "context": "Educational networks must support thousands of simultaneous student connections while securing backend registrar files."
@@ -1071,7 +1071,7 @@
       "mitsubishi_motors": {
         "name": "Mitsubishi Motors",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Multinational automotive manufacturer known for producing a wide range of vehicles.",
         "about": "Mitsubishi Motors is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Mitsubishi Motors.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1079,7 +1079,7 @@
       "al_ittihad_schools": {
         "name": "Al Ittihad Schools",
         "category": "Education",
-        "shortDesc": "A premier academic institution deploying advanced high-density campus Wi-Fi.",
+        "shortDesc": "Prominent private school network in Jordan offering K-12 education.",
         "about": "Al Ittihad Schools is a prestigious educational institution delivering world-class academic curricula, research facilities, and student services.",
         "work": "Amwaj Tech implemented campus-wide fiber rings, high-density secure Wi-Fi, and active directory systems for administrative control.",
         "context": "Educational networks must support thousands of simultaneous student connections while securing backend registrar files."
@@ -1087,7 +1087,7 @@
       "modern_montessori_school": {
         "name": "Modern Montessori School",
         "category": "Education",
-        "shortDesc": "A premier academic institution deploying advanced high-density campus Wi-Fi.",
+        "shortDesc": "Amman-based private school following the Montessori method and IB curriculum.",
         "about": "Modern Montessori School is a prestigious educational institution delivering world-class academic curricula, research facilities, and student services.",
         "work": "Amwaj Tech implemented campus-wide fiber rings, high-density secure Wi-Fi, and active directory systems for administrative control.",
         "context": "Educational networks must support thousands of simultaneous student connections while securing backend registrar files."
@@ -1095,7 +1095,7 @@
       "ajloun_national_university": {
         "name": "Ajloun National University",
         "category": "Education",
-        "shortDesc": "A premier academic institution deploying advanced high-density campus Wi-Fi.",
+        "shortDesc": "Private higher education institution located in the Ajloun Governorate of Jordan.",
         "about": "Ajloun National University is a prestigious educational institution delivering world-class academic curricula, research facilities, and student services.",
         "work": "Amwaj Tech implemented campus-wide fiber rings, high-density secure Wi-Fi, and active directory systems for administrative control.",
         "context": "Educational networks must support thousands of simultaneous student connections while securing backend registrar files."
@@ -1103,7 +1103,7 @@
       "hijazi_ghosheh": {
         "name": "Hijazi & Ghosheh",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Regional diversified group operating in food, agriculture, and livestock export.",
         "about": "Hijazi & Ghosheh is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Hijazi & Ghosheh.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1111,7 +1111,7 @@
       "al-asriyya_schools": {
         "name": "Al-Asriyya Schools",
         "category": "Education",
-        "shortDesc": "A premier academic institution deploying advanced high-density campus Wi-Fi.",
+        "shortDesc": "Private co-educational school in Amman offering integrated national and international curricula.",
         "about": "Al-Asriyya Schools is a prestigious educational institution delivering world-class academic curricula, research facilities, and student services.",
         "work": "Amwaj Tech implemented campus-wide fiber rings, high-density secure Wi-Fi, and active directory systems for administrative control.",
         "context": "Educational networks must support thousands of simultaneous student connections while securing backend registrar files."
@@ -1119,7 +1119,7 @@
       "sama": {
         "name": "Sama",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Jordanian company specializing in mineral water bottling and beverage distribution.",
         "about": "Sama is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Sama.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1127,7 +1127,7 @@
       "al-ahliyyah_school": {
         "name": "Al-Ahliyyah School",
         "category": "Education",
-        "shortDesc": "A premier academic institution deploying advanced high-density campus Wi-Fi.",
+        "shortDesc": "Historic private girls' school in Amman providing comprehensive educational programs.",
         "about": "Al-Ahliyyah School is a prestigious educational institution delivering world-class academic curricula, research facilities, and student services.",
         "work": "Amwaj Tech implemented campus-wide fiber rings, high-density secure Wi-Fi, and active directory systems for administrative control.",
         "context": "Educational networks must support thousands of simultaneous student connections while securing backend registrar files."
@@ -1135,7 +1135,7 @@
       "al-manhal_schools": {
         "name": "Al-Manhal Schools",
         "category": "Education",
-        "shortDesc": "A premier academic institution deploying advanced high-density campus Wi-Fi.",
+        "shortDesc": "Private K-12 educational institution serving students in Jordan.",
         "about": "Al-Manhal Schools is a prestigious educational institution delivering world-class academic curricula, research facilities, and student services.",
         "work": "Amwaj Tech implemented campus-wide fiber rings, high-density secure Wi-Fi, and active directory systems for administrative control.",
         "context": "Educational networks must support thousands of simultaneous student connections while securing backend registrar files."
@@ -1143,7 +1143,7 @@
       "al-raed_al-arabi_school": {
         "name": "Al-Ra'ed Al-Arabi School",
         "category": "Education",
-        "shortDesc": "A premier academic institution deploying advanced high-density campus Wi-Fi.",
+        "shortDesc": "Established private school in Amman offering early childhood through secondary education.",
         "about": "Al-Ra'ed Al-Arabi School is a prestigious educational institution delivering world-class academic curricula, research facilities, and student services.",
         "work": "Amwaj Tech implemented campus-wide fiber rings, high-density secure Wi-Fi, and active directory systems for administrative control.",
         "context": "Educational networks must support thousands of simultaneous student connections while securing backend registrar files."
@@ -1151,7 +1151,7 @@
       "sky_national_school": {
         "name": "Sky national School",
         "category": "Education",
-        "shortDesc": "A premier academic institution deploying advanced high-density campus Wi-Fi.",
+        "shortDesc": "Private national school in Jordan focused on comprehensive student development.",
         "about": "Sky national School is a prestigious educational institution delivering world-class academic curricula, research facilities, and student services.",
         "work": "Amwaj Tech implemented campus-wide fiber rings, high-density secure Wi-Fi, and active directory systems for administrative control.",
         "context": "Educational networks must support thousands of simultaneous student connections while securing backend registrar files."
@@ -1159,7 +1159,7 @@
       "seagulls": {
         "name": "Seagulls",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Leading out-of-home advertising and media network operating in Jordan.",
         "about": "Seagulls is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Seagulls.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1167,7 +1167,7 @@
       "the_baptist_school": {
         "name": "The Baptist School",
         "category": "Education",
-        "shortDesc": "A premier academic institution deploying advanced high-density campus Wi-Fi.",
+        "shortDesc": "Private co-educational Christian school situated in Amman, Jordan.",
         "about": "The Baptist School is a prestigious educational institution delivering world-class academic curricula, research facilities, and student services.",
         "work": "Amwaj Tech implemented campus-wide fiber rings, high-density secure Wi-Fi, and active directory systems for administrative control.",
         "context": "Educational networks must support thousands of simultaneous student connections while securing backend registrar files."
@@ -1175,7 +1175,7 @@
       "dorob_al_asalah_school": {
         "name": "Dorob Al Asalah School",
         "category": "Education",
-        "shortDesc": "A premier academic institution deploying advanced high-density campus Wi-Fi.",
+        "shortDesc": "Jordanian private school delivering modern educational programs for K-12 students.",
         "about": "Dorob Al Asalah School is a prestigious educational institution delivering world-class academic curricula, research facilities, and student services.",
         "work": "Amwaj Tech implemented campus-wide fiber rings, high-density secure Wi-Fi, and active directory systems for administrative control.",
         "context": "Educational networks must support thousands of simultaneous student connections while securing backend registrar files."
@@ -1183,7 +1183,7 @@
       "international_independent_school": {
         "name": "International Independent School",
         "category": "Education",
-        "shortDesc": "A premier academic institution deploying advanced high-density campus Wi-Fi.",
+        "shortDesc": "Private school in Jordan offering diverse educational tracks including national and international programs.",
         "about": "International Independent School is a prestigious educational institution delivering world-class academic curricula, research facilities, and student services.",
         "work": "Amwaj Tech implemented campus-wide fiber rings, high-density secure Wi-Fi, and active directory systems for administrative control.",
         "context": "Educational networks must support thousands of simultaneous student connections while securing backend registrar files."
@@ -1191,7 +1191,7 @@
       "al-mutran_school": {
         "name": "Al-mutran School",
         "category": "Education",
-        "shortDesc": "A premier academic institution deploying advanced high-density campus Wi-Fi.",
+        "shortDesc": "Historic private boys' school in Amman, known formally as the Bishop's School for Boys.",
         "about": "Al-mutran School is a prestigious educational institution delivering world-class academic curricula, research facilities, and student services.",
         "work": "Amwaj Tech implemented campus-wide fiber rings, high-density secure Wi-Fi, and active directory systems for administrative control.",
         "context": "Educational networks must support thousands of simultaneous student connections while securing backend registrar files."
@@ -1199,7 +1199,7 @@
       "al_ghad_newspaper": {
         "name": "Al Ghad Newspaper",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Independent Arabic daily newspaper published in Jordan.",
         "about": "Al Ghad Newspaper is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Al Ghad Newspaper.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1207,7 +1207,7 @@
       "ibn_al_haitham_hospital": {
         "name": "Ibn Al Haitham Hospital",
         "category": "Healthcare",
-        "shortDesc": "A state-of-the-art healthcare provider utilizing secure digital medical networks.",
+        "shortDesc": "Private comprehensive medical and surgical hospital located in Amman.",
         "about": "Ibn Al Haitham Hospital is a leading medical provider offering advanced healthcare services, diagnostics, and patient care with specialized clinical teams.",
         "work": "We installed structured LAN/WAN hospital networks, medical device VLAN segmentation, and secure diagnostic storage databases at Ibn Al Haitham Hospital.",
         "context": "Healthcare facilities demand robust local networks and secure PACS/EMR storage solutions to preserve client privacy under HIPAA standards."
@@ -1215,7 +1215,7 @@
       "laith_al_obaidi": {
         "name": "Laith Al Obaidi",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Regional automotive dealership and vehicle trading company based in Jordan.",
         "about": "Laith Al Obaidi is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Laith Al Obaidi.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1223,7 +1223,7 @@
       "associations_of_banks_in_jordan": {
         "name": "associations of banks in jordan",
         "category": "Financial Institutions",
-        "shortDesc": "A leading financial institution leveraging secure banking infrastructures.",
+        "shortDesc": "Professional association representing and supporting the banking sector in Jordan.",
         "about": "associations of banks in jordan is a prominent financial organization dedicated to providing high-quality banking, investment, and financial services in the region.",
         "work": "Amwaj Tech deployed next-generation firewall perimeters, high-availability server grids, and secure payment gateway routers for associations of banks in jordan.",
         "context": "Financial entities require low latency, zero downtime, and absolute transaction security to prevent threats and protect data."
@@ -1231,7 +1231,7 @@
       "nama_strategic_intelligence_solutions": {
         "name": "Nama Strategic Intelligence Solutions",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Research and consulting firm providing strategic data and public policy analysis.",
         "about": "Nama Strategic Intelligence Solutions is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Nama Strategic Intelligence Solutions.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1239,7 +1239,7 @@
       "sigma_consulting_engineers": {
         "name": "Sigma Consulting Engineers",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Multidisciplinary engineering and architectural consulting firm based in Amman.",
         "about": "Sigma Consulting Engineers is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Sigma Consulting Engineers.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1247,7 +1247,7 @@
       "erad_group": {
         "name": "Erad Group",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Diversified investment and trading group operating across multiple business sectors in Jordan.",
         "about": "Erad Group is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Erad Group.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1255,7 +1255,7 @@
       "alimony_fund": {
         "name": "Alimony Fund",
         "category": "Government",
-        "shortDesc": "A national public authority employing secure data storage and backbone networks.",
+        "shortDesc": "Governmental financial fund in Jordan dedicated to supporting divorced women and children.",
         "about": "Alimony Fund is a key public sector institution tasked with managing national assets, public infrastructure, and administrative programs.",
         "work": "We designed and supported multi-site SD-WAN routing tunnels, zero-trust endpoint directories, and server virtualization for Alimony Fund.",
         "context": "Government entities require high-security configurations, active auditing, and localized database hosting to meet local regulations."
@@ -1263,7 +1263,7 @@
       "everest_printing_press_llc": {
         "name": "Everest Printing Press L.L.C",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Commercial printing company providing varied offset and digital printing services.",
         "about": "Everest Printing Press L.L.C is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Everest Printing Press L.L.C.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1271,7 +1271,7 @@
       "al_dayaa_shawerma": {
         "name": "Al Daya'a Shawerma",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Popular fast-food restaurant chain in Jordan specializing in shawerma.",
         "about": "Al Daya'a Shawerma is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Al Daya'a Shawerma.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1279,7 +1279,7 @@
       "bun_wa_hal": {
         "name": "Bun Wa Hal",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Jordanian brand specializing in coffee roasting, cardamom, and premium nuts.",
         "about": "Bun Wa Hal is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Bun Wa Hal.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1287,7 +1287,7 @@
       "al_salehin_car_rental": {
         "name": "Al Salehin Car Rental",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Vehicle rental company offering short and long-term car leasing services in Jordan.",
         "about": "Al Salehin Car Rental is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Al Salehin Car Rental.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1295,7 +1295,7 @@
       "sameh_mall": {
         "name": "Sameh Mall",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Major retail supermarket and department store chain operating across Jordan.",
         "about": "Sameh Mall is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Sameh Mall.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1303,7 +1303,7 @@
       "avertra": {
         "name": "Avertra",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Global software and technology company specializing in solutions for the energy and utility sectors.",
         "about": "Avertra is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Avertra.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1311,7 +1311,7 @@
       "gts": {
         "name": "GTS",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Technology solutions provider delivering IT infrastructure and digital services.",
         "about": "GTS is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for GTS.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1319,7 +1319,7 @@
       "al_katar_dates": {
         "name": "Al Katar Dates",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Agricultural company specializing in the cultivation and distribution of Jordanian dates.",
         "about": "Al Katar Dates is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Al Katar Dates.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1327,7 +1327,7 @@
       "rayone": {
         "name": "Rayone",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Provider of specialized technology and business solutions in the region.",
         "about": "Rayone is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Rayone.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1335,7 +1335,7 @@
       "uba": {
         "name": "UBA",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "United Business Applications, an IT firm providing software implementations and enterprise solutions.",
         "about": "UBA is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for UBA.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1343,7 +1343,7 @@
       "jabal_al_zaytoon_hospital": {
         "name": "Jabal Al Zaytoon Hospital",
         "category": "Healthcare",
-        "shortDesc": "A state-of-the-art healthcare provider utilizing secure digital medical networks.",
+        "shortDesc": "Private general hospital providing varied medical services to the local community in Zarqa.",
         "about": "Jabal Al Zaytoon Hospital is a leading medical provider offering advanced healthcare services, diagnostics, and patient care with specialized clinical teams.",
         "work": "We installed structured LAN/WAN hospital networks, medical device VLAN segmentation, and secure diagnostic storage databases at Jabal Al Zaytoon Hospital.",
         "context": "Healthcare facilities demand robust local networks and secure PACS/EMR storage solutions to preserve client privacy under HIPAA standards."
@@ -1351,7 +1351,7 @@
       "al_tazaj_restaurants": {
         "name": "Al Tazaj Restaurants",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Regional fast-food chain known for its wood-grilled chicken dishes.",
         "about": "Al Tazaj Restaurants is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Al Tazaj Restaurants.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1359,7 +1359,7 @@
       "al_quds_paints": {
         "name": "Al Quds Paints",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Manufacturing company producing a wide range of decorative and industrial paints.",
         "about": "Al Quds Paints is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Al Quds Paints.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1367,7 +1367,7 @@
       "the_specialty_hospital": {
         "name": "The Specialty Hospital",
         "category": "Healthcare",
-        "shortDesc": "A state-of-the-art healthcare provider utilizing secure digital medical networks.",
+        "shortDesc": "Prominent private multi-specialty hospital and medical tourism destination in Amman.",
         "about": "The Specialty Hospital is a leading medical provider offering advanced healthcare services, diagnostics, and patient care with specialized clinical teams.",
         "work": "We installed structured LAN/WAN hospital networks, medical device VLAN segmentation, and secure diagnostic storage databases at The Specialty Hospital.",
         "context": "Healthcare facilities demand robust local networks and secure PACS/EMR storage solutions to preserve client privacy under HIPAA standards."
@@ -1375,7 +1375,7 @@
       "graphic_supplies_co": {
         "name": "Graphic Supplies Co.",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Supplier of commercial printing equipment and graphic design materials.",
         "about": "Graphic Supplies Co. is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Graphic Supplies Co..",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1383,7 +1383,7 @@
       "mada_international_academy": {
         "name": "Mada International Academy",
         "category": "Education",
-        "shortDesc": "A premier academic institution deploying advanced high-density campus Wi-Fi.",
+        "shortDesc": "Private educational academy in Jordan offering comprehensive learning programs.",
         "about": "Mada International Academy is a prestigious educational institution delivering world-class academic curricula, research facilities, and student services.",
         "work": "Amwaj Tech implemented campus-wide fiber rings, high-density secure Wi-Fi, and active directory systems for administrative control.",
         "context": "Educational networks must support thousands of simultaneous student connections while securing backend registrar files."
@@ -1391,7 +1391,7 @@
       "yelda_graphic_design_printing_services": {
         "name": "Yelda Graphic Design & Printing Services",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Local printing press providing commercial graphic design and print solutions.",
         "about": "Yelda Graphic Design & Printing Services is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Yelda Graphic Design & Printing Services.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1399,7 +1399,7 @@
       "wavemaker": {
         "name": "Wavemaker",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Global media, content, and technology agency operating a regional office in Jordan.",
         "about": "Wavemaker is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Wavemaker.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1407,7 +1407,7 @@
       "al_nahda": {
         "name": "Al Nahda",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Regional industrial and manufacturing organization serving local markets.",
         "about": "Al Nahda is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Al Nahda.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
@@ -1415,7 +1415,7 @@
       "al_raya_for_fertilizer": {
         "name": "Al Raya For Fertilizer",
         "category": "Enterprises / Companies",
-        "shortDesc": "An enterprise leader deploying hybrid cloud networks and custom integrations.",
+        "shortDesc": "Agricultural manufacturing company producing and distributing crop fertilizers.",
         "about": "Al Raya For Fertilizer is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Al Raya For Fertilizer.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."

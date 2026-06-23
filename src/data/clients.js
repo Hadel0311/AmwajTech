@@ -41,7 +41,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "NGO"
   },
   {
     "id": "petra-university",
@@ -184,7 +185,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Automotive"
   },
   {
     "id": "al-ittihad-schools",
@@ -228,7 +230,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Agriculture & Food"
   },
   {
     "id": "al-asriyya-schools",
@@ -250,7 +253,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Food & Beverage"
   },
   {
     "id": "al-ahliyyah-school",
@@ -305,7 +309,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Media & Advertising"
   },
   {
     "id": "the-baptist-school",
@@ -360,7 +365,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Media & Publishing"
   },
   {
     "id": "ibn-al-haitham-hospital",
@@ -382,7 +388,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Automotive"
   },
   {
     "id": "associations-of-banks-in-jordan",
@@ -404,7 +411,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Consulting & Research"
   },
   {
     "id": "sigma-consulting-engineers",
@@ -415,7 +423,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Engineering Consulting"
   },
   {
     "id": "erad-group",
@@ -426,7 +435,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Investment & Trading"
   },
   {
     "id": "alimony-fund",
@@ -448,7 +458,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Commercial Printing"
   },
   {
     "id": "al-dayaa-shawerma",
@@ -459,7 +470,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Food & Beverage"
   },
   {
     "id": "bun-wa-hal",
@@ -470,7 +482,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Food & Beverage"
   },
   {
     "id": "al-salehin-car-rental",
@@ -481,7 +494,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Automotive"
   },
   {
     "id": "sameh-mall",
@@ -492,7 +506,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Retail & Supermarkets"
   },
   {
     "id": "avertra",
@@ -503,7 +518,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "IT & Software"
   },
   {
     "id": "gts",
@@ -514,7 +530,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "IT & Software"
   },
   {
     "id": "al-katar-dates",
@@ -525,7 +542,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Agriculture"
   },
   {
     "id": "rayone",
@@ -536,7 +554,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "IT & Software"
   },
   {
     "id": "uba",
@@ -547,7 +566,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "IT & Software"
   },
   {
     "id": "jabal-al-zaytoon-hospital",
@@ -569,7 +589,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Food & Beverage"
   },
   {
     "id": "al-quds-paints",
@@ -580,7 +601,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Manufacturing"
   },
   {
     "id": "the-specialty-hospital",
@@ -602,7 +624,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Printing Supplies"
   },
   {
     "id": "mada-international-academy",
@@ -624,7 +647,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Commercial Printing"
   },
   {
     "id": "wavemaker",
@@ -635,7 +659,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Media & Advertising"
   },
   {
     "id": "al-nahda",
@@ -646,7 +671,8 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Manufacturing"
   },
   {
     "id": "al-raya-for-fertilizer",
@@ -657,6 +683,7 @@ export const clientsList = [
     "services": [
       "cloud-services",
       "software-solutions"
-    ]
+    ],
+    "industry": "Agriculture"
   }
-]
+];

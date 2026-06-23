@@ -36,7 +36,7 @@
 
           <!-- Work Section -->
           <section class="client-detail-section">
-            <h2 class="client-detail-section-title">{{ t('clients.workLabel') }}</h2>
+            <h2 class="client-detail-section-title">{{ t('clients.workLabel', { clientName: client.name }) }}</h2>
             <p class="client-detail-text">
               {{ client.workDesc || t(`clients.items.${client.key}.work`) || 'Details on our work with this client will be updated shortly.' }}
             </p>

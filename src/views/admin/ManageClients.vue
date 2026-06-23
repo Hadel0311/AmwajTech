@@ -112,7 +112,7 @@
           </div>
 
           <div class="form-group">
-            <label>Work with Amwaj Tech</label>
+            <label>Work with (Client Name)</label>
             <textarea v-model="formData.workDesc" rows="3" required></textarea>
           </div>
 

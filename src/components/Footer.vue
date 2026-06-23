@@ -11,14 +11,8 @@
           </div>
           <p class="description">{{ t('footer.description') }}</p>
           <div class="social-links">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/amwaj-tech/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <Linkedin class="icon" />
-            </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <Github class="icon" />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <Instagram class="icon" />
             </a>
           </div>
         </div>
@@ -78,7 +72,7 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
-import { Linkedin, Github, Instagram, MapPin, ArrowRight } from 'lucide-vue-next'
+import { Linkedin, MapPin, ArrowRight } from 'lucide-vue-next'
 
 const { t } = useI18n()
 </script>

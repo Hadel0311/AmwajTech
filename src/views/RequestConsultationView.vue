@@ -268,6 +268,8 @@ const submitForm = () => {
   grid-template-columns: 2fr 1fr;
   gap: 2.5rem;
   align-items: start;
+  position: relative;
+  z-index: 10;
 }
 
 @media (max-width: 1024px) {

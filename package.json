@@ -29,6 +29,8 @@
     "@tailwindcss/postcss": "^4.2.4",
     "@vitejs/plugin-vue": "^6.0.6",
     "autoprefixer": "^10.5.0",
+    "concurrently": "^10.0.3",
+    "nodemon": "^3.1.14",
     "postcss": "^8.5.12",
     "tailwindcss": "^4.2.4",
     "vite": "^8.0.10"

@@ -7,7 +7,7 @@
       </div>
 
       <!-- Desktop Graph View -->
-      <div class="graph-view">
+      <div class="graph-view desktop-graph">
         <div class="graph-wrapper">
           <svg class="lines-svg" viewBox="0 0 2400 800" preserveAspectRatio="xMidYMid meet">
             <!-- Static visible lines -->
@@ -71,23 +71,71 @@
         </div>
       </div>
 
-      <!-- Mobile Grid View -->
-      <div class="services-grid mobile-view">
-        <router-link 
-          v-for="(service, index) in servicesList" 
-          :key="index"
-          :to="`/services/${service.id}`"
-          class="service-card-link"
-        >
-          <div class="service-card">
-            <div class="service-icon-wrapper">
-              <component :is="service.icon" class="service-icon" />
-            </div>
-            <h3 class="service-title">{{ t(`services.items.${service.key}.title`) }}</h3>
-            <p class="service-description">{{ t(`services.items.${service.key}.description`) }}</p>
+      <!-- Mobile Vertical Graph View -->
+      <div class="graph-view mobile-graph">
+        <div class="graph-wrapper vertical-wrapper">
+          <svg class="lines-svg" viewBox="0 0 800 2400" preserveAspectRatio="xMidYMid meet">
+            <!-- Static visible lines -->
+            <path 
+              v-for="(path, i) in linesMobile" 
+              :key="'static-mob-'+i" 
+              :d="path" 
+              class="graph-line" 
+            />
+            <!-- Animated electrical wave lines on hover -->
+            <path 
+              v-for="(path, i) in linesMobile" 
+              :key="'active-mob-'+i" 
+              :d="path" 
+              class="graph-line-active" 
+              :class="{ 'is-active': hoveredIndex === i }"
+            />
+          </svg>
+
+          <!-- Top Nodes -->
+          <div 
+            v-for="(service, index) in leftServices" 
+            :key="'top-'+index"
+            class="node-wrapper top-node"
+            :style="{ left: getLeftPosition(index) }"
+            @mouseenter="hoveredIndex = index"
+            @mouseleave="hoveredIndex = null"
+          >
+            <router-link :to="`/services/${service.id}`" class="node-pill mobile-node-pill">
+              <div class="node-icon-circle">
+                <component :is="service.icon" class="node-icon" />
+              </div>
+              <span class="node-text mobile-node-text">{{ t(`services.items.${service.key}.title`) }}</span>
+            </router-link>
           </div>
-        </router-link>
+
+          <!-- Center Node -->
+          <div class="node-wrapper center-node-wrapper mobile-center">
+            <div class="center-pulse mobile-pulse"></div>
+            <div class="center-circle mobile-circle">
+              <span class="center-text">Services</span>
+            </div>
+          </div>
+
+          <!-- Bottom Nodes -->
+          <div 
+            v-for="(service, index) in rightServices" 
+            :key="'bottom-'+index"
+            class="node-wrapper bottom-node"
+            :style="{ left: getLeftPosition(index) }"
+            @mouseenter="hoveredIndex = index + 3"
+            @mouseleave="hoveredIndex = null"
+          >
+            <router-link :to="`/services/${service.id}`" class="node-pill mobile-node-pill">
+              <div class="node-icon-circle">
+                <component :is="service.icon" class="node-icon" />
+              </div>
+              <span class="node-text mobile-node-text">{{ t(`services.items.${service.key}.title`) }}</span>
+            </router-link>
+          </div>
+        </div>
       </div>
+
     </div>
   </section>
 </template>
@@ -125,6 +173,12 @@ const getTopPosition = (index) => {
   return '87.5%'
 }
 
+const getLeftPosition = (index) => {
+  if (index === 0) return '12.5%'
+  if (index === 1) return '50%'
+  return '87.5%'
+}
+
 const lines = [
   'M 1200 400 C 600 400, 600 100, 100 100',
   'M 1200 400 L 100 400',
@@ -132,6 +186,15 @@ const lines = [
   'M 1200 400 C 1800 400, 1800 100, 2300 100',
   'M 1200 400 L 2300 400',
   'M 1200 400 C 1800 400, 1800 700, 2300 700'
+]
+
+const linesMobile = [
+  'M 400 1200 C 400 600, 100 600, 100 100',
+  'M 400 1200 L 400 100',
+  'M 400 1200 C 400 600, 700 600, 700 100',
+  'M 400 1200 C 400 1800, 100 1800, 100 2300',
+  'M 400 1200 L 400 2300',
+  'M 400 1200 C 400 1800, 700 1800, 700 2300'
 ]
 </script>
 
@@ -175,12 +238,28 @@ const lines = [
   width: 100%;
 }
 
+.desktop-graph {
+  display: block;
+}
+
+.mobile-graph {
+  display: none;
+}
+
 .graph-wrapper {
   position: relative;
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
   aspect-ratio: 24 / 8;
+}
+
+.vertical-wrapper {
+  aspect-ratio: 8 / 24;
+  height: 80vh;
+  min-height: 600px;
+  max-height: 900px;
+  width: auto;
 }
 
 .lines-svg {
@@ -228,6 +307,8 @@ const lines = [
 
 .left-node { left: 4.16%; }
 .right-node { left: 95.83%; }
+.top-node { top: 4.16%; }
+.bottom-node { top: 95.83%; }
 .center-node-wrapper { left: 50%; top: 50%; z-index: 5; }
 
 .node-pill {
@@ -327,104 +408,47 @@ const lines = [
   100% { transform: translate(-50%, -50%) scale(1.4); opacity: 0; }
 }
 
-/* Mobile Grid Styles */
-.mobile-view {
-  display: none;
-}
-
-.services-grid {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-}
-
-.service-card-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.service-card {
-  background-color: var(--color-bg-primary);
-  border: 1px solid var(--color-bg-alt);
-  border-radius: 8px;
-  padding: 2rem 1.5rem;
-  transition: all var(--transition-fast);
-  display: flex;
+/* Mobile Graph Overrides */
+.mobile-node-pill {
   flex-direction: column;
-  height: 100%;
+  gap: 8px;
+  padding: 8px;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
 }
-
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-card);
-  border-color: rgba(13, 148, 136, 0.2);
+.mobile-node-pill:hover {
+  transform: scale(1.1);
+  box-shadow: none;
+  border-color: transparent;
 }
-
-.service-icon-wrapper {
-  background-color: var(--color-bg-secondary);
-  border: 1px solid var(--color-bg-alt);
-  width: 48px;
-  height: 48px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  transition: all var(--transition-fast);
+.mobile-node-text {
+  font-size: 0.75rem;
+  white-space: normal;
+  text-align: center;
+  max-width: 90px;
+  line-height: 1.2;
 }
-
-.service-card:hover .service-icon-wrapper {
-  background-color: rgba(13, 148, 136, 0.1);
-  border-color: rgba(13, 148, 136, 0.2);
+.mobile-center-circle {
+  width: 100px;
+  height: 100px;
+  font-size: 1rem;
 }
-
-.service-icon {
-  width: 24px;
-  height: 24px;
-  color: var(--color-accent);
-  stroke-width: 1.75px;
-  transition: color var(--transition-fast);
-}
-
-.service-card:hover .service-icon {
-  color: var(--color-accent);
-}
-
-.service-title {
-  font-size: 1.15rem;
-  font-weight: var(--font-bold);
-  color: var(--color-text-dark);
-  margin-bottom: 0.75rem;
-  font-family: var(--font-heading, 'Montserrat', sans-serif);
-  transition: color var(--transition-fast);
-}
-
-.service-card:hover .service-title {
-  color: var(--color-accent);
-}
-
-[dir="rtl"] .service-title {
-  font-family: 'Tajawal', sans-serif;
-}
-
-.service-description {
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
-  line-height: 1.6;
+.mobile-center .mobile-pulse {
+  width: 100px;
+  height: 100px;
 }
 
 /* Responsiveness */
 @media (max-width: 900px) {
-  .graph-view {
+  .desktop-graph {
     display: none;
   }
-  .mobile-view {
-    display: grid;
+  .mobile-graph {
+    display: block;
   }
-}
-
-@media (max-width: 767px) {
-  .services-grid {
-    grid-template-columns: 1fr;
+  .services-container {
+    padding: 0 1rem;
   }
   .services-section {
     padding: 4.5rem 0;

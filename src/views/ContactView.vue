@@ -1,12 +1,13 @@
 <template>
   <main class="contact-view">
-    <section class="page-hero">
-      <div class="page-hero-content container">
-        <span class="page-cta-tag">Contact</span>
-        <h1>Contact Us</h1>
-        <p>Have a question, need assistance, or want to learn more about our solutions? Our team is ready to help.</p>
-      </div>
-    </section>
+    <!-- Hero Section -->
+    <InternalHero
+      category="Contact"
+      title="Contact Us"
+      description="Have a question, need assistance, or want to learn more about our solutions? Our team is ready to help."
+      theme="dark"
+      image="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
+    />
 
     <section class="contact-main-section">
       <div class="section-container">
@@ -146,6 +147,7 @@
 </template>
 
 <script setup>
+import InternalHero from '@/components/InternalHero.vue'
 import { ref } from 'vue'
 import { MapPin, Phone, Mail, Printer, Smartphone } from 'lucide-vue-next'
 

@@ -1,13 +1,13 @@
 <template>
   <main class="consultation-view">
     <!-- Hero Section -->
-    <section class="page-hero">
-      <div class="page-hero-content container">
-        <span class="page-cta-tag">{{ t('nav.consultation') || 'Consultation' }}</span>
-        <h1>{{ t('requestConsultation.hero.title') }}</h1>
-        <p>{{ t('requestConsultation.hero.subtitle') }}</p>
-      </div>
-    </section>
+    <InternalHero
+      :category="t('nav.consultation') || 'Consultation'"
+      :title="t('requestConsultation.hero.title')"
+      :description="t('requestConsultation.hero.subtitle')"
+      theme="light"
+      image="https://images.unsplash.com/photo-1505409859467-3a796fd5798e?auto=format&fit=crop&q=80&w=1200"
+    />
 
     <div class="consultation-layout">
       <!-- Left Column: Form -->
@@ -182,6 +182,7 @@
 </template>
 
 <script setup>
+import InternalHero from '@/components/InternalHero.vue'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 

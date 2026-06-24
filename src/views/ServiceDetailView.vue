@@ -1,14 +1,13 @@
 <template>
   <main class="service-detail-view" v-if="isValidService">
     <!-- Hero Section -->
-    <section class="service-hero">
-      <div class="hero-pattern"></div>
-      <div class="hero-content container">
-        <span class="category-badge">{{ t('services.labels.category') }}</span>
-        <h1 class="service-title">{{ t(`services.items.${serviceKey}.title`) }}</h1>
-        <p class="hero-value-prop" v-if="heroValueProp">{{ heroValueProp }}</p>
-      </div>
-    </section>
+    <InternalHero
+      :category="t('services.labels.category')"
+      :title="t(`services.items.${serviceKey}.title`)"
+      :description="heroValueProp"
+      theme="ice"
+      :image="currentImage"
+    />
 
     <!-- Visual Introduction -->
     <section class="visual-intro-section" v-if="visualIntro">
@@ -139,6 +138,7 @@
 </template>
 
 <script setup>
+import InternalHero from '@/components/InternalHero.vue'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'

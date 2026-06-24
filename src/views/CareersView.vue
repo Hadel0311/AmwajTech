@@ -1,18 +1,21 @@
 <template>
   <div class="careers-view page-transition">
     <!-- Hero Section -->
-    <section class="page-hero">
-      <div class="page-hero-content container">
-        <span class="page-cta-tag">{{ t('nav.careers') || 'Careers' }}</span>
-        <h1>{{ t('careers.hero.title') }}</h1>
-        <p>{{ t('careers.hero.subtitle') }}</p>
+    <InternalHero
+      :category="t('nav.careers') || 'Careers'"
+      :title="t('careers.hero.title')"
+      :description="t('careers.hero.subtitle')"
+      theme="medium"
+      image="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=1200"
+    >
+      <template #actions>
         <div class="hero-actions slide-up delay-200" style="margin-top: 2rem;">
           <button @click="scrollToPositions" class="btn btn-primary cta-btn">
             {{ t('careers.hero.cta') }}
           </button>
         </div>
-      </div>
-    </section>
+      </template>
+    </InternalHero>
 
     <!-- Life at Amwaj Tech (Culture) -->
     <section class="culture-section section-padding">
@@ -150,6 +153,7 @@
 </template>
 
 <script setup>
+import InternalHero from '@/components/InternalHero.vue'
 import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { api } from '@/services/api'

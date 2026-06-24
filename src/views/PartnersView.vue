@@ -1,13 +1,13 @@
 <template>
   <main class="partners-view-page">
     <!-- Hero Section -->
-    <section class="page-hero">
-      <div class="page-hero-content container">
-        <span class="page-cta-tag">{{ t('nav.partners') }}</span>
-        <h1>{{ t('partners.title') }}</h1>
-        <p>{{ t('partners.description') }}</p>
-      </div>
-    </section>
+    <InternalHero
+      :category="t('nav.partners') || 'Partners'"
+      :title="t('partners.title')"
+      :description="t('partners.subtitle')"
+      theme="medium"
+      image="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200"
+    />
 
     <!-- Filters and Search bar -->
     <section class="partners-filter-wrapper">
@@ -110,6 +110,7 @@
 </template>
 
 <script setup>
+import InternalHero from '@/components/InternalHero.vue'
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import { api } from '@/services/api'
 import { useI18n } from 'vue-i18n'

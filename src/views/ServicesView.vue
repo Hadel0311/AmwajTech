@@ -1,13 +1,13 @@
 <template>
   <main class="services-view">
     <!-- Header Banner -->
-    <section class="page-hero">
-      <div class="page-hero-content container">
-        <span class="page-cta-tag">{{ t('nav.services') || 'Services' }}</span>
-        <h1>{{ t('services.title') }}</h1>
-        <p>{{ t('services.subtitle') }}</p>
-      </div>
-    </section>
+    <InternalHero
+      :category="t('nav.services') || 'Our Services'"
+      :title="t('services.title')"
+      :description="t('services.subtitle')"
+      theme="medium"
+      image="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200"
+    />
 
     <!-- Services Grid section -->
     <section class="services-grid-section">
@@ -40,6 +40,7 @@
 </template>
 
 <script setup>
+import InternalHero from '@/components/InternalHero.vue'
 import { useI18n } from 'vue-i18n'
 import { 
   Network, 

@@ -1,12 +1,13 @@
 <template>
   <main class="industry-detail-view" v-if="isValidSector">
     <!-- Header Banner -->
-    <section class="page-hero">
-      <div class="page-hero-content container">
-        <span class="page-cta-tag">{{ t('industries.labels.portfolio') }}</span>
-        <h1>{{ t(`industries.sectors.${sectorKey}.title`) }}</h1>
-      </div>
-    </section>
+    <InternalHero
+      :category="t('nav.industries') || 'Industries'"
+      :title="t(`industries.sectors.${sectorKey}.title`)"
+      :description="t(`industries.sectors.${sectorKey}.description`)"
+      theme="ice"
+      image="https://images.unsplash.com/photo-1478479405421-ce83c92fb3ba?auto=format&fit=crop&q=80&w=1200"
+    />
 
     <!-- Detail Contents -->
     <section class="detail-content-section">
@@ -62,6 +63,7 @@
 </template>
 
 <script setup>
+import InternalHero from '@/components/InternalHero.vue'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'

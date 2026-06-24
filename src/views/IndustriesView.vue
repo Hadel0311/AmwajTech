@@ -1,13 +1,13 @@
 <template>
   <main class="industries-view">
     <!-- Header Banner -->
-    <section class="page-hero">
-      <div class="page-hero-content container">
-        <span class="page-cta-tag">{{ t('nav.industries') || 'Industries' }}</span>
-        <h1>{{ t('industries.title') }}</h1>
-        <p>{{ t('industries.subtitle') }}</p>
-      </div>
-    </section>
+    <InternalHero
+      :category="t('nav.industries') || 'Industries'"
+      :title="t('industries.title')"
+      :description="t('industries.subtitle')"
+      theme="dark"
+      image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200"
+    />
 
     <!-- Sectors Grid Section -->
     <section class="sectors-grid-section">
@@ -40,6 +40,7 @@
 </template>
 
 <script setup>
+import InternalHero from '@/components/InternalHero.vue'
 import { useI18n } from 'vue-i18n'
 import { 
   CreditCard, 

@@ -1,20 +1,24 @@
 <template>
   <main class="projects-page">
     <!-- Hero Section -->
-    <section class="page-hero">
-      <div class="page-hero-content container">
-        <span class="page-cta-tag">{{ t('nav.projects') || 'Projects' }}</span>
-        <h1>{{ t('projects.title') }}</h1>
-        <p>{{ t('projects.subtitle') }}</p>
-      </div>
-    </section>
+    <InternalHero
+      :category="t('nav.projects') || 'Projects'"
+      :title="t('projects.title')"
+      :description="t('projects.subtitle')"
+      theme="light"
+      image="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200"
+    />
     <ProjectsSection @open-project-modal="openModal" />
   </main>
 </template>
 
 <script setup>
+import InternalHero from '@/components/InternalHero.vue'
 import { inject } from 'vue'
+import { useI18n } from 'vue-i18n'
 import ProjectsSection from '@/components/ProjectsSection.vue'
+
+const { t } = useI18n()
 
 const openProjectModal = inject('openProjectModal')
 

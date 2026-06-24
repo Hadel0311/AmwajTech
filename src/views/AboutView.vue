@@ -1,13 +1,13 @@
 <template>
   <main class="about-view">
     <!-- Header Banner -->
-    <section class="page-hero">
-      <div class="page-hero-content container">
-        <span class="page-cta-tag">{{ t('nav.about') || 'About Us' }}</span>
-        <h1>{{ t('about.title') }}</h1>
-        <p>{{ t('nav.tagline') }}</p>
-      </div>
-    </section>
+    <InternalHero
+      :category="t('nav.about') || 'About Us'"
+      :title="t('about.title')"
+      :description="t('about.subtitle')"
+      theme="light"
+      image="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80&w=1200"
+    />
 
     <!-- Company Overview, Mission, Vision, and Core Values -->
     <CompanyOverview />
@@ -58,6 +58,7 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
 import CompanyOverview from '@/components/CompanyOverview.vue'
+import InternalHero from '@/components/InternalHero.vue'
 
 const { t } = useI18n()
 </script>

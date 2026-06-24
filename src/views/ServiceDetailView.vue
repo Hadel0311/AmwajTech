@@ -5,7 +5,8 @@
       :category="t('services.labels.category')"
       :title="serviceData?.title"
       :description="heroValueProp"
-      theme="ice"
+      theme="navy"
+      size="medium"
       :image="currentImage"
     />
 
@@ -128,6 +129,14 @@
     </section>
   </main>
   
+  <main class="service-detail-view invalid-view" v-else-if="loading">
+    <div class="error-container">
+      <div class="loading-pulse" style="font-size: 1.25rem; font-weight: 700; color: var(--color-primary); opacity: 0.7;">
+        {{ locale === 'ar' ? 'جاري التحميل...' : 'Loading...' }}
+      </div>
+    </div>
+  </main>
+  
   <main class="service-detail-view invalid-view" v-else>
     <div class="error-container">
       <h2>{{ t('services.labels.notFound') }}</h2>
@@ -154,7 +163,7 @@ import {
 } from 'lucide-vue-next'
 
 const route = useRoute()
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 const loading = ref(true)
 const serviceData = ref(null)

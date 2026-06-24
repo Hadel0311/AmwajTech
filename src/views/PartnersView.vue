@@ -5,7 +5,8 @@
       :category="t('nav.partners') || 'Partners'"
       :title="t('partners.title')"
       :description="t('partners.subtitle')"
-      theme="medium"
+      theme="navy"
+      size="medium"
       image="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200"
     />
 

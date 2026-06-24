@@ -6,6 +6,7 @@
       title="Contact Us"
       description="Have a question, need assistance, or want to learn more about our solutions? Our team is ready to help."
       theme="dark"
+      size="medium"
       image="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
     />
 

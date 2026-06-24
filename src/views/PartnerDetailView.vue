@@ -105,6 +105,13 @@
       </section>
     </div>
 
+    <!-- Loading state -->
+    <div class="container text-center section-padding" v-else-if="loading" style="min-height: 40vh; display: flex; align-items: center; justify-content: center;">
+      <div class="loading-pulse" style="font-size: 1.25rem; font-weight: 700; color: var(--color-primary); opacity: 0.7;">
+        {{ locale === 'ar' ? 'جاري التحميل...' : 'Loading...' }}
+      </div>
+    </div>
+
     <!-- Error/Not Found state -->
     <div class="container text-center section-padding" v-else>
       <h2 class="section-title">{{ locale === 'ar' ? 'لم يتم العثور على الشريك' : 'Partner Not Found' }}</h2>
@@ -129,12 +136,16 @@ const router = useRouter()
 const { t, locale } = useI18n()
 
 const partner = ref(null)
+const loading = ref(true)
 
 onMounted(async () => {
+  loading.value = true
   try {
     partner.value = await api.getOne('partners', route.params.id)
   } catch (err) {
     console.error('Failed to load partner detail', err)
+  } finally {
+    loading.value = false
   }
 })
 

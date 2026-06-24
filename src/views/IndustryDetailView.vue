@@ -6,6 +6,7 @@
       :title="t(`industries.sectors.${sectorKey}.title`)"
       :description="t(`industries.sectors.${sectorKey}.description`)"
       theme="ice"
+      size="medium"
       image="https://images.unsplash.com/photo-1478479405421-ce83c92fb3ba?auto=format&fit=crop&q=80&w=1200"
     />
 

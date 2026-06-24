@@ -5,7 +5,8 @@
       :category="t('nav.careers') || 'Careers'"
       :title="t('careers.hero.title')"
       :description="t('careers.hero.subtitle')"
-      theme="medium"
+      theme="navy"
+      size="medium"
       image="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=1200"
     >
       <template #actions>

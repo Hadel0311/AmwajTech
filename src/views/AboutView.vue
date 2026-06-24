@@ -6,6 +6,7 @@
       :title="t('about.title')"
       :description="t('about.subtitle')"
       theme="light"
+      size="medium"
       image="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80&w=1200"
     />
 

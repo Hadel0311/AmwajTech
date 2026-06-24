@@ -1,6 +1,6 @@
 <template>
   <!-- Vite HMR Force Reload -->
-  <section class="valantic-hero" :class="`theme-${theme}`">
+  <section class="valantic-hero" :class="[`theme-${theme}`, `size-${size}`]">
     <!-- Solid Background on the left -->
     <div class="hero-bg"></div>
 
@@ -63,7 +63,12 @@ defineProps({
   theme: {
     type: String,
     default: 'navy',
-    validator: (v) => ['navy', 'teal', 'blue', 'slate'].includes(v)
+    validator: (v) => ['navy', 'teal', 'blue', 'slate', 'medium', 'ice'].includes(v)
+  },
+  size: {
+    type: String,
+    default: 'large',
+    validator: (v) => ['large', 'medium', 'compact', 'slim'].includes(v)
   },
   title: {
     type: String,
@@ -89,11 +94,26 @@ defineProps({
 .valantic-hero {
   position: relative;
   width: 100%;
-  min-height: calc(100vh - 68px);
   display: flex;
   align-items: center;
   background-color: #07152D;
   overflow: hidden;
+}
+
+.valantic-hero.size-large {
+  min-height: calc(100vh - 68px);
+}
+
+.valantic-hero.size-medium {
+  min-height: 55vh;
+}
+
+.valantic-hero.size-compact {
+  min-height: 40vh;
+}
+
+.valantic-hero.size-slim {
+  min-height: 250px;
 }
 
 /* Background Color Layer base */
@@ -160,8 +180,16 @@ defineProps({
 .hero-content {
   width: 45%;
   max-width: 580px;
-  padding: 5rem 0;
+  padding: 3rem 0;
   margin-right: auto;
+}
+
+.size-large .hero-content {
+  padding: 5rem 0;
+}
+
+.size-slim .hero-content {
+  padding: 1.5rem 0;
 }
 
 /* Reveal Wrappers for Typography */

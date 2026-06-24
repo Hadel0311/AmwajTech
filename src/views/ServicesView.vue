@@ -5,7 +5,8 @@
       :category="t('nav.services') || 'Our Services'"
       :title="t('services.title')"
       :description="t('services.subtitle')"
-      theme="medium"
+      theme="navy"
+      size="medium"
       image="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200"
     />
 

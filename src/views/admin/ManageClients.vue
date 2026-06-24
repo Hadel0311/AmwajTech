@@ -61,7 +61,8 @@
             </td>
             <td class="font-medium">{{ item.name }}</td>
             <td>
-              <span class="badge bg-blue-light text-blue">{{ item.industry }}</span>
+              <span v-if="item.industry || item.category" class="badge bg-blue-light text-blue" style="text-transform: capitalize;">{{ item.industry || item.category }}</span>
+              <span v-else class="text-gray-400">-</span>
             </td>
             <td class="actions-cell">
               <button @click="openModal(item)" class="action-btn edit-btn" title="Edit">
@@ -207,7 +208,8 @@ const filteredClients = computed(() => {
   const q = searchQuery.value.toLowerCase();
   return clients.value.filter(c => 
     c.name?.toLowerCase().includes(q) || 
-    c.industry?.toLowerCase().includes(q)
+    c.industry?.toLowerCase().includes(q) ||
+    c.category?.toLowerCase().includes(q)
   );
 });
 
@@ -256,6 +258,7 @@ const openModal = (item = null) => {
   if (item) {
     editingId.value = item.id;
     formData.value = { ...item };
+    formData.value.industry = item.industry || item.category || '';
     if (!formData.value.services) formData.value.services = [];
   } else {
     editingId.value = null;

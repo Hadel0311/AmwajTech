@@ -14,7 +14,7 @@ export const verifyToken = async (req, res, next) => {
     next();
   } catch (error) {
     console.error('Error verifying auth token', error);
-    import('fs').then(fs => fs.writeFileSync('error_log.txt', String(error.stack)));
+    import('fs').then(fs => fs.appendFileSync('error_log.txt', String(error.stack) + '\n\n'));
     res.status(401).json({ error: 'Unauthorized: Invalid token' });
   }
 };

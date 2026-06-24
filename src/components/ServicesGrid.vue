@@ -36,21 +36,25 @@
             @mouseenter="hoveredIndex = index"
             @mouseleave="hoveredIndex = null"
           >
-            <router-link :to="`/services/${service.id}`" class="node-pill">
-              <span class="node-text">{{ t(`services.items.${service.key}.title`) }}</span>
+            <router-link :to="`/services/${service.id || service.key}`" class="node-pill">
+              <span class="node-text">{{ service.title || t(`services.items.${service.key}.title`) }}</span>
               <div class="node-icon-circle">
-                <component :is="service.icon" class="node-icon" />
+                <component :is="getIcon(service.icon)" class="node-icon" />
               </div>
             </router-link>
           </div>
 
           <!-- Center Node -->
-          <div class="node-wrapper center-node-wrapper">
+          <router-link to="/services" class="node-wrapper center-node-wrapper" style="text-decoration: none;">
             <div class="center-pulse"></div>
-            <div class="center-circle">
-              <span class="center-text">Services</span>
+            <div class="center-circle"
+                 @mouseenter="isCenterHovered = true"
+                 @mouseleave="isCenterHovered = false">
+              <span class="center-text" style="transition: all 0.3s;" :style="{ fontSize: isCenterHovered ? '1.4rem' : '1.8rem' }">
+                {{ isCenterHovered ? 'Show all services' : 'Services' }}
+              </span>
             </div>
-          </div>
+          </router-link>
 
           <!-- Right Nodes -->
           <div 
@@ -61,11 +65,11 @@
             @mouseenter="hoveredIndex = index + 3"
             @mouseleave="hoveredIndex = null"
           >
-            <router-link :to="`/services/${service.id}`" class="node-pill">
+            <router-link :to="`/services/${service.id || service.key}`" class="node-pill">
               <div class="node-icon-circle">
-                <component :is="service.icon" class="node-icon" />
+                <component :is="getIcon(service.icon)" class="node-icon" />
               </div>
-              <span class="node-text">{{ t(`services.items.${service.key}.title`) }}</span>
+              <span class="node-text">{{ service.title || t(`services.items.${service.key}.title`) }}</span>
             </router-link>
           </div>
         </div>
@@ -101,21 +105,25 @@
             @mouseenter="hoveredIndex = index"
             @mouseleave="hoveredIndex = null"
           >
-            <router-link :to="`/services/${service.id}`" class="node-pill mobile-node-pill">
+            <router-link :to="`/services/${service.id || service.key}`" class="node-pill mobile-node-pill">
               <div class="node-icon-circle">
-                <component :is="service.icon" class="node-icon" />
+                <component :is="getIcon(service.icon)" class="node-icon" />
               </div>
-              <span class="node-text mobile-node-text">{{ t(`services.items.${service.key}.title`) }}</span>
+              <span class="node-text mobile-node-text">{{ service.title || t(`services.items.${service.key}.title`) }}</span>
             </router-link>
           </div>
 
           <!-- Center Node -->
-          <div class="node-wrapper center-node-wrapper mobile-center">
+          <router-link to="/services" class="node-wrapper center-node-wrapper mobile-center" style="text-decoration: none;">
             <div class="center-pulse mobile-pulse"></div>
-            <div class="center-circle mobile-circle">
-              <span class="center-text">Services</span>
+            <div class="center-circle mobile-circle"
+                 @mouseenter="isCenterHovered = true"
+                 @mouseleave="isCenterHovered = false">
+              <span class="center-text" style="transition: all 0.3s;" :style="{ fontSize: isCenterHovered ? '0.8rem' : '1rem' }">
+                {{ isCenterHovered ? 'Show all services' : 'Services' }}
+              </span>
             </div>
-          </div>
+          </router-link>
 
           <!-- Bottom Nodes -->
           <div 
@@ -126,11 +134,11 @@
             @mouseenter="hoveredIndex = index + 3"
             @mouseleave="hoveredIndex = null"
           >
-            <router-link :to="`/services/${service.id}`" class="node-pill mobile-node-pill">
+            <router-link :to="`/services/${service.id || service.key}`" class="node-pill mobile-node-pill">
               <div class="node-icon-circle">
-                <component :is="service.icon" class="node-icon" />
+                <component :is="getIcon(service.icon)" class="node-icon" />
               </div>
-              <span class="node-text mobile-node-text">{{ t(`services.items.${service.key}.title`) }}</span>
+              <span class="node-text mobile-node-text">{{ service.title || t(`services.items.${service.key}.title`) }}</span>
             </router-link>
           </div>
         </div>
@@ -141,31 +149,33 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { 
-  Network, 
-  Shield, 
-  Server, 
-  Cloud, 
-  Code, 
-  PhoneCall 
-} from 'lucide-vue-next'
+import { api } from '@/services/api'
+import { IconMap } from '@/utils/iconMap'
+import { Layers } from 'lucide-vue-next'
 
 const { t } = useI18n()
 
-const servicesList = [
-  { id: 'network-infrastructure', key: 'network_infrastructure', icon: Network },
-  { id: 'network-security', key: 'network_security', icon: Shield },
-  { id: 'data-center', key: 'data_center', icon: Server },
-  { id: 'cloud-services', key: 'cloud_services', icon: Cloud },
-  { id: 'software-solutions', key: 'software_solutions', icon: Code },
-  { id: 'technical-support', key: 'technical_support', icon: PhoneCall }
-]
-
-const leftServices = servicesList.slice(0, 3)
-const rightServices = servicesList.slice(3, 6)
+const servicesList = ref([])
 const hoveredIndex = ref(null)
+const isCenterHovered = ref(false)
+
+onMounted(async () => {
+  try {
+    const data = await api.getAll('services')
+    servicesList.value = data.sort((a, b) => (a.order || 0) - (b.order || 0)).slice(0, 6)
+  } catch (err) {
+    console.error('Failed to load services', err)
+  }
+})
+
+const getIcon = (iconName) => {
+  return IconMap[iconName] || Layers
+}
+
+const leftServices = computed(() => servicesList.value.slice(0, 3))
+const rightServices = computed(() => servicesList.value.slice(3, 6))
 
 const getTopPosition = (index) => {
   if (index === 0) return '12.5%'

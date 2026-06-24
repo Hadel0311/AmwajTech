@@ -25,11 +25,30 @@
           </div>
 
           <div class="nav-group">
+            <span class="nav-group-label" v-if="!isSidebarCollapsed">Inquiries</span>
+            
+            <router-link to="/admin/contacts" class="nav-item" active-class="active">
+              <Mail class="nav-icon" :size="20" />
+              <span class="nav-label" v-if="!isSidebarCollapsed">Contact Messages</span>
+            </router-link>
+            
+            <router-link to="/admin/consultations" class="nav-item" active-class="active">
+              <MessageSquare class="nav-icon" :size="20" />
+              <span class="nav-label" v-if="!isSidebarCollapsed">Consultations</span>
+            </router-link>
+          </div>
+
+          <div class="nav-group">
             <span class="nav-group-label" v-if="!isSidebarCollapsed">Content Management</span>
             
             <router-link to="/admin/announcements" class="nav-item" active-class="active">
               <Megaphone class="nav-icon" :size="20" />
               <span class="nav-label" v-if="!isSidebarCollapsed">Announcements</span>
+            </router-link>
+            
+            <router-link to="/admin/services" class="nav-item" active-class="active">
+              <Layers class="nav-icon" :size="20" />
+              <span class="nav-label" v-if="!isSidebarCollapsed">Services</span>
             </router-link>
             
             <router-link to="/admin/clients" class="nav-item" active-class="active">
@@ -97,13 +116,16 @@ import { auth } from '@/firebase/config';
 import { 
   LayoutDashboard, 
   Megaphone, 
+  Layers,
   Users, 
   Network, 
   Briefcase, 
   LogOut, 
   User,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Mail,
+  MessageSquare
 } from 'lucide-vue-next';
 
 const router = useRouter();

@@ -45,8 +45,8 @@
                 <textarea id="message" v-model="form.message" required rows="5" placeholder="Your message here..."></textarea>
               </div>
               
-              <button type="submit" class="btn-primary submit-btn">
-                Send Message
+              <button type="submit" class="btn-primary submit-btn" :disabled="isSubmitting">
+                {{ isSubmitting ? 'Sending...' : 'Send Message' }}
               </button>
             </form>
           </div>
@@ -150,6 +150,7 @@
 import InternalHero from '@/components/InternalHero.vue'
 import { ref } from 'vue'
 import { MapPin, Phone, Mail, Printer, Smartphone } from 'lucide-vue-next'
+import { api } from '@/services/api'
 
 const form = ref({
   fullName: '',
@@ -159,15 +160,30 @@ const form = ref({
   message: ''
 })
 
-const submitForm = () => {
-  console.log('Form submitted:', form.value)
-  alert('Thank you for your message. We will get back to you soon.')
-  form.value = {
-    fullName: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
+const isSubmitting = ref(false)
+
+const submitForm = async () => {
+  if (isSubmitting.value) return;
+  isSubmitting.value = true;
+  
+  try {
+    await api.create('contact_messages', {
+      ...form.value,
+      status: 'New'
+    });
+    alert('Thank you for your message. We will get back to you soon.')
+    form.value = {
+      fullName: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: ''
+    }
+  } catch (error) {
+    console.error('Failed to submit form', error)
+    alert('Sorry, there was an error submitting your message. Please try again later.')
+  } finally {
+    isSubmitting.value = false;
   }
 }
 </script>

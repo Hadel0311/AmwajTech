@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <InternalHero
       :category="t('services.labels.category')"
-      :title="t(`services.items.${serviceKey}.title`)"
+      :title="serviceData?.title"
       :description="heroValueProp"
       theme="ice"
       :image="currentImage"
@@ -139,89 +139,89 @@
 
 <script setup>
 import InternalHero from '@/components/InternalHero.vue'
-import { computed } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { api } from '@/services/api'
+import { IconMap } from '@/utils/iconMap'
 import { 
   CheckCircle2, 
   TrendingUp, 
   AlertTriangle, 
   ShieldCheck, 
   ArrowRight,
-  Network, 
-  Shield, 
-  Server, 
-  Cloud, 
-  Code, 
-  PhoneCall 
+  Layers
 } from 'lucide-vue-next'
 
 const route = useRoute()
-const { t, tm } = useI18n()
+const { t } = useI18n()
 
-// Service key mapping
-const serviceMapping = {
-  'network-infrastructure': 'network_infrastructure',
-  'network-security': 'network_security',
-  'data-center': 'data_center',
-  'cloud-services': 'cloud_services',
-  'software-solutions': 'software_solutions',
-  'technical-support': 'technical_support'
+const loading = ref(true)
+const serviceData = ref(null)
+const allServices = ref([])
+
+const loadData = async () => {
+  loading.value = true
+  try {
+    allServices.value = await api.getAll('services')
+    
+    // Find service by doc ID, or fallback to key mapping for hardcoded compatibility
+    const paramId = route.params.id
+    
+    const serviceMapping = {
+      'network-infrastructure': 'network_infrastructure',
+      'network-security': 'network_security',
+      'data-center': 'data_center',
+      'cloud-services': 'cloud_services',
+      'software-solutions': 'software_solutions',
+      'technical-support': 'technical_support'
+    }
+    const mappedKey = serviceMapping[paramId] || paramId
+    
+    serviceData.value = allServices.value.find(s => s.id === paramId || s.key === mappedKey)
+  } catch (err) {
+    console.error(err)
+  } finally {
+    loading.value = false
+  }
 }
 
-// Icon mapping for related services
-const iconMapping = {
-  'network_infrastructure': Network,
-  'network_security': Shield,
-  'data_center': Server,
-  'cloud_services': Cloud,
-  'software_solutions': Code,
-  'technical_support': PhoneCall
-}
+onMounted(loadData)
 
-// Enterprise Photography Mapping (Unsplash)
-const serviceImages = {
-  'network_infrastructure': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200',
-  'network_security': 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200',
-  'data_center': 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200',
-  'cloud_services': 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200',
-  'software_solutions': 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1200',
-  'technical_support': 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200'
-}
-
-const isValidService = computed(() => {
-  return typeof route.params.id === 'string' && route.params.id in serviceMapping
+// Re-fetch if route changes (e.g. clicking related service)
+watch(() => route.params.id, () => {
+  if (route.params.id) loadData()
 })
 
-const serviceKey = computed(() => {
-  return serviceMapping[route.params.id]
-})
+const isValidService = computed(() => !!serviceData.value && !loading.value)
 
 const currentImage = computed(() => {
-  return serviceImages[serviceKey.value] || serviceImages['network_infrastructure']
+  return serviceData.value?.image || 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200'
 })
 
-// Dynamic Locale Data Getters
-const heroValueProp = computed(() => tm(`services.details.${serviceKey.value}.heroValueProp`))
-const visualIntro = computed(() => tm(`services.details.${serviceKey.value}.visualIntro`))
-const challenges = computed(() => tm(`services.details.${serviceKey.value}.challenges`))
-const workflow = computed(() => tm(`services.details.${serviceKey.value}.workflow`))
+const heroValueProp = computed(() => serviceData.value?.heroValueProp || '')
+const visualIntro = computed(() => serviceData.value?.visualIntro || null)
+const challenges = computed(() => serviceData.value?.challenges || [])
+const workflow = computed(() => serviceData.value?.workflow || [])
+
+const getIcon = (iconName) => {
+  return IconMap[iconName] || Layers
+}
 
 const relatedServicesData = computed(() => {
-  const keys = tm(`services.details.${serviceKey.value}.relatedServices`)
-  if (!Array.isArray(keys)) return []
-  
-  return keys.map(key => {
-    // Reverse lookup ID from key
-    const id = Object.keys(serviceMapping).find(k => serviceMapping[k] === key)
-    return {
-      id,
-      key,
-      title: t(`services.items.${key}.title`),
-      description: t(`services.items.${key}.description`),
-      icon: iconMapping[key] || Network
+  if (!serviceData.value?.relatedServices) return []
+  return serviceData.value.relatedServices.map(key => {
+    const relService = allServices.value.find(s => s.key === key || s.id === key)
+    if (relService) {
+      return {
+        id: relService.id,
+        title: relService.title,
+        description: relService.description,
+        icon: getIcon(relService.icon)
+      }
     }
-  })
+    return null
+  }).filter(Boolean)
 })
 </script>
 

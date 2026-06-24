@@ -164,13 +164,13 @@ onUnmounted(() => {
   window.removeEventListener('resize', checkArrows)
 })
 
-const logoImages = import.meta.glob('../assets/images/clients/*', { eager: true, import: 'default' })
+const logoImages = import.meta.glob('../assets/images/Clients/*', { eager: true, import: 'default' })
 
 const getLogoUrl = (logoName) => {
   if (logoName && (logoName.startsWith('http') || logoName.startsWith('/'))) {
     return logoName
   }
-  return logoImages[`../assets/images/clients/${logoName}`] || ''
+  return logoImages[`../assets/images/Clients/${logoName}`] || ''
 }
 
 const searchQuery = ref('')

@@ -102,8 +102,8 @@
               <textarea id="message" v-model="formData.message" rows="5"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary submit-btn">
-              {{ t('requestConsultation.form.submit') }}
+            <button type="submit" class="btn btn-primary submit-btn" :disabled="isSubmitting">
+              {{ isSubmitting ? 'Submitting...' : t('requestConsultation.form.submit') }}
             </button>
           </form>
         </div>
@@ -185,6 +185,7 @@
 import InternalHero from '@/components/InternalHero.vue'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { api } from '@/services/api'
 
 const { t } = useI18n()
 
@@ -201,22 +202,36 @@ const formData = ref({
   message: ''
 })
 
-const submitForm = () => {
-  // In a real application, submit to backend
-  console.log('Form Submitted', formData.value)
-  alert('Consultation request submitted successfully. Our team will contact you shortly.')
-  // Reset form
-  formData.value = {
-    fullName: '',
-    companyName: '',
-    jobTitle: '',
-    businessEmail: '',
-    phoneNumber: '',
-    industry: '',
-    requiredService: '',
-    projectSize: '',
-    projectTimeline: '',
-    message: ''
+const isSubmitting = ref(false)
+
+const submitForm = async () => {
+  if (isSubmitting.value) return;
+  isSubmitting.value = true;
+  
+  try {
+    await api.create('consultation_requests', {
+      ...formData.value,
+      status: 'New'
+    });
+    alert('Consultation request submitted successfully. Our team will contact you shortly.')
+    // Reset form
+    formData.value = {
+      fullName: '',
+      companyName: '',
+      jobTitle: '',
+      businessEmail: '',
+      phoneNumber: '',
+      industry: '',
+      requiredService: '',
+      projectSize: '',
+      projectTimeline: '',
+      message: ''
+    }
+  } catch (error) {
+    console.error('Failed to submit form', error)
+    alert('Sorry, there was an error submitting your request. Please try again later.')
+  } finally {
+    isSubmitting.value = false;
   }
 }
 </script>

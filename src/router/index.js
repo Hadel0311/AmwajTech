@@ -1,18 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
-import ServicesView from '../views/ServicesView.vue'
-import ServiceDetailView from '../views/ServiceDetailView.vue'
-import IndustriesView from '../views/IndustriesView.vue'
-import IndustryDetailView from '../views/IndustryDetailView.vue'
-import ProjectsView from '../views/ProjectsView.vue'
-import RequestConsultationView from '../views/RequestConsultationView.vue'
-import PartnersView from '../views/PartnersView.vue'
-import PartnerDetailView from '../views/PartnerDetailView.vue'
-import ClientsView from '../views/ClientsView.vue'
-import ClientDetailView from '../views/ClientDetailView.vue'
-import CareersView from '../views/CareersView.vue'
-import ContactView from '../views/ContactView.vue'
+// Lazy loaded views
 
 import LoginView from '../views/admin/Login.vue'
 import { auth } from '../firebase/config.js'
@@ -20,20 +7,20 @@ import { auth } from '../firebase/config.js'
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
-    { path: '/', name: 'home', component: HomeView },
-    { path: '/about', name: 'about', component: AboutView },
-    { path: '/services', name: 'services', component: ServicesView },
-    { path: '/services/:id', name: 'service-detail', component: ServiceDetailView },
-    { path: '/industries', name: 'industries', component: IndustriesView },
-    { path: '/industries/:id', name: 'industry-detail', component: IndustryDetailView },
-    { path: '/projects', name: 'projects', component: ProjectsView },
-    { path: '/request-consultation', name: 'request-consultation', component: RequestConsultationView },
-    { path: '/partners', name: 'partners', component: PartnersView },
-    { path: '/partners/:id', name: 'partner-detail', component: PartnerDetailView },
-    { path: '/clients', name: 'clients', component: ClientsView },
-    { path: '/clients/:id', name: 'client-detail', component: ClientDetailView },
-    { path: '/careers', name: 'careers', component: CareersView },
-    { path: '/contact', name: 'contact', component: ContactView },
+    { path: '/', name: 'home', component: () => import('../views/HomeView.vue') },
+    { path: '/about', name: 'about', component: () => import('../views/AboutView.vue') },
+    { path: '/services', name: 'services', component: () => import('../views/ServicesView.vue') },
+    { path: '/services/:id', name: 'service-detail', component: () => import('../views/ServiceDetailView.vue') },
+    { path: '/industries', name: 'industries', component: () => import('../views/IndustriesView.vue') },
+    { path: '/industries/:id', name: 'industry-detail', component: () => import('../views/IndustryDetailView.vue') },
+    { path: '/projects', name: 'projects', component: () => import('../views/ProjectsView.vue') },
+    { path: '/request-consultation', name: 'request-consultation', component: () => import('../views/RequestConsultationView.vue') },
+    { path: '/partners', name: 'partners', component: () => import('../views/PartnersView.vue') },
+    { path: '/partners/:id', name: 'partner-detail', component: () => import('../views/PartnerDetailView.vue') },
+    { path: '/clients', name: 'clients', component: () => import('../views/ClientsView.vue') },
+    { path: '/clients/:id', name: 'client-detail', component: () => import('../views/ClientDetailView.vue') },
+    { path: '/careers', name: 'careers', component: () => import('../views/CareersView.vue') },
+    { path: '/contact', name: 'contact', component: () => import('../views/ContactView.vue') },
     
     // Admin Routes
     { path: '/login', name: 'login', component: LoginView },
@@ -54,6 +41,11 @@ const router = createRouter({
           component: () => import('../views/admin/ManageAnnouncements.vue')
         },
         {
+          path: 'services',
+          name: 'admin-services',
+          component: () => import('../views/admin/ManageServices.vue')
+        },
+        {
           path: 'partners',
           name: 'admin-partners',
           component: () => import('../views/admin/ManagePartners.vue')
@@ -72,6 +64,16 @@ const router = createRouter({
           path: 'jobs/:jobId/applicants',
           name: 'admin-job-applicants',
           component: () => import('../views/admin/ManageApplicants.vue')
+        },
+        {
+          path: 'contacts',
+          name: 'admin-contacts',
+          component: () => import('../views/admin/ManageContacts.vue')
+        },
+        {
+          path: 'consultations',
+          name: 'admin-consultations',
+          component: () => import('../views/admin/ManageConsultations.vue')
         }
       ]
     }

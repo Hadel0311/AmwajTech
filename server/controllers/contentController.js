@@ -10,7 +10,7 @@ export const getAll = async (req, res) => {
     res.json(data);
   } catch (error) {
     console.error(`Error fetching ${collection}:`, error);
-    fs.writeFileSync('error_log.txt', String(error.stack));
+    fs.appendFileSync('error_log.txt', String(error.stack) + '\n\n');
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
@@ -40,7 +40,7 @@ export const createDoc = async (req, res) => {
     res.status(201).json({ id: newDocRef.id, ...data });
   } catch (error) {
     console.error(`Error creating ${collection}:`, error);
-    fs.writeFileSync('error_log.txt', String(error.stack));
+    fs.appendFileSync('error_log.txt', String(error.stack) + '\n\n');
     res.status(500).json({ error: error.message });
   }
 };

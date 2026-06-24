@@ -14,17 +14,17 @@
       <div class="grid-container">
         <div class="services-overview-grid">
           <router-link 
-            v-for="(service, index) in categories" 
-            :key="index"
-            :to="`/services/${service.id}`"
+            v-for="(service, index) in services" 
+            :key="service.id || index"
+            :to="`/services/${service.id || service.key}`"
             class="service-card-link"
           >
             <div class="service-card">
               <div class="icon-wrapper">
-                <component :is="service.icon" class="service-icon" />
+                <component :is="getIcon(service.icon)" :size="28" class="service-icon" />
               </div>
-              <h2 class="service-card-title">{{ t(`services.items.${service.key}.title`) }}</h2>
-              <p class="service-card-desc">{{ t(`services.items.${service.key}.description`) }}</p>
+              <h2 class="service-card-title">{{ service.title || t(`services.items.${service.key}.title`) }}</h2>
+              <p class="service-card-desc">{{ service.description || t(`services.items.${service.key}.description`) }}</p>
               <div class="service-card-action">
                 <span>{{ t('services.exploreOffering') }}</span>
                 <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
@@ -42,25 +42,26 @@
 <script setup>
 import InternalHero from '@/components/InternalHero.vue'
 import { useI18n } from 'vue-i18n'
-import { 
-  Network, 
-  Shield, 
-  Server, 
-  Cloud, 
-  Code, 
-  PhoneCall 
-} from 'lucide-vue-next'
+import { ref, onMounted } from 'vue'
+import { api } from '@/services/api'
+import { IconMap } from '@/utils/iconMap'
+import { Layers } from 'lucide-vue-next'
 
 const { t } = useI18n()
+const services = ref([])
 
-const categories = [
-  { id: 'network-infrastructure', key: 'network_infrastructure', icon: Network },
-  { id: 'network-security', key: 'network_security', icon: Shield },
-  { id: 'data-center', key: 'data_center', icon: Server },
-  { id: 'cloud-services', key: 'cloud_services', icon: Cloud },
-  { id: 'software-solutions', key: 'software_solutions', icon: Code },
-  { id: 'technical-support', key: 'technical_support', icon: PhoneCall }
-]
+onMounted(async () => {
+  try {
+    const data = await api.getAll('services')
+    services.value = data.sort((a, b) => (a.order || 0) - (b.order || 0))
+  } catch (err) {
+    console.error('Failed to load services', err)
+  }
+})
+
+const getIcon = (iconName) => {
+  return IconMap[iconName] || Layers
+}
 </script>
 
 <style scoped>
@@ -111,23 +112,26 @@ const categories = [
 .service-card-link {
   text-decoration: none;
   color: inherit;
+  display: block;
+  height: 100%;
 }
 
 .service-card {
   background-color: var(--color-bg-primary);
   border: 1px solid var(--color-bg-alt);
-  border-radius: 4px;
-  padding: 3rem 2rem;
+  border-radius: 8px;
+  padding: 2rem;
   height: 100%;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   transition: all var(--transition-fast);
 }
 
 .service-card:hover {
   transform: translateY(-4px);
   border-color: rgba(13, 148, 136, 0.2);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
 }
 
 .icon-wrapper {
@@ -135,11 +139,11 @@ const categories = [
   border: 1px solid var(--color-bg-alt);
   width: 56px;
   height: 56px;
-  border-radius: 4px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   transition: all var(--transition-fast);
 }
 
@@ -149,10 +153,10 @@ const categories = [
 }
 
 .service-icon {
-  width: 26px;
-  height: 26px;
-  color: var(--color-secondary);
-  stroke-width: 1.75px;
+  width: 28px !important;
+  height: 28px !important;
+  color: var(--color-primary);
+  stroke-width: 2px;
   transition: color var(--transition-fast);
 }
 
@@ -166,6 +170,11 @@ const categories = [
   color: var(--color-text-dark);
   margin-bottom: 1rem;
   font-family: var(--font-heading, 'Montserrat', sans-serif);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 3.2rem;
 }
 
 [dir="rtl"] .service-card-title {
@@ -178,6 +187,11 @@ const categories = [
   line-height: 1.6;
   margin-bottom: 2rem;
   flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 6rem;
 }
 
 .service-card-action {

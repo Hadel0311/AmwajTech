@@ -57,7 +57,7 @@
               <GripVertical :size="18" />
             </td>
             <td>
-              <img :src="item.logo.startsWith('http') || item.logo.startsWith('/') ? item.logo : '/AmwajTech/clients/' + item.logo" :alt="item.name" style="height: 40px; object-fit: contain; max-width: 80px;" />
+              <img :src="getLogoUrl(item.logo)" :alt="item.name" style="height: 40px; object-fit: contain; max-width: 80px;" />
             </td>
             <td class="font-medium">{{ item.name }}</td>
             <td>
@@ -152,6 +152,16 @@ const showModal = ref(false);
 const isSaving = ref(false);
 const editingId = ref(null);
 const searchQuery = ref('');
+
+const logoImages = import.meta.glob('../../assets/images/Clients/*', { eager: true, import: 'default' });
+
+const getLogoUrl = (logoName) => {
+  if (!logoName) return '';
+  if (logoName.startsWith('http') || logoName.startsWith('/')) {
+    return logoName;
+  }
+  return logoImages[`../../assets/images/Clients/${logoName}`] || '';
+};
 
 // Drag and drop state
 const draggedIndex = ref(null);

@@ -79,11 +79,6 @@
               <Settings class="nav-icon" :size="20" />
               <span class="nav-label" v-if="!isSidebarCollapsed">Email: HR / Jobs</span>
             </router-link>
-
-            <router-link to="/admin/settings/account" class="nav-item" active-class="active">
-              <User class="nav-icon" :size="20" />
-              <span class="nav-label" v-if="!isSidebarCollapsed">Account Details</span>
-            </router-link>
           </div>
         </nav>
       </div>

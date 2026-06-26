@@ -77,11 +77,6 @@ const router = createRouter({
           path: 'settings/email/:type',
           name: 'admin-email-settings',
           component: () => import('../views/admin/ManageEmailSettings.vue')
-        },
-        {
-          path: 'settings/account',
-          name: 'admin-account-settings',
-          component: () => import('../views/admin/Settings.vue')
         }
       ]
     }

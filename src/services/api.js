@@ -21,26 +21,6 @@ export const api = {
     return data;
   },
 
-  getMe: async () => {
-    const res = await fetch(`${API_URL}/auth/me`, {
-      headers: getHeaders()
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Failed to get user details');
-    return data;
-  },
-
-  updateCredentials: async (email, currentPassword, newPassword) => {
-    const res = await fetch(`${API_URL}/auth/update-credentials`, {
-      method: 'PUT',
-      headers: getHeaders(),
-      body: JSON.stringify({ email, currentPassword, newPassword })
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Failed to update credentials');
-    return data;
-  },
-
   // Email Notification
   sendEmailNotification: async (type, data) => {
     try {

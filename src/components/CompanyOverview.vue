@@ -34,21 +34,13 @@
         <div class="values-panel">
           <h3 class="panel-title">{{ t('overview.values.title') }}</h3>
           <div class="values-grid">
-            <div class="value-item">
-              <h4 class="value-title">{{ t('overview.values.items.integrity.title') }}</h4>
-              <p class="value-desc">{{ t('overview.values.items.integrity.description') }}</p>
-            </div>
-            <div class="value-item">
-              <h4 class="value-title">{{ t('overview.values.items.excellence.title') }}</h4>
-              <p class="value-desc">{{ t('overview.values.items.excellence.description') }}</p>
-            </div>
-            <div class="value-item">
-              <h4 class="value-title">{{ t('overview.values.items.security.title') }}</h4>
-              <p class="value-desc">{{ t('overview.values.items.security.description') }}</p>
-            </div>
-            <div class="value-item">
-              <h4 class="value-title">{{ t('overview.values.items.accountability.title') }}</h4>
-              <p class="value-desc">{{ t('overview.values.items.accountability.description') }}</p>
+            <div 
+              v-for="key in ['excellence', 'integrity', 'innovation', 'customer_focus', 'reliability', 'security', 'improvement']" 
+              :key="key" 
+              class="value-item"
+            >
+              <h4 class="value-title">{{ t(`overview.values.items.${key}.title`) }}</h4>
+              <p class="value-desc">{{ t(`overview.values.items.${key}.description`) }}</p>
             </div>
           </div>
         </div>

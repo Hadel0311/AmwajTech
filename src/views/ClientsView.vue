@@ -7,7 +7,7 @@
       :description="t('clients.subtitle')"
       theme="light"
       size="slim"
-      image="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1200"
+      image="/AmwajTech/images/clients-hero.jpg"
     />
 
     <!-- Filters and Search bar -->
@@ -53,7 +53,7 @@
               :class="{ active: selectedCategory === cat.key }"
               @click="selectedCategory = cat.key"
             >
-              {{ t(`clients.sectors.${cat.key}`) }}
+              {{ te(`clients.sectors.${cat.key}`) ? t(`clients.sectors.${cat.key}`) : (cat.original || cat.key) }}
             </button>
           </div>
 
@@ -96,10 +96,6 @@
               <p class="client-card-desc">
                 {{ client.description || t(`clients.items.${client.key}.shortDesc`) }}
               </p>
-
-              <router-link :to="`/clients/${client.id}`" class="client-card-link">
-                <span>View Details &rarr;</span>
-              </router-link>
             </div>
           </article>
         </div>
@@ -114,7 +110,7 @@ import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import { api } from '@/services/api'
 import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
+const { t, te } = useI18n()
 const clientsList = ref([])
 
 // Scrolling logic
@@ -177,20 +173,38 @@ const getLogoUrl = (logoName) => {
 const searchQuery = ref('')
 const selectedCategory = ref('all')
 
-// Available Client Categories / Sectors
-const availableCategories = [
-  { key: 'government' },
-  { key: 'financial' },
-  { key: 'healthcare' },
-  { key: 'education' },
-  { key: 'enterprise' }
-]
+// Available Client Categories / Sectors dynamically computed
+const availableCategories = computed(() => {
+  const categoriesMap = new Map([
+    ['government', { key: 'government' }],
+    ['financial', { key: 'financial' }],
+    ['healthcare', { key: 'healthcare' }],
+    ['education', { key: 'education' }],
+    ['enterprise', { key: 'enterprise' }]
+  ])
+
+  clientsList.value.forEach(client => {
+    // Check both category and industry fields
+    const cats = [client.category, client.industry].filter(Boolean)
+    cats.forEach(cat => {
+      // Use original string for display if no translation exists, but lowercase for key
+      const key = cat.toLowerCase().trim()
+      if (!categoriesMap.has(key)) {
+        categoriesMap.set(key, { key: key, original: cat })
+      }
+    })
+  })
+
+  return Array.from(categoriesMap.values())
+})
 
 const filteredClients = computed(() => {
   return clientsList.value.filter(client => {
     // 1. Filter by category
     if (selectedCategory.value !== 'all') {
-      if (client.category !== selectedCategory.value) {
+      const clientCat = (client.category || '').toLowerCase().trim()
+      const clientInd = (client.industry || '').toLowerCase().trim()
+      if (clientCat !== selectedCategory.value && clientInd !== selectedCategory.value) {
         return false
       }
     }

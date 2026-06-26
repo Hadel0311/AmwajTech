@@ -99,32 +99,23 @@
           
           <div class="form-group">
             <label>Logo Image URL / Filename</label>
-            <input v-model="formData.logo" required placeholder="e.g. client1.png or https://..." />
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <input v-model="formData.logo" required placeholder="e.g. client1.png or https://..." style="flex: 1; margin: 0;" />
+              <div style="position: relative; overflow: hidden;">
+                <button type="button" class="btn btn-outline" style="white-space: nowrap; padding: 0.5rem 1rem;">
+                  {{ isUploading ? 'Uploading...' : 'Upload File' }}
+                </button>
+                <input type="file" @change="handleFileUpload" accept="image/*" style="position: absolute; left: 0; top: 0; opacity: 0; width: 100%; height: 100%; cursor: pointer;" :disabled="isUploading" />
+              </div>
+            </div>
+            <div v-if="formData.logo" style="margin-top: 8px;">
+              <img :src="getLogoUrl(formData.logo)" style="height: 40px; object-fit: contain;" alt="Preview" />
+            </div>
           </div>
 
           <div class="form-group">
             <label>Short Description (Used for card hover)</label>
             <textarea v-model="formData.description" rows="2" required></textarea>
-          </div>
-
-          <div class="form-group">
-            <label>About the Organization</label>
-            <textarea v-model="formData.aboutDesc" rows="3" required></textarea>
-          </div>
-
-          <div class="form-group">
-            <label>Work with (Client Name)</label>
-            <textarea v-model="formData.workDesc" rows="3" required></textarea>
-          </div>
-
-          <div class="form-group">
-            <label>Industry Context</label>
-            <textarea v-model="formData.contextDesc" rows="3" required></textarea>
-          </div>
-
-          <div class="form-group">
-            <label>Services (Comma separated keys)</label>
-            <input v-model="servicesInput" placeholder="network-infrastructure, technical-support" />
           </div>
 
           <div class="modal-footer">
@@ -151,6 +142,7 @@ const clients = ref([]);
 const loading = ref(true);
 const showModal = ref(false);
 const isSaving = ref(false);
+const isUploading = ref(false);
 const editingId = ref(null);
 const searchQuery = ref('');
 
@@ -174,19 +166,24 @@ const formData = ref({
   name: '',
   industry: '',
   logo: '',
-  description: '',
-  aboutDesc: '',
-  workDesc: '',
-  contextDesc: '',
-  services: []
+  description: ''
 });
 
-const servicesInput = computed({
-  get: () => formData.value.services ? formData.value.services.join(', ') : '',
-  set: (val) => {
-    formData.value.services = val.split(',').map(s => s.trim()).filter(Boolean);
+const handleFileUpload = async (event) => {
+  const file = event.target.files[0];
+  if (!file) return;
+  
+  isUploading.value = true;
+  try {
+    const url = await api.uploadFile(`images/clients/${Date.now()}_${file.name}`, file);
+    formData.value.logo = url;
+  } catch (err) {
+    console.error('Upload error:', err);
+    alert('Failed to upload image');
+  } finally {
+    isUploading.value = false;
   }
-});
+};
 
 const loadData = async () => {
   loading.value = true;
@@ -259,10 +256,9 @@ const openModal = (item = null) => {
     editingId.value = item.id;
     formData.value = { ...item };
     formData.value.industry = item.industry || item.category || '';
-    if (!formData.value.services) formData.value.services = [];
   } else {
     editingId.value = null;
-    formData.value = { name: '', industry: '', logo: '', description: '', aboutDesc: '', workDesc: '', contextDesc: '', services: [] };
+    formData.value = { name: '', industry: '', logo: '', description: '' };
   }
   showModal.value = true;
 };
@@ -279,7 +275,7 @@ const handleSubmit = async () => {
     showModal.value = false;
     await loadData();
   } catch (err) {
-    alert('Failed to save data');
+    alert('Failed to save data: ' + err.message);
     console.error(err);
   } finally {
     isSaving.value = false;

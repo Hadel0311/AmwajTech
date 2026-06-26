@@ -6,6 +6,10 @@
         <p>Post and manage open career opportunities.</p>
       </div>
       <div class="header-actions">
+        <button v-if="hasDeletions" @click="saveDeletions" class="btn btn-danger" :disabled="isSavingDeletions">
+          <Save :size="16" />
+          {{ isSavingDeletions ? 'Saving...' : 'Save Deletions' }}
+        </button>
         <button v-if="hasReordered" @click="saveOrder" class="btn btn-warning" :disabled="isSavingOrder">
           <Save :size="16" />
           {{ isSavingOrder ? 'Saving...' : 'Save Order' }}
@@ -170,6 +174,10 @@ const dragOverIndex = ref(null);
 const hasReordered = ref(false);
 const isSavingOrder = ref(false);
 
+const deletedIds = ref([]);
+const isSavingDeletions = ref(false);
+const hasDeletions = computed(() => deletedIds.value.length > 0);
+
 const formData = ref({
   title: '',
   department: '',
@@ -192,6 +200,7 @@ const removeRequirement = (index) => {
 const loadData = async () => {
   loading.value = true;
   hasReordered.value = false;
+  deletedIds.value = [];
   try {
     const [jobsData, applicantsData] = await Promise.all([
       api.getAll('jobs'),
@@ -292,21 +301,33 @@ const handleSubmit = async () => {
     showModal.value = false;
     await loadData();
   } catch (err) {
-    alert('Failed to save data');
+    alert('Failed to save data: ' + err.message);
     console.error(err);
   } finally {
     isSaving.value = false;
   }
 };
 
-const handleDelete = async (id) => {
-  if (confirm('Are you sure you want to delete this job?')) {
-    try {
+const handleDelete = (id) => {
+  if (confirm('Mark this job for deletion? It will not be permanently deleted until you click Save Deletions.')) {
+    deletedIds.value.push(id);
+    jobs.value = jobs.value.filter(j => j.id !== id);
+  }
+};
+
+const saveDeletions = async () => {
+  isSavingDeletions.value = true;
+  try {
+    for (const id of deletedIds.value) {
       await api.delete('jobs', id);
-      await loadData();
-    } catch (err) {
-      alert('Failed to delete');
     }
+    deletedIds.value = [];
+    await loadData();
+  } catch (err) {
+    console.error('Failed to save deletions', err);
+    alert('Failed to process some deletions');
+  } finally {
+    isSavingDeletions.value = false;
   }
 };
 </script>

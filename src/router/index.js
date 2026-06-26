@@ -2,7 +2,6 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 // Lazy loaded views
 
 import LoginView from '../views/admin/Login.vue'
-import { auth } from '../firebase/config.js'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -18,7 +17,6 @@ const router = createRouter({
     { path: '/partners', name: 'partners', component: () => import('../views/PartnersView.vue') },
     { path: '/partners/:id', name: 'partner-detail', component: () => import('../views/PartnerDetailView.vue') },
     { path: '/clients', name: 'clients', component: () => import('../views/ClientsView.vue') },
-    { path: '/clients/:id', name: 'client-detail', component: () => import('../views/ClientDetailView.vue') },
     { path: '/careers', name: 'careers', component: () => import('../views/CareersView.vue') },
     { path: '/contact', name: 'contact', component: () => import('../views/ContactView.vue') },
     
@@ -74,6 +72,16 @@ const router = createRouter({
           path: 'consultations',
           name: 'admin-consultations',
           component: () => import('../views/admin/ManageConsultations.vue')
+        },
+        {
+          path: 'settings/email/:type',
+          name: 'admin-email-settings',
+          component: () => import('../views/admin/ManageEmailSettings.vue')
+        },
+        {
+          path: 'settings/account',
+          name: 'admin-account-settings',
+          component: () => import('../views/admin/Settings.vue')
         }
       ]
     }
@@ -91,9 +99,9 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
   
-  // Wait for auth to initialize before checking
-  await auth.authStateReady();
-  const isAuthenticated = auth.currentUser
+  // Check for our custom JWT
+  const token = localStorage.getItem('amwaj_token') || sessionStorage.getItem('amwaj_token');
+  const isAuthenticated = !!token;
   
   if (requiresAuth && !isAuthenticated) {
     next('/login')

@@ -7,7 +7,7 @@
       description="Have a question, need assistance, or want to learn more about our solutions? Our team is ready to help."
       theme="dark"
       size="medium"
-      image="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
+      image="/AmwajTech/images/contact-hero.jpg"
     />
 
     <section class="contact-main-section">
@@ -172,6 +172,10 @@ const submitForm = async () => {
       ...form.value,
       status: 'New'
     });
+    
+    // Send email notification
+    await api.sendEmailNotification('contact', form.value);
+
     alert('Thank you for your message. We will get back to you soon.')
     form.value = {
       fullName: '',

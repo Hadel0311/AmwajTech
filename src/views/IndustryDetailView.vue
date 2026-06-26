@@ -7,7 +7,7 @@
       :description="t(`industries.sectors.${sectorKey}.description`)"
       theme="ice"
       size="medium"
-      image="https://images.unsplash.com/photo-1478479405421-ce83c92fb3ba?auto=format&fit=crop&q=80&w=1200"
+      :image="getHeroImage(sectorKey)"
     />
 
     <!-- Detail Contents -->
@@ -89,6 +89,25 @@ const isValidSector = computed(() => {
 const sectorKey = computed(() => {
   return sectorMapping[route.params.id]
 })
+
+const getHeroImage = (key) => {
+  if (key === 'banking') {
+    return '/AmwajTech/images/banking-hero.jpg'
+  }
+  if (key === 'healthcare') {
+    return '/AmwajTech/images/healthcare-hero.jpg'
+  }
+  if (key === 'education') {
+    return '/AmwajTech/images/education-hero.jpg'
+  }
+  if (key === 'enterprise') {
+    return '/AmwajTech/images/enterprise-hero.jpg'
+  }
+  if (key === 'industrial') {
+    return '/AmwajTech/images/industrial-hero.jpg'
+  }
+  return 'https://images.unsplash.com/photo-1478479405421-ce83c92fb3ba?auto=format&fit=crop&q=80&w=1200'
+}
 
 // Retrieve arrays of requirements and standards from locales dynamically
 const requirements = computed(() => {

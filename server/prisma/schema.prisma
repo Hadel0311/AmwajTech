@@ -1,0 +1,154 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  HR
+  SUPPORT
+  MANAGER
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(ADMIN)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Announcement {
+  id        String   @id @default(uuid())
+  title     String
+  category  String
+  excerpt   String?
+  content   String
+  date      String
+  image     String?
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Partner {
+  id           String   @id @default(uuid())
+  key          String   @unique
+  name         String
+  website      String?
+  logo         String?
+  description  String?
+  category     String?
+  shortDesc    String?
+  aboutDesc    String?
+  leverageDesc String?
+  services     String[]
+  order        Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Client {
+  id          String   @id @default(uuid())
+  key         String   @unique
+  name        String
+  category    String?
+  logo        String?
+  description String?
+  services    String[]
+  industry    String?
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Setting {
+  id        String   @id @default(uuid())
+  type      String   @unique
+  data      Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Service {
+  id              String   @id @default(uuid())
+  key             String   @unique
+  title           String
+  icon            String
+  image           String?
+  description     String
+  heroValueProp   String?
+  visualIntro     Json?
+  challenges      Json?
+  workflow        Json?
+  relatedServices String[]
+  order           Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Job {
+  id           String   @id @default(uuid())
+  title        String
+  department   String
+  type         String?
+  location     String?
+  description  String
+  requirements String[]
+  status       String   @default("open")
+  order        Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Applicant {
+  id            String   @id @default(uuid())
+  jobId         String
+  jobTitle      String?
+  fullName      String
+  email         String
+  phone         String
+  linkedin      String?
+  cvUrl         String?
+  message       String?
+  dynamicFields Json?
+  status        String   @default("New")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model ContactMessage {
+  id        String   @id @default(uuid())
+  fullName  String
+  email     String
+  phone     String
+  subject   String
+  message   String
+  status    String   @default("New")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ConsultationRequest {
+  id              String   @id @default(uuid())
+  companyName     String
+  fullName        String
+  jobTitle        String?
+  businessEmail   String
+  phoneNumber     String
+  industry        String?
+  requiredService String?
+  projectSize     String?
+  projectTimeline String?
+  message         String?
+  status          String   @default("New")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}

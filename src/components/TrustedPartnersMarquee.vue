@@ -2,7 +2,7 @@
   <section class="trusted-partners-section bg-light">
     <div class="marquee-container">
       <div class="marquee-track">
-        <!-- We render the list twice to create a seamless infinite loop -->
+        <!-- We render the list 4 times to create a seamless infinite loop even if list is small -->
         <div class="marquee-group" aria-hidden="true">
           <router-link 
             v-for="partner in partnersList" 
@@ -37,6 +37,48 @@
             <!-- Tooltip -->
             <Transition name="tooltip-fade">
               <div v-if="activeTooltip === `g2-${partner.id}`" class="partner-tooltip">
+                <span class="tooltip-name">{{ partner.name }}</span>
+                <span v-if="partner.services && partner.services.length" class="tooltip-category">
+                  {{ formatCategory(partner.services[0]) }}
+                </span>
+              </div>
+            </Transition>
+          </router-link>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <router-link 
+            v-for="partner in partnersList" 
+            :key="`g3-${partner.id}`"
+            :to="`/partners/${partner.id}`" 
+            class="partner-logo-item"
+            @mouseenter="activeTooltip = `g3-${partner.id}`"
+            @mouseleave="activeTooltip = null"
+          >
+            <img :src="getLogoUrl(partner.logo)" :alt="partner.name" class="partner-img" />
+            <!-- Tooltip -->
+            <Transition name="tooltip-fade">
+              <div v-if="activeTooltip === `g3-${partner.id}`" class="partner-tooltip">
+                <span class="tooltip-name">{{ partner.name }}</span>
+                <span v-if="partner.services && partner.services.length" class="tooltip-category">
+                  {{ formatCategory(partner.services[0]) }}
+                </span>
+              </div>
+            </Transition>
+          </router-link>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <router-link 
+            v-for="partner in partnersList" 
+            :key="`g4-${partner.id}`"
+            :to="`/partners/${partner.id}`" 
+            class="partner-logo-item"
+            @mouseenter="activeTooltip = `g4-${partner.id}`"
+            @mouseleave="activeTooltip = null"
+          >
+            <img :src="getLogoUrl(partner.logo)" :alt="partner.name" class="partner-img" />
+            <!-- Tooltip -->
+            <Transition name="tooltip-fade">
+              <div v-if="activeTooltip === `g4-${partner.id}`" class="partner-tooltip">
                 <span class="tooltip-name">{{ partner.name }}</span>
                 <span v-if="partner.services && partner.services.length" class="tooltip-category">
                   {{ formatCategory(partner.services[0]) }}
@@ -112,7 +154,8 @@ const formatCategory = (serviceKey) => {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: scrollLeft 40s linear infinite;
+  gap: 3rem;
+  animation: scrollLeft 100s linear infinite;
 }
 
 .marquee-track:hover {
@@ -120,7 +163,7 @@ const formatCategory = (serviceKey) => {
 }
 
 [dir="rtl"] .marquee-track {
-  animation: scrollRight 40s linear infinite;
+  animation: scrollRight 100s linear infinite;
 }
 
 [dir="rtl"] .marquee-track:hover {
@@ -130,11 +173,8 @@ const formatCategory = (serviceKey) => {
 .marquee-group {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  min-width: 100%;
   flex-shrink: 0;
-  gap: 1rem;
-  padding: 0 0.5rem;
+  gap: 3rem;
 }
 
 .partner-logo-item {
@@ -244,8 +284,12 @@ const formatCategory = (serviceKey) => {
     height: 60px;
   }
   
+  .marquee-track {
+    gap: 1.5rem;
+  }
+
   .marquee-group {
-    gap: 0.5rem;
+    gap: 1.5rem;
   }
   
   .partner-tooltip {

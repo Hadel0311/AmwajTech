@@ -214,6 +214,14 @@ const submitForm = async () => {
       ...formData.value,
       status: 'New'
     });
+    
+    // Send email notification
+    await api.sendEmailNotification('consultation', {
+      ...formData.value,
+      email: formData.value.businessEmail, // map businessEmail to email for backend
+      phone: formData.value.phoneNumber,   // map phoneNumber to phone for backend
+    });
+
     alert('Consultation request submitted successfully. Our team will contact you shortly.')
     // Reset form
     formData.value = {

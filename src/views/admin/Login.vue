@@ -70,14 +70,6 @@
             </div>
           </div>
 
-          <div class="form-actions">
-            <label class="remember-me">
-              <input type="checkbox" v-model="rememberMe" />
-              <span class="checkmark"></span>
-              Remember Me
-            </label>
-            <a href="#" class="forgot-password" @click.prevent>Forgot Password?</a>
-          </div>
 
           <button type="submit" class="submit-btn" :disabled="isLoading">
             <span v-if="isLoading" class="loader"></span>
@@ -86,7 +78,7 @@
           
           <div class="security-note">
             <ShieldCheck class="security-icon" :size="14" />
-            Protected by Firebase Authentication
+            Protected by AmwajTech Auth
           </div>
           
           <div class="back-link">
@@ -104,8 +96,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { signInWithEmailAndPassword, setPersistence, browserLocalPersistence, browserSessionPersistence } from 'firebase/auth';
-import { auth } from '@/firebase/config';
+import { api } from '@/services/api';
 import { Mail, Lock, AlertCircle, ArrowLeft, CheckCircle, ShieldCheck } from 'lucide-vue-next';
 
 const router = useRouter();
@@ -113,21 +104,20 @@ const email = ref('');
 const password = ref('');
 const errorMsg = ref('');
 const isLoading = ref(false);
-const rememberMe = ref(false);
 
 const handleLogin = async () => {
   try {
     isLoading.value = true;
     errorMsg.value = '';
     
-    // Set persistence based on "Remember Me" checkbox
-    const persistenceType = rememberMe.value ? browserLocalPersistence : browserSessionPersistence;
-    await setPersistence(auth, persistenceType);
+    const response = await api.login(email.value, password.value);
     
-    await signInWithEmailAndPassword(auth, email.value, password.value);
+    // Save token
+    localStorage.setItem('amwaj_token', response.token);
+    
     router.push('/admin'); // Redirect to dashboard
   } catch (error) {
-    errorMsg.value = 'Invalid email or password.';
+    errorMsg.value = error.message || 'Invalid email or password.';
     console.error(error);
   } finally {
     isLoading.value = false;

@@ -5,7 +5,7 @@ import {
   Building, Mail, MessageSquare, Video, Headset, Settings, Wrench, 
   ShieldCheck, ShieldAlert, AlertTriangle, CheckCircle2, XCircle, 
   Link, FileText, Folder, Save, Share2, Terminal, Command,
-  ArrowRight, Check, X, Plus, Edit2, Trash2, GripVertical, Search
+  ArrowRight, Check, X, Plus, Edit2, Trash2, GripVertical, Search, Cctv
 } from 'lucide-vue-next'
 
 export const IconMap = {
@@ -15,7 +15,7 @@ export const IconMap = {
   Building, Mail, MessageSquare, Video, Headset, Settings, Wrench, 
   ShieldCheck, ShieldAlert, AlertTriangle, CheckCircle2, XCircle, 
   Link, FileText, Folder, Save, Share2, Terminal, Command,
-  ArrowRight, Check, X, Plus, Edit2, Trash2, GripVertical, Search
+  ArrowRight, Check, X, Plus, Edit2, Trash2, GripVertical, Search, Cctv
 }
 
 export const availableIcons = Object.keys(IconMap).sort()

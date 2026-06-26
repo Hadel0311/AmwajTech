@@ -34,12 +34,45 @@
 
         <!-- Regional Hubs & Contact -->
         <div class="footer-col contact-col">
-          <h4 class="col-title">{{ t('contact.info.locations.title') }}</h4>
+          <h4 class="col-title">{{ t('contact.info.locations.title', 'REGIONAL OFFICES') }}</h4>
+          
           <div class="contact-item">
             <MapPin class="icon-small" />
             <div class="contact-details">
-              <span class="label">{{ t('contact.info.locations.jordan') }}</span>
-              <span class="value">{{ t('contact.info.phone') }}</span>
+              <span class="label">{{ t('contact.info.address', 'Address') }}</span>
+              <span class="value">Amman-Jordan-gardens st alzaytona building (53) First floor, office number 2</span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <Phone class="icon-small" />
+            <div class="contact-details">
+              <span class="label">{{ t('contact.info.phoneLabel', 'Phone') }}</span>
+              <span class="value" dir="ltr">+962-655-45514</span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <Smartphone class="icon-small" />
+            <div class="contact-details">
+              <span class="label">{{ t('contact.info.mobile', 'Mobile') }}</span>
+              <span class="value" dir="ltr">+962-77-5545514</span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <Printer class="icon-small" />
+            <div class="contact-details">
+              <span class="label">{{ t('contact.info.fax', 'Fax') }}</span>
+              <span class="value" dir="ltr">+962-655-11937</span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <Mail class="icon-small" />
+            <div class="contact-details">
+              <span class="label">{{ t('contact.info.email', 'Email') }}</span>
+              <a href="mailto:info@amwaj-tech.com" class="value" style="color: inherit; text-decoration: none; transition: color 0.2s ease;">info@amwaj-tech.com</a>
             </div>
           </div>
 
@@ -47,17 +80,6 @@
             {{ t('nav.requestConsultation', 'Request Consultation') }}
             <ArrowRight class="icon-small rtl-flip" />
           </router-link>
-        </div>
-
-        <!-- Certifications -->
-        <div class="footer-col certs-col">
-          <h4 class="col-title">{{ t('trust.certificationsLabel') }}</h4>
-          <div class="badges-grid">
-            <div class="badge">{{ t('footer.badges.cisco', 'Cisco Partner') }}</div>
-            <div class="badge">{{ t('footer.badges.fortinet', 'Fortinet') }}</div>
-            <div class="badge">{{ t('footer.badges.paloalto', 'Palo Alto') }}</div>
-            <div class="badge">{{ t('footer.badges.iso', 'ISO 27001') }}</div>
-          </div>
         </div>
 
       </div>
@@ -72,7 +94,7 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
-import { Linkedin, MapPin, ArrowRight } from 'lucide-vue-next'
+import { Linkedin, MapPin, ArrowRight, Phone, Smartphone, Printer, Mail } from 'lucide-vue-next'
 
 const { t } = useI18n()
 </script>
@@ -112,7 +134,7 @@ const { t } = useI18n()
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+  grid-template-columns: 2fr 1.5fr 2fr;
   gap: 3rem;
   margin-bottom: 4rem;
 }
@@ -220,7 +242,7 @@ const { t } = useI18n()
 .contact-col {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .contact-item {
@@ -278,36 +300,7 @@ const { t } = useI18n()
   transform: rotate(180deg);
 }
 
-/* Certifications */
-.certs-col {
-  display: flex;
-  flex-direction: column;
-}
 
-.badges-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 0.85rem;
-  background-color: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #e2e8f0;
-  letter-spacing: 0.02em;
-  transition: border-color 0.2s ease;
-}
-
-.badge:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-}
 
 /* Bottom Bar */
 .footer-bottom {

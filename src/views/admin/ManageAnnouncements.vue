@@ -6,6 +6,10 @@
         <p>Publish news, updates, and company announcements.</p>
       </div>
       <div class="header-actions">
+        <button v-if="hasDeletions" @click="saveDeletions" class="btn btn-danger" :disabled="isSavingDeletions">
+          <Save :size="16" />
+          {{ isSavingDeletions ? 'Saving...' : 'Save Deletions' }}
+        </button>
         <button @click="openModal()" class="btn btn-primary">
           <Plus :size="16" />
           Add Announcement
@@ -30,6 +34,7 @@
       <table class="enterprise-table">
         <thead>
           <tr>
+            <th style="width: 80px">Image</th>
             <th>Title</th>
             <th>Category</th>
             <th>Date</th>
@@ -38,9 +43,13 @@
         </thead>
         <tbody>
           <tr v-if="filteredAnnouncements.length === 0">
-            <td colspan="4" class="empty-state">No announcements found.</td>
+            <td colspan="5" class="empty-state">No announcements found.</td>
           </tr>
           <tr v-for="item in filteredAnnouncements" :key="item.id">
+            <td>
+              <img v-if="item.image" :src="item.image" :alt="item.title" style="height: 40px; object-fit: cover; max-width: 80px; border-radius: 4px;" />
+              <div v-else style="height: 40px; width: 60px; background: #e2e8f0; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-size: 0.75rem;">None</div>
+            </td>
             <td class="font-medium">{{ item.title }}</td>
             <td>
               <span class="badge bg-purple-light" style="color: #9333ea">{{ item.category }}</span>
@@ -76,6 +85,22 @@
           <div class="form-group">
             <label>Title</label>
             <input v-model="formData.title" required placeholder="e.g. Q3 Results" />
+          </div>
+
+          <div class="form-group">
+            <label>Cover Image (Upload or URL)</label>
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <input v-model="formData.image" placeholder="Or enter image URL..." style="flex: 1; margin: 0;" />
+              <div style="position: relative; overflow: hidden;">
+                <button type="button" class="btn btn-outline" style="white-space: nowrap; padding: 0.5rem 1rem;">
+                  {{ isUploading ? 'Uploading...' : 'Upload File' }}
+                </button>
+                <input type="file" @change="handleFileUpload" accept="image/*" style="position: absolute; left: 0; top: 0; opacity: 0; width: 100%; height: 100%; cursor: pointer;" :disabled="isUploading" />
+              </div>
+            </div>
+            <div v-if="formData.image" style="margin-top: 8px;">
+              <img :src="formData.image" style="height: 60px; object-fit: cover; border-radius: 4px;" alt="Preview" />
+            </div>
           </div>
           
           <div class="form-row">
@@ -117,26 +142,49 @@ import { ref, computed, onMounted } from 'vue';
 import { api } from '@/services/api';
 import { 
   Plus, Search, Filter, SlidersHorizontal, 
-  Edit2, Trash2, Calendar, X 
+  Edit2, Trash2, Calendar, X, Save 
 } from 'lucide-vue-next';
 
 const announcements = ref([]);
 const loading = ref(true);
 const showModal = ref(false);
 const isSaving = ref(false);
+const isUploading = ref(false);
 const editingId = ref(null);
 const searchQuery = ref('');
+
+const deletedIds = ref([]);
+const isSavingDeletions = ref(false);
+const hasDeletions = computed(() => deletedIds.value.length > 0);
 
 const formData = ref({
   title: '',
   category: '',
   date: '',
   excerpt: '',
-  content: ''
+  content: '',
+  image: ''
 });
+
+const handleFileUpload = async (event) => {
+  const file = event.target.files[0];
+  if (!file) return;
+  
+  isUploading.value = true;
+  try {
+    const url = await api.uploadFile(`images/announcements/${Date.now()}_${file.name}`, file);
+    formData.value.image = url;
+  } catch (err) {
+    console.error('Upload error:', err);
+    alert('Failed to upload image');
+  } finally {
+    isUploading.value = false;
+  }
+};
 
 const loadData = async () => {
   loading.value = true;
+  deletedIds.value = [];
   try {
     announcements.value = await api.getAll('announcements');
     // Sort by date descending
@@ -166,7 +214,7 @@ const openModal = (item = null) => {
   } else {
     editingId.value = null;
     const today = new Date().toISOString().split('T')[0];
-    formData.value = { title: '', category: '', date: today, excerpt: '', content: '' };
+    formData.value = { title: '', category: '', date: today, excerpt: '', content: '', image: '' };
   }
   showModal.value = true;
 };
@@ -189,14 +237,26 @@ const handleSubmit = async () => {
   }
 };
 
-const handleDelete = async (id) => {
-  if (confirm('Are you sure you want to delete this announcement?')) {
-    try {
+const handleDelete = (id) => {
+  if (confirm('Mark this announcement for deletion? It will not be permanently deleted until you click Save Deletions.')) {
+    deletedIds.value.push(id);
+    announcements.value = announcements.value.filter(a => a.id !== id);
+  }
+};
+
+const saveDeletions = async () => {
+  isSavingDeletions.value = true;
+  try {
+    for (const id of deletedIds.value) {
       await api.delete('announcements', id);
-      await loadData();
-    } catch (err) {
-      alert('Failed to delete');
     }
+    deletedIds.value = [];
+    await loadData();
+  } catch (err) {
+    console.error('Failed to save deletions', err);
+    alert('Failed to process some deletions');
+  } finally {
+    isSavingDeletions.value = false;
   }
 };
 </script>

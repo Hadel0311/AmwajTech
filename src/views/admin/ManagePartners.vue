@@ -6,6 +6,10 @@
         <p>Manage your technology and business partners.</p>
       </div>
       <div class="header-actions">
+        <button v-if="hasDeletions" @click="saveDeletions" class="btn btn-danger" :disabled="isSavingDeletions">
+          <Save :size="16" />
+          {{ isSavingDeletions ? 'Saving...' : 'Save Deletions' }}
+        </button>
         <button v-if="hasReordered" @click="saveOrder" class="btn btn-warning" :disabled="isSavingOrder">
           <Save :size="16" />
           {{ isSavingOrder ? 'Saving...' : 'Save Order' }}
@@ -103,7 +107,18 @@
           
           <div class="form-group">
             <label>Logo Image URL / Filename</label>
-            <input v-model="formData.logo" required placeholder="e.g. microsoft.png or https://..." />
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <input v-model="formData.logo" required placeholder="e.g. microsoft.png or https://..." style="flex: 1; margin: 0;" />
+              <div style="position: relative; overflow: hidden;">
+                <button type="button" class="btn btn-outline" style="white-space: nowrap; padding: 0.5rem 1rem;">
+                  {{ isUploading ? 'Uploading...' : 'Upload File' }}
+                </button>
+                <input type="file" @change="handleFileUpload" accept="image/*" style="position: absolute; left: 0; top: 0; opacity: 0; width: 100%; height: 100%; cursor: pointer;" :disabled="isUploading" />
+              </div>
+            </div>
+            <div v-if="formData.logo" style="margin-top: 8px;">
+              <img :src="getLogoUrl(formData.logo)" style="height: 40px; object-fit: contain;" alt="Preview" />
+            </div>
           </div>
 
           <div class="form-group">
@@ -150,6 +165,7 @@ const partners = ref([]);
 const loading = ref(true);
 const showModal = ref(false);
 const isSaving = ref(false);
+const isUploading = ref(false);
 const editingId = ref(null);
 const searchQuery = ref('');
 
@@ -169,6 +185,10 @@ const dragOverIndex = ref(null);
 const hasReordered = ref(false);
 const isSavingOrder = ref(false);
 
+const deletedIds = ref([]);
+const isSavingDeletions = ref(false);
+const hasDeletions = computed(() => deletedIds.value.length > 0);
+
 const formData = ref({
   key: '',
   name: '',
@@ -181,6 +201,22 @@ const formData = ref({
   services: []
 });
 
+const handleFileUpload = async (event) => {
+  const file = event.target.files[0];
+  if (!file) return;
+  
+  isUploading.value = true;
+  try {
+    const url = await api.uploadFile(`images/partners/${Date.now()}_${file.name}`, file);
+    formData.value.logo = url;
+  } catch (err) {
+    console.error('Upload error:', err);
+    alert('Failed to upload image');
+  } finally {
+    isUploading.value = false;
+  }
+};
+
 const servicesInput = computed({
   get: () => formData.value.services ? formData.value.services.join(', ') : '',
   set: (val) => {
@@ -191,6 +227,7 @@ const servicesInput = computed({
 const loadData = async () => {
   loading.value = true;
   hasReordered.value = false;
+  deletedIds.value = [];
   try {
     const data = await api.getAll('partners');
     partners.value = data.sort((a, b) => (a.order || 0) - (b.order || 0));
@@ -287,14 +324,26 @@ const handleSubmit = async () => {
   }
 };
 
-const handleDelete = async (id) => {
-  if (confirm('Are you sure you want to delete this partner?')) {
-    try {
+const handleDelete = (id) => {
+  if (confirm('Mark this partner for deletion? It will not be permanently deleted until you click Save Deletions.')) {
+    deletedIds.value.push(id);
+    partners.value = partners.value.filter(p => p.id !== id);
+  }
+};
+
+const saveDeletions = async () => {
+  isSavingDeletions.value = true;
+  try {
+    for (const id of deletedIds.value) {
       await api.delete('partners', id);
-      await loadData();
-    } catch (err) {
-      alert('Failed to delete');
     }
+    deletedIds.value = [];
+    await loadData();
+  } catch (err) {
+    console.error('Failed to save deletions', err);
+    alert('Failed to process some deletions');
+  } finally {
+    isSavingDeletions.value = false;
   }
 };
 </script>

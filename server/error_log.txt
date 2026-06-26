@@ -1,0 +1,285 @@
+[ERROR] 2026-06-26T18:14:51.360Z - SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+Error: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+    at C:\proj\AmwajTech\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.performIO (file:///C:/proj/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:618:22)
+    at async PrismaPgAdapter.queryRaw (file:///C:/proj/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:44621)
+    at async e.interpretNode (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:45065)
+    at async e.interpretNode (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:46285)
+    at async e.run (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:43335)
+    at async e.execute (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:57:815)
+    at async jt.request (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:58:2401)
+
+[ERROR] 2026-06-26T18:15:28.164Z - SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+Error: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+    at C:\proj\AmwajTech\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.performIO (file:///C:/proj/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:618:22)
+    at async PrismaPgAdapter.queryRaw (file:///C:/proj/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:44621)
+    at async e.interpretNode (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:45065)
+    at async e.interpretNode (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:46285)
+    at async e.run (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:43335)
+    at async e.execute (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:57:815)
+    at async jt.request (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:58:2401)
+
+[ERROR] 2026-06-26T18:15:50.890Z - SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+Error: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+    at C:\proj\AmwajTech\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.performIO (file:///C:/proj/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:618:22)
+    at async PrismaPgAdapter.queryRaw (file:///C:/proj/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:44621)
+    at async e.interpretNode (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:46285)
+    at async e.run (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:43335)
+    at async e.execute (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:57:815)
+    at async jt.request (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:58:2401)
+    at async Object.singleLoader (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:6569)
+
+[ERROR] 2026-06-26T18:15:50.916Z - SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+Error: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+    at C:\proj\AmwajTech\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.performIO (file:///C:/proj/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:618:22)
+    at async PrismaPgAdapter.queryRaw (file:///C:/proj/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:44621)
+    at async e.interpretNode (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:46285)
+    at async e.run (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:43335)
+    at async e.execute (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:57:815)
+    at async jt.request (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:58:2401)
+    at async Object.singleLoader (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:6569)
+
+[ERROR] 2026-06-26T18:16:23.336Z - SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+Error: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+    at C:\proj\AmwajTech\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.performIO (file:///C:/proj/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:618:22)
+    at async PrismaPgAdapter.queryRaw (file:///C:/proj/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:44621)
+    at async e.interpretNode (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:46285)
+    at async e.run (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:43335)
+    at async e.execute (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:57:815)
+    at async jt.request (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:58:2401)
+    at async Object.singleLoader (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:6569)
+
+[ERROR] 2026-06-26T18:16:23.347Z - SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+Error: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+    at C:\proj\AmwajTech\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.performIO (file:///C:/proj/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:618:22)
+    at async PrismaPgAdapter.queryRaw (file:///C:/proj/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:44621)
+    at async e.interpretNode (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:46285)
+    at async e.run (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:11:43335)
+    at async e.execute (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:57:815)
+    at async jt.request (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:58:2401)
+    at async Object.singleLoader (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:6569)
+
+[ERROR] 2026-06-26T18:28:51.137Z - 
+Invalid `prisma.applicant.findMany()` invocation:
+
+
+The column `Applicant.resume` does not exist in the current database.
+PrismaClientKnownRequestError: 
+Invalid `prisma.applicant.findMany()` invocation:
+
+
+The column `Applicant.resume` does not exist in the current database.
+    at zr.handleRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:8286)
+    at zr.handleAndLogRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7581)
+    at zr.request (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:75:6862)
+    at async getAll (file:///C:/proj/AmwajTech/server/controllers/contentController.js:28:18)
+
+[ERROR] 2026-06-26T18:28:53.959Z - 
+Invalid `prisma.applicant.findMany()` invocation:
+
+
+The column `Applicant.resume` does not exist in the current database.
+PrismaClientKnownRequestError: 
+Invalid `prisma.applicant.findMany()` invocation:
+
+
+The column `Applicant.resume` does not exist in the current database.
+    at zr.handleRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:8286)
+    at zr.handleAndLogRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7581)
+    at zr.request (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:75:6862)
+    at async getAll (file:///C:/proj/AmwajTech/server/controllers/contentController.js:28:18)
+
+[ERROR] 2026-06-26T18:29:46.110Z - 
+Invalid `prisma.applicant.findMany()` invocation:
+
+
+The column `Applicant.resume` does not exist in the current database.
+PrismaClientKnownRequestError: 
+Invalid `prisma.applicant.findMany()` invocation:
+
+
+The column `Applicant.resume` does not exist in the current database.
+    at zr.handleRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:8286)
+    at zr.handleAndLogRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7581)
+    at zr.request (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:75:6862)
+    at async getAll (file:///C:/proj/AmwajTech/server/controllers/contentController.js:28:18)
+
+[ERROR] 2026-06-26T19:24:41.387Z - 
+Invalid `prisma.service.create()` invocation:
+
+{
+  data: {
+    title: "d",
+    key: "d",
+    icon: "Server",
+    description: "d",
+    heroValueProp: "d",
+    image: "d",
+    visualIntro: {
+      title: "d",
+      description: "d",
+      businessValue: "d",
+      objectives: [
+        "d"
+      ]
+    },
+    challenges: [
+      {
+        challenge: "d",
+        solution: "d"
+      }
+    ],
+    workflow: [
+    ~~~~~~~~
+      {
+        title: "d",
+        description: "d"
+      }
+    ],
+    relatedServices: [
+      "d"
+    ],
+    order: 6,
+?   id?: String,
+?   process?: NullableJsonNullValueInput | Json,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime
+  }
+}
+
+Unknown argument `workflow`. Available options are marked with ?.
+PrismaClientValidationError: 
+Invalid `prisma.service.create()` invocation:
+
+{
+  data: {
+    title: "d",
+    key: "d",
+    icon: "Server",
+    description: "d",
+    heroValueProp: "d",
+    image: "d",
+    visualIntro: {
+      title: "d",
+      description: "d",
+      businessValue: "d",
+      objectives: [
+        "d"
+      ]
+    },
+    challenges: [
+      {
+        challenge: "d",
+        solution: "d"
+      }
+    ],
+    workflow: [
+    ~~~~~~~~
+      {
+        title: "d",
+        description: "d"
+      }
+    ],
+    relatedServices: [
+      "d"
+    ],
+    order: 6,
+?   id?: String,
+?   process?: NullableJsonNullValueInput | Json,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime
+  }
+}
+
+Unknown argument `workflow`. Available options are marked with ?.
+    at ar (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:10:1374)
+    at zr.handleRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7929)
+    at zr.handleAndLogRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7581)
+    at zr.request (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:75:6862)
+    at async createDoc (file:///C:/proj/AmwajTech/server/controllers/contentController.js:86:20)
+
+[ERROR] 2026-06-26T19:25:23.541Z - 
+Invalid `prisma.partner.create()` invocation:
+
+{
+  data: {
+    key: "d",
+    name: "d",
+    category: "d",
+    ~~~~~~~~
+    shortDesc: "d",
+    website: "http://localhost:51212/",
+    logo: "d",
+    aboutDesc: "d",
+    leverageDesc: "d",
+    services: [
+      "d"
+    ],
+    order: 20,
+?   id?: String,
+?   description?: String | Null,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime
+  }
+}
+
+Unknown argument `category`. Available options are marked with ?.
+PrismaClientValidationError: 
+Invalid `prisma.partner.create()` invocation:
+
+{
+  data: {
+    key: "d",
+    name: "d",
+    category: "d",
+    ~~~~~~~~
+    shortDesc: "d",
+    website: "http://localhost:51212/",
+    logo: "d",
+    aboutDesc: "d",
+    leverageDesc: "d",
+    services: [
+      "d"
+    ],
+    order: 20,
+?   id?: String,
+?   description?: String | Null,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime
+  }
+}
+
+Unknown argument `category`. Available options are marked with ?.
+    at ar (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:10:1374)
+    at zr.handleRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7929)
+    at zr.handleAndLogRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7581)
+    at zr.request (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async a (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:75:6862)
+    at async createDoc (file:///C:/proj/AmwajTech/server/controllers/contentController.js:86:20)
+

@@ -1,71 +1,163 @@
-import { db } from '../config/firebase.js';
-import fs from 'fs';
+import prisma from '../prisma/index.js';
 
-// Generic Get All
-export const getAll = async (req, res) => {
+// Map URL collection names to Prisma model names
+const getModel = (collection) => {
+  const map = {
+    'announcements': prisma.announcement,
+    'partners': prisma.partner,
+    'clients': prisma.client,
+    'settings': prisma.setting,
+    'services': prisma.service,
+    'jobs': prisma.job,
+    'applicants': prisma.applicant,
+    'contact_messages': prisma.contactMessage,
+    'consultation_requests': prisma.consultationRequest
+  };
+  return map[collection];
+};
+
+export const getAll = async (req, res, next) => {
   const { collection } = req.params;
+  const model = getModel(collection);
+  
+  if (!model) {
+    return res.status(400).json({ error: 'Invalid collection' });
+  }
+
   try {
-    const snapshot = await db.collection(collection).get();
-    const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const data = await model.findMany({
+      orderBy: { createdAt: 'desc' }
+    });
     res.json(data);
   } catch (error) {
-    console.error(`Error fetching ${collection}:`, error);
-    fs.appendFileSync('error_log.txt', String(error.stack) + '\n\n');
-    res.status(500).json({ error: 'Internal Server Error' });
+    next(error);
   }
 };
 
-// Generic Get One
-export const getOne = async (req, res) => {
+export const getOne = async (req, res, next) => {
   const { collection, id } = req.params;
+  const model = getModel(collection);
+  
+  if (!model) {
+    return res.status(400).json({ error: 'Invalid collection' });
+  }
+
   try {
-    const doc = await db.collection(collection).doc(id).get();
-    if (!doc.exists) {
+    const doc = await model.findUnique({ where: { id } });
+    if (!doc) {
+      // Check if it's searched by key/type
+      if (collection === 'settings') {
+        const setting = await model.findUnique({ where: { type: id } });
+        if (setting) return res.json(setting.data); // Unwrap data field
+      } else if (['partners', 'clients', 'services'].includes(collection)) {
+         const item = await model.findUnique({ where: { key: id } });
+         if (item) return res.json(item);
+      }
       return res.status(404).json({ error: 'Document not found' });
     }
-    res.json({ id: doc.id, ...doc.data() });
+    // Unwrap settings
+    if (collection === 'settings') return res.json(doc.data);
+    res.json(doc);
   } catch (error) {
-    console.error(`Error fetching ${collection}/${id}:`, error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    next(error);
   }
 };
 
-// Generic Create (Protected)
-export const createDoc = async (req, res) => {
+export const createDoc = async (req, res, next) => {
   const { collection } = req.params;
-  const data = req.body;
+  const model = getModel(collection);
+  
+  if (!model) {
+    return res.status(400).json({ error: 'Invalid collection' });
+  }
+
   try {
-    const newDocRef = db.collection(collection).doc(); // Auto-generate ID
-    await newDocRef.set({ ...data, createdAt: new Date().toISOString() });
-    res.status(201).json({ id: newDocRef.id, ...data });
+    let payload = { ...req.body };
+    if (collection === 'settings') {
+      // Wrap in data field, and extract type if present (assume type is passed in body or URL)
+      payload = { type: req.body.type, data: req.body };
+    } else if (['partners', 'clients', 'services'].includes(collection)) {
+      if (!payload.key) {
+        // Auto-generate key from name or title
+        const source = payload.name || payload.title || 'doc';
+        payload.key = source.toLowerCase().replace(/[^a-z0-9]+/g, '_') + '_' + Date.now();
+      }
+    }
+    const newDoc = await model.create({
+      data: payload
+    });
+    if (collection === 'settings') return res.status(201).json(newDoc.data);
+    res.status(201).json(newDoc);
   } catch (error) {
-    console.error(`Error creating ${collection}:`, error);
-    fs.appendFileSync('error_log.txt', String(error.stack) + '\n\n');
-    res.status(500).json({ error: error.message });
+    next(error);
   }
 };
 
-// Generic Update (Protected)
-export const updateDoc = async (req, res) => {
+export const updateDoc = async (req, res, next) => {
   const { collection, id } = req.params;
-  const data = req.body;
+  const model = getModel(collection);
+  
+  if (!model) {
+    return res.status(400).json({ error: 'Invalid collection' });
+  }
+
   try {
-    await db.collection(collection).doc(id).update({ ...data, updatedAt: new Date().toISOString() });
-    res.json({ id, ...data });
+    if (collection === 'settings') {
+      // Upsert setting because dashboard saves might hit update before create
+      const upserted = await model.upsert({
+        where: { type: id },
+        update: { data: req.body },
+        create: { type: id, data: req.body }
+      });
+      return res.json(upserted.data);
+    }
+
+    const updatedDoc = await model.update({
+      where: { id },
+      data: req.body
+    });
+    res.json(updatedDoc);
   } catch (error) {
-    console.error(`Error updating ${collection}/${id}:`, error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    // Check if updating by type/key
+    try {
+      if (['partners', 'clients', 'services'].includes(collection)) {
+         const updated = await model.update({ where: { key: id }, data: req.body });
+         return res.json(updated);
+      }
+    } catch(err) {
+      next(err);
+      return;
+    }
+    next(error);
   }
 };
 
-// Generic Delete (Protected)
-export const deleteDoc = async (req, res) => {
+export const deleteDoc = async (req, res, next) => {
   const { collection, id } = req.params;
+  const model = getModel(collection);
+  
+  if (!model) {
+    return res.status(400).json({ error: 'Invalid collection' });
+  }
+
   try {
-    await db.collection(collection).doc(id).delete();
+    if (collection === 'settings') {
+      await model.delete({ where: { type: id } });
+      return res.json({ message: 'Document deleted successfully' });
+    }
+    
+    await model.delete({ where: { id } });
     res.json({ message: 'Document deleted successfully' });
   } catch (error) {
-    console.error(`Error deleting ${collection}/${id}:`, error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    try {
+      if (['partners', 'clients', 'services'].includes(collection)) {
+         await model.delete({ where: { key: id } });
+         return res.json({ message: 'Document deleted successfully' });
+      }
+    } catch(err) {
+      next(err);
+      return;
+    }
+    next(error);
   }
 };

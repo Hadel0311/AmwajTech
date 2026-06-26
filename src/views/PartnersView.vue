@@ -7,7 +7,7 @@
       :description="t('partners.subtitle')"
       theme="navy"
       size="medium"
-      image="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200"
+      image="/AmwajTech/images/partners-hero.jpg"
     />
 
     <!-- Filters and Search bar -->
@@ -53,7 +53,7 @@
               :class="{ active: selectedCategory === cat.key }"
               @click="selectedCategory = cat.key"
             >
-              {{ t(cat.translationKey) }}
+              {{ cat.translationKey && te(cat.translationKey) ? t(cat.translationKey) : (cat.original || cat.key) }}
             </button>
           </div>
 
@@ -116,7 +116,7 @@ import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import { api } from '@/services/api'
 import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
+const { t, te } = useI18n()
 const partnersList = ref([])
 
 // Scrolling logic
@@ -180,7 +180,7 @@ const searchQuery = ref('')
 const selectedCategory = ref('all')
 
 // Direct list of categories map related to services
-const availableCategories = [
+const defaultCategories = [
   { key: 'network-infrastructure', translationKey: 'services.items.network_infrastructure.title' },
   { key: 'network-security', translationKey: 'services.items.network_security.title' },
   { key: 'data-center', translationKey: 'services.items.data_center.title' },
@@ -189,11 +189,33 @@ const availableCategories = [
   { key: 'technical-support', translationKey: 'services.items.technical_support.title' }
 ]
 
+const availableCategories = computed(() => {
+  const categoriesMap = new Map()
+  
+  defaultCategories.forEach(cat => {
+    categoriesMap.set(cat.key, cat)
+  })
+
+  partnersList.value.forEach(partner => {
+    if (partner.category) {
+      const key = partner.category.toLowerCase().trim()
+      if (!categoriesMap.has(key)) {
+        categoriesMap.set(key, { key: key, original: partner.category })
+      }
+    }
+  })
+
+  return Array.from(categoriesMap.values())
+})
+
 const filteredPartners = computed(() => {
   return partnersList.value.filter(partner => {
     // 1. Filter by category
     if (selectedCategory.value !== 'all') {
-      if (!partner.services || !partner.services.includes(selectedCategory.value)) {
+      const pCat = (partner.category || '').toLowerCase().trim()
+      const hasService = partner.services && partner.services.includes(selectedCategory.value)
+      
+      if (!hasService && pCat !== selectedCategory.value) {
         return false
       }
     }

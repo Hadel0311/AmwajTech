@@ -790,30 +790,42 @@
     "tagline": "Corporate Profile",
     "mission": {
       "title": "Our Mission",
-      "description": "To architect, secure, and manage mission-critical IT infrastructure for organizations driving economic progress, ensuring their systems are resilient, highly available, and ready for future technological growth."
+      "description": "Our mission is to empower businesses through innovative, reliable, and secure technology solutions that drive efficiency, enhance productivity, and ensure sustainable growth. We are committed to delivering exceptional value by understanding our clients’ needs and providing tailored services that exceed expectations."
     },
     "vision": {
       "title": "Our Vision",
-      "description": "To be the premier partner for enterprise technology integration in the Middle East, serving as the benchmark for engineering quality, technical reliability, and cybersecurity trust."
+      "description": "Our vision is to become a trusted leader in the technology sector, recognized for excellence, innovation, and long-term partnerships. We aspire to shape the future of digital transformation by delivering cutting-edge solutions that help organizations thrive in a rapidly evolving world."
     },
     "values": {
       "title": "Our Core Values",
       "items": {
-        "integrity": {
-          "title": "Uncompromising Integrity",
-          "description": "We serve banks, hospitals, and governments where confidentiality, trust, and transparent engineering advice are crucial."
-        },
         "excellence": {
-          "title": "Engineering Excellence",
-          "description": "We do not believe in shortcuts. Every deployment is designed, double-checked, and documented to the highest technical standards."
+          "title": "Excellence",
+          "description": "We strive for the highest standards in every solution we deliver."
+        },
+        "integrity": {
+          "title": "Integrity",
+          "description": "We operate with honesty, transparency, and professionalism."
+        },
+        "innovation": {
+          "title": "Innovation",
+          "description": "We leverage modern technologies to provide forward-thinking solutions."
+        },
+        "customer_focus": {
+          "title": "Customer Focus",
+          "description": "We place our clients at the center of everything we do."
+        },
+        "reliability": {
+          "title": "Network Reliability",
+          "description": "We design and maintain robust, high-performance network infrastructures that ensure seamless connectivity and business continuity."
         },
         "security": {
-          "title": "Security-First Mindset",
-          "description": "Security is not an add-on; it is the foundation of every router config, database script, and server deployment."
+          "title": "Security First",
+          "description": "We prioritize cybersecurity at every level, protecting systems, data, and operations against evolving threats."
         },
-        "accountability": {
-          "title": "Active Accountability",
-          "description": "Our SLAs are commitments. When a critical incident occurs, our senior engineers are active on-site until it is fully resolved."
+        "improvement": {
+          "title": "Continuous Improvement",
+          "description": "We are committed to ongoing learning, development, and optimization."
         }
       }
     }
@@ -886,7 +898,7 @@
     "close": "Close"
   },
   "about": {
-    "title": "About Amwaj Tech",
+    "title": "Amwaj Tech",
     "locations": {
       "title": "Regional Presence",
       "jordan": "Jordan Office (HQ):",

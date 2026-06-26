@@ -21,23 +21,8 @@
             </svg>
           </router-link>
           <div class="dropdown-menu">
-            <router-link to="/services/network-infrastructure" class="dropdown-item">
-              {{ t('services.items.network_infrastructure.title') }}
-            </router-link>
-            <router-link to="/services/network-security" class="dropdown-item">
-              {{ t('services.items.network_security.title') }}
-            </router-link>
-            <router-link to="/services/data-center" class="dropdown-item">
-              {{ t('services.items.data_center.title') }}
-            </router-link>
-            <router-link to="/services/cloud-services" class="dropdown-item">
-              {{ t('services.items.cloud_services.title') }}
-            </router-link>
-            <router-link to="/services/software-solutions" class="dropdown-item">
-              {{ t('services.items.software_solutions.title') }}
-            </router-link>
-            <router-link to="/services/technical-support" class="dropdown-item">
-              {{ t('services.items.technical_support.title') }}
+            <router-link v-for="service in servicesList" :key="service.id || service.key" :to="`/services/${service.id || service.key}`" class="dropdown-item">
+              {{ te(`services.items.${service.key}.title`) ? t(`services.items.${service.key}.title`) : service.title }}
             </router-link>
           </div>
         </div>
@@ -139,23 +124,8 @@
             </svg>
           </button>
           <div class="accordion-content" :style="{ maxHeight: isServicesOpen ? '500px' : '0px' }">
-            <router-link to="/services/network-infrastructure" class="mobile-sub-link" @click="closeMobileMenu">
-              {{ t('services.items.network_infrastructure.title') }}
-            </router-link>
-            <router-link to="/services/network-security" class="mobile-sub-link" @click="closeMobileMenu">
-              {{ t('services.items.network_security.title') }}
-            </router-link>
-            <router-link to="/services/data-center" class="mobile-sub-link" @click="closeMobileMenu">
-              {{ t('services.items.data_center.title') }}
-            </router-link>
-            <router-link to="/services/cloud-services" class="mobile-sub-link" @click="closeMobileMenu">
-              {{ t('services.items.cloud_services.title') }}
-            </router-link>
-            <router-link to="/services/software-solutions" class="mobile-sub-link" @click="closeMobileMenu">
-              {{ t('services.items.software_solutions.title') }}
-            </router-link>
-            <router-link to="/services/technical-support" class="mobile-sub-link" @click="closeMobileMenu">
-              {{ t('services.items.technical_support.title') }}
+            <router-link v-for="service in servicesList" :key="service.id || service.key" :to="`/services/${service.id || service.key}`" class="mobile-sub-link" @click="closeMobileMenu">
+              {{ te(`services.items.${service.key}.title`) ? t(`services.items.${service.key}.title`) : service.title }}
             </router-link>
           </div>
         </div>
@@ -212,8 +182,9 @@
 import { ref, onMounted, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
+import { api } from '@/services/api'
 
-const { locale, t } = useI18n()
+const { locale, t, te } = useI18n()
 const route = useRoute()
 
 const currentLocale = ref('en')
@@ -221,6 +192,7 @@ const showDropdown = ref(false)
 const isMobileMenuOpen = ref(false)
 const isServicesOpen = ref(false)
 const isIndustriesOpen = ref(false)
+const servicesList = ref([])
 
 const loadLanguageFromStorage = () => {
   const savedLang = localStorage.getItem('Amwaj-Tech-language')
@@ -282,8 +254,18 @@ watch(route, () => {
   closeMobileMenu()
 })
 
+const loadData = async () => {
+  try {
+    const data = await api.getAll('services')
+    servicesList.value = data.sort((a, b) => (a.order || 0) - (b.order || 0))
+  } catch (err) {
+    console.error('Failed to load services in header', err)
+  }
+}
+
 onMounted(() => {
   loadLanguageFromStorage()
+  loadData()
 })
 </script>
 

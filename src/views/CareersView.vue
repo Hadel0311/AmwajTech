@@ -314,11 +314,15 @@ const submitApplication = async () => {
     };
 
     await api.create('applicants', applicationData);
+
+    // Send email notification
+    await api.sendEmailNotification('job', applicationData);
+
     alert('Application submitted successfully!');
     closeApplication();
   } catch (err) {
     console.error('Failed to submit application', err);
-    alert('An error occurred while submitting your application. Please try again.');
+    alert('Error: ' + (err.message || 'An error occurred while submitting your application.'));
   } finally {
     isSubmitting.value = false;
   }

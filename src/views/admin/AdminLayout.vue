@@ -66,6 +66,25 @@
               <span class="nav-label" v-if="!isSidebarCollapsed">Jobs</span>
             </router-link>
           </div>
+
+          <div class="nav-group">
+            <span class="nav-group-label" v-if="!isSidebarCollapsed">Settings</span>
+            
+            <router-link to="/admin/settings/email/general" class="nav-item" active-class="active">
+              <Settings class="nav-icon" :size="20" />
+              <span class="nav-label" v-if="!isSidebarCollapsed">Email: General</span>
+            </router-link>
+
+            <router-link to="/admin/settings/email/jobs" class="nav-item" active-class="active">
+              <Settings class="nav-icon" :size="20" />
+              <span class="nav-label" v-if="!isSidebarCollapsed">Email: HR / Jobs</span>
+            </router-link>
+
+            <router-link to="/admin/settings/account" class="nav-item" active-class="active">
+              <User class="nav-icon" :size="20" />
+              <span class="nav-label" v-if="!isSidebarCollapsed">Account Details</span>
+            </router-link>
+          </div>
         </nav>
       </div>
 
@@ -111,8 +130,6 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-import { signOut } from 'firebase/auth';
-import { auth } from '@/firebase/config';
 import { 
   LayoutDashboard, 
   Megaphone, 
@@ -125,7 +142,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Mail,
-  MessageSquare
+  MessageSquare,
+  Settings
 } from 'lucide-vue-next';
 
 const router = useRouter();
@@ -138,7 +156,8 @@ const toggleSidebar = () => {
 
 const handleLogout = async () => {
   try {
-    await signOut(auth);
+    localStorage.removeItem('amwaj_token');
+    sessionStorage.removeItem('amwaj_token');
     router.push('/login');
   } catch (error) {
     console.error('Error signing out', error);

@@ -125,7 +125,7 @@ const loadSettings = async () => {
       settings.value = { ...settings.value, ...data };
     }
   } catch (error) {
-    console.log(`No existing settings found for ${docId.value}, using defaults.`);
+    // No existing settings found, using defaults.
   } finally {
     isLoading.value = false;
   }

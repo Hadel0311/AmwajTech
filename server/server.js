@@ -10,11 +10,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
+const corsOptions = {
+  origin: process.env.VITE_APP_URL || 'http://localhost:5173', // Restrict to frontend domain
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Static folder for local uploads
-const UPLOADS_DIR = path.join(process.cwd(), 'uploads');
+const UPLOADS_DIR = path.join(process.cwd(), 'server', 'uploads');
 app.use('/uploads', express.static(UPLOADS_DIR));
 
 // Import routes
@@ -34,6 +38,20 @@ app.use('/api/auth', authRoutes);
 app.use('/api/content', contentRoutes);
 app.use('/api/email', emailRoutes);
 app.use('/api/uploads', uploadRoutes);
+
+// Serve frontend in production
+if (process.env.NODE_ENV === 'production') {
+  const distPath = path.join(process.cwd(), 'dist');
+  app.use(express.static(distPath));
+  
+  // SPA Fallback: Any unknown route (not starting with /api or /uploads) returns index.html
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api/') || req.path.startsWith('/uploads/')) {
+      return next();
+    }
+    res.sendFile(path.join(distPath, 'index.html'));
+  });
+}
 
 // Global Error Handler
 app.use(errorHandler);

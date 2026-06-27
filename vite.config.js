@@ -4,7 +4,6 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/AmwajTech/',
   plugins: [vue()],
   resolve: {
     alias: {
@@ -20,7 +19,7 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: 'docs',
+    outDir: 'dist',
     emptyOutDir: true
   }
 })

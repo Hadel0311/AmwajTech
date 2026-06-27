@@ -1,12 +1,11 @@
 import express from 'express';
 import nodemailer from 'nodemailer';
+import path from 'path';
 import prisma from '../prisma/index.js';
 
 const router = express.Router();
 
 router.post('/send', async (req, res) => {
-  console.log('--- EMAIL ROUTE HIT (SMTP) ---');
-  console.log('Request body:', req.body);
   try {
     const { type, data } = req.body;
     
@@ -87,7 +86,6 @@ router.post('/send', async (req, res) => {
     }
 
     // 4. Send Email
-    console.log('Sending email with Nodemailer...');
     
     const fromDisplay = settings.fromName ? `"${settings.fromName}" <${settings.user}>` : settings.user;
 
@@ -114,17 +112,20 @@ router.post('/send', async (req, res) => {
         console.error('Error parsing CV filename:', e);
       }
       
+      const isLocalPath = data.cvUrl.startsWith('/uploads/');
       mailOptions.attachments = [
         {
           filename: filename,
-          href: data.cvUrl
+          ...(isLocalPath 
+               ? { path: path.join(process.cwd(), 'server', data.cvUrl) }
+               : { href: data.cvUrl }
+             )
         }
       ];
     }
 
     const info = await transporter.sendMail(mailOptions);
 
-    console.log('Message sent: %s', info.messageId);
     res.status(200).json({ success: true, messageId: info.messageId });
 
   } catch (error) {

@@ -73,6 +73,28 @@ export const createDoc = async (req, res, next) => {
 
   try {
     let payload = { ...req.body };
+    
+    // Security: Whitelist allowed fields for public submissions to prevent mass assignment
+    const isPublicUser = !req.user;
+    if (isPublicUser) {
+      if (collection === 'applicants') {
+        const allowed = ['jobId', 'jobTitle', 'fullName', 'email', 'phone', 'linkedin', 'cvUrl', 'message', 'dynamicFields'];
+        payload = Object.keys(payload)
+          .filter(key => allowed.includes(key))
+          .reduce((obj, key) => { obj[key] = payload[key]; return obj; }, {});
+      } else if (collection === 'contact_messages') {
+        const allowed = ['fullName', 'email', 'phone', 'subject', 'message'];
+        payload = Object.keys(payload)
+          .filter(key => allowed.includes(key))
+          .reduce((obj, key) => { obj[key] = payload[key]; return obj; }, {});
+      } else if (collection === 'consultation_requests') {
+        const allowed = ['companyName', 'fullName', 'jobTitle', 'businessEmail', 'phoneNumber', 'industry', 'requiredService', 'projectSize', 'projectTimeline', 'message'];
+        payload = Object.keys(payload)
+          .filter(key => allowed.includes(key))
+          .reduce((obj, key) => { obj[key] = payload[key]; return obj; }, {});
+      }
+    }
+
     if (collection === 'settings') {
       // Wrap in data field, and extract type if present (assume type is passed in body or URL)
       payload = { type: req.body.type, data: req.body };

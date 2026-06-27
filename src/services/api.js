@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/api';
+const API_URL = import.meta.env.VITE_API_URL || '/api';
 
 const getHeaders = () => {
   const token = localStorage.getItem('amwaj_token') || sessionStorage.getItem('amwaj_token');
@@ -67,8 +67,8 @@ export const api = {
     
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Upload failed');
-    // For local storage, the backend returns /uploads/filename. We need to prepend the backend host if running separately.
-    return `http://localhost:3000${data.url}`;
+    // For local storage, the backend returns /uploads/filename.
+    return data.url;
   },
 
   // Protected Admin Methods

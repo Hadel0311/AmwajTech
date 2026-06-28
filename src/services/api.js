@@ -8,7 +8,84 @@ const getHeaders = () => {
   };
 };
 
+const fetchWithAuth = async (url, options = {}) => {
+  // Ensure headers are set properly, especially for FormData which shouldn't have Content-Type set manually
+  const headers = getHeaders();
+  if (options.body instanceof FormData) {
+    delete headers['Content-Type'];
+  }
+  
+  let res = await fetch(url, { ...options, headers: { ...headers, ...options.headers } });
+  
+  if (res.status === 401) {
+    const refreshed = await api.refreshToken();
+    if (refreshed) {
+      // Retry with new token
+      const newHeaders = getHeaders();
+      if (options.body instanceof FormData) {
+        delete newHeaders['Content-Type'];
+      }
+      res = await fetch(url, { ...options, headers: { ...newHeaders, ...options.headers } });
+    } else {
+      api.forceLogout();
+      let errorMsg = 'Session expired. Please log in again.';
+      try { const result = await res.json(); errorMsg = result.error || errorMsg; } catch(e) {}
+      throw new Error(errorMsg);
+    }
+  }
+  return res;
+};
+
 export const api = {
+  forceLogout: () => {
+    localStorage.removeItem('amwaj_token');
+    sessionStorage.removeItem('amwaj_token');
+    localStorage.removeItem('amwaj_refresh_token');
+    sessionStorage.removeItem('amwaj_refresh_token');
+    window.location.href = '/login';
+  },
+
+  refreshToken: async () => {
+    const refreshToken = localStorage.getItem('amwaj_refresh_token') || sessionStorage.getItem('amwaj_refresh_token');
+    if (!refreshToken) return false;
+
+    try {
+      const res = await fetch(`${API_URL}/auth/refresh`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ refreshToken })
+      });
+      const data = await res.json();
+      if (res.ok && data.token) {
+        if (localStorage.getItem('amwaj_refresh_token')) {
+          localStorage.setItem('amwaj_token', data.token);
+        } else {
+          sessionStorage.setItem('amwaj_token', data.token);
+        }
+        return true;
+      }
+      return false;
+    } catch (e) {
+      return false;
+    }
+  },
+
+  logout: async () => {
+    const refreshToken = localStorage.getItem('amwaj_refresh_token') || sessionStorage.getItem('amwaj_refresh_token');
+    if (refreshToken) {
+      try {
+        await fetch(`${API_URL}/auth/logout`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ refreshToken })
+        });
+      } catch (e) {
+        console.error('Failed to logout on server', e);
+      }
+    }
+    api.forceLogout();
+  },
+
   // Authentication
   login: async (email, password) => {
     const res = await fetch(`${API_URL}/auth/login`, {
@@ -24,9 +101,8 @@ export const api = {
   // Email Notification
   sendEmailNotification: async (type, data) => {
     try {
-      const response = await fetch(`${API_URL}/email/send`, {
+      const response = await fetchWithAuth(`${API_URL}/email/send`, {
         method: 'POST',
-        headers: getHeaders(),
         body: JSON.stringify({ type, data }),
       });
       const result = await response.json();
@@ -40,13 +116,13 @@ export const api = {
 
   // Public Data Fetching
   getAll: async (collectionName) => {
-    const res = await fetch(`${API_URL}/content/${collectionName}`, { headers: getHeaders() });
+    const res = await fetchWithAuth(`${API_URL}/content/${collectionName}`);
     if (!res.ok) throw new Error('Failed to fetch data');
     return await res.json();
   },
   
   getOne: async (collectionName, id) => {
-    const res = await fetch(`${API_URL}/content/${collectionName}/${id}`, { headers: getHeaders() });
+    const res = await fetchWithAuth(`${API_URL}/content/${collectionName}/${id}`);
     if (!res.ok) throw new Error('Document not found');
     return await res.json();
   },
@@ -56,26 +132,20 @@ export const api = {
     const formData = new FormData();
     formData.append('file', file);
     
-    const token = localStorage.getItem('amwaj_token') || sessionStorage.getItem('amwaj_token');
-    const res = await fetch(`${API_URL}/uploads`, {
+    const res = await fetchWithAuth(`${API_URL}/uploads`, {
       method: 'POST',
-      headers: {
-        ...(token && { 'Authorization': `Bearer ${token}` })
-      },
       body: formData
     });
     
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Upload failed');
-    // For local storage, the backend returns /uploads/filename.
     return data.url;
   },
 
   // Protected Admin Methods
   create: async (collectionName, data) => {
-    const res = await fetch(`${API_URL}/content/${collectionName}`, {
+    const res = await fetchWithAuth(`${API_URL}/content/${collectionName}`, {
       method: 'POST',
-      headers: getHeaders(),
       body: JSON.stringify(data)
     });
     const result = await res.json();
@@ -84,9 +154,8 @@ export const api = {
   },
 
   update: async (collectionName, id, data) => {
-    const res = await fetch(`${API_URL}/content/${collectionName}/${id}`, {
+    const res = await fetchWithAuth(`${API_URL}/content/${collectionName}/${id}`, {
       method: 'PUT',
-      headers: getHeaders(),
       body: JSON.stringify(data)
     });
     const result = await res.json();
@@ -95,15 +164,10 @@ export const api = {
   },
 
   set: async (collectionName, id, data) => {
-    // For our REST API, PUT acts like Set/Upsert depending on how we wrote it.
-    // In our Prisma controller, updateDoc updates by ID. If it doesn't exist, it fails.
-    // To keep it simple, we just call update.
     return await api.update(collectionName, id, data);
   },
 
   updateBatch: async (collectionName, updates) => {
-    // We didn't build a batch endpoint in Express, so we do it sequentially here for simplicity.
-    // For production, a dedicated batch route is better.
     const results = [];
     for (const { id, data } of updates) {
       results.push(await api.update(collectionName, id, data));
@@ -112,9 +176,8 @@ export const api = {
   },
 
   delete: async (collectionName, id) => {
-    const res = await fetch(`${API_URL}/content/${collectionName}/${id}`, {
-      method: 'DELETE',
-      headers: getHeaders()
+    const res = await fetchWithAuth(`${API_URL}/content/${collectionName}/${id}`, {
+      method: 'DELETE'
     });
     const result = await res.json();
     if (!res.ok) throw new Error(result.error || 'Failed to delete');

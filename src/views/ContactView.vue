@@ -173,8 +173,7 @@ const submitForm = async () => {
       status: 'New'
     });
     
-    // Send email notification
-    await api.sendEmailNotification('contact', form.value);
+    // Email notification is handled by the backend
 
     alert('Thank you for your message. We will get back to you soon.')
     form.value = {

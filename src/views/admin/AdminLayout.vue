@@ -141,6 +141,8 @@ import {
   Settings
 } from 'lucide-vue-next';
 
+import { api } from '@/services/api';
+
 const router = useRouter();
 const route = useRoute();
 const isSidebarCollapsed = ref(false);
@@ -151,9 +153,7 @@ const toggleSidebar = () => {
 
 const handleLogout = async () => {
   try {
-    localStorage.removeItem('amwaj_token');
-    sessionStorage.removeItem('amwaj_token');
-    router.push('/login');
+    await api.logout();
   } catch (error) {
     console.error('Error signing out', error);
   }

@@ -1,4 +1,5 @@
 import prisma from '../prisma/index.js';
+import { emailService } from '../services/EmailService.js';
 
 // Map URL collection names to Prisma model names
 const getModel = (collection) => {
@@ -108,6 +109,16 @@ export const createDoc = async (req, res, next) => {
     const newDoc = await model.create({
       data: payload
     });
+
+    // Fire and forget email notifications
+    if (collection === 'applicants') {
+      emailService.sendNotification('job', payload).catch(err => console.error(err));
+    } else if (collection === 'contact_messages') {
+      emailService.sendNotification('contact', payload).catch(err => console.error(err));
+    } else if (collection === 'consultation_requests') {
+      emailService.sendNotification('consultation', payload).catch(err => console.error(err));
+    }
+
     if (collection === 'settings') return res.status(201).json(newDoc.data);
     res.status(201).json(newDoc);
   } catch (error) {

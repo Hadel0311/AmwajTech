@@ -315,9 +315,8 @@ const submitApplication = async () => {
 
     await api.create('applicants', applicationData);
 
-    // Send email notification
-    await api.sendEmailNotification('job', applicationData);
-
+    // Email notification is now handled asynchronously by the backend
+    
     alert('Application submitted successfully!');
     closeApplication();
   } catch (err) {

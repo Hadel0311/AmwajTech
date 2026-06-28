@@ -2,12 +2,6 @@
   <div class="email-settings-view">
     <div class="header-actions">
       <h2>Email Settings: {{ pageTitle }}</h2>
-      <button class="btn-primary" @click="saveSettings" :disabled="isSaving">
-        <span class="btn-icon">
-          <Save :size="18" />
-        </span>
-        {{ isSaving ? 'Saving...' : 'Save Settings' }}
-      </button>
     </div>
 
     <div class="settings-card">
@@ -76,6 +70,15 @@
             <small>The name that appears as the sender.</small>
           </div>
         </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary" :disabled="isSaving">
+            <span class="btn-icon">
+              <Save :size="18" />
+            </span>
+            {{ isSaving ? 'Saving...' : 'Save Settings' }}
+          </button>
+        </div>
       </form>
     </div>
   </div>
@@ -135,11 +138,11 @@ const saveSettings = async () => {
   try {
     isSaving.value = true;
     settings.value.port = Number(settings.value.port);
-    await api.set('settings', docId.value, settings.value);
+    await api.update('settings', docId.value, settings.value);
     alert('Settings saved successfully!');
   } catch (error) {
     console.error('Error saving settings:', error);
-    alert('Error saving settings. See console for details.');
+    alert(`Error saving settings: ${error.message || error}`);
   } finally {
     isSaving.value = false;
   }
@@ -293,6 +296,12 @@ onMounted(() => {
   padding: 3rem 0;
   text-align: center;
   color: var(--text-secondary);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
 }
 
 @media (max-width: 640px) {

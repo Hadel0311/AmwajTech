@@ -283,3 +283,332 @@ Unknown argument `category`. Available options are marked with ?.
     at async a (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:75:6862)
     at async createDoc (file:///C:/proj/AmwajTech/server/controllers/contentController.js:86:20)
 
+[ERROR] 2026-06-28T09:32:51.411Z - 
+Invalid `prisma.user.update()` invocation:
+
+{
+  where: {
+    id: "990536e0-89fc-401d-a963-7f9523530eed"
+  },
+  data: {
+    refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5OTA1MzZlMC04OWZjLTQwMWQtYTk2My03Zjk1MjM1MzBlZWQiLCJpYXQiOjE3ODI2MzkxNzEsImV4cCI6MTc4MzI0Mzk3MX0.vVNGPxNtRZ93RmLGwTfDYX5tLgaEymp4h9Kt2MMOoyQ",
+    ~~~~~~~~~~~~
+?   id?: String | StringFieldUpdateOperationsInput,
+?   email?: String | StringFieldUpdateOperationsInput,
+?   passwordHash?: String | StringFieldUpdateOperationsInput,
+?   role?: Role | EnumRoleFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput
+  }
+}
+
+Unknown argument `refreshToken`. Available options are marked with ?.
+PrismaClientValidationError: 
+Invalid `prisma.user.update()` invocation:
+
+{
+  where: {
+    id: "990536e0-89fc-401d-a963-7f9523530eed"
+  },
+  data: {
+    refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5OTA1MzZlMC04OWZjLTQwMWQtYTk2My03Zjk1MjM1MzBlZWQiLCJpYXQiOjE3ODI2MzkxNzEsImV4cCI6MTc4MzI0Mzk3MX0.vVNGPxNtRZ93RmLGwTfDYX5tLgaEymp4h9Kt2MMOoyQ",
+    ~~~~~~~~~~~~
+?   id?: String | StringFieldUpdateOperationsInput,
+?   email?: String | StringFieldUpdateOperationsInput,
+?   passwordHash?: String | StringFieldUpdateOperationsInput,
+?   role?: Role | EnumRoleFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput
+  }
+}
+
+Unknown argument `refreshToken`. Available options are marked with ?.
+    at ar (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:10:1374)
+    at zr.handleRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7929)
+    at zr.handleAndLogRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7581)
+    at zr.request (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7288)
+    at async a (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:75:6862)
+    at async login (file:///C:/proj/AmwajTech/server/controllers/authController.js:36:5)
+
+[ERROR] 2026-06-28T09:33:54.677Z - 
+Invalid `prisma.user.update()` invocation:
+
+{
+  where: {
+    id: "990536e0-89fc-401d-a963-7f9523530eed"
+  },
+  data: {
+    refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5OTA1MzZlMC04OWZjLTQwMWQtYTk2My03Zjk1MjM1MzBlZWQiLCJpYXQiOjE3ODI2MzkyMzQsImV4cCI6MTc4MzI0NDAzNH0.7C-CyXMijQDe07pu14RO6SbwkAePukQd4IerH4WQzyQ",
+    ~~~~~~~~~~~~
+?   id?: String | StringFieldUpdateOperationsInput,
+?   email?: String | StringFieldUpdateOperationsInput,
+?   passwordHash?: String | StringFieldUpdateOperationsInput,
+?   role?: Role | EnumRoleFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput
+  }
+}
+
+Unknown argument `refreshToken`. Available options are marked with ?.
+PrismaClientValidationError: 
+Invalid `prisma.user.update()` invocation:
+
+{
+  where: {
+    id: "990536e0-89fc-401d-a963-7f9523530eed"
+  },
+  data: {
+    refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5OTA1MzZlMC04OWZjLTQwMWQtYTk2My03Zjk1MjM1MzBlZWQiLCJpYXQiOjE3ODI2MzkyMzQsImV4cCI6MTc4MzI0NDAzNH0.7C-CyXMijQDe07pu14RO6SbwkAePukQd4IerH4WQzyQ",
+    ~~~~~~~~~~~~
+?   id?: String | StringFieldUpdateOperationsInput,
+?   email?: String | StringFieldUpdateOperationsInput,
+?   passwordHash?: String | StringFieldUpdateOperationsInput,
+?   role?: Role | EnumRoleFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput
+  }
+}
+
+Unknown argument `refreshToken`. Available options are marked with ?.
+    at ar (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:10:1374)
+    at zr.handleRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7929)
+    at zr.handleAndLogRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7581)
+    at zr.request (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7288)
+    at async a (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:75:6862)
+    at async login (file:///C:/proj/AmwajTech/server/controllers/authController.js:36:5)
+
+[ERROR] 2026-06-28T09:34:19.743Z - 
+Invalid `prisma.user.update()` invocation:
+
+{
+  where: {
+    id: "990536e0-89fc-401d-a963-7f9523530eed"
+  },
+  data: {
+    refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5OTA1MzZlMC04OWZjLTQwMWQtYTk2My03Zjk1MjM1MzBlZWQiLCJpYXQiOjE3ODI2MzkyNTksImV4cCI6MTc4MzI0NDA1OX0.NaIiohluePqFspsytARZDjgBU-6e4aP6zVWFVbnxkYg",
+    ~~~~~~~~~~~~
+?   id?: String | StringFieldUpdateOperationsInput,
+?   email?: String | StringFieldUpdateOperationsInput,
+?   passwordHash?: String | StringFieldUpdateOperationsInput,
+?   role?: Role | EnumRoleFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput
+  }
+}
+
+Unknown argument `refreshToken`. Available options are marked with ?.
+PrismaClientValidationError: 
+Invalid `prisma.user.update()` invocation:
+
+{
+  where: {
+    id: "990536e0-89fc-401d-a963-7f9523530eed"
+  },
+  data: {
+    refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5OTA1MzZlMC04OWZjLTQwMWQtYTk2My03Zjk1MjM1MzBlZWQiLCJpYXQiOjE3ODI2MzkyNTksImV4cCI6MTc4MzI0NDA1OX0.NaIiohluePqFspsytARZDjgBU-6e4aP6zVWFVbnxkYg",
+    ~~~~~~~~~~~~
+?   id?: String | StringFieldUpdateOperationsInput,
+?   email?: String | StringFieldUpdateOperationsInput,
+?   passwordHash?: String | StringFieldUpdateOperationsInput,
+?   role?: Role | EnumRoleFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput
+  }
+}
+
+Unknown argument `refreshToken`. Available options are marked with ?.
+    at ar (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:10:1374)
+    at zr.handleRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7929)
+    at zr.handleAndLogRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7581)
+    at zr.request (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7288)
+    at async a (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:75:6862)
+    at async login (file:///C:/proj/AmwajTech/server/controllers/authController.js:36:5)
+
+[ERROR] 2026-06-28T09:34:36.851Z - 
+Invalid `prisma.user.update()` invocation:
+
+{
+  where: {
+    id: "990536e0-89fc-401d-a963-7f9523530eed"
+  },
+  data: {
+    refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5OTA1MzZlMC04OWZjLTQwMWQtYTk2My03Zjk1MjM1MzBlZWQiLCJpYXQiOjE3ODI2MzkyNzYsImV4cCI6MTc4MzI0NDA3Nn0.JpnQ-JmrayoPLPb3qyzVe-Cvi8uAO-s5iocPu79EuZo",
+    ~~~~~~~~~~~~
+?   id?: String | StringFieldUpdateOperationsInput,
+?   email?: String | StringFieldUpdateOperationsInput,
+?   passwordHash?: String | StringFieldUpdateOperationsInput,
+?   role?: Role | EnumRoleFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput
+  }
+}
+
+Unknown argument `refreshToken`. Available options are marked with ?.
+PrismaClientValidationError: 
+Invalid `prisma.user.update()` invocation:
+
+{
+  where: {
+    id: "990536e0-89fc-401d-a963-7f9523530eed"
+  },
+  data: {
+    refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5OTA1MzZlMC04OWZjLTQwMWQtYTk2My03Zjk1MjM1MzBlZWQiLCJpYXQiOjE3ODI2MzkyNzYsImV4cCI6MTc4MzI0NDA3Nn0.JpnQ-JmrayoPLPb3qyzVe-Cvi8uAO-s5iocPu79EuZo",
+    ~~~~~~~~~~~~
+?   id?: String | StringFieldUpdateOperationsInput,
+?   email?: String | StringFieldUpdateOperationsInput,
+?   passwordHash?: String | StringFieldUpdateOperationsInput,
+?   role?: Role | EnumRoleFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput
+  }
+}
+
+Unknown argument `refreshToken`. Available options are marked with ?.
+    at ar (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:10:1374)
+    at zr.handleRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7929)
+    at zr.handleAndLogRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7581)
+    at zr.request (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7288)
+    at async a (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:75:6862)
+    at async login (file:///C:/proj/AmwajTech/server/controllers/authController.js:36:5)
+
+[ERROR] 2026-06-28T09:36:41.567Z - 
+Invalid `prisma.user.update()` invocation:
+
+{
+  where: {
+    id: "990536e0-89fc-401d-a963-7f9523530eed"
+  },
+  data: {
+    refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5OTA1MzZlMC04OWZjLTQwMWQtYTk2My03Zjk1MjM1MzBlZWQiLCJpYXQiOjE3ODI2Mzk0MDEsImV4cCI6MTc4MzI0NDIwMX0.w8CKmR5wbJae2o3LgV5Y8LEzzQVjkp4DJ63XrfzO-2o",
+    ~~~~~~~~~~~~
+?   id?: String | StringFieldUpdateOperationsInput,
+?   email?: String | StringFieldUpdateOperationsInput,
+?   passwordHash?: String | StringFieldUpdateOperationsInput,
+?   role?: Role | EnumRoleFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput
+  }
+}
+
+Unknown argument `refreshToken`. Available options are marked with ?.
+PrismaClientValidationError: 
+Invalid `prisma.user.update()` invocation:
+
+{
+  where: {
+    id: "990536e0-89fc-401d-a963-7f9523530eed"
+  },
+  data: {
+    refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5OTA1MzZlMC04OWZjLTQwMWQtYTk2My03Zjk1MjM1MzBlZWQiLCJpYXQiOjE3ODI2Mzk0MDEsImV4cCI6MTc4MzI0NDIwMX0.w8CKmR5wbJae2o3LgV5Y8LEzzQVjkp4DJ63XrfzO-2o",
+    ~~~~~~~~~~~~
+?   id?: String | StringFieldUpdateOperationsInput,
+?   email?: String | StringFieldUpdateOperationsInput,
+?   passwordHash?: String | StringFieldUpdateOperationsInput,
+?   role?: Role | EnumRoleFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput
+  }
+}
+
+Unknown argument `refreshToken`. Available options are marked with ?.
+    at ar (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:10:1374)
+    at zr.handleRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7929)
+    at zr.handleAndLogRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7581)
+    at zr.request (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7288)
+    at async a (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:75:6862)
+    at async login (file:///C:/proj/AmwajTech/server/controllers/authController.js:36:5)
+
+[ERROR] 2026-06-28T09:37:19.436Z - 
+Invalid `prisma.user.update()` invocation:
+
+{
+  where: {
+    id: "990536e0-89fc-401d-a963-7f9523530eed"
+  },
+  data: {
+    refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5OTA1MzZlMC04OWZjLTQwMWQtYTk2My03Zjk1MjM1MzBlZWQiLCJpYXQiOjE3ODI2Mzk0MzksImV4cCI6MTc4MzI0NDIzOX0.H-LxWuZ797DWGP-AWGOJksHYXfyDYAb2ZxjHFROEqxs",
+    ~~~~~~~~~~~~
+?   id?: String | StringFieldUpdateOperationsInput,
+?   email?: String | StringFieldUpdateOperationsInput,
+?   passwordHash?: String | StringFieldUpdateOperationsInput,
+?   role?: Role | EnumRoleFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput
+  }
+}
+
+Unknown argument `refreshToken`. Available options are marked with ?.
+PrismaClientValidationError: 
+Invalid `prisma.user.update()` invocation:
+
+{
+  where: {
+    id: "990536e0-89fc-401d-a963-7f9523530eed"
+  },
+  data: {
+    refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5OTA1MzZlMC04OWZjLTQwMWQtYTk2My03Zjk1MjM1MzBlZWQiLCJpYXQiOjE3ODI2Mzk0MzksImV4cCI6MTc4MzI0NDIzOX0.H-LxWuZ797DWGP-AWGOJksHYXfyDYAb2ZxjHFROEqxs",
+    ~~~~~~~~~~~~
+?   id?: String | StringFieldUpdateOperationsInput,
+?   email?: String | StringFieldUpdateOperationsInput,
+?   passwordHash?: String | StringFieldUpdateOperationsInput,
+?   role?: Role | EnumRoleFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput
+  }
+}
+
+Unknown argument `refreshToken`. Available options are marked with ?.
+    at ar (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:10:1374)
+    at zr.handleRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7929)
+    at zr.handleAndLogRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7581)
+    at zr.request (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7288)
+    at async a (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:75:6862)
+    at async login (file:///C:/proj/AmwajTech/server/controllers/authController.js:36:5)
+
+[ERROR] 2026-06-28T09:38:08.846Z - 
+Invalid `prisma.user.update()` invocation:
+
+{
+  where: {
+    id: "990536e0-89fc-401d-a963-7f9523530eed"
+  },
+  data: {
+    refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5OTA1MzZlMC04OWZjLTQwMWQtYTk2My03Zjk1MjM1MzBlZWQiLCJpYXQiOjE3ODI2Mzk0ODgsImV4cCI6MTc4MzI0NDI4OH0._wOvanVEEmH5miI-OuQajwlka6taUAm1OBttZ1_VhRM",
+    ~~~~~~~~~~~~
+?   id?: String | StringFieldUpdateOperationsInput,
+?   email?: String | StringFieldUpdateOperationsInput,
+?   passwordHash?: String | StringFieldUpdateOperationsInput,
+?   role?: Role | EnumRoleFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput
+  }
+}
+
+Unknown argument `refreshToken`. Available options are marked with ?.
+PrismaClientValidationError: 
+Invalid `prisma.user.update()` invocation:
+
+{
+  where: {
+    id: "990536e0-89fc-401d-a963-7f9523530eed"
+  },
+  data: {
+    refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5OTA1MzZlMC04OWZjLTQwMWQtYTk2My03Zjk1MjM1MzBlZWQiLCJpYXQiOjE3ODI2Mzk0ODgsImV4cCI6MTc4MzI0NDI4OH0._wOvanVEEmH5miI-OuQajwlka6taUAm1OBttZ1_VhRM",
+    ~~~~~~~~~~~~
+?   id?: String | StringFieldUpdateOperationsInput,
+?   email?: String | StringFieldUpdateOperationsInput,
+?   passwordHash?: String | StringFieldUpdateOperationsInput,
+?   role?: Role | EnumRoleFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput
+  }
+}
+
+Unknown argument `refreshToken`. Available options are marked with ?.
+    at ar (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:10:1374)
+    at zr.handleRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7929)
+    at zr.handleAndLogRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7581)
+    at zr.request (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7288)
+    at async a (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:75:6862)
+    at async login (file:///C:/proj/AmwajTech/server/controllers/authController.js:36:5)
+

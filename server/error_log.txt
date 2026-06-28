@@ -612,3 +612,699 @@ Unknown argument `refreshToken`. Available options are marked with ?.
     at async a (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:75:6862)
     at async login (file:///C:/proj/AmwajTech/server/controllers/authController.js:36:5)
 
+[ERROR] 2026-06-28T15:14:56.361Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T15:15:03.451Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T15:15:54.938Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:45065)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+
+[ERROR] 2026-06-28T15:17:41.223Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T15:18:24.072Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T15:18:44.626Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:45065)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+
+[ERROR] 2026-06-28T16:50:41.449Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:50:57.749Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:45065)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+
+[ERROR] 2026-06-28T16:51:30.845Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:51:30.848Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:51:39.955Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:45065)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+
+[ERROR] 2026-06-28T16:51:44.914Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:52:05.689Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:45065)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+
+[ERROR] 2026-06-28T16:52:20.548Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:52:20.663Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:52:20.664Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:52:20.665Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:52:46.812Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:53:10.856Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:53:26.832Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:45065)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+
+[ERROR] 2026-06-28T16:53:30.578Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:684:68
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.startTransaction (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:684:18)
+    at async #r (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:61706)
+    at async qt.startInternalTransaction (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:60669)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46016)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+
+[ERROR] 2026-06-28T16:53:30.683Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:53:37.037Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:53:37.064Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:53:37.066Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:53:37.071Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:53:44.203Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:45065)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+
+[ERROR] 2026-06-28T16:54:08.634Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:54:08.636Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:54:16.735Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:54:22.222Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:45065)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+
+[ERROR] 2026-06-28T16:54:41.606Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:45065)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+
+[ERROR] 2026-06-28T16:55:36.080Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:55:36.100Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:56:18.558Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:45065)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+
+[ERROR] 2026-06-28T16:56:36.012Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:56:52.831Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:45065)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+
+[ERROR] 2026-06-28T16:57:35.658Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:45065)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+
+[ERROR] 2026-06-28T16:58:51.701Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:45065)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+
+[ERROR] 2026-06-28T16:58:52.288Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:45065)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+
+[ERROR] 2026-06-28T16:59:01.600Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:59:01.612Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:59:14.017Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:45065)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+
+[ERROR] 2026-06-28T16:59:28.676Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:59:32.324Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:45065)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+
+[ERROR] 2026-06-28T16:59:35.415Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:45065)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+
+[ERROR] 2026-06-28T16:59:46.138Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+    at async Object.singleLoader (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:65:6569)
+
+[ERROR] 2026-06-28T16:59:52.615Z - Postgres.app rejected "trust" authentication
+DriverAdapterError: Postgres.app rejected "trust" authentication
+    at PrismaPgAdapter.onError (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:642:11)
+    at PrismaPgAdapter.performIO (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:637:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async PrismaPgAdapter.queryRaw (file:///Users/ahmad/Projects/AmwajTech/node_modules/@prisma/adapter-pg/dist/index.mjs:568:30)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:44621)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:45065)
+    at async e.interpretNode (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:46285)
+    at async e.run (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:11:43335)
+    at async e.execute (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:57:815)
+    at async jt.request (/Users/ahmad/Projects/AmwajTech/node_modules/@prisma/client/runtime/client.js:58:2401)
+
+[ERROR] 2026-06-28T17:47:35.392Z - i is not defined
+ReferenceError: i is not defined
+    at file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:404:27
+    at Array.map (<anonymous>)
+    at file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:392:21
+    at getDashboardStats (file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:409:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+
+[ERROR] 2026-06-28T17:47:42.293Z - i is not defined
+ReferenceError: i is not defined
+    at file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:404:27
+    at Array.map (<anonymous>)
+    at file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:392:21
+    at getDashboardStats (file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:409:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+
+[ERROR] 2026-06-28T17:47:44.315Z - i is not defined
+ReferenceError: i is not defined
+    at file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:404:27
+    at Array.map (<anonymous>)
+    at file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:392:21
+    at getDashboardStats (file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:409:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+
+[ERROR] 2026-06-28T17:47:45.420Z - i is not defined
+ReferenceError: i is not defined
+    at file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:404:27
+    at Array.map (<anonymous>)
+    at file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:392:21
+    at getDashboardStats (file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:409:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+
+[ERROR] 2026-06-28T17:48:08.266Z - i is not defined
+ReferenceError: i is not defined
+    at file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:404:27
+    at Array.map (<anonymous>)
+    at file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:392:21
+    at getDashboardStats (file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:409:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+
+[ERROR] 2026-06-28T17:48:09.615Z - i is not defined
+ReferenceError: i is not defined
+    at file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:404:27
+    at Array.map (<anonymous>)
+    at file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:392:21
+    at getDashboardStats (file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:409:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+
+[ERROR] 2026-06-28T17:48:42.024Z - i is not defined
+ReferenceError: i is not defined
+    at file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:404:27
+    at Array.map (<anonymous>)
+    at file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:392:21
+    at getDashboardStats (file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:409:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+
+[ERROR] 2026-06-28T17:48:47.346Z - i is not defined
+ReferenceError: i is not defined
+    at file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:404:27
+    at Array.map (<anonymous>)
+    at file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:392:21
+    at getDashboardStats (file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:409:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+
+[ERROR] 2026-06-28T17:48:47.595Z - i is not defined
+ReferenceError: i is not defined
+    at file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:404:27
+    at Array.map (<anonymous>)
+    at file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:392:21
+    at getDashboardStats (file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:409:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+

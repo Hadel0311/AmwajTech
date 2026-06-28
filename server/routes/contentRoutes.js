@@ -1,9 +1,14 @@
 import express from 'express';
-import { getAll, getOne, createDoc, updateDoc, deleteDoc } from '../controllers/contentController.js';
+import { getAll, getOne, createDoc, updateDoc, deleteDoc, getDashboardStats, seedDemoData, trackVisit } from '../controllers/contentController.js';
 import { verifyToken, authorizeRoles } from '../middleware/authMiddleware.js';
 import { validate } from '../middleware/validateMiddleware.js';
 
 const router = express.Router();
+
+// Specific routes
+router.get('/dashboard-stats', verifyToken, authorizeRoles('ADMIN', 'HR', 'MANAGER'), getDashboardStats);
+router.post('/seed-demo', verifyToken, authorizeRoles('ADMIN', 'HR', 'MANAGER'), seedDemoData);
+router.post('/track-visit', trackVisit); // Public – no auth required
 
 // Public routes
 router.get('/:collection', getAll);

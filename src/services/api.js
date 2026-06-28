@@ -182,5 +182,29 @@ export const api = {
     const result = await res.json();
     if (!res.ok) throw new Error(result.error || 'Failed to delete');
     return result;
+  },
+
+  getDashboardStats: async () => {
+    const res = await fetchWithAuth(`${API_URL}/content/dashboard-stats`);
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Failed to fetch dashboard stats');
+    return data;
+  },
+
+  trackVisit: async (path) => {
+    await fetch(`${API_URL}/content/track-visit`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ path })
+    }).catch(() => {});
+  },
+
+  seedDemoData: async () => {
+    const res = await fetchWithAuth(`${API_URL}/content/seed-demo`, {
+      method: 'POST'
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Failed to seed demo data');
+    return data;
   }
 };

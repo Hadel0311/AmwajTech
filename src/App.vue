@@ -23,9 +23,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, provide, watch, computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref, onMounted, nextTick, provide, watch, computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { api } from '@/services/api.js'
 
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
@@ -33,6 +34,7 @@ import ProjectModal from '@/components/ProjectModal.vue'
 import FloatingContactButton from '@/components/FloatingContactButton.vue'
 
 const route = useRoute()
+const router = useRouter()
 
 const isPublicRoute = computed(() => {
   return !route.path.startsWith('/admin') && route.path !== '/login'
@@ -146,7 +148,22 @@ watch([route, locale], () => {
   updateTitleAndMeta()
 }, { immediate: true })
 
-onMounted(() => {
+// Track visits separately — only fires when the path ACTUALLY navigates away and back
+const lastTrackedPath = ref('')
+
+function sendVisit(path: string) {
+  if (!path || path === lastTrackedPath.value) return
+  if (path !== '/') return
+  lastTrackedPath.value = path
+  api.trackVisit(path)
+}
+
+// Only watch for actual SPA navigations AFTER initial load
+watch(() => route.path, (newPath) => {
+  sendVisit(newPath)
+})
+
+onMounted(async () => {
   // Load saved language from localStorage, fallback to English
   const savedLang = localStorage.getItem('Amwaj-Tech-language')
   if (savedLang && (savedLang === 'en' || savedLang === 'ar')) {
@@ -158,6 +175,11 @@ onMounted(() => {
     document.documentElement.dir = 'ltr'
     document.documentElement.lang = 'en'
   }
+
+  // Wait for router to fully resolve the first navigation before tracking
+  // nextTick() is NOT enough — router.isReady() guarantees the actual destination path
+  await router.isReady()
+  sendVisit(route.path)
 })
 </script>
 

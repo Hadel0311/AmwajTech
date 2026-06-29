@@ -7,7 +7,7 @@
       :description="t('requestConsultation.hero.subtitle')"
       theme="light"
       size="medium"
-      image="https://images.unsplash.com/photo-1505409859467-3a796fd5798e?auto=format&fit=crop&q=80&w=1200"
+      image="/images/consultation-hero.jpg"
     />
 
     <div class="consultation-layout">

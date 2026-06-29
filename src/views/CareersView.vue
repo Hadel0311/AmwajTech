@@ -7,7 +7,7 @@
       :description="t('careers.hero.subtitle')"
       theme="navy"
       size="medium"
-      image="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=1200"
+      image="/images/careers-hero.jpg"
     >
       <template #actions>
         <div class="hero-actions slide-up delay-200" style="margin-top: 2rem;">

@@ -7,7 +7,7 @@
       :description="t('services.subtitle')"
       theme="navy"
       size="medium"
-      image="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200"
+      image="/images/core-enterprise-hero.jpg"
     />
 
     <!-- Services Grid section -->

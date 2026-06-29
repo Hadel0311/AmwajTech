@@ -7,7 +7,7 @@
       description="Have a question, need assistance, or want to learn more about our solutions? Our team is ready to help."
       theme="dark"
       size="medium"
-      image="/AmwajTech/images/contact-hero.jpg"
+      image="/images/contact-hero.jpg"
     />
 
     <section class="contact-main-section">

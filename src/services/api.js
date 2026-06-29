@@ -98,6 +98,28 @@ export const api = {
     return data;
   },
 
+  changePassword: async (currentPassword, newPassword) => {
+    const res = await fetchWithAuth(`${API_URL}/auth/change-password`, {
+      method: 'POST',
+      body: JSON.stringify({ currentPassword, newPassword })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Failed to change password');
+    
+    // Update tokens if they were returned
+    if (data.token) {
+      if (localStorage.getItem('amwaj_refresh_token')) {
+        localStorage.setItem('amwaj_token', data.token);
+        if (data.refreshToken) localStorage.setItem('amwaj_refresh_token', data.refreshToken);
+      } else {
+        sessionStorage.setItem('amwaj_token', data.token);
+        if (data.refreshToken) sessionStorage.setItem('amwaj_refresh_token', data.refreshToken);
+      }
+    }
+    
+    return data;
+  },
+
   // Email Notification
   sendEmailNotification: async (type, data) => {
     try {

@@ -7,7 +7,7 @@
       :description="t('industries.subtitle')"
       theme="dark"
       size="medium"
-      image="/AmwajTech/images/sectors-hero.jpg"
+      image="/images/sectors-hero.jpg"
     />
 
     <!-- Sectors Grid Section -->

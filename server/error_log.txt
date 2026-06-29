@@ -1308,3 +1308,52 @@ ReferenceError: i is not defined
     at getDashboardStats (file:///Users/ahmad/Projects/AmwajTech/server/controllers/contentController.js:409:7)
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
 
+[ERROR] 2026-06-29T14:28:57.332Z - 
+Invalid `prisma.user.update()` invocation:
+
+{
+  where: {
+    id: "a661cb11-38a4-4987-a8a0-f21c4d38d340"
+  },
+  data: {
+    passwordHash: "$2b$10$iGUwrWbSUxuFKWQF2/0iCOxyo.8Hvu.1cSlFiKE6B2LT6B2IFXfT6",
+    lastPasswordChangedAt: new Date("2026-06-29T14:28:57.324Z"),
+    ~~~~~~~~~~~~~~~~~~~~~
+    refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjYxY2IxMS0zOGE0LTQ5ODctYThhMC1mMjFjNGQzOGQzNDAiLCJpYXQiOjE3ODI3NDMzMzcsImV4cCI6MTc4MzM0ODEzN30.0H7O8ie4H_6_qbW1DNuahNrjeBYMQsbFj5YNxBvYnUg",
+?   id?: String | StringFieldUpdateOperationsInput,
+?   email?: String | StringFieldUpdateOperationsInput,
+?   role?: Role | EnumRoleFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput
+  }
+}
+
+Unknown argument `lastPasswordChangedAt`. Available options are marked with ?.
+PrismaClientValidationError: 
+Invalid `prisma.user.update()` invocation:
+
+{
+  where: {
+    id: "a661cb11-38a4-4987-a8a0-f21c4d38d340"
+  },
+  data: {
+    passwordHash: "$2b$10$iGUwrWbSUxuFKWQF2/0iCOxyo.8Hvu.1cSlFiKE6B2LT6B2IFXfT6",
+    lastPasswordChangedAt: new Date("2026-06-29T14:28:57.324Z"),
+    ~~~~~~~~~~~~~~~~~~~~~
+    refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNjYxY2IxMS0zOGE0LTQ5ODctYThhMC1mMjFjNGQzOGQzNDAiLCJpYXQiOjE3ODI3NDMzMzcsImV4cCI6MTc4MzM0ODEzN30.0H7O8ie4H_6_qbW1DNuahNrjeBYMQsbFj5YNxBvYnUg",
+?   id?: String | StringFieldUpdateOperationsInput,
+?   email?: String | StringFieldUpdateOperationsInput,
+?   role?: Role | EnumRoleFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput
+  }
+}
+
+Unknown argument `lastPasswordChangedAt`. Available options are marked with ?.
+    at ar (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:10:1374)
+    at zr.handleRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7929)
+    at zr.handleAndLogRequestError (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7581)
+    at zr.request (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:65:7288)
+    at async a (C:\proj\AmwajTech\node_modules\@prisma\client\runtime\client.js:75:6862)
+    at async changePassword (file:///C:/proj/AmwajTech/server/controllers/authController.js:165:5)
+

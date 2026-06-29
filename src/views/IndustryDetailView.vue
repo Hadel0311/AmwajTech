@@ -92,19 +92,22 @@ const sectorKey = computed(() => {
 
 const getHeroImage = (key) => {
   if (key === 'banking') {
-    return '/AmwajTech/images/banking-hero.jpg'
+    return '/images/banking-hero.jpg'
+  }
+  if (key === 'government') {
+    return '/images/government-hero.jpg'
   }
   if (key === 'healthcare') {
-    return '/AmwajTech/images/healthcare-hero.jpg'
+    return '/images/healthcare-hero.jpg'
   }
   if (key === 'education') {
-    return '/AmwajTech/images/education-hero.jpg'
+    return '/images/education-hero.jpg'
   }
   if (key === 'enterprise') {
-    return '/AmwajTech/images/enterprise-hero.jpg'
+    return '/images/enterprise-hero.jpg'
   }
   if (key === 'industrial') {
-    return '/AmwajTech/images/industrial-hero.jpg'
+    return '/images/industrial-hero.jpg'
   }
   return 'https://images.unsplash.com/photo-1478479405421-ce83c92fb3ba?auto=format&fit=crop&q=80&w=1200'
 }

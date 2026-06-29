@@ -7,7 +7,7 @@
       :description="t('partners.subtitle')"
       theme="navy"
       size="medium"
-      image="/AmwajTech/images/partners-hero.jpg"
+      image="/images/partners-hero.jpg"
     />
 
     <!-- Filters and Search bar -->

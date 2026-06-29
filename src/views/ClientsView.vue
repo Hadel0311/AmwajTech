@@ -7,7 +7,7 @@
       :description="t('clients.subtitle')"
       theme="light"
       size="slim"
-      image="/AmwajTech/images/clients-hero.jpg"
+      image="/images/clients-hero.jpg"
     />
 
     <!-- Filters and Search bar -->

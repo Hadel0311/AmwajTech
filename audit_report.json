@@ -1,0 +1,1334 @@
+{
+  "missingInAr": [],
+  "missingInEn": [],
+  "placeholders": [
+    {
+      "lang": "en",
+      "key": "services.details.network_infrastructure.workflow.3.title",
+      "value": "Testing"
+    },
+    {
+      "lang": "en",
+      "key": "services.details.network_infrastructure.workflow.3.description",
+      "value": "Rigorous failover simulations, throughput testing, and latency verification."
+    },
+    {
+      "lang": "en",
+      "key": "services.details.network_security.workflow.0.description",
+      "value": "Comprehensive vulnerability scanning and penetration testing of existing perimeters."
+    },
+    {
+      "lang": "en",
+      "key": "services.details.network_security.workflow.3.title",
+      "value": "Testing"
+    },
+    {
+      "lang": "en",
+      "key": "services.details.data_center.visualIntro.description",
+      "value": "We build highly available, scalable, and secure data center infrastructures utilizing the latest in server virtualization, high-capacity storage arrays, and disaster recovery orchestration."
+    },
+    {
+      "lang": "en",
+      "key": "services.details.data_center.workflow.3.title",
+      "value": "Testing"
+    },
+    {
+      "lang": "en",
+      "key": "services.details.data_center.workflow.3.description",
+      "value": "Live failover testing, backup verification, and thermal simulations."
+    },
+    {
+      "lang": "en",
+      "key": "services.details.cloud_services.workflow.3.title",
+      "value": "Testing"
+    },
+    {
+      "lang": "en",
+      "key": "services.details.software_solutions.workflow.3.title",
+      "value": "Testing"
+    },
+    {
+      "lang": "en",
+      "key": "services.details.software_solutions.workflow.3.description",
+      "value": "Automated unit testing, QA cycles, and user acceptance testing (UAT)."
+    },
+    {
+      "lang": "en",
+      "key": "services.details.technical_support.workflow.3.title",
+      "value": "Testing"
+    },
+    {
+      "lang": "en",
+      "key": "news.sectionTitle",
+      "value": "Latest News & Announcements"
+    },
+    {
+      "lang": "en",
+      "key": "news.sectionSubtitle",
+      "value": "Stay updated with the latest company news, technology updates, partnerships, and special announcements."
+    },
+    {
+      "lang": "en",
+      "key": "process.steps.testing.title",
+      "value": "Testing"
+    },
+    {
+      "lang": "en",
+      "key": "process.steps.testing.desc",
+      "value": "Rigorous stress tests and vulnerability scanning."
+    },
+    {
+      "lang": "en",
+      "key": "testimonials.title",
+      "value": "Client Testimonials"
+    },
+    {
+      "lang": "en",
+      "key": "timeline.steps.testing.title",
+      "value": "Testing & Optimization"
+    }
+  ],
+  "rtlLtrIssues": [],
+  "hardcodedText": [
+    {
+      "file": "\\src\\components\\Footer.vue",
+      "text": "info@amwaj-tech.com"
+    },
+    {
+      "file": "\\src\\components\\Header.vue",
+      "text": "English"
+    },
+    {
+      "file": "\\src\\views\\admin\\AccountSettings.vue",
+      "text": "Account Settings"
+    },
+    {
+      "file": "\\src\\views\\admin\\AccountSettings.vue",
+      "text": "Manage your account security and preferences."
+    },
+    {
+      "file": "\\src\\views\\admin\\AccountSettings.vue",
+      "text": "Security"
+    },
+    {
+      "file": "\\src\\views\\admin\\AccountSettings.vue",
+      "text": "Update your password to keep your account secure."
+    },
+    {
+      "file": "\\src\\views\\admin\\AccountSettings.vue",
+      "text": "Current Password"
+    },
+    {
+      "file": "\\src\\views\\admin\\AccountSettings.vue",
+      "text": "New Password"
+    },
+    {
+      "file": "\\src\\views\\admin\\AccountSettings.vue",
+      "text": "Password must contain:"
+    },
+    {
+      "file": "\\src\\views\\admin\\AccountSettings.vue",
+      "text": "One uppercase letter"
+    },
+    {
+      "file": "\\src\\views\\admin\\AccountSettings.vue",
+      "text": "One lowercase letter"
+    },
+    {
+      "file": "\\src\\views\\admin\\AccountSettings.vue",
+      "text": "One number"
+    },
+    {
+      "file": "\\src\\views\\admin\\AccountSettings.vue",
+      "text": "One special character"
+    },
+    {
+      "file": "\\src\\views\\admin\\AccountSettings.vue",
+      "text": "Confirm New Password"
+    },
+    {
+      "file": "\\src\\views\\admin\\AccountSettings.vue",
+      "text": "Passwords do not match"
+    },
+    {
+      "file": "\\src\\views\\admin\\AccountSettings.vue",
+      "text": "Update Password"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Amwaj Tech"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Overview"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Dashboard"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Inquiries"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Contact Messages"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Consultations"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Content Management"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Announcements"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Services"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Clients"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Partners"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Jobs"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Settings"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Email: General"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Email: HR / Jobs"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Account Security"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Sign Out"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Dashboard Overview"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Welcome back, here's what's happening today."
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "Admin User"
+    },
+    {
+      "file": "\\src\\views\\admin\\AdminLayout.vue",
+      "text": "System Admin"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Welcome to AmwajTech Dashboard!"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "It looks like your database is empty. Would you like to seed realistic B2B sales and consulting demo data to populate the interactive charts?"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Consultations"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Net Growth (7d)"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Inquiries"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Net Growth (7d)"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Partners"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Integrations (30d)"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Clients"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "New Accounts (30d)"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Activity Trend (Last 7 Days)"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Consultations"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Inquiries"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Consultations"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Inquiries"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Website Visits (Last 7 Days)"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Page Views"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Job Applications — Month Comparison"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "No job applications recorded yet."
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Quick Actions"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Add Client"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Register a new client profile"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Add Partner"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Onboard a new technology partner"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Post Job"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Create a new career opening"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "New Announcement"
+    },
+    {
+      "file": "\\src\\views\\admin\\Dashboard.vue",
+      "text": "Publish company news"
+    },
+    {
+      "file": "\\src\\views\\admin\\Login.vue",
+      "text": "Amwaj Tech"
+    },
+    {
+      "file": "\\src\\views\\admin\\Login.vue",
+      "text": "Amwaj Tech"
+    },
+    {
+      "file": "\\src\\views\\admin\\Login.vue",
+      "text": "Welcome Back"
+    },
+    {
+      "file": "\\src\\views\\admin\\Login.vue",
+      "text": "Sign in to your admin account to continue"
+    },
+    {
+      "file": "\\src\\views\\admin\\Login.vue",
+      "text": "Email Address"
+    },
+    {
+      "file": "\\src\\views\\admin\\Login.vue",
+      "text": "Password"
+    },
+    {
+      "file": "\\src\\views\\admin\\Login.vue",
+      "text": "Sign In"
+    },
+    {
+      "file": "\\src\\views\\admin\\Login.vue",
+      "text": "Protected by AmwajTech Auth"
+    },
+    {
+      "file": "\\src\\views\\admin\\Login.vue",
+      "text": "Return to Website"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageAnnouncements.vue",
+      "text": "Manage Announcements"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageAnnouncements.vue",
+      "text": "Publish news, updates, and company announcements."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageAnnouncements.vue",
+      "text": "Add Announcement"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageAnnouncements.vue",
+      "text": "Loading announcements..."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageAnnouncements.vue",
+      "text": "Image"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageAnnouncements.vue",
+      "text": "Title"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageAnnouncements.vue",
+      "text": "Category"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageAnnouncements.vue",
+      "text": "Date"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageAnnouncements.vue",
+      "text": "Actions"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageAnnouncements.vue",
+      "text": "No announcements found."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageAnnouncements.vue",
+      "text": "None"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageAnnouncements.vue",
+      "text": "Title"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageAnnouncements.vue",
+      "text": "Cover Image (Upload or URL)"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageAnnouncements.vue",
+      "text": "Category"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageAnnouncements.vue",
+      "text": "Date"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageAnnouncements.vue",
+      "text": "Excerpt"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageAnnouncements.vue",
+      "text": "Full Content"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageAnnouncements.vue",
+      "text": "Cancel"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Review and manage candidates for this position."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "All Statuses"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "New"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Under Review"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Interview Scheduled"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Accepted"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Rejected"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Loading applicants..."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Name"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Email"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Phone"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Applied Date"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Status"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Actions"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "No applicants found."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Applicant Details"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Current Status"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "New"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Under Review"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Interview Scheduled"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Accepted"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Rejected"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Contact Info"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "LinkedIn Profile"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Resume / CV"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "View Resume"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Cover Message"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageApplicants.vue",
+      "text": "Custom Requirements"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageClients.vue",
+      "text": "Manage Clients"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageClients.vue",
+      "text": "Manage the clients that appear in the portfolio and website."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageClients.vue",
+      "text": "Add Client"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageClients.vue",
+      "text": "Loading clients..."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageClients.vue",
+      "text": "Logo"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageClients.vue",
+      "text": "Name"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageClients.vue",
+      "text": "Industry"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageClients.vue",
+      "text": "Actions"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageClients.vue",
+      "text": "No clients found."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageClients.vue",
+      "text": "Client Name"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageClients.vue",
+      "text": "Industry"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageClients.vue",
+      "text": "Logo Image URL / Filename"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageClients.vue",
+      "text": "Short Description (Used for card hover)"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageClients.vue",
+      "text": "Cancel"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Consultation Requests"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Review and reply to consultation requests."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "All Statuses"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "New"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Replied"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "In Progress"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Resolved"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Loading requests..."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Company"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Name"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Service Needed"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Timeline"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Date"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Status"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Actions"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "No requests found."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Request Details"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Current Status"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "New"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Replied"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "In Progress"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Resolved"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Contact Info"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Project Details"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Industry:"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Required Service:"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Project Size:"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Timeline:"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Additional Message"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageConsultations.vue",
+      "text": "Reply via Email"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "Contact Messages"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "Review and reply to inquiries from the Contact Us page."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "All Statuses"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "New"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "Replied"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "Resolved"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "Loading messages..."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "Name"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "Email"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "Subject"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "Date Received"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "Status"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "Actions"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "No messages found."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "Message Details"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "Current Status"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "New"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "Replied"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "Resolved"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "Contact Info"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "Subject"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "Message"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageContacts.vue",
+      "text": "Reply via Email"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageEmailSettings.vue",
+      "text": "SMTP Configuration"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageEmailSettings.vue",
+      "text": "Configure the email server used to send contact forms."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageEmailSettings.vue",
+      "text": "Loading settings..."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageEmailSettings.vue",
+      "text": "SMTP Host"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageEmailSettings.vue",
+      "text": "The hostname of your mail server."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageEmailSettings.vue",
+      "text": "SMTP Port"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageEmailSettings.vue",
+      "text": "Common ports: 465 (SSL), 587 (TLS), 25."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageEmailSettings.vue",
+      "text": "Email Username"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageEmailSettings.vue",
+      "text": "The email address used to log in."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageEmailSettings.vue",
+      "text": "Email Password"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageEmailSettings.vue",
+      "text": "The password for the email address."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageEmailSettings.vue",
+      "text": "Use SSL/TLS Secure Connection"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageEmailSettings.vue",
+      "text": "Check this if using port 465. Leave unchecked for port 587."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageEmailSettings.vue",
+      "text": "Receiver Settings"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageEmailSettings.vue",
+      "text": "Configure who receives the website form submissions."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageEmailSettings.vue",
+      "text": "Admin Notification Email"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageEmailSettings.vue",
+      "text": "All forms will be sent to this email address."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageEmailSettings.vue",
+      "text": "Sender Name Display"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageEmailSettings.vue",
+      "text": "The name that appears as the sender."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "Manage Jobs"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "Post and manage open career opportunities."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "Add Job"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "Loading jobs..."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "Job Title"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "Department"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "Status"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "Applicants"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "Actions"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "No jobs found."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "Job Title"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "Department"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "Status"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "Open"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "Closed"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "Job Description"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "Application Requirements"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "Add"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "No custom requirements added. Default fields (Name, Email, Phone, CV, Message) will be shown."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageJobs.vue",
+      "text": "Cancel"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManagePartners.vue",
+      "text": "Manage Partners"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManagePartners.vue",
+      "text": "Manage your technology and business partners."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManagePartners.vue",
+      "text": "Add Partner"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManagePartners.vue",
+      "text": "Loading partners..."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManagePartners.vue",
+      "text": "Logo"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManagePartners.vue",
+      "text": "Name"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManagePartners.vue",
+      "text": "Website"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManagePartners.vue",
+      "text": "Actions"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManagePartners.vue",
+      "text": "No partners found."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManagePartners.vue",
+      "text": "Partner Name"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManagePartners.vue",
+      "text": "Category"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManagePartners.vue",
+      "text": "Website URL"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManagePartners.vue",
+      "text": "Logo Image URL / Filename"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManagePartners.vue",
+      "text": "Short Description (Used for card hover)"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManagePartners.vue",
+      "text": "About Partner Description"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManagePartners.vue",
+      "text": "How We Leverage Technology"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManagePartners.vue",
+      "text": "Services (Comma separated keys)"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManagePartners.vue",
+      "text": "Cancel"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Manage Services"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Manage the main services offered by the company."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Add Service"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Loading services..."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Icon"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Title"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Description"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Actions"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "No services found."
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Basic Information"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Title"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Icon Name"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Hero Image (Upload or URL)"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Short Description (Card View)"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Hero Value Proposition"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Visual Intro Section"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Intro Title"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Intro Description"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Business Value"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Objectives"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Challenges & Solutions"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Challenge"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Solution"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Workflow (Timeline)"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Step Title"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Step Description"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Related Services"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Related Service Keys (Comma separated)"
+    },
+    {
+      "file": "\\src\\views\\admin\\ManageServices.vue",
+      "text": "Cancel"
+    },
+    {
+      "file": "\\src\\views\\ClientsView.vue",
+      "text": "No clients found matching your search criteria."
+    },
+    {
+      "file": "\\src\\views\\ContactView.vue",
+      "text": "Send Us a Message"
+    },
+    {
+      "file": "\\src\\views\\ContactView.vue",
+      "text": "Fill out the form below and our team will get back to you as soon as possible."
+    },
+    {
+      "file": "\\src\\views\\ContactView.vue",
+      "text": "Full Name"
+    },
+    {
+      "file": "\\src\\views\\ContactView.vue",
+      "text": "Email Address"
+    },
+    {
+      "file": "\\src\\views\\ContactView.vue",
+      "text": "Phone Number"
+    },
+    {
+      "file": "\\src\\views\\ContactView.vue",
+      "text": "Subject"
+    },
+    {
+      "file": "\\src\\views\\ContactView.vue",
+      "text": "Message"
+    },
+    {
+      "file": "\\src\\views\\ContactView.vue",
+      "text": "Visit Us"
+    },
+    {
+      "file": "\\src\\views\\ContactView.vue",
+      "text": "Our office is located in the heart of Amman. Visit us or contact us using the information below."
+    },
+    {
+      "file": "\\src\\views\\ContactView.vue",
+      "text": "Phone"
+    },
+    {
+      "file": "\\src\\views\\ContactView.vue",
+      "text": "Mobile"
+    },
+    {
+      "file": "\\src\\views\\ContactView.vue",
+      "text": "Fax"
+    },
+    {
+      "file": "\\src\\views\\ContactView.vue",
+      "text": "Email"
+    },
+    {
+      "file": "\\src\\views\\ContactView.vue",
+      "text": "info@amwaj-tech.com"
+    },
+    {
+      "file": "\\src\\views\\ContactView.vue",
+      "text": "Address"
+    },
+    {
+      "file": "\\src\\views\\ContactView.vue",
+      "text": "Amman-Jordan-gardens st alzaytona building (53) First floor, office number 2"
+    },
+    {
+      "file": "\\src\\views\\ContactView.vue",
+      "text": "Get Directions"
+    },
+    {
+      "file": "\\src\\views\\PartnersView.vue",
+      "text": "No partners found matching your search criteria."
+    },
+    {
+      "file": "\\src\\views\\PartnersView.vue",
+      "text": "View Details &rarr;"
+    },
+    {
+      "file": "\\src\\views\\RequestConsultationView.vue",
+      "text": "Consultation Request"
+    },
+    {
+      "file": "\\src\\views\\RequestConsultationView.vue",
+      "text": "Select Industry..."
+    },
+    {
+      "file": "\\src\\views\\RequestConsultationView.vue",
+      "text": "Select Service..."
+    },
+    {
+      "file": "\\src\\views\\RequestConsultationView.vue",
+      "text": "Select Size..."
+    },
+    {
+      "file": "\\src\\views\\RequestConsultationView.vue",
+      "text": "Select Timeline..."
+    },
+    {
+      "file": "\\src\\views\\ServiceDetailView.vue",
+      "text": "Business Challenges & Solutions"
+    },
+    {
+      "file": "\\src\\views\\ServiceDetailView.vue",
+      "text": "How Amwaj Tech resolves complex enterprise pain points."
+    },
+    {
+      "file": "\\src\\views\\ServiceDetailView.vue",
+      "text": "Challenge"
+    },
+    {
+      "file": "\\src\\views\\ServiceDetailView.vue",
+      "text": "Solution"
+    },
+    {
+      "file": "\\src\\views\\ServiceDetailView.vue",
+      "text": "How We Deliver"
+    },
+    {
+      "file": "\\src\\views\\ServiceDetailView.vue",
+      "text": "Our proven enterprise implementation methodology."
+    },
+    {
+      "file": "\\src\\views\\ServiceDetailView.vue",
+      "text": "Related Services"
+    },
+    {
+      "file": "\\src\\views\\ServiceDetailView.vue",
+      "text": "Learn More"
+    },
+    {
+      "file": "\\src\\views\\ServiceDetailView.vue",
+      "text": "Ready to Discuss Your Project?"
+    },
+    {
+      "file": "\\src\\views\\ServiceDetailView.vue",
+      "text": "Our specialists can help design, secure, and optimize your technology infrastructure."
+    },
+    {
+      "file": "\\src\\views\\ServiceDetailView.vue",
+      "text": "Request Consultation"
+    },
+    {
+      "file": "\\src\\views\\ServiceDetailView.vue",
+      "text": "Contact Our Experts"
+    }
+  ]
+}

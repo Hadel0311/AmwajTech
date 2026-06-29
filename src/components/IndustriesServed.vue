@@ -50,17 +50,16 @@ import {
   Factory 
 } from 'lucide-vue-next'
 
-import imgGovernment from '@/assets/images/industries/government.png'
 
 const { t } = useI18n()
 
 const sectorsList = [
-  { id: 'banking', key: 'banking', icon: CreditCard, image: '/AmwajTech/images/banking-hero.jpg' },
-  { id: 'government', key: 'government', icon: Landmark, image: imgGovernment },
-  { id: 'healthcare', key: 'healthcare', icon: HeartPulse, image: '/AmwajTech/images/healthcare-hero.jpg' },
-  { id: 'education', key: 'education', icon: GraduationCap, image: '/AmwajTech/images/education-hero.jpg' },
-  { id: 'enterprise', key: 'enterprise', icon: Building, image: '/AmwajTech/images/enterprise-hero.jpg' },
-  { id: 'industrial', key: 'industrial', icon: Factory, image: '/AmwajTech/images/industrial-hero.jpg' }
+  { id: 'banking', key: 'banking', icon: CreditCard, image: '/images/banking-hero.jpg' },
+  { id: 'government', key: 'government', icon: Landmark, image: '/images/government-hero.jpg' },
+  { id: 'healthcare', key: 'healthcare', icon: HeartPulse, image: '/images/healthcare-hero.jpg' },
+  { id: 'education', key: 'education', icon: GraduationCap, image: '/images/education-hero.jpg' },
+  { id: 'enterprise', key: 'enterprise', icon: Building, image: '/images/enterprise-hero.jpg' },
+  { id: 'industrial', key: 'industrial', icon: Factory, image: '/images/industrial-hero.jpg' }
 ]
 </script>
 

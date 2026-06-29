@@ -23,7 +23,7 @@
     "location": "Regional Hub: Amman, Jordan",
     "title": "Amwaj Tech",
     "tagline": "Building Secure, Reliable, and Scalable Technology Infrastructure.",
-    "description": "Providing elite IT infrastructure, cyber security operations, data center systems, and managed IT services for government, banking, healthcare, and industrial sectors across the Middle East.",
+    "description": "Providing elite IT infrastructure, cyber security operations, data center systems, and managed IT services for government, banking, healthcare, and industrial sectors.",
     "ctaPrimary": "Request Consultation",
     "ctaSecondary": "Explore Services",
     "established": "Established 2012",
@@ -862,7 +862,7 @@
     },
     "info": {
       "title": "Direct Contact",
-      "email": "info{'@'}amwaj-tech.com",
+      "email": "Email",
       "phone": "+962 6 580 0000",
       "location": "Amman, Jordan",
       "locations": {
@@ -871,13 +871,18 @@
         "jordanDesc": "Corporate Headquarters, Mecca St.",
         "uae": "Dubai, UAE",
         "uaeDesc": "Regional Office, Dubai Internet City"
-      }
+      },
+      "address": "Address",
+      "addressValue": "Amman - Jordan - Gardens St., Alzaytona Building (53), First Floor, Office Number 2",
+      "phoneLabel": "Phone",
+      "mobile": "Mobile",
+      "fax": "Fax"
     }
   },
   "footer": {
     "companyName": "Amwaj Tech",
     "tagline": "Experienced. Trusted. Enterprise-Ready.",
-    "description": "Providing elite IT Infrastructure, Network Security, Data Center Systems, and Software Solutions to enterprises and government entities across the Middle East.",
+    "description": "Providing elite IT Infrastructure, Network Security, Data Center Systems, and Software Solutions to enterprises and government entities.",
     "copyright": "© 2026 Amwaj Tech. All rights reserved.",
     "links": {
       "privacy": "Privacy Policy",
@@ -906,7 +911,7 @@
       "uae": "UAE Office:",
       "uaeAddress": "Dubai, Internet City"
     },
-    "description": "Amwaj Tech is a premier system integrator and technology solutions provider in the Middle East. Since our founding in 2012, we have focused on delivering high-availability IT networks, next-generation security fabrics, and robust private cloud infrastructure. We serve clients who cannot afford system downtime.",
+    "description": "Amwaj Tech is a premier system integrator and technology solutions provider. Since our founding in 2012, we have focused on delivering high-availability IT networks, next-generation security fabrics, and robust private cloud infrastructure. We serve clients who cannot afford system downtime.",
     "certifications": {
       "cisco": {
         "title": "Cisco Gold Integrator",
@@ -921,7 +926,7 @@
         "description": "Our internal configurations and system designs strictly align with international information security standards."
       }
     },
-    "subtitle": "Premier system integrator and technology solutions provider in the Middle East."
+    "subtitle": "Premier system integrator and technology solutions provider."
   },
   "home": {
     "ctaTitle": "Ready to secure and scale your enterprise infrastructure?",
@@ -1085,7 +1090,7 @@
         "name": "Mitsubishi Motors",
         "category": "Enterprises / Companies",
         "shortDesc": "Multinational automotive manufacturer known for producing a wide range of vehicles.",
-        "about": "Mitsubishi Motors is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Mitsubishi Motors is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Mitsubishi Motors.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1117,7 +1122,7 @@
         "name": "Hijazi & Ghosheh",
         "category": "Enterprises / Companies",
         "shortDesc": "Regional diversified group operating in food, agriculture, and livestock export.",
-        "about": "Hijazi & Ghosheh is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Hijazi & Ghosheh is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Hijazi & Ghosheh.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1133,7 +1138,7 @@
         "name": "Sama",
         "category": "Enterprises / Companies",
         "shortDesc": "Jordanian company specializing in mineral water bottling and beverage distribution.",
-        "about": "Sama is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Sama is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Sama.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1173,7 +1178,7 @@
         "name": "Seagulls",
         "category": "Enterprises / Companies",
         "shortDesc": "Leading out-of-home advertising and media network operating in Jordan.",
-        "about": "Seagulls is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Seagulls is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Seagulls.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1213,7 +1218,7 @@
         "name": "Al Ghad Newspaper",
         "category": "Enterprises / Companies",
         "shortDesc": "Independent Arabic daily newspaper published in Jordan.",
-        "about": "Al Ghad Newspaper is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Al Ghad Newspaper is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Al Ghad Newspaper.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1229,7 +1234,7 @@
         "name": "Laith Al Obaidi",
         "category": "Enterprises / Companies",
         "shortDesc": "Regional automotive dealership and vehicle trading company based in Jordan.",
-        "about": "Laith Al Obaidi is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Laith Al Obaidi is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Laith Al Obaidi.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1245,7 +1250,7 @@
         "name": "Nama Strategic Intelligence Solutions",
         "category": "Enterprises / Companies",
         "shortDesc": "Research and consulting firm providing strategic data and public policy analysis.",
-        "about": "Nama Strategic Intelligence Solutions is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Nama Strategic Intelligence Solutions is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Nama Strategic Intelligence Solutions.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1253,7 +1258,7 @@
         "name": "Sigma Consulting Engineers",
         "category": "Enterprises / Companies",
         "shortDesc": "Multidisciplinary engineering and architectural consulting firm based in Amman.",
-        "about": "Sigma Consulting Engineers is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Sigma Consulting Engineers is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Sigma Consulting Engineers.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1261,7 +1266,7 @@
         "name": "Erad Group",
         "category": "Enterprises / Companies",
         "shortDesc": "Diversified investment and trading group operating across multiple business sectors in Jordan.",
-        "about": "Erad Group is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Erad Group is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Erad Group.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1277,7 +1282,7 @@
         "name": "Everest Printing Press L.L.C",
         "category": "Enterprises / Companies",
         "shortDesc": "Commercial printing company providing varied offset and digital printing services.",
-        "about": "Everest Printing Press L.L.C is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Everest Printing Press L.L.C is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Everest Printing Press L.L.C.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1285,7 +1290,7 @@
         "name": "Al Daya'a Shawerma",
         "category": "Enterprises / Companies",
         "shortDesc": "Popular fast-food restaurant chain in Jordan specializing in shawerma.",
-        "about": "Al Daya'a Shawerma is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Al Daya'a Shawerma is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Al Daya'a Shawerma.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1293,7 +1298,7 @@
         "name": "Bun Wa Hal",
         "category": "Enterprises / Companies",
         "shortDesc": "Jordanian brand specializing in coffee roasting, cardamom, and premium nuts.",
-        "about": "Bun Wa Hal is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Bun Wa Hal is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Bun Wa Hal.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1301,7 +1306,7 @@
         "name": "Al Salehin Car Rental",
         "category": "Enterprises / Companies",
         "shortDesc": "Vehicle rental company offering short and long-term car leasing services in Jordan.",
-        "about": "Al Salehin Car Rental is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Al Salehin Car Rental is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Al Salehin Car Rental.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1309,7 +1314,7 @@
         "name": "Sameh Mall",
         "category": "Enterprises / Companies",
         "shortDesc": "Major retail supermarket and department store chain operating across Jordan.",
-        "about": "Sameh Mall is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Sameh Mall is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Sameh Mall.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1317,7 +1322,7 @@
         "name": "Avertra",
         "category": "Enterprises / Companies",
         "shortDesc": "Global software and technology company specializing in solutions for the energy and utility sectors.",
-        "about": "Avertra is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Avertra is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Avertra.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1325,7 +1330,7 @@
         "name": "GTS",
         "category": "Enterprises / Companies",
         "shortDesc": "Technology solutions provider delivering IT infrastructure and digital services.",
-        "about": "GTS is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "GTS is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for GTS.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1333,7 +1338,7 @@
         "name": "Al Katar Dates",
         "category": "Enterprises / Companies",
         "shortDesc": "Agricultural company specializing in the cultivation and distribution of Jordanian dates.",
-        "about": "Al Katar Dates is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Al Katar Dates is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Al Katar Dates.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1341,7 +1346,7 @@
         "name": "Rayone",
         "category": "Enterprises / Companies",
         "shortDesc": "Provider of specialized technology and business solutions in the region.",
-        "about": "Rayone is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Rayone is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Rayone.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1349,7 +1354,7 @@
         "name": "UBA",
         "category": "Enterprises / Companies",
         "shortDesc": "United Business Applications, an IT firm providing software implementations and enterprise solutions.",
-        "about": "UBA is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "UBA is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for UBA.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1365,7 +1370,7 @@
         "name": "Al Tazaj Restaurants",
         "category": "Enterprises / Companies",
         "shortDesc": "Regional fast-food chain known for its wood-grilled chicken dishes.",
-        "about": "Al Tazaj Restaurants is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Al Tazaj Restaurants is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Al Tazaj Restaurants.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1373,7 +1378,7 @@
         "name": "Al Quds Paints",
         "category": "Enterprises / Companies",
         "shortDesc": "Manufacturing company producing a wide range of decorative and industrial paints.",
-        "about": "Al Quds Paints is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Al Quds Paints is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Al Quds Paints.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1389,7 +1394,7 @@
         "name": "Graphic Supplies Co.",
         "category": "Enterprises / Companies",
         "shortDesc": "Supplier of commercial printing equipment and graphic design materials.",
-        "about": "Graphic Supplies Co. is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Graphic Supplies Co. is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Graphic Supplies Co..",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1405,7 +1410,7 @@
         "name": "Yelda Graphic Design & Printing Services",
         "category": "Enterprises / Companies",
         "shortDesc": "Local printing press providing commercial graphic design and print solutions.",
-        "about": "Yelda Graphic Design & Printing Services is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Yelda Graphic Design & Printing Services is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Yelda Graphic Design & Printing Services.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1413,7 +1418,7 @@
         "name": "Wavemaker",
         "category": "Enterprises / Companies",
         "shortDesc": "Global media, content, and technology agency operating a regional office in Jordan.",
-        "about": "Wavemaker is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Wavemaker is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Wavemaker.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1421,7 +1426,7 @@
         "name": "Al Nahda",
         "category": "Enterprises / Companies",
         "shortDesc": "Regional industrial and manufacturing organization serving local markets.",
-        "about": "Al Nahda is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Al Nahda is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Al Nahda.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       },
@@ -1429,7 +1434,7 @@
         "name": "Al Raya For Fertilizer",
         "category": "Enterprises / Companies",
         "shortDesc": "Agricultural manufacturing company producing and distributing crop fertilizers.",
-        "about": "Al Raya For Fertilizer is a major regional business organization offering specialized services, commercial programs, and logistics in the Middle East.",
+        "about": "Al Raya For Fertilizer is a major regional business organization offering specialized services, commercial programs, and logistics.",
         "work": "Amwaj Tech deployed hybrid cloud environments, custom system software middleware, and structured cabling solutions for Al Raya For Fertilizer.",
         "context": "Modern enterprises demand scalable server clusters, cost-optimized cloud storage, and reliable inter-office communication backends."
       }

@@ -2,8 +2,12 @@ import prisma from '../prisma/index.js';
 import { emailService } from '../services/EmailService.js';
 import { partnersList } from '../../src/data/partners.js';
 import { clientsList } from '../../src/data/clients.js';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// Map URL collection names to Prisma model names
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const getModel = (collection) => {
   const map = {
     'announcements': prisma.announcement,
@@ -586,6 +590,53 @@ export const seedDemoData = async (req, res, next) => {
         where: { key: client.key },
         update: client,
         create: client
+      });
+    }
+
+    // Seed Services
+    const dataPath = path.resolve(__dirname, '../../src/i18n/locales/en.json');
+    const rawData = fs.readFileSync(dataPath, 'utf-8');
+    const enJson = JSON.parse(rawData);
+
+    const servicesList = enJson.services.items;
+    const detailsList = enJson.services.details;
+
+    const mapKeyToIcon = {
+      'network_infrastructure': 'Network',
+      'network_security': 'ShieldCheck',
+      'data_center': 'Database',
+      'cloud_services': 'Cloud',
+      'software_solutions': 'Code',
+      'technical_support': 'Headset'
+    };
+
+    let serviceOrder = 1;
+    for (const key in servicesList) {
+      const basic = servicesList[key];
+      const detail = detailsList[key] || {};
+      
+      const imagePath = `/images/services/${key.replace('_', '-')}-hero.jpg`;
+      const fsPath = path.join(__dirname, `../../public${imagePath}`);
+      const hasImage = fs.existsSync(fsPath);
+
+      const serviceData = {
+        key: key,
+        title: basic.title,
+        icon: mapKeyToIcon[key] || 'Layers',
+        description: basic.description,
+        image: hasImage ? imagePath : null,
+        heroValueProp: detail.heroValueProp || null,
+        visualIntro: detail.visualIntro || null,
+        challenges: detail.challenges || null,
+        workflow: detail.workflow || null,
+        relatedServices: detail.relatedServices || [],
+        order: serviceOrder++
+      };
+
+      await prisma.service.upsert({
+        where: { key: key },
+        update: serviceData,
+        create: serviceData
       });
     }
 

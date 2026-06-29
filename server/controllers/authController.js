@@ -118,3 +118,66 @@ export const logout = async (req, res, next) => {
     next(error);
   }
 };
+
+export const changePassword = async (req, res, next) => {
+  try {
+    const { currentPassword, newPassword } = req.body;
+    const userId = req.user.userId;
+
+    const user = await prisma.user.findUnique({
+      where: { id: userId }
+    });
+
+    if (!user) {
+      return res.status(404).json({ success: false, error: 'User not found' });
+    }
+
+    // Verify current password
+    const isMatch = await bcrypt.compare(currentPassword, user.passwordHash);
+    if (!isMatch) {
+      return res.status(400).json({ success: false, error: 'Incorrect current password' });
+    }
+
+    // Prevent reusing current password
+    const isSamePassword = await bcrypt.compare(newPassword, user.passwordHash);
+    if (isSamePassword) {
+      return res.status(400).json({ success: false, error: 'New password cannot be the same as the current password' });
+    }
+
+    // Hash the new password
+    const salt = await bcrypt.genSalt(10);
+    const newPasswordHash = await bcrypt.hash(newPassword, salt);
+
+    // Generate new tokens
+    const token = jwt.sign(
+      { userId: user.id, role: user.role },
+      process.env.JWT_SECRET,
+      { expiresIn: '15m' }
+    );
+
+    const refreshToken = jwt.sign(
+      { userId: user.id },
+      process.env.JWT_SECRET,
+      { expiresIn: '7d' }
+    );
+
+    // Update user record: new password, timestamp, and new refresh token
+    await prisma.user.update({
+      where: { id: userId },
+      data: {
+        passwordHash: newPasswordHash,
+        lastPasswordChangedAt: new Date(),
+        refreshToken: refreshToken
+      }
+    });
+
+    res.json({
+      success: true,
+      message: 'Password changed successfully',
+      token,
+      refreshToken
+    });
+  } catch (error) {
+    next(error);
+  }
+};

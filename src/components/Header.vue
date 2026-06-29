@@ -199,7 +199,7 @@ const loadLanguageFromStorage = () => {
   if (savedLang && (savedLang === 'en' || savedLang === 'ar')) {
     currentLocale.value = savedLang
     locale.value = savedLang
-    document.documentElement.dir = savedLang === 'ar' ? 'rtl' : 'ltr'
+    document.documentElement.dir = (savedLang === 'ar' && !route.path.startsWith('/admin')) ? 'rtl' : 'ltr'
     document.documentElement.lang = savedLang
   }
 }
@@ -211,7 +211,7 @@ const toggleDropdown = () => {
 const selectLanguage = (lang: string) => {
   currentLocale.value = lang
   locale.value = lang
-  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr'
+  document.documentElement.dir = (lang === 'ar' && !route.path.startsWith('/admin')) ? 'rtl' : 'ltr'
   document.documentElement.lang = lang
   showDropdown.value = false
   

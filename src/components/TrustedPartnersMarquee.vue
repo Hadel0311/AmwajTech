@@ -95,6 +95,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { api } from '@/services/api'
+import { useI18n } from 'vue-i18n'
 
 const activeTooltip = ref(null)
 const partnersList = ref([])
@@ -117,16 +118,10 @@ onMounted(async () => {
   }
 })
 
+const { t } = useI18n()
+
 const formatCategory = (serviceKey) => {
-  const mapping = {
-    'network-infrastructure': 'Infrastructure Solutions',
-    'network-security': 'Cybersecurity Solutions',
-    'data-center': 'Data Center Solutions',
-    'cloud-services': 'Cloud & Security Solutions',
-    'software-solutions': 'Software Solutions',
-    'technical-support': 'Technical Support'
-  }
-  return mapping[serviceKey] || 'Technology Partner'
+  return t(`partners.categories.${serviceKey}`, 'Technology Partner')
 }
 </script>
 

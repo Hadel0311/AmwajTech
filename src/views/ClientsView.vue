@@ -121,8 +121,17 @@ const showRightArrow = ref(false)
 const checkArrows = () => {
   if (!categoriesContainer.value) return
   const { scrollLeft, scrollWidth, clientWidth } = categoriesContainer.value
-  showLeftArrow.value = scrollLeft > 0
-  showRightArrow.value = Math.ceil(scrollLeft) < scrollWidth - clientWidth - 1
+  
+  const isRTL = document.documentElement.dir === 'rtl' || document.body.dir === 'rtl'
+  
+  if (isRTL) {
+    const scrollPos = Math.abs(scrollLeft)
+    showRightArrow.value = scrollPos > 0
+    showLeftArrow.value = Math.ceil(scrollPos) < scrollWidth - clientWidth - 1
+  } else {
+    showLeftArrow.value = scrollLeft > 0
+    showRightArrow.value = Math.ceil(scrollLeft) < scrollWidth - clientWidth - 1
+  }
 }
 
 const scrollLeft = () => {
@@ -139,7 +148,9 @@ const scrollRight = () => {
 
 const handleWheel = (e) => {
   if (categoriesContainer.value) {
-    categoriesContainer.value.scrollBy({ left: e.deltaY > 0 ? 100 : -100, behavior: 'smooth' })
+    const isRTL = document.documentElement.dir === 'rtl' || document.body.dir === 'rtl'
+    const scrollAmount = e.deltaY > 0 ? 100 : -100
+    categoriesContainer.value.scrollBy({ left: isRTL ? -scrollAmount : scrollAmount, behavior: 'smooth' })
   }
 }
 

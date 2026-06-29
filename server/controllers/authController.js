@@ -32,16 +32,27 @@ export const login = async (req, res, next) => {
       { expiresIn: '7d' } // Long-lived refresh token
     );
 
+    const salt = await bcrypt.genSalt(10);
+    const hashedRefreshToken = await bcrypt.hash(refreshToken, salt);
+
     // Save refresh token to database
     await prisma.user.update({
       where: { id: user.id },
-      data: { refreshToken }
+      data: { refreshToken: hashedRefreshToken }
     });
+
+    const cookieOptions = {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      path: '/'
+    };
+
+    res.cookie('access_token', token, { ...cookieOptions, maxAge: 15 * 60 * 1000 });
+    res.cookie('refresh_token', refreshToken, { ...cookieOptions, maxAge: 7 * 24 * 60 * 60 * 1000 });
 
     res.json({
       success: true,
-      token,
-      refreshToken,
       user: {
         id: user.id,
         email: user.email,
@@ -55,7 +66,7 @@ export const login = async (req, res, next) => {
 
 export const refresh = async (req, res, next) => {
   try {
-    const { refreshToken } = req.body;
+    const refreshToken = req.cookies?.refresh_token || req.body.refreshToken;
 
     if (!refreshToken) {
       return res.status(401).json({ success: false, error: 'No refresh token provided' });
@@ -74,7 +85,12 @@ export const refresh = async (req, res, next) => {
       where: { id: decoded.userId }
     });
 
-    if (!user || user.refreshToken !== refreshToken) {
+    if (!user || !user.refreshToken) {
+      return res.status(401).json({ success: false, error: 'Invalid refresh token' });
+    }
+
+    const isValidRefresh = await bcrypt.compare(refreshToken, user.refreshToken);
+    if (!isValidRefresh) {
       return res.status(401).json({ success: false, error: 'Invalid refresh token' });
     }
 
@@ -85,9 +101,17 @@ export const refresh = async (req, res, next) => {
       { expiresIn: '15m' }
     );
 
+    const cookieOptions = {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      path: '/'
+    };
+    
+    res.cookie('access_token', token, { ...cookieOptions, maxAge: 15 * 60 * 1000 });
+
     res.json({
-      success: true,
-      token
+      success: true
     });
   } catch (error) {
     next(error);
@@ -96,23 +120,30 @@ export const refresh = async (req, res, next) => {
 
 export const logout = async (req, res, next) => {
   try {
-    const { refreshToken } = req.body;
+    const refreshToken = req.cookies?.refresh_token || req.body.refreshToken;
     
     if (refreshToken) {
       // Decode without throwing if expired to get userId
       const decoded = jwt.decode(refreshToken);
       if (decoded && decoded.userId) {
-        // Clear the token in the database
-        await prisma.user.updateMany({
-          where: { 
-            id: decoded.userId,
-            refreshToken: refreshToken 
-          },
-          data: { refreshToken: null }
+        const user = await prisma.user.findUnique({
+          where: { id: decoded.userId }
         });
+        if (user && user.refreshToken) {
+          const isValidRefresh = await bcrypt.compare(refreshToken, user.refreshToken);
+          if (isValidRefresh) {
+            // Clear the token in the database
+            await prisma.user.update({
+              where: { id: decoded.userId },
+              data: { refreshToken: null }
+            });
+          }
+        }
       }
     }
 
+    res.clearCookie('access_token', { path: '/' });
+    res.clearCookie('refresh_token', { path: '/' });
     res.json({ success: true, message: 'Logged out successfully' });
   } catch (error) {
     next(error);
@@ -161,21 +192,32 @@ export const changePassword = async (req, res, next) => {
       { expiresIn: '7d' }
     );
 
+    const refreshSalt = await bcrypt.genSalt(10);
+    const hashedRefreshToken = await bcrypt.hash(refreshToken, refreshSalt);
+
     // Update user record: new password, timestamp, and new refresh token
     await prisma.user.update({
       where: { id: userId },
       data: {
         passwordHash: newPasswordHash,
         lastPasswordChangedAt: new Date(),
-        refreshToken: refreshToken
+        refreshToken: hashedRefreshToken
       }
     });
 
+    const cookieOptions = {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      path: '/'
+    };
+
+    res.cookie('access_token', token, { ...cookieOptions, maxAge: 15 * 60 * 1000 });
+    res.cookie('refresh_token', refreshToken, { ...cookieOptions, maxAge: 7 * 24 * 60 * 60 * 1000 });
+
     res.json({
       success: true,
-      message: 'Password changed successfully',
-      token,
-      refreshToken
+      message: 'Password changed successfully'
     });
   } catch (error) {
     next(error);

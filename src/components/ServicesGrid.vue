@@ -51,7 +51,7 @@
                  @mouseenter="isCenterHovered = true"
                  @mouseleave="isCenterHovered = false">
               <span class="center-text" style="transition: all 0.3s;" :style="{ fontSize: isCenterHovered ? '1.4rem' : '1.8rem' }">
-                {{ isCenterHovered ? 'Show all services' : 'Services' }}
+                {{ isCenterHovered ? t('services.showAll') : t('services.titleShort') }}
               </span>
             </div>
           </router-link>
@@ -120,7 +120,7 @@
                  @mouseenter="isCenterHovered = true"
                  @mouseleave="isCenterHovered = false">
               <span class="center-text" style="transition: all 0.3s;" :style="{ fontSize: isCenterHovered ? '0.8rem' : '1rem' }">
-                {{ isCenterHovered ? 'Show all services' : 'Services' }}
+                {{ isCenterHovered ? t('services.showAll') : t('services.titleShort') }}
               </span>
             </div>
           </router-link>

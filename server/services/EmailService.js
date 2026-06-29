@@ -2,6 +2,7 @@ import nodemailer from 'nodemailer';
 import path from 'path';
 import fs from 'fs';
 import prisma from '../prisma/index.js';
+import { logger } from '../utils/logger.js';
 
 class EmailService {
   /**
@@ -150,7 +151,7 @@ class EmailService {
       };
 
       const info = await transporter.sendMail(mailOptions);
-      console.log(`[EmailService] Successfully sent ${type} notification to ${settings.adminEmail}. MessageId: ${info.messageId}`);
+      logger.info(`Successfully sent ${type} notification to ${settings.adminEmail}. MessageId: ${info.messageId}`);
       return { success: true, messageId: info.messageId };
     } catch (error) {
       // Catch all errors (DB lookup fails, SMTP fails, invalid credentials)

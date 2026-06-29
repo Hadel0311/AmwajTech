@@ -99,9 +99,8 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
   
-  // Check for our custom JWT
-  const token = localStorage.getItem('amwaj_token') || sessionStorage.getItem('amwaj_token');
-  const isAuthenticated = !!token;
+  // Check for our custom logged_in flag
+  const isAuthenticated = localStorage.getItem('logged_in') === 'true';
   
   if (requiresAuth && !isAuthenticated) {
     next('/login')

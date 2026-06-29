@@ -1,10 +1,8 @@
 const API_URL = import.meta.env.VITE_API_URL || '/api';
 
 const getHeaders = () => {
-  const token = localStorage.getItem('amwaj_token') || sessionStorage.getItem('amwaj_token');
   return {
-    'Content-Type': 'application/json',
-    ...(token && { 'Authorization': `Bearer ${token}` })
+    'Content-Type': 'application/json'
   };
 };
 
@@ -15,17 +13,19 @@ const fetchWithAuth = async (url, options = {}) => {
     delete headers['Content-Type'];
   }
   
-  let res = await fetch(url, { ...options, headers: { ...headers, ...options.headers } });
+  const fetchOptions = { ...options, credentials: 'include', headers: { ...headers, ...options.headers } };
+  
+  let res = await fetch(url, fetchOptions);
   
   if (res.status === 401) {
     const refreshed = await api.refreshToken();
     if (refreshed) {
-      // Retry with new token
+      // Retry with new token via cookie
       const newHeaders = getHeaders();
       if (options.body instanceof FormData) {
         delete newHeaders['Content-Type'];
       }
-      res = await fetch(url, { ...options, headers: { ...newHeaders, ...options.headers } });
+      res = await fetch(url, { ...options, credentials: 'include', headers: { ...newHeaders, ...options.headers } });
     } else {
       api.forceLogout();
       let errorMsg = 'Session expired. Please log in again.';
@@ -38,30 +38,22 @@ const fetchWithAuth = async (url, options = {}) => {
 
 export const api = {
   forceLogout: () => {
-    localStorage.removeItem('amwaj_token');
-    sessionStorage.removeItem('amwaj_token');
-    localStorage.removeItem('amwaj_refresh_token');
-    sessionStorage.removeItem('amwaj_refresh_token');
+    localStorage.removeItem('logged_in');
     window.location.href = '/login';
   },
 
   refreshToken: async () => {
-    const refreshToken = localStorage.getItem('amwaj_refresh_token') || sessionStorage.getItem('amwaj_refresh_token');
-    if (!refreshToken) return false;
+    const isLoggedIn = localStorage.getItem('logged_in') === 'true';
+    if (!isLoggedIn) return false;
 
     try {
       const res = await fetch(`${API_URL}/auth/refresh`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ refreshToken })
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' }
       });
       const data = await res.json();
-      if (res.ok && data.token) {
-        if (localStorage.getItem('amwaj_refresh_token')) {
-          localStorage.setItem('amwaj_token', data.token);
-        } else {
-          sessionStorage.setItem('amwaj_token', data.token);
-        }
+      if (res.ok && data.success) {
         return true;
       }
       return false;
@@ -71,17 +63,14 @@ export const api = {
   },
 
   logout: async () => {
-    const refreshToken = localStorage.getItem('amwaj_refresh_token') || sessionStorage.getItem('amwaj_refresh_token');
-    if (refreshToken) {
-      try {
-        await fetch(`${API_URL}/auth/logout`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ refreshToken })
-        });
-      } catch (e) {
-        console.error('Failed to logout on server', e);
-      }
+    try {
+      await fetch(`${API_URL}/auth/logout`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' }
+      });
+    } catch (e) {
+      console.error('Failed to logout on server', e);
     }
     api.forceLogout();
   },
@@ -90,6 +79,7 @@ export const api = {
   login: async (email, password) => {
     const res = await fetch(`${API_URL}/auth/login`, {
       method: 'POST',
+      credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })
     });
@@ -106,16 +96,7 @@ export const api = {
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Failed to change password');
     
-    // Update tokens if they were returned
-    if (data.token) {
-      if (localStorage.getItem('amwaj_refresh_token')) {
-        localStorage.setItem('amwaj_token', data.token);
-        if (data.refreshToken) localStorage.setItem('amwaj_refresh_token', data.refreshToken);
-      } else {
-        sessionStorage.setItem('amwaj_token', data.token);
-        if (data.refreshToken) sessionStorage.setItem('amwaj_refresh_token', data.refreshToken);
-      }
-    }
+    // Tokens are updated via HttpOnly cookies from the backend
     
     return data;
   },
@@ -216,6 +197,7 @@ export const api = {
   trackVisit: async (path) => {
     await fetch(`${API_URL}/content/track-visit`, {
       method: 'POST',
+      credentials: 'omit', // No cookies needed for public tracking
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ path })
     }).catch(() => {});

@@ -104,7 +104,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary submit-btn" :disabled="isSubmitting">
-              {{ isSubmitting ? 'Submitting...' : t('requestConsultation.form.submit') }}
+              {{ isSubmitting ? t('requestConsultation.form.submitting') : t('requestConsultation.form.submit') }}
             </button>
           </form>
         </div>
@@ -215,7 +215,7 @@ const submitForm = async () => {
       status: 'New'
     });
 
-    alert('Consultation request submitted successfully. Our team will contact you shortly.')
+    alert(t('requestConsultation.form.success'))
     // Reset form
     formData.value = {
       fullName: '',
@@ -231,7 +231,7 @@ const submitForm = async () => {
     }
   } catch (error) {
     console.error('Failed to submit form', error)
-    alert('Sorry, there was an error submitting your request. Please try again later.')
+    alert(t('requestConsultation.form.error'))
   } finally {
     isSubmitting.value = false;
   }

@@ -24,8 +24,8 @@
               <div class="icon-wrapper">
                 <component :is="getIcon(service.icon)" :size="28" class="service-icon" />
               </div>
-              <h2 class="service-card-title">{{ service.title || t(`services.items.${service.key}.title`) }}</h2>
-              <p class="service-card-desc">{{ service.description || t(`services.items.${service.key}.description`) }}</p>
+              <h2 class="service-card-title">{{ locale === 'ar' ? t(`services.items.${service.key}.title`) : service.title }}</h2>
+              <p class="service-card-desc">{{ locale === 'ar' ? t(`services.items.${service.key}.description`) : service.description }}</p>
               <div class="service-card-action">
                 <span>{{ t('services.exploreOffering') }}</span>
                 <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
@@ -48,7 +48,7 @@ import { api } from '@/services/api'
 import { IconMap } from '@/utils/iconMap'
 import { Layers } from 'lucide-vue-next'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const services = ref([])
 
 onMounted(async () => {

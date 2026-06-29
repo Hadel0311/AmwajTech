@@ -2,6 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
+import helmet from 'helmet';
+import cookieParser from 'cookie-parser';
+import rateLimit from 'express-rate-limit';
 
 // Load env vars
 dotenv.config();
@@ -12,10 +15,22 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 const corsOptions = {
   origin: process.env.VITE_APP_URL || 'http://localhost:5173', // Restrict to frontend domain
+  credentials: true,
   optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
+app.use(helmet({ crossOriginResourcePolicy: false })); // Allow serving static images cross-origin
 app.use(express.json());
+app.use(cookieParser());
+
+// Global API rate limiter
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 1000, // Limit each IP to 1000 requests per windowMs
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+app.use('/api/', apiLimiter);
 
 // Static folder for local uploads
 const UPLOADS_DIR = path.join(process.cwd(), 'server', 'uploads');
@@ -61,4 +76,4 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-// Restarted for Prisma client update part 4
+// Restarted for Prisma client update part 5

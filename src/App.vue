@@ -144,8 +144,15 @@ const updateTitleAndMeta = () => {
   }
 }
 
-watch([route, locale], () => {
+watch([() => route.path, locale], () => {
   updateTitleAndMeta()
+  
+  // Force LTR for admin routes, otherwise use locale-based direction
+  if (route.path.startsWith('/admin')) {
+    document.documentElement.dir = 'ltr'
+  } else {
+    document.documentElement.dir = locale.value === 'ar' ? 'rtl' : 'ltr'
+  }
 }, { immediate: true })
 
 // Track visits separately — only fires when the path ACTUALLY navigates away and back
@@ -169,7 +176,7 @@ onMounted(async () => {
   if (savedLang && (savedLang === 'en' || savedLang === 'ar')) {
     currentLocale.value = savedLang
     locale.value = savedLang
-    document.documentElement.dir = savedLang === 'ar' ? 'rtl' : 'ltr'
+    document.documentElement.dir = (savedLang === 'ar' && !route.path.startsWith('/admin')) ? 'rtl' : 'ltr'
     document.documentElement.lang = savedLang
   } else {
     document.documentElement.dir = 'ltr'

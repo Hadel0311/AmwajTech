@@ -67,6 +67,8 @@
       "notFoundDesc": "The requested service route does not exist.",
       "back": "Back to Services"
     },
+    "showAll": "Show all services",
+    "titleShort": "Services",
     "items": {
       "network_infrastructure": {
         "title": "Network Infrastructure",
@@ -641,6 +643,14 @@
     "backToPartners": "Back to Partners",
     "metaTitle": "Technology Partners | Amwaj Tech",
     "metaDescription": "Discover the global technology leaders Amwaj Tech partners with to design, implement, and support enterprise-grade systems.",
+    "categories": {
+      "network-infrastructure": "Infrastructure Solutions",
+      "network-security": "Cybersecurity Solutions",
+      "data-center": "Data Center Solutions",
+      "cloud-services": "Cloud & Security Solutions",
+      "software-solutions": "Software Solutions",
+      "technical-support": "Technical Support"
+    },
     "items": {
       "sophos": {
         "name": "Sophos",
@@ -855,7 +865,7 @@
       "submit": "Submit Consultation Request",
       "placeholders": {
         "name": "e.g., John Doe",
-        "email": "e.g., name@organization.com",
+        "email": "e.g., name{'@'}organization.com",
         "org": "e.g., Acme Corporation",
         "message": "Please outline your project requirements or specific inquiry..."
       }
@@ -876,7 +886,8 @@
       "addressValue": "Amman - Jordan - Gardens St., Alzaytona Building (53), First Floor, Office Number 2",
       "phoneLabel": "Phone",
       "mobile": "Mobile",
-      "fax": "Fax"
+      "fax": "Fax",
+      "email": "Email"
     }
   },
   "footer": {
@@ -955,7 +966,22 @@
       "financial": "Financial Institutions",
       "healthcare": "Healthcare",
       "education": "Education",
-      "enterprise": "Enterprises / Companies"
+      "enterprise": "Enterprises / Companies",
+      "agriculture": "Agriculture",
+      "manufacturing": "Manufacturing",
+      "media & advertising": "Media & Advertising",
+      "commercial printing": "Commercial Printing",
+      "printing supplies": "Printing Supplies",
+      "food & beverage": "Food & Beverage",
+      "it & software": "IT & Software",
+      "retail & supermarkets": "Retail & Supermarkets",
+      "automotive": "Automotive",
+      "investment & trading": "Investment & Trading",
+      "engineering consulting": "Engineering Consulting",
+      "consulting & research": "Consulting & Research",
+      "media & publishing": "Media & Publishing",
+      "agriculture & food": "Agriculture & Food",
+      "ngo": "NGO"
     },
     "items": {
       "safwa_islamic_bank": {
@@ -1878,5 +1904,41 @@
   "marquee": {
     "title": "Trusted Technology Partners",
     "subtitle": "Collaborating with world-leading technology providers to deliver secure, scalable, and reliable solutions."
+  },
+  "contactPage": {
+    "hero": {
+      "title": "Contact Us",
+      "desc": "Have a question, need assistance, or want to learn more about our solutions? Our team is ready to help."
+    },
+    "form": {
+      "title": "Send us a message",
+      "desc": "Fill out the form below and our team will get back to you as soon as possible.",
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "message": "Message",
+      "sending": "Sending...",
+      "send": "Send Message",
+      "success": "Thank you for your message. We will get back to you soon.",
+      "error": "Sorry, an error occurred while sending your message. Please try again later.",
+      "placeholders": {
+        "name": "John Doe",
+        "email": "john{'@'}example.com",
+        "phone": "+962 79 000 0000",
+        "subject": "How can we help?",
+        "message": "Your message here..."
+      }
+    },
+    "visit": {
+      "title": "Visit Us",
+      "desc": "Our office is located in the heart of Amman. Drop by or contact us using the information below.",
+      "phone": "Phone",
+      "mobile": "Mobile",
+      "fax": "Fax",
+      "email": "Email Address",
+      "address": "Address",
+      "getDirections": "Get Directions"
+    }
   }
 }

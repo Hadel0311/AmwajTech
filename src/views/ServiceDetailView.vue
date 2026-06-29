@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <InternalHero
       :category="t('services.labels.category')"
-      :title="serviceData?.title"
+      :title="serviceTitle"
       :description="heroValueProp"
       theme="navy"
       size="medium"
@@ -163,7 +163,7 @@ import {
 } from 'lucide-vue-next'
 
 const route = useRoute()
-const { t, locale } = useI18n()
+const { t, tm, locale } = useI18n()
 
 const loading = ref(true)
 const serviceData = ref(null)
@@ -208,10 +208,30 @@ const currentImage = computed(() => {
   return serviceData.value?.image || 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200'
 })
 
-const heroValueProp = computed(() => serviceData.value?.heroValueProp || '')
-const visualIntro = computed(() => serviceData.value?.visualIntro || null)
-const challenges = computed(() => serviceData.value?.challenges || [])
-const workflow = computed(() => serviceData.value?.workflow || [])
+const heroValueProp = computed(() => {
+  if (!serviceData.value) return ''
+  return locale.value === 'ar' ? t(`services.details.${serviceData.value.key}.heroValueProp`) : serviceData.value.heroValueProp
+})
+
+const visualIntro = computed(() => {
+  if (!serviceData.value) return null
+  return locale.value === 'ar' ? tm(`services.details.${serviceData.value.key}.visualIntro`) : serviceData.value.visualIntro
+})
+
+const challenges = computed(() => {
+  if (!serviceData.value) return []
+  return locale.value === 'ar' ? tm(`services.details.${serviceData.value.key}.challenges`) : serviceData.value.challenges
+})
+
+const workflow = computed(() => {
+  if (!serviceData.value) return []
+  return locale.value === 'ar' ? tm(`services.details.${serviceData.value.key}.workflow`) : serviceData.value.workflow
+})
+
+const serviceTitle = computed(() => {
+  if (!serviceData.value) return ''
+  return locale.value === 'ar' ? t(`services.items.${serviceData.value.key}.title`) : serviceData.value.title
+})
 
 const getIcon = (iconName) => {
   return IconMap[iconName] || Layers
@@ -224,8 +244,8 @@ const relatedServicesData = computed(() => {
     if (relService) {
       return {
         id: relService.id,
-        title: relService.title,
-        description: relService.description,
+        title: locale.value === 'ar' ? t(`services.items.${relService.key}.title`) : relService.title,
+        description: locale.value === 'ar' ? t(`services.items.${relService.key}.description`) : relService.description,
         icon: getIcon(relService.icon)
       }
     }

@@ -65,8 +65,11 @@
       "cta": "طلب استشارة هندسية",
       "notFound": "الخدمة غير موجودة",
       "notFoundDesc": "الخدمة المطلوبة غير متوفرة حالياً.",
-      "back": "العودة للخدمات"
+      "back": "العودة للخدمات",
+      "loading": "جاري التحميل..."
     },
+    "showAll": "عرض جميع الخدمات",
+    "titleShort": "الخدمات",
     "items": {
       "network_infrastructure": {
         "title": "البنية التحتية للشبكات",
@@ -641,6 +644,14 @@
     "backToPartners": "العودة إلى الشركاء",
     "metaTitle": "شركاء التكنولوجيا | أمواج الأردن",
     "metaDescription": "اكتشف قادة التكنولوجيا العالميين الذين تشترك معهم أمواج الأردن لتصميم وتنفيذ ودعم الأنظمة الجاهزة للمؤسسات.",
+    "categories": {
+      "network-infrastructure": "حلول البنية التحتية",
+      "network-security": "حلول الأمن السيبراني",
+      "data-center": "حلول مراكز البيانات",
+      "cloud-services": "حلول السحابة والأمن",
+      "software-solutions": "الحلول البرمجية",
+      "technical-support": "الدعم الفني"
+    },
     "items": {
       "sophos": {
         "name": "Sophos",
@@ -782,7 +793,11 @@
         "about": "تعد مايكروسوفت الشركة الرائدة عالمياً في البرمجيات والخدمات السحابية، وتقدم بيئات Azure السحابية، وأنظمة Active Directory، وأدوات الإنتاجية.",
         "leverage": "نقوم بنشر إعدادات Microsoft Azure السحابية الهجينة، وأنظمة الهوية Active Directory، وندير تراخيص Office 365 للشركات الكبرى."
       }
-    }
+    },
+    "loading": "جاري التحميل...",
+    "notFound": "لم يتم العثور على الشريك",
+    "notFoundDesc": "عذراً، الشريك الذي تبحث عنه غير موجود أو تم نقله.",
+    "leverageTitle": "كيف نستفيد من تقنية {name}"
   },
   "overview": {
     "title": "نظرة عامة على الشركة",
@@ -855,7 +870,7 @@
       "submit": "إرسال طلب الاستشارة",
       "placeholders": {
         "name": "مثال: أحمد محمد",
-        "email": "مثال: name@organization.com",
+        "email": "مثال: name{'@'}organization.com",
         "org": "مثال: شركة النخبة",
         "message": "يرجى كتابة لمحة عامة عن متطلبات المشروع أو استفسارك هنا..."
       }
@@ -955,7 +970,22 @@
       "financial": "المؤسسات المالية",
       "healthcare": "الرعاية الصحية",
       "education": "التعليم",
-      "enterprise": "الشركات والمؤسسات"
+      "enterprise": "الشركات والمؤسسات",
+      "agriculture": "الزراعة",
+      "manufacturing": "الصناعة",
+      "media & advertising": "الإعلام والإعلان",
+      "commercial printing": "الطباعة التجارية",
+      "printing supplies": "مستلزمات الطباعة",
+      "food & beverage": "الأغذية والمشروبات",
+      "it & software": "تكنولوجيا المعلومات والبرمجيات",
+      "retail & supermarkets": "البيع بالتجزئة والسوبر ماركت",
+      "automotive": "السيارات",
+      "investment & trading": "الاستثمار والتجارة",
+      "engineering consulting": "الاستشارات الهندسية",
+      "consulting & research": "الاستشارات والأبحاث",
+      "media & publishing": "الإعلام والنشر",
+      "agriculture & food": "الزراعة والأغذية",
+      "ngo": "المنظمات غير الحكومية"
     },
     "items": {
       "safwa_islamic_bank": {
@@ -1689,7 +1719,12 @@
         "supportExp": "خبرة في دعم العملاء",
         "techCerts": "شهادات تقنية",
         "fieldWork": "التوفر للعمل الميداني"
-      }
+      },
+      "submitting": "جاري الإرسال...",
+      "success": "تم إرسال الطلب بنجاح!",
+      "errorPrefix": "خطأ: ",
+      "errorDefault": "حدث خطأ أثناء إرسال طلبك.",
+      "general": "طلب عام"
     },
     "timeline": {
       "title": "عملية التوظيف",
@@ -1823,7 +1858,10 @@
       "projectSize": "حجم المشروع",
       "projectTimeline": "الجدول الزمني للمشروع",
       "message": "الرسالة",
-      "submit": "طلب استشارة"
+      "submit": "طلب استشارة",
+      "submitting": "جاري الإرسال...",
+      "success": "تم تقديم طلب الاستشارة بنجاح. سيقوم فريقنا بالاتصال بك قريباً.",
+      "error": "عذراً، حدث خطأ أثناء إرسال طلبك. يرجى المحاولة مرة أخرى لاحقاً."
     },
     "options": {
       "industry": {
@@ -1878,5 +1916,71 @@
         "enterprise": "الشركات الكبرى"
       }
     }
+  },
+  "contactPage": {
+    "hero": {
+      "title": "اتصل بنا",
+      "desc": "هل لديك سؤال، أو تحتاج إلى مساعدة، أو ترغب في معرفة المزيد عن حلولنا؟ فريقنا مستعد للمساعدة."
+    },
+    "form": {
+      "title": "أرسل لنا رسالة",
+      "desc": "املأ النموذج أدناه وسيقوم فريقنا بالرد عليك في أقرب وقت ممكن.",
+      "name": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "phone": "رقم الهاتف",
+      "subject": "الموضوع",
+      "message": "الرسالة",
+      "sending": "جاري الإرسال...",
+      "send": "إرسال الرسالة",
+      "success": "شكراً لرسالتك. سنعود إليك قريباً.",
+      "error": "عذراً، حدث خطأ أثناء إرسال رسالتك. يرجى المحاولة مرة أخرى لاحقاً.",
+      "placeholders": {
+        "name": "الاسم الكامل",
+        "email": "name{'@'}organization.com",
+        "phone": "+962 79 000 0000",
+        "subject": "كيف يمكننا مساعدتك؟",
+        "message": "رسالتك هنا..."
+      }
+    },
+    "visit": {
+      "title": "تفضل بزيارتنا",
+      "desc": "يقع مكتبنا في قلب عمان. تفضل بزيارتنا أو اتصل بنا باستخدام المعلومات أدناه.",
+      "phone": "الهاتف",
+      "mobile": "الموبايل",
+      "fax": "الفاكس",
+      "email": "البريد الإلكتروني",
+      "address": "العنوان",
+      "getDirections": "احصل على الاتجاهات"
+    }
+  },
+  "dynamic": {
+    "Senior_Cloud_Architect": "كبير مهندسي السحابة",
+    "Engineering": "الهندسة",
+    "Full_time": "دوام كامل",
+    "Contract": "عقد",
+    "Remote": "عن بعد",
+    "Operations": "العمليات",
+    "Security": "الأمن السيبراني",
+    "Riyadh__Saudi_Arabia": "الرياض، المملكة العربية السعودية",
+    "Jeddah__Saudi_Arabia": "جدة، المملكة العربية السعودية",
+    "Lead_the_cloud_transformation_strategy_and_design_modern_AWS_Azure_architectures_": "قيادة استراتيجية التحول السحابي وتصميم بنيات AWS/Azure الحديثة.",
+    "8__years_cloud_experience": "8+ سنوات خبرة في السحابة",
+    "AWS_Certified_Solutions_Architect_Professional": "مهندس حلول معتمد من AWS",
+    "Terraform_and_Kubernetes_proficiency": "إجادة Terraform و Kubernetes",
+    "Cybersecurity_Engineer": "مهندس أمن سيبراني",
+    "Monitor__detect__and_remediate_cybersecurity_threats_across_client_infrastructures_": "مراقبة واكتشاف ومعالجة تهديدات الأمن السيبراني عبر البنى التحتية للعملاء.",
+    "5__years_security_experience": "5+ سنوات خبرة في الأمن السيبراني",
+    "CISSP__CEH__or_equivalent": "شهادة CISSP أو CEH أو ما يعادلها",
+    "Hands_on_firewall_and_SIEM_tools_experience": "خبرة عملية في جدران الحماية وأدوات SIEM",
+    "Frontend_Web_Developer": "مطور ويب للواجهات الأمامية",
+    "Build_premium__responsive__and_high_fidelity_user_experiences_using_Vue_3_and_modern_CSS_": "بناء تجارب مستخدم متميزة وسريعة الاستجابة وعالية الدقة باستخدام Vue 3 و CSS الحديثة.",
+    "3__years_frontend_experience": "3+ سنوات خبرة في تطوير الواجهات الأمامية",
+    "Proficiency_in_Vue_3__Vite__and_CSS_grid_flexbox": "إجادة Vue 3 و Vite و CSS grid/flexbox",
+    "Strong_UI_UX_design_sense": "حس قوي في تصميم واجهة وتجربة المستخدم",
+    "IT_Project_Manager": "مدير مشروع تكنولوجيا المعلومات",
+    "Manage_tech_deployments_and_network_infrastructure_projects_from_inception_to_sign_off_": "إدارة نشر التكنولوجيا ومشاريع البنية التحتية للشبكات من البداية وحتى التسليم.",
+    "5__years_project_management_experience": "5+ سنوات خبرة في إدارة المشاريع",
+    "PMP_or_PRINCE2_certification": "شهادة PMP أو PRINCE2",
+    "Background_in_networking_or_telecom_projects": "خلفية في مشاريع الشبكات أو الاتصالات"
   }
 }

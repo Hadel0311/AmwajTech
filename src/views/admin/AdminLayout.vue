@@ -1,5 +1,5 @@
 <template>
-  <div class="admin-layout">
+  <div class="admin-layout" dir="ltr">
     <!-- Sidebar Navigation -->
     <aside class="admin-sidebar" :class="{ 'collapsed': isSidebarCollapsed }">
       <div class="sidebar-header">

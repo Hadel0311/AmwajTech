@@ -3,8 +3,8 @@
     <!-- Hero Section -->
     <InternalHero
       category="Contact"
-      title="Contact Us"
-      description="Have a question, need assistance, or want to learn more about our solutions? Our team is ready to help."
+      :title="t('contactPage.hero.title')"
+      :description="t('contactPage.hero.desc')"
       theme="dark"
       size="medium"
       image="/images/contact-hero.jpg"
@@ -16,46 +16,46 @@
           
           <!-- Left Card: Contact Form -->
           <div class="contact-card form-card">
-            <h2 class="card-title">Send Us a Message</h2>
-            <p class="card-desc">Fill out the form below and our team will get back to you as soon as possible.</p>
+            <h2 class="card-title">{{ t('contactPage.form.title') }}</h2>
+            <p class="card-desc">{{ t('contactPage.form.desc') }}</p>
             
             <form @submit.prevent="submitForm" class="contact-form">
               <div class="form-group">
-                <label for="fullName">Full Name <span class="required">*</span></label>
-                <input type="text" id="fullName" v-model="form.fullName" required placeholder="John Doe" />
+                <label for="fullName">{{ t('contactPage.form.name') }} <span class="required">*</span></label>
+                <input type="text" id="fullName" v-model="form.fullName" required :placeholder="t('contactPage.form.placeholders.name')" />
               </div>
               
               <div class="form-row">
                 <div class="form-group">
-                  <label for="email">Email Address <span class="required">*</span></label>
-                  <input type="email" id="email" v-model="form.email" required placeholder="john@example.com" />
+                  <label for="email">{{ t('contactPage.form.email') }} <span class="required">*</span></label>
+                  <input type="email" id="email" v-model="form.email" required :placeholder="t('contactPage.form.placeholders.email')" />
                 </div>
                 <div class="form-group">
-                  <label for="phone">Phone Number <span class="required">*</span></label>
-                  <input type="tel" id="phone" v-model="form.phone" required placeholder="+962 79 000 0000" />
+                  <label for="phone">{{ t('contactPage.form.phone') }} <span class="required">*</span></label>
+                  <input type="tel" id="phone" v-model="form.phone" required :placeholder="t('contactPage.form.placeholders.phone')" />
                 </div>
               </div>
               
               <div class="form-group">
-                <label for="subject">Subject <span class="required">*</span></label>
-                <input type="text" id="subject" v-model="form.subject" required placeholder="How can we help?" />
+                <label for="subject">{{ t('contactPage.form.subject') }} <span class="required">*</span></label>
+                <input type="text" id="subject" v-model="form.subject" required :placeholder="t('contactPage.form.placeholders.subject')" />
               </div>
               
               <div class="form-group">
-                <label for="message">Message <span class="required">*</span></label>
-                <textarea id="message" v-model="form.message" required rows="5" placeholder="Your message here..."></textarea>
+                <label for="message">{{ t('contactPage.form.message') }} <span class="required">*</span></label>
+                <textarea id="message" v-model="form.message" required rows="5" :placeholder="t('contactPage.form.placeholders.message')"></textarea>
               </div>
               
               <button type="submit" class="btn-primary submit-btn" :disabled="isSubmitting">
-                {{ isSubmitting ? 'Sending...' : 'Send Message' }}
+                {{ isSubmitting ? t('contactPage.form.sending') : t('contactPage.form.send') }}
               </button>
             </form>
           </div>
 
           <!-- Right Card: Visit Us -->
           <div class="contact-card location-card">
-            <h2 class="card-title">Visit Us</h2>
-            <p class="card-desc">Our office is located in the heart of Amman. Visit us or contact us using the information below.</p>
+            <h2 class="card-title">{{ t('contactPage.visit.title') }}</h2>
+            <p class="card-desc">{{ t('contactPage.visit.desc') }}</p>
             
             <div class="contact-list">
               <!-- Phone -->
@@ -65,7 +65,7 @@
                 </div>
                 <div class="group-content">
                   <div class="content-row">
-                    <h4>Phone</h4>
+                    <h4>{{ t('contactPage.visit.phone') }}</h4>
                     <p>+962-655-45514</p>
                   </div>
                 </div>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="group-content">
                   <div class="content-row">
-                    <h4>Mobile</h4>
+                    <h4>{{ t('contactPage.visit.mobile') }}</h4>
                     <p>+962-77-5545514</p>
                   </div>
                 </div>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="group-content">
                   <div class="content-row">
-                    <h4>Fax</h4>
+                    <h4>{{ t('contactPage.visit.fax') }}</h4>
                     <p>+962-655-11937</p>
                   </div>
                 </div>
@@ -104,7 +104,7 @@
                 </div>
                 <div class="group-content">
                   <div class="content-row">
-                    <h4>Email</h4>
+                    <h4>{{ t('contactPage.visit.email') }}</h4>
                     <p><a href="mailto:info@amwaj-tech.com">info@amwaj-tech.com</a></p>
                   </div>
                 </div>
@@ -117,8 +117,8 @@
                 </div>
                 <div class="group-content">
                   <div class="content-row">
-                    <h4>Address</h4>
-                    <p>Amman-Jordan-gardens st alzaytona building (53) First floor, office number 2</p>
+                    <h4>{{ t('contactPage.visit.address') }}</h4>
+                    <p>{{ t('contact.info.addressValue') }}</p>
                   </div>
                 </div>
               </div>
@@ -137,7 +137,7 @@
             </div>
             
             <a href="https://maps.app.goo.gl/sigDeFr57aNF2ua69" target="_blank" rel="noopener noreferrer" class="btn-secondary directions-btn">
-              Get Directions
+              {{ t('contactPage.visit.getDirections') }}
             </a>
           </div>
 
@@ -150,8 +150,11 @@
 <script setup>
 import InternalHero from '@/components/InternalHero.vue'
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { MapPin, Phone, Mail, Printer, Smartphone } from 'lucide-vue-next'
 import { api } from '@/services/api'
+
+const { t } = useI18n()
 
 const form = ref({
   fullName: '',
@@ -175,7 +178,7 @@ const submitForm = async () => {
     
     // Email notification is handled by the backend
 
-    alert('Thank you for your message. We will get back to you soon.')
+    alert(t('contactPage.form.success'))
     form.value = {
       fullName: '',
       email: '',
@@ -185,7 +188,7 @@ const submitForm = async () => {
     }
   } catch (error) {
     console.error('Failed to submit form', error)
-    alert('Sorry, there was an error submitting your message. Please try again later.')
+    alert(t('contactPage.form.error'))
   } finally {
     isSubmitting.value = false;
   }

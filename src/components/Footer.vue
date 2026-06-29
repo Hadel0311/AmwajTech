@@ -40,7 +40,7 @@
             <MapPin class="icon-small" />
             <div class="contact-details">
               <span class="label">{{ t('contact.info.address', 'Address') }}</span>
-              <span class="value">Amman-Jordan-gardens st alzaytona building (53) First floor, office number 2</span>
+              <span class="value">{{ t('contact.info.addressValue', 'Amman-Jordan-gardens st alzaytona building (53) First floor, office number 2') }}</span>
             </div>
           </div>
 

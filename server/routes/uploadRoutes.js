@@ -1,10 +1,17 @@
 import express from 'express';
 import { uploadMiddleware, storageService } from '../services/StorageService.js';
 import { verifyToken, authorizeRoles } from '../middleware/authMiddleware.js';
+import rateLimit from 'express-rate-limit';
+
+const uploadLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000, // 1 hour window
+  max: 20, // limit each IP to 20 uploads per hour
+  message: 'Too many files uploaded from this IP, please try again after an hour'
+});
 
 const router = express.Router();
 
-router.post('/', uploadMiddleware.single('file'), async (req, res, next) => {
+router.post('/', uploadLimiter, uploadMiddleware.single('file'), async (req, res, next) => {
   try {
     if (!req.file) {
       return res.status(400).json({ success: false, error: 'No file uploaded' });

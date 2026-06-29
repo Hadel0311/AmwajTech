@@ -72,7 +72,7 @@ import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { api } from '@/services/api'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const carouselTrack = ref(null)
 const selectedItem = ref(null)
 const newsList = ref([])
@@ -115,8 +115,9 @@ const closeModal = () => {
 
 const formatDate = (dateString) => {
   const date = new Date(dateString)
+  const currentLocale = locale.value === 'ar' ? 'ar-EG' : 'en-US'
   const day = String(date.getDate()).padStart(2, '0')
-  const month = date.toLocaleString('en-US', { month: 'long' }).toUpperCase()
+  const month = date.toLocaleString(currentLocale, { month: 'long' }).toUpperCase()
   const year = date.getFullYear()
   return `${day} ${month} ${year}`
 }

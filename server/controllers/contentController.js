@@ -1,7 +1,7 @@
 import prisma from '../prisma/index.js';
 import { emailService } from '../services/EmailService.js';
-import { partnersList } from '../../src/data/partners.js';
-import { clientsList } from '../../src/data/clients.js';
+import { partnersList } from '../scripts/data/partners.js';
+import { clientsList } from '../scripts/data/clients.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';

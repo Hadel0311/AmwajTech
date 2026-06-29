@@ -112,10 +112,8 @@ const handleLogin = async () => {
     
     const response = await api.login(email.value, password.value);
     
-    // Save tokens
-    localStorage.setItem('amwaj_token', response.token);
-    if (response.refreshToken) {
-      localStorage.setItem('amwaj_refresh_token', response.refreshToken);
+    if (response.success) {
+      localStorage.setItem('logged_in', 'true');
     }
     
     router.push('/admin'); // Redirect to dashboard

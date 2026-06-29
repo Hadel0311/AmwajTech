@@ -3,9 +3,9 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import prisma from './prisma/index.js';
-import { newsList } from '../src/data/news.js';
-import { partnersList } from '../src/data/partners.js';
-import { clientsList } from '../src/data/clients.js';
+import { newsList } from './data/news.js';
+import { partnersList } from './data/partners.js';
+import { clientsList } from './data/clients.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

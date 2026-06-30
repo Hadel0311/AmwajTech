@@ -1,5 +1,5 @@
 <template>
-  <div class="careers-view page-transition">
+  <main class="careers-view">
     <!-- Hero Section -->
     <InternalHero
       :category="t('nav.careers') || 'Careers'"
@@ -150,7 +150,7 @@
           </div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script setup>
@@ -329,15 +329,6 @@ const submitApplication = async () => {
 </script>
 
 <style scoped>
-.page-transition {
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
 .section-padding {
   padding: 6rem 0;
 }

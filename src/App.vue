@@ -27,6 +27,7 @@ import { ref, onMounted, nextTick, provide, watch, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { api } from '@/services/api.js'
+import { applySeo } from '@/composables/useSeo.js'
 
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
@@ -39,7 +40,7 @@ const router = useRouter()
 const isPublicRoute = computed(() => {
   return !route.path.startsWith('/admin') && route.path !== '/login'
 })
-const { locale, t } = useI18n()
+const { locale, t, te } = useI18n()
 const currentLocale = ref('en')
 const isModalOpen = ref(false)
 const activeProjectKey = ref('')
@@ -57,91 +58,82 @@ const closeModal = () => {
 // Expose openModal to downstream routed page views using dependency injection
 provide('openProjectModal', openModal)
 
-const updateTitleAndMeta = () => {
-  let titleKey = ''
-  let customTitle = ''
-  
-  switch (route.name) {
-    case 'home':
-      titleKey = 'nav.tagline'
-      break
-    case 'about':
-      titleKey = 'nav.about'
-      break
-    case 'services':
-      titleKey = 'nav.services'
-      break
-    case 'service-detail':
-      const serviceId = route.params.id as string
-      const serviceMapping: Record<string, string> = {
-        'network-infrastructure': 'network_infrastructure',
-        'network-security': 'network_security',
-        'data-center': 'data_center',
-        'cloud-services': 'cloud_services',
-        'software-solutions': 'software_solutions',
-        'technical-support': 'technical_support'
+const SERVICE_SLUG_MAP: Record<string, string> = {
+  'network-infrastructure': 'network_infrastructure',
+  'network-security': 'network_security',
+  'data-center': 'data_center',
+  'cloud-services': 'cloud_services',
+  'software-solutions': 'software_solutions',
+  'technical-support': 'technical_support'
+}
+
+// Maps a route name to its SEO page key in the `seo.pages.*` namespace.
+const ROUTE_TO_SEO_KEY: Record<string, string> = {
+  home: 'home',
+  about: 'about',
+  services: 'services',
+  industries: 'industries',
+  projects: 'projects',
+  partners: 'partners',
+  'partner-detail': 'partners',
+  clients: 'clients',
+  'client-detail': 'clients',
+  careers: 'careers',
+  contact: 'contact',
+  'request-consultation': 'consultation'
+}
+
+const resolveSeo = (): { title: string; description: string } => {
+  const siteName = t('seo.siteName')
+  const defaultDesc = t('seo.defaultDescription')
+  const name = route.name as string
+
+  // Service detail: derive title/description from the specific service content.
+  if (name === 'service-detail') {
+    const key = SERVICE_SLUG_MAP[route.params.id as string]
+    if (key && te(`services.items.${key}.title`)) {
+      return {
+        title: `${t(`services.items.${key}.title`)} | ${siteName}`,
+        description: te(`services.items.${key}.description`) ? t(`services.items.${key}.description`) : defaultDesc
       }
-      const sKey = serviceMapping[serviceId]
-      if (sKey) {
-        titleKey = `services.items.${sKey}.title`
-      }
-      break
-    case 'industries':
-      titleKey = 'nav.industries'
-      break
-    case 'industry-detail':
-      const sectorId = route.params.id as string
-      const sectorMapping: Record<string, string> = {
-        'banking': 'banking',
-        'government': 'government',
-        'healthcare': 'healthcare',
-        'education': 'education',
-        'enterprise': 'enterprise',
-        'industrial': 'industrial'
-      }
-      const secKey = sectorMapping[sectorId]
-      if (secKey) {
-        titleKey = `industries.sectors.${secKey}.title`
-      }
-      break
-    case 'projects':
-      titleKey = 'nav.projects'
-      break
-    case 'contact':
-      titleKey = 'nav.contact'
-      break
-    case 'partners':
-      titleKey = 'nav.partners'
-      break
-    case 'partner-detail':
-      titleKey = 'nav.partners'
-      break
-    case 'clients':
-      titleKey = 'nav.clients'
-      break
-    case 'client-detail':
-      titleKey = 'nav.clients'
-      break
-  }
-  
-  const baseTitle = t('nav.companyName')
-  if (customTitle) {
-    document.title = customTitle
-  } else if (titleKey) {
-    document.title = `${baseTitle} | ${t(titleKey)}`
-  } else {
-    document.title = baseTitle
-  }
-  
-  // Update description tag dynamically
-  const metaDesc = document.querySelector('meta[name="description"]')
-  if (metaDesc) {
-    if (locale.value === 'ar') {
-      metaDesc.setAttribute('content', 'أمواج الأردن: تمكين عملك من خلال التكنولوجيا المبتكرة. حلول تقنية قابلة للتطوير وموثوقة وآمنة للمؤسسات والجهات الحكومية.')
-    } else {
-      metaDesc.setAttribute('content', 'Amwaj Tech: Empowering your business through innovative technology. Scalable, reliable, and secure enterprise infrastructure solutions.')
     }
+    return { title: `${t('seo.pages.services.title')} | ${siteName}`, description: t('seo.pages.services.description') }
   }
+
+  // Industry detail: derive title/description from the specific sector content.
+  if (name === 'industry-detail') {
+    const key = route.params.id as string
+    if (key && te(`industries.sectors.${key}.title`)) {
+      return {
+        title: `${t(`industries.sectors.${key}.title`)} | ${siteName}`,
+        description: te(`industries.sectors.${key}.description`) ? t(`industries.sectors.${key}.description`) : defaultDesc
+      }
+    }
+    return { title: `${t('seo.pages.industries.title')} | ${siteName}`, description: t('seo.pages.industries.description') }
+  }
+
+  const pageKey = ROUTE_TO_SEO_KEY[name]
+  if (pageKey === 'home') {
+    return { title: t('seo.pages.home.title'), description: t('seo.pages.home.description') }
+  }
+  if (pageKey) {
+    return { title: `${t(`seo.pages.${pageKey}.title`)} | ${siteName}`, description: t(`seo.pages.${pageKey}.description`) }
+  }
+
+  // Admin / login / unknown routes.
+  return { title: siteName, description: defaultDesc }
+}
+
+const updateTitleAndMeta = () => {
+  const isPrivate = route.path.startsWith('/admin') || route.path === '/login'
+  const { title, description } = resolveSeo()
+  applySeo({
+    title,
+    description,
+    path: route.path,
+    locale: locale.value,
+    index: !isPrivate
+  })
 }
 
 watch([() => route.path, locale], () => {

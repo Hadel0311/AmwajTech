@@ -26,6 +26,52 @@
     "viewDetails": "View Details",
     "learnMore": "Learn More"
   },
+  "seo": {
+    "siteName": "Amwaj Tech",
+    "defaultDescription": "Amwaj Tech delivers elite IT infrastructure, network security, data center, cloud, and managed IT services for government, banking, healthcare, and enterprise sectors in Amman, Jordan.",
+    "pages": {
+      "home": {
+        "title": "Amwaj Tech | Enterprise IT Infrastructure & Cybersecurity in Jordan",
+        "description": "Amwaj Tech delivers elite IT infrastructure, network security, data center, cloud, and managed IT services for government, banking, healthcare, and enterprise sectors in Amman, Jordan."
+      },
+      "about": {
+        "title": "About Us",
+        "description": "Learn about Amwaj Tech, a trusted enterprise technology integrator delivering secure IT infrastructure and managed services across Jordan since 2012."
+      },
+      "services": {
+        "title": "Services",
+        "description": "Explore Amwaj Tech enterprise services: network infrastructure, network security, data center, cloud, software solutions, and 24/7 technical support."
+      },
+      "industries": {
+        "title": "Industries",
+        "description": "Tailored enterprise technology solutions for banking, government, healthcare, education, enterprise, and industrial sectors across the region."
+      },
+      "projects": {
+        "title": "Case Studies",
+        "description": "Discover Amwaj Tech case studies and enterprise technology deployments delivered for leading regional organizations."
+      },
+      "partners": {
+        "title": "Technology Partners",
+        "description": "Amwaj Tech partners with leading global technology vendors to deliver secure, scalable, and reliable enterprise solutions."
+      },
+      "clients": {
+        "title": "Our Clients",
+        "description": "Trusted by leading government, financial, healthcare, education, and enterprise organizations across the region."
+      },
+      "careers": {
+        "title": "Careers",
+        "description": "Join Amwaj Tech. Explore career opportunities and grow with a team of certified IT and cybersecurity specialists."
+      },
+      "contact": {
+        "title": "Contact Us",
+        "description": "Contact Amwaj Tech in Amman, Jordan. Talk to our specialists about your IT infrastructure, security, and cloud needs."
+      },
+      "consultation": {
+        "title": "Request a Consultation",
+        "description": "Request a consultation with Amwaj Tech architects to design, secure, and optimize your enterprise technology infrastructure."
+      }
+    }
+  },
   "hero": {
     "location": "Regional Hub: Amman, Jordan",
     "title": "Amwaj Tech",
@@ -907,9 +953,7 @@
       "locations": {
         "title": "Regional Offices",
         "jordan": "Amman, Jordan (HQ)",
-        "jordanDesc": "Corporate Headquarters, Mecca St.",
-        "uae": "Dubai, UAE",
-        "uaeDesc": "Regional Office, Dubai Internet City"
+        "jordanDesc": "Corporate Headquarters, Mecca St."
       },
       "address": "Address",
       "addressValue": "Amman - Jordan - Gardens St., Alzaytona Building (53), First Floor, Office Number 2",
@@ -947,9 +991,7 @@
     "locations": {
       "title": "Regional Presence",
       "jordan": "Jordan Office (HQ):",
-      "jordanAddress": "Amman, Mecca St.",
-      "uae": "UAE Office:",
-      "uaeAddress": "Dubai, Internet City"
+      "jordanAddress": "Amman, Mecca St."
     },
     "description": "Amwaj Tech is a premier system integrator and technology solutions provider. Since our founding in 2012, we have focused on delivering high-availability IT networks, next-generation security fabrics, and robust private cloud infrastructure. We serve clients who cannot afford system downtime.",
     "certifications": {
@@ -1699,7 +1741,7 @@
           "title": "Cybersecurity Specialist",
           "dept": "Security",
           "type": "Full-Time",
-          "loc": "Dubai, UAE",
+          "loc": "Amman, Jordan",
           "desc": "Protect enterprise environments by implementing advanced security measures."
         },
         "salesExec": {

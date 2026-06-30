@@ -21,7 +21,7 @@
           {{ t('hero.description') }}
         </p>
         <div class="hero-actions">
-          <button class="btn btn-primary" @click="scrollToSection('contact')">
+          <button class="btn btn-primary" @click="router.push('/request-consultation')">
             {{ t('hero.ctaPrimary') }}
             <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-icon">
               <path d="M4.16669 10H15.8334M15.8334 10L10.8334 5M15.8334 10L10.8334 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -39,7 +39,9 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 const { t } = useI18n()
+const router = useRouter()
 
 const scrollToSection = (sectionId) => {
   const section = document.getElementById(sectionId)

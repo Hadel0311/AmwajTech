@@ -8,6 +8,8 @@
     "dev:backend": "nodemon server/server.js",
     "seed": "node server/scripts/seed.js",
     "build": "vite build",
+    "build:pages": "vite build --mode pages && node scripts/pages-postbuild.mjs",
+    "preview:pages": "vite preview --outDir docs --base /AmwajTech/",
     "preview": "vite preview",
     "start": "node server/server.js"
   },

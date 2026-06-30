@@ -14,7 +14,7 @@
       <!-- Left Column: Form -->
       <div class="consultation-main">
         <div class="form-card">
-          <h2 class="form-title">Consultation Request</h2>
+          <h2 class="form-title">{{ t('requestConsultation.formTitle') }}</h2>
           <form @submit.prevent="submitForm" class="consultation-form">
             <!-- 2 Column Grid for basics -->
             <div class="form-row">
@@ -48,7 +48,7 @@
               <div class="form-group">
                 <label for="industry">{{ t('requestConsultation.form.industry') }} <span class="required">*</span></label>
                 <select id="industry" v-model="formData.industry" required>
-                  <option value="" disabled selected>Select Industry...</option>
+                  <option value="" disabled selected>{{ t('requestConsultation.selectIndustry') }}</option>
                   <option value="gov">{{ t('requestConsultation.options.industry.gov') }}</option>
                   <option value="bank">{{ t('requestConsultation.options.industry.bank') }}</option>
                   <option value="health">{{ t('requestConsultation.options.industry.health') }}</option>
@@ -61,7 +61,7 @@
               <div class="form-group">
                 <label for="requiredService">{{ t('requestConsultation.form.requiredService') }} <span class="required">*</span></label>
                 <select id="requiredService" v-model="formData.requiredService" required>
-                  <option value="" disabled selected>Select Service...</option>
+                  <option value="" disabled selected>{{ t('requestConsultation.selectService') }}</option>
                   <option value="net_inf">{{ t('requestConsultation.options.service.net_inf') }}</option>
                   <option value="net_sec">{{ t('requestConsultation.options.service.net_sec') }}</option>
                   <option value="dc">{{ t('requestConsultation.options.service.dc') }}</option>
@@ -78,7 +78,7 @@
               <div class="form-group">
                 <label for="projectSize">{{ t('requestConsultation.form.projectSize') }} <span class="required">*</span></label>
                 <select id="projectSize" v-model="formData.projectSize" required>
-                  <option value="" disabled selected>Select Size...</option>
+                  <option value="" disabled selected>{{ t('requestConsultation.selectSize') }}</option>
                   <option value="small">{{ t('requestConsultation.options.size.small') }}</option>
                   <option value="medium">{{ t('requestConsultation.options.size.medium') }}</option>
                   <option value="enterprise">{{ t('requestConsultation.options.size.enterprise') }}</option>
@@ -88,7 +88,7 @@
               <div class="form-group">
                 <label for="projectTimeline">{{ t('requestConsultation.form.projectTimeline') }} <span class="required">*</span></label>
                 <select id="projectTimeline" v-model="formData.projectTimeline" required>
-                  <option value="" disabled selected>Select Timeline...</option>
+                  <option value="" disabled selected>{{ t('requestConsultation.selectTimeline') }}</option>
                   <option value="immediate">{{ t('requestConsultation.options.timeline.immediate') }}</option>
                   <option value="1m">{{ t('requestConsultation.options.timeline.1m') }}</option>
                   <option value="3m">{{ t('requestConsultation.options.timeline.3m') }}</option>

@@ -17,7 +17,14 @@
     "company": "Company",
     "solutionFinder": "Solution Finder",
     "contact": "Contact Us",
-    "getInTouch": "Get In Touch"
+    "getInTouch": "Get In Touch",
+    "support": "Support"
+  },
+  "common": {
+    "loading": "Loading...",
+    "readMore": "Read More",
+    "viewDetails": "View Details",
+    "learnMore": "Learn More"
   },
   "hero": {
     "location": "Regional Hub: Amman, Jordan",
@@ -66,6 +73,19 @@
       "notFound": "Service Not Found",
       "notFoundDesc": "The requested service route does not exist.",
       "back": "Back to Services"
+    },
+    "detail": {
+      "challengesTitle": "Business Challenges & Solutions",
+      "challengesSubtitle": "How Amwaj Tech resolves complex enterprise pain points.",
+      "challengeLabel": "Challenge",
+      "solutionLabel": "Solution",
+      "deliveryTitle": "How We Deliver",
+      "deliverySubtitle": "Our proven enterprise implementation methodology.",
+      "relatedTitle": "Related Services",
+      "ctaTitle": "Ready to Discuss Your Project?",
+      "ctaDesc": "Our specialists can help design, secure, and optimize your technology infrastructure.",
+      "ctaPrimary": "Request Consultation",
+      "ctaSecondary": "Contact Our Experts"
     },
     "showAll": "Show all services",
     "titleShort": "Services",
@@ -641,6 +661,15 @@
     "contactCTADesc": "Connect with our systems architects to design, deploy, and support solutions leveraging these elite technology platforms.",
     "contactCTAButton": "Schedule Technical Consultation",
     "backToPartners": "Back to Partners",
+    "notFound": "Partner Not Found",
+    "notFoundDesc": "Sorry, the technology partner you are looking for does not exist or has been moved.",
+    "noResults": "No partners found matching your search criteria.",
+    "leverageTitle": "How We Leverage {name} Technology",
+    "inquiryMessage": "Hello, we would like to inquire about integrating {name} technology solutions within our infrastructure.",
+    "defaultCategory": "Technology Partner",
+    "defaultAbout": "More details about this partner will be added soon.",
+    "defaultLeverage": "Details on how we leverage this technology will be updated shortly.",
+    "defaultShortDesc": "Leading technology solutions provider.",
     "metaTitle": "Technology Partners | Amwaj Tech",
     "metaDescription": "Discover the global technology leaders Amwaj Tech partners with to design, implement, and support enterprise-grade systems.",
     "categories": {
@@ -959,6 +988,7 @@
     "contactCTADesc": "Connect with our systems architects to design, deploy, and support solutions leveraging these elite technology platforms.",
     "contactCTAButton": "Contact Amwaj Tech",
     "backToClients": "Back to Clients",
+    "noResults": "No clients found matching your search criteria.",
     "metaTitle": "Clients | Amwaj Tech",
     "metaDescription": "Discover the leading organizations Amwaj Tech works with to provide secure, resilient, and enterprise-grade solutions.",
     "sectors": {
@@ -1476,6 +1506,7 @@
     "download": "Download PDF"
   },
   "news": {
+    "latest": "Latest News",
     "sectionTitle": "Latest News & Announcements",
     "sectionSubtitle": "Stay updated with the latest company news, technology updates, partnerships, and special announcements.",
     "readMore": "Read More",
@@ -1825,6 +1856,11 @@
       "subtitle": "Whether you're planning a new infrastructure deployment, upgrading your network, improving security, or exploring digital transformation initiatives, our team is ready to help.",
       "cta": "Schedule a Consultation"
     },
+    "formTitle": "Consultation Request",
+    "selectIndustry": "Select Industry...",
+    "selectService": "Select Service...",
+    "selectSize": "Select Size...",
+    "selectTimeline": "Select Timeline...",
     "journeyTitle": "Consultation Journey",
     "journeySteps": {
       "step1": "Submit Request",

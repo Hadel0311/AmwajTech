@@ -21,7 +21,7 @@
           <input 
             type="text" 
             v-model="searchQuery" 
-            :placeholder="t('partners.searchPlaceholder') || 'Search partners...'"
+            :placeholder="t('partners.searchPlaceholder')"
           />
         </div>
 
@@ -70,7 +70,7 @@
     <section class="partners-grid-section">
       <div class="container">
         <div v-if="filteredPartners.length === 0" class="no-results-message" style="text-align: center; padding: 3rem; color: var(--color-text-muted); font-size: var(--text-lg);">
-          <p>No partners found matching your search criteria.</p>
+          <p>{{ t('partners.noResults') }}</p>
         </div>
         <div v-else class="partners-cards-grid">
           <article 
@@ -87,7 +87,7 @@
             <div class="partner-card-overlay">
               <!-- Main Category Badge -->
               <span class="partner-card-cat-badge">
-                {{ partner.category || (te(`partners.items.${partner.key}.category`) ? t(`partners.items.${partner.key}.category`) : 'Technology Partner') }}
+                {{ partner.category || (te(`partners.items.${partner.key}.category`) ? t(`partners.items.${partner.key}.category`) : t('partners.defaultCategory')) }}
               </span>
 
               <!-- Partner Title -->
@@ -95,12 +95,12 @@
 
               <!-- Short Description -->
               <p class="partner-card-desc">
-                {{ partner.shortDesc || (te(`partners.items.${partner.key}.shortDesc`) ? t(`partners.items.${partner.key}.shortDesc`) : 'Leading technology solutions provider.') }}
+                {{ partner.shortDesc || (te(`partners.items.${partner.key}.shortDesc`) ? t(`partners.items.${partner.key}.shortDesc`) : t('partners.defaultShortDesc')) }}
               </p>
 
               <!-- Card Footer Link -->
               <router-link :to="`/partners/${partner.id}`" class="partner-card-link">
-                <span>View Details &rarr;</span>
+                <span>{{ t('common.viewDetails') }} &rarr;</span>
               </router-link>
             </div>
           </article>

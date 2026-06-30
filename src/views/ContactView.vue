@@ -2,7 +2,7 @@
   <main class="contact-view">
     <!-- Hero Section -->
     <InternalHero
-      category="Contact"
+      :category="t('nav.contact')"
       :title="t('contactPage.hero.title')"
       :description="t('contactPage.hero.desc')"
       theme="dark"

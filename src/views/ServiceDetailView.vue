@@ -42,15 +42,15 @@
     <section class="challenges-section" v-if="challenges && challenges.length">
       <div class="container">
         <div class="section-header center">
-          <h2 class="section-heading">Business Challenges & Solutions</h2>
-          <p class="section-subheading">How Amwaj Tech resolves complex enterprise pain points.</p>
+          <h2 class="section-heading">{{ t('services.detail.challengesTitle') }}</h2>
+          <p class="section-subheading">{{ t('services.detail.challengesSubtitle') }}</p>
         </div>
         
         <div class="challenges-grid">
           <div class="challenge-card" v-for="(item, idx) in challenges" :key="idx">
             <div class="challenge-part">
               <AlertTriangle class="card-icon danger" />
-              <h3 class="card-title">Challenge</h3>
+              <h3 class="card-title">{{ t('services.detail.challengeLabel') }}</h3>
               <p>{{ item.challenge }}</p>
             </div>
             <div class="card-divider">
@@ -58,7 +58,7 @@
             </div>
             <div class="solution-part">
               <ShieldCheck class="card-icon success" />
-              <h3 class="card-title">Solution</h3>
+              <h3 class="card-title">{{ t('services.detail.solutionLabel') }}</h3>
               <p>{{ item.solution }}</p>
             </div>
           </div>
@@ -70,8 +70,8 @@
     <section class="delivery-section" v-if="workflow && workflow.length">
       <div class="container">
         <div class="section-header center">
-          <h2 class="section-heading">How We Deliver</h2>
-          <p class="section-subheading">Our proven enterprise implementation methodology.</p>
+          <h2 class="section-heading">{{ t('services.detail.deliveryTitle') }}</h2>
+          <p class="section-subheading">{{ t('services.detail.deliverySubtitle') }}</p>
         </div>
         
         <div class="timeline-container">
@@ -92,7 +92,7 @@
     <!-- Related Services -->
     <section class="related-services-section" v-if="relatedServicesData && relatedServicesData.length">
       <div class="container">
-        <h2 class="section-heading">Related Services</h2>
+        <h2 class="section-heading">{{ t('services.detail.relatedTitle') }}</h2>
         <div class="related-grid">
           <router-link 
             v-for="(svc, idx) in relatedServicesData" 
@@ -106,7 +106,7 @@
             <h3 class="rel-title">{{ svc.title }}</h3>
             <p class="rel-desc">{{ svc.description }}</p>
             <div class="rel-link">
-              <span>Learn More</span>
+              <span>{{ t('common.learnMore') }}</span>
               <ArrowRight class="sm-arrow" />
             </div>
           </router-link>
@@ -118,12 +118,12 @@
     <section class="premium-cta-section">
       <div class="container cta-container">
         <div class="cta-content">
-          <h2>Ready to Discuss Your Project?</h2>
-          <p>Our specialists can help design, secure, and optimize your technology infrastructure.</p>
+          <h2>{{ t('services.detail.ctaTitle') }}</h2>
+          <p>{{ t('services.detail.ctaDesc') }}</p>
         </div>
         <div class="cta-actions">
-          <router-link to="/contact" class="btn btn-primary cta-btn">Request Consultation</router-link>
-          <router-link to="/contact" class="btn btn-outline cta-btn">Contact Our Experts</router-link>
+          <router-link to="/contact" class="btn btn-primary cta-btn">{{ t('services.detail.ctaPrimary') }}</router-link>
+          <router-link to="/contact" class="btn btn-outline cta-btn">{{ t('services.detail.ctaSecondary') }}</router-link>
         </div>
       </div>
     </section>
@@ -132,7 +132,7 @@
   <main class="service-detail-view invalid-view" v-else-if="loading">
     <div class="error-container">
       <div class="loading-pulse" style="font-size: 1.25rem; font-weight: 700; color: var(--color-primary); opacity: 0.7;">
-        {{ locale === 'ar' ? 'جاري التحميل...' : 'Loading...' }}
+        {{ t('common.loading') }}
       </div>
     </div>
   </main>

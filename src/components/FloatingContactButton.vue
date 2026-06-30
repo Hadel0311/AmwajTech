@@ -1,14 +1,17 @@
 <template>
-  <router-link to="/contact" class="floating-contact-button" aria-label="Contact Us">
+  <router-link to="/contact" class="floating-contact-button" :aria-label="t('nav.contact')">
     <span class="icon-wrapper">
       <MessageCircle class="contact-icon" />
     </span>
-    <span class="button-label">Get In Touch</span>
+    <span class="button-label">{{ t('nav.getInTouch') }}</span>
   </router-link>
 </template>
 
 <script setup lang="ts">
 import { MessageCircle } from 'lucide-vue-next'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 </script>
 
 <style scoped>

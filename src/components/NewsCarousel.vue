@@ -4,7 +4,7 @@
       <div class="section-header align-left">
         <div class="latest-news-title">
           <span class="title-line"></span>
-          <h2 class="section-title">{{ t('news.latest', 'LATEST NEWS') }}</h2>
+          <h2 class="section-title">{{ t('news.latest') }}</h2>
         </div>
       </div>
 
@@ -29,7 +29,7 @@
                 <span class="icon-circle">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </span>
-                {{ t('common.readMore', 'Read more') }}
+                {{ t('common.readMore') }}
               </button>
             </div>
           </div>

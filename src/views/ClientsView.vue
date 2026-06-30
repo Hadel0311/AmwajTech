@@ -21,7 +21,7 @@
           <input 
             type="text" 
             v-model="searchQuery" 
-            :placeholder="t('clients.searchPlaceholder') || 'Search clients...'"
+            :placeholder="t('clients.searchPlaceholder')"
           />
         </div>
 
@@ -70,7 +70,7 @@
     <section class="clients-grid-section">
       <div class="container">
         <div v-if="filteredClients.length === 0" class="no-results-message" style="text-align: center; padding: 3rem; color: var(--color-text-muted); font-size: var(--text-lg);">
-          <p>No clients found matching your search criteria.</p>
+          <p>{{ t('clients.noResults') }}</p>
         </div>
         <div v-else class="clients-cards-grid">
           <article 

@@ -9,7 +9,7 @@
           <router-link to="/partners">{{ t('nav.partners') }}</router-link>
           <span class="breadcrumbs-separator">/</span>
           <span class="breadcrumbs-current" v-if="partner">{{ partner.name }}</span>
-          <span class="breadcrumbs-current" v-else>{{ t('partners.notFound') || 'Not Found' }}</span>
+          <span class="breadcrumbs-current" v-else>{{ t('partners.notFound') }}</span>
         </nav>
       </div>
     </div>
@@ -21,7 +21,7 @@
         <article class="partner-detail-body">
           <header class="partner-detail-header">
             <span class="partner-detail-category">
-              {{ partner.category || (te(`partners.items.${partner.key}.category`) ? t(`partners.items.${partner.key}.category`) : 'Technology Partner') }}
+              {{ partner.category || (te(`partners.items.${partner.key}.category`) ? t(`partners.items.${partner.key}.category`) : t('partners.defaultCategory')) }}
             </span>
             <h1 class="partner-detail-name">{{ partner.name }}</h1>
           </header>
@@ -32,17 +32,17 @@
               {{ t('about.title') }}
             </h2>
             <p class="partner-detail-text">
-              {{ partner.aboutDesc || (te(`partners.items.${partner.key}.about`) ? t(`partners.items.${partner.key}.about`) : 'More details about this partner will be added soon.') }}
+              {{ partner.aboutDesc || (te(`partners.items.${partner.key}.about`) ? t(`partners.items.${partner.key}.about`) : t('partners.defaultAbout')) }}
             </p>
           </section>
 
           <!-- Leverage Section -->
           <section class="partner-detail-section">
             <h2 class="partner-detail-section-title">
-              {{ locale === 'ar' ? `كيف نستفيد من تقنية ${partner.name}` : `How We Leverage ${partner.name} Technology` }}
+              {{ t('partners.leverageTitle', { name: partner.name }) }}
             </h2>
             <p class="partner-detail-text">
-              {{ partner.leverageDesc || (te(`partners.items.${partner.key}.leverage`) ? t(`partners.items.${partner.key}.leverage`) : 'Details on how we leverage this technology will be updated shortly.') }}
+              {{ partner.leverageDesc || (te(`partners.items.${partner.key}.leverage`) ? t(`partners.items.${partner.key}.leverage`) : t('partners.defaultLeverage')) }}
             </p>
           </section>
         </article>
@@ -108,15 +108,15 @@
     <!-- Loading state -->
     <div class="container text-center section-padding" v-else-if="loading" style="min-height: 40vh; display: flex; align-items: center; justify-content: center;">
       <div class="loading-pulse" style="font-size: 1.25rem; font-weight: 700; color: var(--color-primary); opacity: 0.7;">
-        {{ locale === 'ar' ? 'جاري التحميل...' : 'Loading...' }}
+        {{ t('common.loading') }}
       </div>
     </div>
 
     <!-- Error/Not Found state -->
     <div class="container text-center section-padding" v-else>
-      <h2 class="section-title">{{ locale === 'ar' ? 'لم يتم العثور على الشريك' : 'Partner Not Found' }}</h2>
+      <h2 class="section-title">{{ t('partners.notFound') }}</h2>
       <p class="section-subtitle">
-        {{ locale === 'ar' ? 'عذراً، الشريك الذي تبحث عنه غير موجود أو تم نقله.' : 'Sorry, the technology partner you are looking for does not exist or has been moved.' }}
+        {{ t('partners.notFoundDesc') }}
       </p>
       <router-link to="/partners" class="btn btn-primary">
         {{ t('partners.backToPartners') }}
@@ -189,9 +189,6 @@ const contactServiceParam = computed(() => {
 // Custom message text for Contact form pre-fill
 const contactMessageParam = computed(() => {
   if (!partner.value) return ''
-  if (locale.value === 'ar') {
-    return `مرحباً، نود الاستفسار عن كيفية الاستفادة من حلول ${partner.value.name} لبنيتنا التحتية.`
-  }
-  return `Hello, we would like to inquire about integrating ${partner.value.name} technology solutions within our infrastructure.`
+  return t('partners.inquiryMessage', { name: partner.value.name })
 })
 </script>

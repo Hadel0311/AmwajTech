@@ -87,7 +87,7 @@
             <div class="partner-card-overlay">
               <!-- Main Category Badge -->
               <span class="partner-card-cat-badge">
-                {{ partner.category || t(`partners.items.${partner.key}.category`) || 'Technology Partner' }}
+                {{ partner.category || (te(`partners.items.${partner.key}.category`) ? t(`partners.items.${partner.key}.category`) : 'Technology Partner') }}
               </span>
 
               <!-- Partner Title -->
@@ -95,7 +95,7 @@
 
               <!-- Short Description -->
               <p class="partner-card-desc">
-                {{ partner.shortDesc || t(`partners.items.${partner.key}.shortDesc`) || 'Leading technology solutions provider.' }}
+                {{ partner.shortDesc || (te(`partners.items.${partner.key}.shortDesc`) ? t(`partners.items.${partner.key}.shortDesc`) : 'Leading technology solutions provider.') }}
               </p>
 
               <!-- Card Footer Link -->
@@ -234,9 +234,9 @@ const filteredPartners = computed(() => {
     // 2. Filter by search query
     if (searchQuery.value.trim() !== '') {
       const query = searchQuery.value.toLowerCase()
-      const name = (partner.name || t(`partners.items.${partner.key}.name`) || '').toLowerCase()
-      const category = (partner.category || t(`partners.items.${partner.key}.category`) || '').toLowerCase()
-      const desc = (partner.shortDesc || t(`partners.items.${partner.key}.shortDesc`) || '').toLowerCase()
+      const name = (partner.name || (te(`partners.items.${partner.key}.name`) ? t(`partners.items.${partner.key}.name`) : '')).toLowerCase()
+      const category = (partner.category || (te(`partners.items.${partner.key}.category`) ? t(`partners.items.${partner.key}.category`) : '')).toLowerCase()
+      const desc = (partner.shortDesc || (te(`partners.items.${partner.key}.shortDesc`) ? t(`partners.items.${partner.key}.shortDesc`) : '')).toLowerCase()
 
       return name.includes(query) || category.includes(query) || desc.includes(query)
     }

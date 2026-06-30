@@ -125,34 +125,6 @@ const standards = computed(() => {
 </script>
 
 <style scoped>
-.page-header {
-  background-color: var(--color-primary-dark);
-  padding: 5.5rem 0;
-  color: var(--color-text-inverse);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.category-label {
-  font-size: 0.8rem;
-  font-weight: var(--font-bold);
-  color: var(--color-accent);
-  letter-spacing: 2px;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.page-title {
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  font-weight: var(--font-bold);
-  font-family: var(--font-heading, 'Montserrat', sans-serif);
-}
-
 .detail-content-section {
   background-color: var(--color-bg-secondary);
   padding: 6rem 0;

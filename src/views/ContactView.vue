@@ -201,33 +201,6 @@ const submitForm = async () => {
   color: #0F172A;
 }
 
-.page-header {
-  background-color: #0F3D91;
-  padding: 6rem 0;
-  text-align: center;
-  color: #FFFFFF;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.header-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.page-title {
-  font-size: clamp(2.25rem, 4vw, 3.25rem);
-  font-weight: var(--font-bold, 700);
-  font-family: var(--font-heading, 'Montserrat', sans-serif);
-  margin-bottom: 1rem;
-}
-
-.page-subtitle {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.6;
-}
-
 .contact-main-section {
   padding: 5rem 0 6rem;
 }

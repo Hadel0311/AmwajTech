@@ -163,7 +163,15 @@ import {
 } from 'lucide-vue-next'
 
 const route = useRoute()
-const { t, tm, locale } = useI18n()
+const { t, te, tm, locale } = useI18n()
+
+// Use an Arabic translation only when one actually exists for this key.
+// Admin-created content has no translation entries, so it is shown as-is.
+const localized = (key, fallback) =>
+  locale.value === 'ar' && te(key) ? t(key) : fallback
+
+const localizedObj = (key, fallback) =>
+  locale.value === 'ar' && te(key) ? tm(key) : fallback
 
 const loading = ref(true)
 const serviceData = ref(null)
@@ -210,27 +218,27 @@ const currentImage = computed(() => {
 
 const heroValueProp = computed(() => {
   if (!serviceData.value) return ''
-  return locale.value === 'ar' ? t(`services.details.${serviceData.value.key}.heroValueProp`) : serviceData.value.heroValueProp
+  return localized(`services.details.${serviceData.value.key}.heroValueProp`, serviceData.value.heroValueProp)
 })
 
 const visualIntro = computed(() => {
   if (!serviceData.value) return null
-  return locale.value === 'ar' ? tm(`services.details.${serviceData.value.key}.visualIntro`) : serviceData.value.visualIntro
+  return localizedObj(`services.details.${serviceData.value.key}.visualIntro`, serviceData.value.visualIntro)
 })
 
 const challenges = computed(() => {
   if (!serviceData.value) return []
-  return locale.value === 'ar' ? tm(`services.details.${serviceData.value.key}.challenges`) : serviceData.value.challenges
+  return localizedObj(`services.details.${serviceData.value.key}.challenges`, serviceData.value.challenges)
 })
 
 const workflow = computed(() => {
   if (!serviceData.value) return []
-  return locale.value === 'ar' ? tm(`services.details.${serviceData.value.key}.workflow`) : serviceData.value.workflow
+  return localizedObj(`services.details.${serviceData.value.key}.workflow`, serviceData.value.workflow)
 })
 
 const serviceTitle = computed(() => {
   if (!serviceData.value) return ''
-  return locale.value === 'ar' ? t(`services.items.${serviceData.value.key}.title`) : serviceData.value.title
+  return localized(`services.items.${serviceData.value.key}.title`, serviceData.value.title)
 })
 
 const getIcon = (iconName) => {
@@ -244,8 +252,8 @@ const relatedServicesData = computed(() => {
     if (relService) {
       return {
         id: relService.id,
-        title: locale.value === 'ar' ? t(`services.items.${relService.key}.title`) : relService.title,
-        description: locale.value === 'ar' ? t(`services.items.${relService.key}.description`) : relService.description,
+        title: localized(`services.items.${relService.key}.title`, relService.title),
+        description: localized(`services.items.${relService.key}.description`, relService.description),
         icon: getIcon(relService.icon)
       }
     }

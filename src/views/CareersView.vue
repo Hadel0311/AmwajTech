@@ -414,49 +414,6 @@ const submitApplication = async () => {
   transform: rotate(180deg);
 }
 
-/* Hero Section */
-.hero-section {
-  position: relative;
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-primary-dark, #0a0f1c);
-  color: #ffffff;
-  padding: 8rem 2rem 4rem;
-  overflow: hidden;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 30px 30px;
-  opacity: 0.6;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 10;
-  max-width: 800px;
-}
-
-.hero-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 800;
-  margin-bottom: 1.5rem;
-  line-height: 1.1;
-  font-family: var(--font-heading, 'Montserrat', sans-serif);
-}
-
-.hero-subtitle {
-  font-size: 1.2rem;
-  color: #cbd5e1;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
-}
-
 .slide-up {
   animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   opacity: 0;
@@ -805,7 +762,6 @@ const submitApplication = async () => {
 }
 
 @media (max-width: 767px) {
-  .hero-section { padding: 6rem 1.5rem 3rem; }
   .form-row { flex-direction: column; gap: 1.5rem; }
   .form-card { padding: 2rem 1.5rem; }
 }

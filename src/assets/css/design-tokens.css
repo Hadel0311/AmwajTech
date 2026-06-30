@@ -1,22 +1,24 @@
 /* Design Tokens - CSS Custom Properties (Scope ME Style) */
 :root {
   /* Primary Colors */
-  --color-primary: #0A192F; /* Deep Corporate Navy Blue */
-  --color-primary-light: #172A45;
-  --color-primary-dark: #020C1B;
+  --color-primary: #1a2a4a; /* Deep Royal Blue */
+  --color-primary-light: #28406e;
+  --color-primary-dark: #101a2f;
   --color-primary-rgb: 10, 25, 47;
   
   /* Secondary/Accent Colors */
   --color-secondary: #00509D; /* Professional Blue Accents */
   --color-secondary-rgb: 0, 80, 157;
-  --color-accent: #0D9488; /* Subtle Technology Teal */
-  --color-accent-hover: #0F766E;
+  --color-accent: #f9b233; /* Warm Accent Yellow */
+  --color-accent-hover: #e8a020;
   --color-accent-rgb: 13, 148, 136;
   
   /* Background Colors */
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f8fafc; /* Very light slate gray */
-  --color-bg-alt: #f1f5f9;
+  --color-bg-alt: #f4f4f4;
+  --color-bg-light: #ffffff; /* Pure White */
+  --color-bg-dark: #222222; /* Dark Footer/Sections */
   --color-bg-card: #ffffff;
   --color-bg-card-light: #ffffff;
   --color-bg-card-accent: #f8fafc;
@@ -27,7 +29,8 @@
   /* Text Colors */
   --color-text-primary: #1e293b; /* Slate 800 */
   --color-text-secondary: #475569; /* Slate 600 */
-  --color-text-muted: #64748b; /* Slate 500 */
+  --color-text-muted: #666666;
+  --color-text-main: #333333;
   --color-text-dark: #0f172a; /* Slate 900 */
   --color-text-inverse: #ffffff;
   
@@ -100,4 +103,34 @@
   --backdrop-blur-lg: none;
   --backdrop-blur-xl: none;
   --backdrop-blur-2xl: none;
+
+  /* Typography Families */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Dashboard & Card Style Tokens */
+  --card-bg: var(--color-bg-light);
+  --card-border: rgba(26, 42, 74, 0.08);
+  --card-radius: 12px;
+  --card-shadow: 0 4px 20px -2px rgba(26, 42, 74, 0.04);
+  --card-shadow-hover: 0 12px 30px -4px rgba(26, 42, 74, 0.08);
+
+  /* Generic Soft Brand Palette Tokens */
+  --color-primary-soft: rgba(26, 42, 74, 0.08);
+  --color-primary-light-soft: rgba(40, 64, 110, 0.08);
+  --color-accent-soft: rgba(249, 178, 51, 0.08);
+  --color-accent-hover-soft: rgba(232, 160, 32, 0.08);
+  --color-indigo: #4f46e5;
+  --color-indigo-soft: rgba(79, 70, 229, 0.08);
+  --color-teal: #0d9488;
+  --color-teal-soft: rgba(13, 148, 136, 0.08);
+  --color-neutral-soft: rgba(100, 116, 139, 0.08);
+  --color-neutral-muted: #64748b;
+
+  /* Legacy radius / shadow / transition aliases */
+  --border-radius: 4px;
+  --border-radius-lg: 8px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
 }

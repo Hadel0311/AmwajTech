@@ -86,15 +86,15 @@
             <!-- Hover Overlay View -->
             <div class="client-card-overlay">
               <span class="client-card-cat-badge">
-                {{ client.industry || t(`clients.sectors.${client.category || 'enterprise'}`) }}
+                {{ client.industry || (te(`clients.sectors.${client.category || 'enterprise'}`) ? t(`clients.sectors.${client.category || 'enterprise'}`) : (client.category || '')) }}
               </span>
 
               <h3 class="client-card-title">
-                {{ client.name || t(`clients.items.${client.key}.name`) }}
+                {{ client.name || (te(`clients.items.${client.key}.name`) ? t(`clients.items.${client.key}.name`) : '') }}
               </h3>
 
               <p class="client-card-desc">
-                {{ client.description || t(`clients.items.${client.key}.shortDesc`) }}
+                {{ client.description || (te(`clients.items.${client.key}.shortDesc`) ? t(`clients.items.${client.key}.shortDesc`) : '') }}
               </p>
             </div>
           </article>
@@ -223,9 +223,9 @@ const filteredClients = computed(() => {
     // 2. Filter by search query
     if (searchQuery.value.trim() !== '') {
       const query = searchQuery.value.toLowerCase()
-      const name = (client.name || t(`clients.items.${client.key}.name`) || '').toLowerCase()
-      const sector = (client.industry || t(`clients.sectors.${client.category || 'enterprise'}`) || '').toLowerCase()
-      const desc = (client.description || t(`clients.items.${client.key}.shortDesc`) || '').toLowerCase()
+      const name = (client.name || (te(`clients.items.${client.key}.name`) ? t(`clients.items.${client.key}.name`) : '')).toLowerCase()
+      const sector = (client.industry || (te(`clients.sectors.${client.category || 'enterprise'}`) ? t(`clients.sectors.${client.category || 'enterprise'}`) : '')).toLowerCase()
+      const desc = (client.description || (te(`clients.items.${client.key}.shortDesc`) ? t(`clients.items.${client.key}.shortDesc`) : '')).toLowerCase()
 
       return name.includes(query) || sector.includes(query) || desc.includes(query)
     }

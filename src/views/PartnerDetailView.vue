@@ -21,7 +21,7 @@
         <article class="partner-detail-body">
           <header class="partner-detail-header">
             <span class="partner-detail-category">
-              {{ partner.category || t(`partners.items.${partner.key}.category`) || 'Technology Partner' }}
+              {{ partner.category || (te(`partners.items.${partner.key}.category`) ? t(`partners.items.${partner.key}.category`) : 'Technology Partner') }}
             </span>
             <h1 class="partner-detail-name">{{ partner.name }}</h1>
           </header>
@@ -32,7 +32,7 @@
               {{ t('about.title') }}
             </h2>
             <p class="partner-detail-text">
-              {{ partner.aboutDesc || t(`partners.items.${partner.key}.about`) || 'More details about this partner will be added soon.' }}
+              {{ partner.aboutDesc || (te(`partners.items.${partner.key}.about`) ? t(`partners.items.${partner.key}.about`) : 'More details about this partner will be added soon.') }}
             </p>
           </section>
 
@@ -42,7 +42,7 @@
               {{ locale === 'ar' ? `كيف نستفيد من تقنية ${partner.name}` : `How We Leverage ${partner.name} Technology` }}
             </h2>
             <p class="partner-detail-text">
-              {{ partner.leverageDesc || t(`partners.items.${partner.key}.leverage`) || 'Details on how we leverage this technology will be updated shortly.' }}
+              {{ partner.leverageDesc || (te(`partners.items.${partner.key}.leverage`) ? t(`partners.items.${partner.key}.leverage`) : 'Details on how we leverage this technology will be updated shortly.') }}
             </p>
           </section>
         </article>
@@ -133,7 +133,7 @@ import { useI18n } from 'vue-i18n'
 
 const route = useRoute()
 const router = useRouter()
-const { t, locale } = useI18n()
+const { t, te, locale } = useI18n()
 
 const partner = ref(null)
 const loading = ref(true)

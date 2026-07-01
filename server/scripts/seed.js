@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import prisma from './prisma/index.js';
+import prisma from '../prisma/index.js';
 import { newsList } from './data/news.js';
 import { partnersList } from './data/partners.js';
 import { clientsList } from './data/clients.js';
@@ -68,7 +68,7 @@ const seedData = async () => {
 
     // 3.5 Seed Services
     console.log('Seeding Services...');
-    const dataPath = path.resolve(__dirname, '../src/i18n/locales/en.json');
+    const dataPath = path.resolve(__dirname, '../../src/i18n/locales/en.json');
     const rawData = fs.readFileSync(dataPath, 'utf-8');
     const enJson = JSON.parse(rawData);
 
@@ -90,7 +90,7 @@ const seedData = async () => {
       const detail = detailsList[key] || {};
       
       const imagePath = `/images/services/${key.replace('_', '-')}-hero.jpg`;
-      const fsPath = path.join(__dirname, `../public${imagePath}`);
+      const fsPath = path.join(__dirname, `../../public${imagePath}`);
       const hasImage = fs.existsSync(fsPath);
 
       const serviceData = {

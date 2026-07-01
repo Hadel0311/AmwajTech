@@ -60,7 +60,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(distPath));
   
   // SPA Fallback: Any unknown route (not starting with /api or /uploads) returns index.html
-  app.get('*', (req, res, next) => {
+  app.use((req, res, next) => {
     if (req.path.startsWith('/api/') || req.path.startsWith('/uploads/')) {
       return next();
     }

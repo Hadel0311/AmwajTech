@@ -19,7 +19,20 @@ const corsOptions = {
   optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
-app.use(helmet({ crossOriginResourcePolicy: false })); // Allow serving static images cross-origin
+app.use(helmet({
+  crossOriginResourcePolicy: false,
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'"],
+      styleSrc: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
+      fontSrc: ["'self'", 'https://fonts.gstatic.com'],
+      imgSrc: ["'self'", 'data:', 'https://images.unsplash.com'],
+      mediaSrc: ["'self'"],
+      connectSrc: ["'self'"],
+    },
+  },
+}));
 app.use(express.json());
 app.use(cookieParser());
 

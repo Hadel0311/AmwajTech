@@ -1,8 +1,7 @@
 <template>
   <section id="hero" class="hero-section">
     <!-- Network Video Background -->
-    <video ref="heroVideo" autoplay loop muted playsinline class="hero-video">
-      <source src="/network-bg.mp4" type="video/mp4" />
+    <video ref="heroVideo" :src="networkBg" autoplay loop muted playsinline class="hero-video" type="video/mp4">
     </video>
     <!-- Dark Navy Overlay with Grid Pattern -->
     <div class="hero-background-overlay"></div>
@@ -41,6 +40,8 @@
 import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
+import networkBg from '@/assets/network-bg.mp4'
+
 const { t } = useI18n()
 const router = useRouter()
 const heroVideo = ref(null)

@@ -6,6 +6,7 @@ import prisma from '../prisma/index.js';
 import { newsList } from './data/news.js';
 import { partnersList } from './data/partners.js';
 import { clientsList } from './data/clients.js';
+import { servicesList } from './data/services.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,18 +23,18 @@ const seedData = async () => {
 
     // 0. Create Initial Admin User
     console.log('Creating Admin User...');
-    const adminEmail = 'admin@amwajtech.com';
-    const existingAdmin = await prisma.user.findUnique({ where: { email: adminEmail } });
+    const adminUsername = 'adminamwaj';
+    const existingAdmin = await prisma.user.findUnique({ where: { username: adminUsername } });
     if (!existingAdmin) {
       const passwordHash = await bcrypt.hash('admin123', 10);
       await prisma.user.create({
         data: {
-          email: adminEmail,
+          username: adminUsername,
           passwordHash,
           role: 'ADMIN'
         }
       });
-      console.log('✅ Admin user created (admin@amwajtech.com / admin123)');
+      console.log('✅ Admin user created (adminamwaj / admin123)');
     }
 
     // 1. Seed Announcements (News)
@@ -68,47 +69,17 @@ const seedData = async () => {
 
     // 3.5 Seed Services
     console.log('Seeding Services...');
-    const dataPath = path.resolve(__dirname, '../../src/i18n/locales/en.json');
-    const rawData = fs.readFileSync(dataPath, 'utf-8');
-    const enJson = JSON.parse(rawData);
-
-    const servicesList = enJson.services.items;
-    const detailsList = enJson.services.details;
-
-    const mapKeyToIcon = {
-      'network_infrastructure': 'Network',
-      'network_security': 'ShieldCheck',
-      'data_center': 'Database',
-      'cloud_services': 'Cloud',
-      'software_solutions': 'Code',
-      'technical_support': 'Headset'
-    };
-
-    let serviceOrder = 1;
-    for (const key in servicesList) {
-      const basic = servicesList[key];
-      const detail = detailsList[key] || {};
-      
-      const imagePath = `/images/services/${key.replace('_', '-')}-hero.jpg`;
-      const fsPath = path.join(__dirname, `../../public${imagePath}`);
+    for (const service of servicesList) {
+      const fsPath = path.join(__dirname, `../../public${service.image}`);
       const hasImage = fs.existsSync(fsPath);
-
+      
       const serviceData = {
-        key: key,
-        title: basic.title,
-        icon: mapKeyToIcon[key] || 'Layers',
-        description: basic.description,
-        image: hasImage ? imagePath : null,
-        heroValueProp: detail.heroValueProp || null,
-        visualIntro: detail.visualIntro || null,
-        challenges: detail.challenges || null,
-        workflow: detail.workflow || null,
-        relatedServices: detail.relatedServices || [],
-        order: serviceOrder++
+        ...service,
+        image: hasImage ? service.image : null
       };
 
       await prisma.service.upsert({
-        where: { key: key },
+        where: { key: service.key },
         update: serviceData,
         create: serviceData
       });

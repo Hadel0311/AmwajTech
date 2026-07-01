@@ -5,19 +5,19 @@ import { logger } from '../utils/logger.js';
 
 export const login = async (req, res, next) => {
   try {
-    const { email, password } = req.body;
+    const { username, password } = req.body;
 
     const user = await prisma.user.findUnique({
-      where: { email }
+      where: { username }
     });
 
     if (!user) {
-      return res.status(401).json({ success: false, error: 'Invalid email or password' });
+      return res.status(401).json({ success: false, error: 'Invalid username or password' });
     }
 
     const isMatch = await bcrypt.compare(password, user.passwordHash);
     if (!isMatch) {
-      return res.status(401).json({ success: false, error: 'Invalid email or password' });
+      return res.status(401).json({ success: false, error: 'Invalid username or password' });
     }
 
     const token = jwt.sign(
@@ -55,7 +55,7 @@ export const login = async (req, res, next) => {
       success: true,
       user: {
         id: user.id,
-        email: user.email,
+        username: user.username,
         role: user.role
       }
     });

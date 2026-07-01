@@ -2,7 +2,7 @@
   <section id="hero" class="hero-section">
     <!-- Network Video Background -->
     <video autoplay loop muted playsinline class="hero-video">
-      <source src="../assets/network-bg.mp4" type="video/mp4" />
+      <source src="/network-bg.mp4" type="video/mp4" />
     </video>
     <!-- Dark Navy Overlay with Grid Pattern -->
     <div class="hero-background-overlay"></div>

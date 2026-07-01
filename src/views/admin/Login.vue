@@ -41,14 +41,14 @@
           </div>
 
           <div class="form-group">
-            <label for="email">Email Address</label>
+            <label for="username">Username</label>
             <div class="input-wrapper">
-              <Mail class="input-icon" :size="18" />
+              <User class="input-icon" :size="18" />
               <input 
-                id="email"
-                v-model="email" 
-                type="email" 
-                placeholder="admin@amwajtech.com"
+                id="username"
+                v-model="username" 
+                type="text" 
+                placeholder="adminamwaj"
                 required
                 class="form-input"
               />
@@ -97,10 +97,10 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { api } from '@/services/api';
-import { Mail, Lock, AlertCircle, ArrowLeft, CheckCircle, ShieldCheck } from 'lucide-vue-next';
+import { User, Lock, AlertCircle, ArrowLeft, CheckCircle, ShieldCheck } from 'lucide-vue-next';
 
 const router = useRouter();
-const email = ref('');
+const username = ref('');
 const password = ref('');
 const errorMsg = ref('');
 const isLoading = ref(false);
@@ -110,7 +110,7 @@ const handleLogin = async () => {
     isLoading.value = true;
     errorMsg.value = '';
     
-    const response = await api.login(email.value, password.value);
+    const response = await api.login(username.value, password.value);
     
     if (response.success) {
       localStorage.setItem('logged_in', 'true');
@@ -118,7 +118,7 @@ const handleLogin = async () => {
     
     router.push('/admin'); // Redirect to dashboard
   } catch (error) {
-    errorMsg.value = error.message || 'Invalid email or password.';
+    errorMsg.value = error.message || 'Invalid username or password.';
     console.error(error);
   } finally {
     isLoading.value = false;

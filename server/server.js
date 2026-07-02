@@ -23,7 +23,8 @@ app.use(helmet({
   crossOriginResourcePolicy: false,
   crossOriginEmbedderPolicy: false,
   crossOriginOpenerPolicy: false,
-  contentSecurityPolicy: false
+  contentSecurityPolicy: false,
+  hsts: false
 }));
 app.use(express.json());
 app.use(cookieParser());

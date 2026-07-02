@@ -30,7 +30,7 @@ app.use(helmet({
       imgSrc: ["'self'", 'data:', 'https://images.unsplash.com'],
       mediaSrc: ["'self'"],
       connectSrc: ["'self'"],
-      frameSrc: ["'self'", "https://maps.google.com", "https://www.figma.com"],
+      frameSrc: ["'self'", "https://maps.google.com", "https://www.google.com", "https://www.figma.com"],
     },
   },
 }));

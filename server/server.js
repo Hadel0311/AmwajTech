@@ -54,6 +54,32 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Amwaj Tech Backend is running (PostgreSQL)' });
 });
 
+// Block external IP access to Admin and Auth routes
+app.use((req, res, next) => {
+  const isRestrictedRoute = req.path.startsWith('/login') || 
+                            req.path.startsWith('/admin') || 
+                            req.path.startsWith('/api/auth');
+                            
+  if (isRestrictedRoute) {
+    const clientIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress || '';
+    
+    // Check if IP is local (localhost, 192.168.x.x, 10.x.x.x, 172.16.x.x-172.31.x.x)
+    const isLocal = clientIp.includes('127.0.0.1') || 
+                    clientIp === '::1' ||
+                    clientIp.match(/^::ffff:192\.168\./) ||
+                    clientIp.match(/^192\.168\./) ||
+                    clientIp.match(/^::ffff:10\./) ||
+                    clientIp.match(/^10\./) ||
+                    clientIp.match(/^::ffff:172\.(1[6-9]|2[0-9]|3[0-1])\./) ||
+                    clientIp.match(/^172\.(1[6-9]|2[0-9]|3[0-1])\./);
+                    
+    if (!isLocal) {
+      return res.status(403).send('<div style="text-align:center; padding: 50px; font-family: sans-serif; color: #333;"><h1>Access Denied</h1><p>The Amwaj Tech administration portal is strictly restricted to the internal company network.</p></div>');
+    }
+  }
+  next();
+});
+
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/content', contentRoutes);

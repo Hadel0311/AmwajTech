@@ -56,7 +56,16 @@ app.get('/api/health', (req, res) => {
 
 // IP Restriction Middleware for Admin/Login
 const restrictToLocal = (req, res, next) => {
-  const clientIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress || '';
+  let clientIp = req.headers['x-forwarded-for'] || 
+                 req.headers['x-real-ip'] || 
+                 req.headers['x-iisnode-remote_addr'] || 
+                 req.socket.remoteAddress || 
+                 '';
+                 
+  // If multiple IPs are forwarded, take the first one (original client)
+  if (clientIp.includes(',')) {
+    clientIp = clientIp.split(',')[0].trim();
+  }
   
   // Define local/internal IP prefixes (IPv4 and IPv6 loopback, and private network ranges)
   const isLocal = clientIp === '::1' || 
@@ -68,8 +77,9 @@ const restrictToLocal = (req, res, next) => {
                   clientIp.startsWith('::ffff:127.0.0.1');
 
   if (!isLocal) {
-    // Return a generic 404 Not Found to make it look like the page doesn't exist
-    return res.status(404).send('<!DOCTYPE html>\\n<html lang="en">\\n<head>\\n<meta charset="utf-8">\\n<title>Error</title>\\n</head>\\n<body>\\n<pre>Cannot GET ' + req.path + '</pre>\\n</body>\\n</html>');
+    // Destroy the socket completely so the browser shows "This site can't be reached"
+    // instead of an HTML error page. This mimics the site not existing.
+    return req.socket.destroy();
   }
   next();
 };

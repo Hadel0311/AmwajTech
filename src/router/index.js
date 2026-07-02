@@ -95,29 +95,22 @@ const router = createRouter({
   }
 })
 
-// Navigation Guard for IP Restriction and Authentication
+// Navigation Guard
 router.beforeEach(async (to, from, next) => {
-  // 1. IP RESTRICTION: Block access to admin routes if using a public domain name
-  const isRestrictedRoute = to.path.startsWith('/login') || to.path.startsWith('/admin');
-  
-  if (isRestrictedRoute) {
-    const host = window.location.hostname;
-    
-    // Check if accessing via a local IP (localhost, 192.168.*, 10.*, 172.16-31.*)
-    const isLocal = host === 'localhost' || 
-                    host === '127.0.0.1' || 
-                    host.startsWith('192.168.') || 
-                    host.startsWith('10.') || 
-                    host.match(/^172\.(1[6-9]|2[0-9]|3[0-1])\./);
-                    
-    if (!isLocal) {
-      alert("Access Denied: The admin portal is restricted to the local network.");
-      return next('/'); // Kick them back to the home page
-    }
-  }
-
-  // 2. AUTHENTICATION RESTRICTION
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+  
+  // Check if the user is accessing via a public domain (not local IP or localhost)
+  const isLocalHost = window.location.hostname === 'localhost' || 
+                      window.location.hostname === '127.0.0.1' || 
+                      window.location.hostname.startsWith('192.168.') || 
+                      window.location.hostname.startsWith('10.');
+                      
+  // Block access to login and admin pages if it's a public domain
+  if ((to.path === '/login' || to.path.startsWith('/admin')) && !isLocalHost) {
+    return next('/')
+  }
+  
+  // Check for our custom logged_in flag
   const isAuthenticated = localStorage.getItem('logged_in') === 'true';
   
   if (requiresAuth && !isAuthenticated) {

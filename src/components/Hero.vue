@@ -1,7 +1,7 @@
 <template>
   <section id="hero" class="hero-section">
     <!-- Network GIF Background -->
-    <img :src="networkBg" class="hero-video" alt="Network Background" />
+    <img :src="networkBg" class="hero-bg-image" alt="Network Background" />
     <!-- Dark Navy Overlay with Grid Pattern -->
     <div class="hero-background-overlay"></div>
     <div class="hero-grid-pattern"></div>
@@ -63,7 +63,7 @@ const scrollToSection = (sectionId) => {
   background-color: var(--color-primary-dark);
 }
 
-.hero-video {
+.hero-bg-image {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -306,12 +306,6 @@ const scrollToSection = (sectionId) => {
 
 @media (max-width: 480px) {
   .hero-scroll-indicator {
-    display: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-video {
     display: none;
   }
 }

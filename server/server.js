@@ -33,6 +33,7 @@ app.use(helmet({
       mediaSrc: ["'self'"],
       connectSrc: ["'self'"],
       frameSrc: ["'self'", "https://maps.google.com", "https://www.google.com", "https://www.figma.com"],
+      upgradeInsecureRequests: null,
     },
   },
 }));

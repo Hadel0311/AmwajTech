@@ -52,7 +52,8 @@ import { errorHandler } from './middleware/errorMiddleware.js';
 // Basic Route
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Amwaj Tech Backend is running (PostgreSQL)' });
-});
+// Trust IIS Reverse Proxy to get the real public IP Address
+app.set('trust proxy', true);
 
 // Block external IP access to Admin and Auth routes
 app.use((req, res, next) => {
@@ -61,7 +62,8 @@ app.use((req, res, next) => {
                             req.path.startsWith('/api/auth');
                             
   if (isRestrictedRoute) {
-    const clientIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress || '';
+    // Because trust proxy is true, req.ip automatically gets the real client IP from X-Forwarded-For
+    const clientIp = req.ip || req.headers['x-iisnode-remote_addr'] || '';
     
     // Check if IP is local (localhost, 192.168.x.x, 10.x.x.x, 172.16.x.x-172.31.x.x)
     const isLocal = clientIp.includes('127.0.0.1') || 

@@ -125,7 +125,15 @@
             </div>
 
             <div class="map-wrapper">
-              <img :src="ammanMap" alt="Amwaj Tech Location Map" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+              <iframe 
+                src="https://maps.google.com/maps?q=Amwaj+Tech,+Amman&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
             </div>
             
             <a href="https://maps.app.goo.gl/sigDeFr57aNF2ua69" target="_blank" rel="noopener noreferrer" class="btn-secondary directions-btn">
@@ -145,7 +153,6 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { MapPin, Phone, Mail, Printer, Smartphone } from 'lucide-vue-next'
 import { api } from '@/services/api'
-import ammanMap from '@/assets/amman-map.png'
 
 const { t } = useI18n()
 

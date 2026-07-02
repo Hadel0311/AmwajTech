@@ -23,19 +23,7 @@ app.use(helmet({
   crossOriginResourcePolicy: false,
   crossOriginEmbedderPolicy: false,
   crossOriginOpenerPolicy: false,
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'"],
-      styleSrc: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
-      fontSrc: ["'self'", 'https://fonts.gstatic.com'],
-      imgSrc: ["'self'", 'data:', 'https://images.unsplash.com'],
-      mediaSrc: ["'self'"],
-      connectSrc: ["'self'"],
-      frameSrc: ["'self'", "https://maps.google.com", "https://www.google.com", "https://www.figma.com"],
-      upgradeInsecureRequests: null,
-    },
-  },
+  contentSecurityPolicy: false
 }));
 app.use(express.json());
 app.use(cookieParser());

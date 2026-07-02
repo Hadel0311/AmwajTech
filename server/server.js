@@ -52,38 +52,30 @@ import { errorHandler } from './middleware/errorMiddleware.js';
 // Basic Route
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Amwaj Tech Backend is running (PostgreSQL)' });
-// Trust IIS Reverse Proxy to get the real public IP Address
-app.set('trust proxy', true);
-
-// Block external IP access to Admin and Auth routes
-app.use((req, res, next) => {
-  const isRestrictedRoute = req.path.startsWith('/login') || 
-                            req.path.startsWith('/admin') || 
-                            req.path.startsWith('/api/auth');
-                            
-  if (isRestrictedRoute) {
-    // Because trust proxy is true, req.ip automatically gets the real client IP from X-Forwarded-For
-    const clientIp = req.ip || req.headers['x-iisnode-remote_addr'] || '';
-    
-    // Check if IP is local (localhost, 192.168.x.x, 10.x.x.x, 172.16.x.x-172.31.x.x)
-    const isLocal = clientIp.includes('127.0.0.1') || 
-                    clientIp === '::1' ||
-                    clientIp.match(/^::ffff:192\.168\./) ||
-                    clientIp.match(/^192\.168\./) ||
-                    clientIp.match(/^::ffff:10\./) ||
-                    clientIp.match(/^10\./) ||
-                    clientIp.match(/^::ffff:172\.(1[6-9]|2[0-9]|3[0-1])\./) ||
-                    clientIp.match(/^172\.(1[6-9]|2[0-9]|3[0-1])\./);
-                    
-    if (!isLocal) {
-      return res.status(403).send('<div style="text-align:center; padding: 50px; font-family: sans-serif; color: #333;"><h1>Access Denied</h1><p>The Amwaj Tech administration portal is strictly restricted to the internal company network.</p></div>');
-    }
-  }
-  next();
 });
 
+// IP Restriction Middleware for Admin/Login
+const restrictToLocal = (req, res, next) => {
+  const clientIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress || '';
+  
+  // Define local/internal IP prefixes (IPv4 and IPv6 loopback, and private network ranges)
+  const isLocal = clientIp === '::1' || 
+                  clientIp === '127.0.0.1' || 
+                  clientIp.startsWith('192.168.') || 
+                  clientIp.startsWith('10.') ||
+                  clientIp.startsWith('::ffff:192.168.') ||
+                  clientIp.startsWith('::ffff:10.') ||
+                  clientIp.startsWith('::ffff:127.0.0.1');
+
+  if (!isLocal) {
+    // Return a generic 404 Not Found to make it look like the page doesn't exist
+    return res.status(404).send('<!DOCTYPE html>\\n<html lang="en">\\n<head>\\n<meta charset="utf-8">\\n<title>Error</title>\\n</head>\\n<body>\\n<pre>Cannot GET ' + req.path + '</pre>\\n</body>\\n</html>');
+  }
+  next();
+};
+
 // API Routes
-app.use('/api/auth', authRoutes);
+app.use('/api/auth', restrictToLocal, authRoutes);
 app.use('/api/content', contentRoutes);
 app.use('/api/email', emailRoutes);
 app.use('/api/uploads', uploadRoutes);
@@ -98,6 +90,14 @@ if (process.env.NODE_ENV === 'production') {
     if (req.path.startsWith('/api/') || req.path.startsWith('/uploads/')) {
       return next();
     }
+    
+    // Block the frontend /login and /admin pages from external IPs
+    if (req.path.startsWith('/login') || req.path.startsWith('/admin')) {
+      return restrictToLocal(req, res, () => {
+        res.sendFile(path.join(distPath, 'index.html'));
+      });
+    }
+    
     res.sendFile(path.join(distPath, 'index.html'));
   });
 }

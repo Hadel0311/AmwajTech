@@ -1,8 +1,7 @@
 <template>
   <section id="hero" class="hero-section">
-    <!-- Network Video Background -->
-    <video ref="heroVideo" :src="networkBg" autoplay loop muted playsinline class="hero-video" type="video/mp4">
-    </video>
+    <!-- Network GIF Background -->
+    <img :src="networkBg" class="hero-video" alt="Network Background" />
     <!-- Dark Navy Overlay with Grid Pattern -->
     <div class="hero-background-overlay"></div>
     <div class="hero-grid-pattern"></div>
@@ -37,22 +36,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
-import networkBg from '@/assets/network-bg.mp4'
+import networkBg from '@/assets/network-bg.gif.gif'
 
 const { t } = useI18n()
 const router = useRouter()
-const heroVideo = ref(null)
 
-onMounted(() => {
-  if (heroVideo.value) {
-    heroVideo.value.muted = true
-    heroVideo.value.defaultMuted = true
-    heroVideo.value.play().catch(e => console.log('Autoplay prevented by browser:', e))
-  }
-})
 
 const scrollToSection = (sectionId) => {
   const section = document.getElementById(sectionId)

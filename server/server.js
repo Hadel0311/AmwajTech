@@ -42,6 +42,48 @@ app.use('/api/', apiLimiter);
 const UPLOADS_DIR = path.join(process.cwd(), 'server', 'uploads');
 app.use('/uploads', express.static(UPLOADS_DIR));
 
+// Local IP check helper
+function isLocalIp(ip) {
+  if (!ip) return false;
+  // Handle IPv6 mapped IPv4
+  if (ip.includes('::ffff:')) {
+    ip = ip.split('::ffff:')[1];
+  }
+  
+  if (ip === '127.0.0.1' || ip === '::1') return true;
+  
+  const parts = ip.split('.');
+  if (parts.length !== 4) return false;
+  
+  if (parts[0] === '10') return true;
+  if (parts[0] === '192' && parts[1] === '168') return true;
+  if (parts[0] === '172') {
+    const second = parseInt(parts[1], 10);
+    if (second >= 16 && second <= 31) return true;
+  }
+  
+  return false;
+}
+
+// IP Filtering Middleware for Admin Routes
+app.use((req, res, next) => {
+  const restrictedPaths = ['/login', '/admin', '/api/auth', '/api/content'];
+  const isRestricted = restrictedPaths.some(p => req.path === p || req.path.startsWith(`${p}/`));
+  
+  if (isRestricted) {
+    // Get client IP (handle proxies like IIS)
+    const forwardedFor = req.headers['x-forwarded-for'];
+    const clientIp = forwardedFor ? forwardedFor.split(',')[0].trim() : req.socket.remoteAddress;
+    
+    if (!isLocalIp(clientIp)) {
+      console.log(`Blocked public access to ${req.path} from IP: ${clientIp}`);
+      // Return a plain 404 to make it look like the page doesn't exist
+      return res.status(404).send('<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET ' + req.path + '</pre>\n</body>\n</html>');
+    }
+  }
+  next();
+});
+
 // Import routes
 import authRoutes from './routes/authRoutes.js';
 import contentRoutes from './routes/contentRoutes.js';
@@ -54,38 +96,8 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Amwaj Tech Backend is running (PostgreSQL)' });
 });
 
-// IP Restriction Middleware for Admin/Login
-const restrictToLocal = (req, res, next) => {
-  let clientIp = req.headers['x-forwarded-for'] || 
-                 req.headers['x-real-ip'] || 
-                 req.headers['x-iisnode-remote_addr'] || 
-                 req.socket.remoteAddress || 
-                 '';
-                 
-  // If multiple IPs are forwarded, take the first one (original client)
-  if (clientIp.includes(',')) {
-    clientIp = clientIp.split(',')[0].trim();
-  }
-  
-  // Define local/internal IP prefixes (IPv4 and IPv6 loopback, and private network ranges)
-  const isLocal = clientIp === '::1' || 
-                  clientIp === '127.0.0.1' || 
-                  clientIp.startsWith('192.168.') || 
-                  clientIp.startsWith('10.') ||
-                  clientIp.startsWith('::ffff:192.168.') ||
-                  clientIp.startsWith('::ffff:10.') ||
-                  clientIp.startsWith('::ffff:127.0.0.1');
-
-  if (!isLocal) {
-    // Destroy the socket completely so the browser shows "This site can't be reached"
-    // instead of an HTML error page. This mimics the site not existing.
-    return req.socket.destroy();
-  }
-  next();
-};
-
 // API Routes
-app.use('/api/auth', restrictToLocal, authRoutes);
+app.use('/api/auth', authRoutes);
 app.use('/api/content', contentRoutes);
 app.use('/api/email', emailRoutes);
 app.use('/api/uploads', uploadRoutes);
@@ -100,14 +112,6 @@ if (process.env.NODE_ENV === 'production') {
     if (req.path.startsWith('/api/') || req.path.startsWith('/uploads/')) {
       return next();
     }
-    
-    // Block the frontend /login and /admin pages from external IPs
-    if (req.path.startsWith('/login') || req.path.startsWith('/admin')) {
-      return restrictToLocal(req, res, () => {
-        res.sendFile(path.join(distPath, 'index.html'));
-      });
-    }
-    
     res.sendFile(path.join(distPath, 'index.html'));
   });
 }

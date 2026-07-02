@@ -97,20 +97,24 @@ const router = createRouter({
 
 // Navigation Guard
 router.beforeEach(async (to, from, next) => {
-  const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
-  
-  // Check if the user is accessing via a public domain (not local IP or localhost)
-  const isLocalHost = window.location.hostname === 'localhost' || 
-                      window.location.hostname === '127.0.0.1' || 
-                      window.location.hostname.startsWith('192.168.') || 
-                      window.location.hostname.startsWith('10.');
-                      
-  // Block access to login and admin pages if it's a public domain
-  if ((to.path === '/login' || to.path.startsWith('/admin')) && !isLocalHost) {
-    return next('/')
+  // 1. Block public access to admin/login routes
+  const isLocalHost = 
+    window.location.hostname === 'localhost' || 
+    window.location.hostname === '127.0.0.1' || 
+    window.location.hostname.startsWith('192.168.') ||
+    window.location.hostname.startsWith('10.');
+
+  const isAdminRoute = to.path === '/login' || to.path.startsWith('/admin');
+
+  if (isAdminRoute && !isLocalHost) {
+    // If someone accesses from a public domain, silently abort navigation
+    // (This makes it look like the page doesn't exist)
+    next(false);
+    return;
   }
-  
-  // Check for our custom logged_in flag
+
+  // 2. Authentication check for local users
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
   const isAuthenticated = localStorage.getItem('logged_in') === 'true';
   
   if (requiresAuth && !isAuthenticated) {

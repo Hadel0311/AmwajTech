@@ -43,7 +43,7 @@ export const login = async (req, res, next) => {
 
     const cookieOptions = {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      secure: false, // Disabled temporarily for local HTTP testing
       sameSite: 'strict',
       path: '/'
     };
@@ -103,7 +103,7 @@ export const refresh = async (req, res, next) => {
 
     const cookieOptions = {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      secure: false, // Disabled temporarily for local HTTP testing
       sameSite: 'strict',
       path: '/'
     };
@@ -207,7 +207,7 @@ export const changePassword = async (req, res, next) => {
 
     const cookieOptions = {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
+      secure: false, // Disabled temporarily for local HTTP testing
       sameSite: 'strict',
       path: '/'
     };

@@ -48,7 +48,7 @@
                 id="username"
                 v-model="username" 
                 type="text" 
-                placeholder="adminamwaj"
+                placeholder=""
                 required
                 class="form-input"
               />
@@ -63,7 +63,7 @@
                 id="password"
                 v-model="password" 
                 type="password" 
-                placeholder="••••••••"
+                placeholder=""
                 required
                 class="form-input"
               />

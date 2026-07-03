@@ -42,48 +42,6 @@ app.use('/api/', apiLimiter);
 const UPLOADS_DIR = path.join(process.cwd(), 'server', 'uploads');
 app.use('/uploads', express.static(UPLOADS_DIR));
 
-// Local IP check helper
-function isLocalIp(ip) {
-  if (!ip) return false;
-  // Handle IPv6 mapped IPv4
-  if (ip.includes('::ffff:')) {
-    ip = ip.split('::ffff:')[1];
-  }
-  
-  if (ip === '127.0.0.1' || ip === '::1') return true;
-  
-  const parts = ip.split('.');
-  if (parts.length !== 4) return false;
-  
-  if (parts[0] === '10') return true;
-  if (parts[0] === '192' && parts[1] === '168') return true;
-  if (parts[0] === '172') {
-    const second = parseInt(parts[1], 10);
-    if (second >= 16 && second <= 31) return true;
-  }
-  
-  return false;
-}
-
-// IP Filtering Middleware for Admin Routes
-app.use((req, res, next) => {
-  const restrictedPaths = ['/login', '/admin', '/api/auth', '/api/content'];
-  const isRestricted = restrictedPaths.some(p => req.path === p || req.path.startsWith(`${p}/`));
-  
-  if (isRestricted) {
-    // Get client IP (handle proxies like IIS)
-    const forwardedFor = req.headers['x-forwarded-for'];
-    const clientIp = forwardedFor ? forwardedFor.split(',')[0].trim() : req.socket.remoteAddress;
-    
-    if (!isLocalIp(clientIp)) {
-      console.log(`Blocked public access to ${req.path} from IP: ${clientIp}`);
-      // Return a plain 404 to make it look like the page doesn't exist
-      return res.status(404).send('<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET ' + req.path + '</pre>\n</body>\n</html>');
-    }
-  }
-  next();
-});
-
 // Import routes
 import authRoutes from './routes/authRoutes.js';
 import contentRoutes from './routes/contentRoutes.js';
